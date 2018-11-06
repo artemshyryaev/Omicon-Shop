@@ -1,0 +1,51 @@
+﻿@model Startersite.Models.ModelViews.RegisterModel
+
+@{
+    ViewBag.Title = "Registration";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+</hgroup>
+
+<section id="registerForm">
+    @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <legend>Log in Form</legend>
+            <ol>
+                <li>
+                    @Html.LabelFor(m => m.Login)
+                    @Html.TextBoxFor(m => m.Login)
+                    @Html.ValidationMessageFor(m => m.Login)
+                </li>
+                <li>
+                    @Html.LabelFor(m => m.Password)
+                    @Html.TextBoxFor(m => m.Password)
+                    @Html.ValidationMessageFor(m => m.Password)
+                </li>
+                <li>
+                    @Html.LabelFor(m => m.ConfirmPassword)
+                    @Html.TextBoxFor(m => m.ConfirmPassword)
+                    @Html.ValidationMessageFor(m => m.ConfirmPassword)
+                </li>
+                <li>
+                    @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
+                    @Html.CheckBoxFor(m => m.RememberMe)
+                </li>
+            </ol>
+            <input type="submit" value="Register">
+        </fieldset>
+    }
+
+    <p>
+        @Html.RouteLink("Log in", new { controller = "Action", action = "Login" }) if you have an account!
+    </p>
+</section>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
