@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-//using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
 using Startersite.Models.ModelViews;
 using Startersite;
 using System.Web.Security;
+using Startersite.Filters;
 
 namespace Startersite.Controllers
 {
     [Authorize]
+    [InitializeSimpleMembershop]
     public class AccountController : Controller
     {
         [AllowAnonymous]
