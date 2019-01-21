@@ -198,6 +198,7 @@
     <Compile Include="Models\ModelViews\ChangePasswordModel.cs" />
     <Compile Include="Models\ModelViews\LoginModel.cs" />
     <Compile Include="Models\ModelViews\RegisterModel.cs" />
+    <Compile Include="Models\Products.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -244,6 +245,9 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\ChangePassword.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Home\Cabinet.cshtml" />
+    <Content Include="Views\Home\ProductsList.cshtml" />
+    <Content Include="Views\Home\_renderProducts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

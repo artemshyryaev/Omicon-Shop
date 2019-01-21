@@ -25,8 +25,19 @@ namespace Startersite.Filters
     {
         public SimpleMembershipInitializer()
         {
+            Database.SetInitializer<DentDbContext>(null);
+
             try
             {
+                using (var context = new DentDbContext())
+                {
+                    if (!context.Database.Exists())
+                    {
+                        ((IObjectContextAdapter)context).ObjectContext.CreateDatabase();
+                    }
+                }
+
+                WebSecurity.InitializeDatabaseConnection("DentDbContext", "UserProfile", "UserId", "UserName", autoCreateTables: true);
                 SimpleRoleProvider roles = (SimpleRoleProvider)Roles.Provider;
                 SimpleMembershipProvider memberships = (SimpleMembershipProvider)Membership.Provider;
 

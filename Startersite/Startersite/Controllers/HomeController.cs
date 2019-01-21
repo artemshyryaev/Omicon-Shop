@@ -26,5 +26,20 @@ namespace Startersite.Controllers
 
             return View();
         }
+
+        [Authorize]
+        public ActionResult Cabinet()
+        {
+            return View();
+        }
+
+        [Authorize]
+        public ActionResult ProductsList()
+        {
+            DentDbContext context = new DentDbContext();
+            IEnumerable<Products> products = context.Products.ToList();
+
+            return View(products);
+        }
     }
 }
