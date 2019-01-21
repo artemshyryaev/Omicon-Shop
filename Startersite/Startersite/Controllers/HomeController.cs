@@ -8,6 +8,8 @@ namespace Startersite.Controllers
 {
     public class HomeController : Controller
     {
+        private DentDbContext context = new DentDbContext();
+
         public ActionResult Index()
         {
             return View();
@@ -36,10 +38,18 @@ namespace Startersite.Controllers
         [Authorize]
         public ActionResult ProductsList()
         {
-            DentDbContext context = new DentDbContext();
-            IEnumerable<Products> products = context.Products.ToList();
+            var products = context.Products.ToList();
 
             return View(products);
+        }
+
+        [Authorize]
+        [HttpPost]
+        public ActionResult ProductsList(Products products)
+        {
+            //var products = context.Products.ToList();
+
+            return View();
         }
     }
 }

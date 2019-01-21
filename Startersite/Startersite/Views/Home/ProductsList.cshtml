@@ -1,14 +1,17 @@
-﻿
-@{
-    ViewBag.Title = "Products List";
-}
+﻿@model IEnumerable<Startersite.Products>
+    @{
+        ViewBag.Title = "Products List";
+    }
 
-<hgroup class="title">
-    <h1>@ViewBag.Title</h1>
-</hgroup>
+    <hgroup class="title">
+        <h1>@ViewBag.Title</h1>
+    </hgroup>
 
-<body>
-    @Html.Partial("_renderProducts", @Model);
-</body>
+    <body>
+        <div class="addNew">
+            @Html.RouteLink("Add new", "AddProduct", "Home");
+        </div>
+        @Html.Partial("_renderProducts", Model);
+    </body>
 
 
