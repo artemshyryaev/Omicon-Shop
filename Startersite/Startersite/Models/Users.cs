@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Startersite
 {
-    public class User
+    public class Users
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

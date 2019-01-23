@@ -11,8 +11,10 @@ namespace Startersite
         {
         }
 
-        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Users> Users { get; set; }
 
         public virtual DbSet<Products> Products { get; set; }
+
+        public virtual DbSet<Orders> Orders { get; set; }
     }
 }
