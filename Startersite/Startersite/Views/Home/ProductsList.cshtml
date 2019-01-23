@@ -1,17 +1,22 @@
-﻿@model IEnumerable<Startersite.Products>
-    @{
-        ViewBag.Title = "Products List";
-    }
+﻿@model Startersite.Models.ModelViews.ProductsListModel
+@using Startersite.HtmlHelpers
+@using Startersite.Models.ModelViews
 
-    <hgroup class="title">
-        <h1>@ViewBag.Title</h1>
-    </hgroup>
+@{
+    ViewBag.Title = "Products List";
+}
 
-    <body>
-        <div class="addNew">
-            @Html.RouteLink("Add new", "AddProduct", "Home");
-        </div>
-        @Html.Partial("_renderProducts", Model);
-    </body>
+<hgroup class="title">
+    <h1>@ViewBag.Title</h1>
+</hgroup>
+
+<body>
+    <div class="addNew">
+        @Html.RouteLink("Add new", "AddProduct", "Home");
+    </div>
+    @Html.Partial("_renderProducts", Model);
+
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("ProductsList", new { page = x}))
+</body>
 
 

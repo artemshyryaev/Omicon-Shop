@@ -226,12 +226,15 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershopAttribute.cs" />
+    <Compile Include="HtmlHelpers\PagingHelpers.cs" />
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
     <Compile Include="Migrations\201901221749011_UpdateEntities.cs" />
     <Compile Include="Migrations\201901221749011_UpdateEntities.Designer.cs">
       <DependentUpon>201901221749011_UpdateEntities.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Abstract\IOrderRepository.cs" />
+    <Compile Include="Models\Concrete\OrderRepository.cs" />
     <Compile Include="Models\Concrete\ProductRepository.cs" />
     <Compile Include="Models\Abstract\IProductRepository.cs" />
     <Compile Include="Models\DentDbContext.cs" />
@@ -240,6 +243,9 @@
     </Compile>
     <Compile Include="Models\ModelViews\ChangePasswordModel.cs" />
     <Compile Include="Models\ModelViews\LoginModel.cs" />
+    <Compile Include="Models\ModelViews\OrdersListModel.cs" />
+    <Compile Include="Models\ModelViews\PagingInfo.cs" />
+    <Compile Include="Models\ModelViews\ProductsListModel.cs" />
     <Compile Include="Models\ModelViews\RegisterModel.cs" />
     <Compile Include="Models\Orders.cs" />
     <Compile Include="Models\Products.cs" />
@@ -294,6 +300,7 @@
     <Content Include="Views\Home\Cabinet.cshtml" />
     <Content Include="Views\Home\ProductsList.cshtml" />
     <Content Include="Views\Home\_renderProducts.cshtml" />
+    <Content Include="Views\Home\OrdersList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

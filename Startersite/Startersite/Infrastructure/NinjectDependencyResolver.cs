@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Http.Dependencies;
+using System.Web.Mvc;
 
 namespace Startersite.Infrastructure
 {
@@ -15,16 +15,6 @@ namespace Startersite.Infrastructure
         {
             this.kernel = kernel;
             AddBindings();
-        }
-
-        public IDependencyScope BeginScope()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Dispose()
-        {
-            this.Dispose();
         }
 
         public object GetService(Type serviceType)
@@ -40,6 +30,7 @@ namespace Startersite.Infrastructure
         private void AddBindings()
         {
             kernel.Bind<IProductRepository>().To<ProductRepository>();
+            kernel.Bind<IOrderRepository>().To<OrderRepository>();
         }
     }
 }

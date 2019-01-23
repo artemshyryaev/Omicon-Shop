@@ -1,0 +1,14 @@
+﻿@model Startersite.Models.ModelViews.OrdersListModel
+@using Startersite.HtmlHelpers
+@using Startersite.Models.ModelViews
+
+@{
+    ViewBag.Title = "OrdersList";
+}
+
+
+<body>
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("OrderList", new { page = x}))
+</body>
+<h2>OrdersList</h2>
+
