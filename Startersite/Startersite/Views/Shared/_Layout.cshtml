@@ -1,52 +1,68 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNet.Identity
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/Site.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-inverce" role="navigation">
-        <a class="navbar-brand" href="#">Omicon-shop</a>
-    </div>
-    <div class="row panel">
-        <div id="typed" class="col-xs-3">
-            Temporary unavailable
-        </div>
-        <div class="col-xs-3">
-            @RenderBody()
-        </div>
-    </div>
+    <header>
+        <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+            <div class="container">
+                <div class="nav-heading">
+                    <button class="toggle-nav" data-toggle="open-navbar1"><i class="fa fa-align-right"></i></button>
+                    <a class="brand" href="#">Omicon-shop</a>
+                </div>
+                <div class="menu" id="open-navbar1">
+                    <ul class="list">
+                        <li><a href="#">Home</a></li>
 
-    @*<header>
-        <div class="content-wrapper">
-            <div class="float-left">
-                <p class="site-title">@Html.ActionLink("your logo here", "Index", "Home")</p>
-            </div>
-            <div class="float-right">
-                <section id="login">
-                    @Html.Partial("_LoginPartial")
-                </section>
-                <nav>
-                    <ul id="menu">
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("About", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        <li><a href="http://dev.gilan-co.com/">About us</a></li>
+                        <li><a href="#">Contact us</a></li>
+                        <li><a href="#">other</a></li>
+                        <li><a href="#">other</a></li>
                     </ul>
-                </nav>
+                </div>
             </div>
-        </div>
+        </nav>
     </header>
-    <div class="container body-content">
+    <div>
         @RenderBody()
-        <hr />
+    </div>
+    @*<header>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p class="site-title">@Html.ActionLink("your logo here", "Index", "Home")</p>
+                </div>
+                <div class="float-right">
+                    <section id="login">
+                        @Html.Partial("_LoginPartial")
+                    </section>
+                    <nav>
+                        <ul id="menu">
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("About", "About", "Home")</li>
+                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
 
-    </div>*@
+        </div>*@
 
     <footer>
-        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        <p>&copy; @DateTime.Now.Year - Omicon-Shop</p>
     </footer>
 
     @Scripts.Render("~/bundles/jquery")
