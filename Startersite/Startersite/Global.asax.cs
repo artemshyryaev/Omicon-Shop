@@ -14,7 +14,7 @@ namespace Startersite
     {
         protected void Application_Start()
         {
-            Database.SetInitializer(new CreateDatabaseIfNotExists<DentDbContext>());
+            //Database.SetInitializer(new DropCreateDatabaseAlways<DentDbContext>());
             //WebSecurity.InitializeDatabaseConnection("DentDbContext", "UserProfile", "UserId", "UserName", autoCreateTables: true);
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

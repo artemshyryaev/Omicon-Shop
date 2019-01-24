@@ -1,23 +1,23 @@
 ﻿@model IEnumerable<Startersite.Products>
 
-<table>
-    <caption>Products List</caption>
-    <thead>
-        <th>Id</th>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Price</th>
-    </thead>
-    <tbody>
-        @foreach (var el in Model)
-        {
-            <tr>
-                <td>@el.ProductId</td>
-                <td>@el.ProductName</td>
-                <td>@el.Description</td>
-                <td>@el.Price</td>
-                <td>@Html.ActionLink("Edit", "ProductDetails", "Home")</td>
-            </tr>
-        }
-    </tbody>
-</table>
+@foreach (var el in Model)
+{
+    <div class="well">
+        <div class="row">
+            <div class="col-xs-10">
+                <h3>
+                    <strong>@el.ProductId</strong>
+                </h3>
+                <h4>
+                    <strong>@el.ProductName</strong>
+                </h4>
+                <div class="col-xs-2">
+                    <h3>
+                        <strong class="pull-right label label-primary">@el.Price.ToString("# $")</strong>
+                    </h3>
+                </div>
+            </div>
+            <span class="lead">@el.Description</span>
+        </div>
+    </div>
+}

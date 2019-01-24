@@ -14,9 +14,11 @@
     <div class="addNew">
         @Html.RouteLink("Add new", "AddProduct", "Home");
     </div>
-    @Html.Partial("_renderProducts", Model);
+    @Html.Partial("_renderProducts", Model.Products);
 
-    @Html.PageLinks(Model.PagingInfo, x => Url.Action("ProductsList", new { page = x}))
+    <div class="btn-group pull-right">
+        @Html.PageLinks(Model.PagingInfo, x => Url.Action("ProductsList", new { page = x }))
+    </div>
 </body>
 
 

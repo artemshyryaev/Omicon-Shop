@@ -8,7 +8,9 @@
 
 
 <body>
-    @Html.PageLinks(Model.PagingInfo, x => Url.Action("OrderList", new { page = x}))
+    @Html.RenderPartial("_renderProdutcs", Model)
+
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("OrderList", new { page = x }))
 </body>
 <h2>OrdersList</h2>
 

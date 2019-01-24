@@ -6,6 +6,10 @@ namespace Startersite
 {
     public class DentDbContext : DbContext
     {
+        static DentDbContext()
+        {
+            Database.SetInitializer(new CreateDatabaseIfNotExists<DentDbContext>());
+        }
         public DentDbContext()
             : base("name=DentDbContext")
         {
