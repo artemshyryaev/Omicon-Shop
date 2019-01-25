@@ -12,7 +12,7 @@ using Startersite.Filters;
 namespace Startersite.Controllers
 {
     [Authorize]
-    [InitializeSimpleMembershop]
+    [InitializeSimpleMembership]
     public class AccountController : Controller
     {
         [AllowAnonymous]

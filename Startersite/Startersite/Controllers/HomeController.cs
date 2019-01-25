@@ -4,19 +4,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
+using Startersite.Filters;
 
 namespace Startersite.Controllers
 {
+    [InitializeSimpleMembership]
     public class HomeController : Controller
     {
         private IProductRepository productsRepo;
-        private IOrderRepository ordersRepo;
+
         int pageSize = 10;
 
-        public HomeController(IProductRepository productsRepo, IOrderRepository ordersRepo)
+        public HomeController(IProductRepository productsRepo)
         {
             this.productsRepo = productsRepo;
-            this.ordersRepo = ordersRepo;
         }
 
         public ActionResult Index()
@@ -38,41 +40,17 @@ namespace Startersite.Controllers
             return View();
         }
 
-        [Authorize]
-        public ActionResult Cabinet()
-        {
-            return View();
-        }
-
-        [Authorize]
         public ActionResult ProductsList(int page = 1)
         {
             ProductsListModel model = new ProductsListModel
             {
-                Products = productsRepo.Products.OrderBy(
-                    products => products.ProductId).Skip((page - 1) * pageSize).Take(pageSize),
+                Products = productsRepo.Products.Skip((page - 1) * pageSize).Take(pageSize).OrderBy(
+                    products => products.ProductId),
                 PagingInfo = new PagingInfo
                 {
                     CurrentPage = page,
                     TotalItems = productsRepo.Products.Count(),
                     ItemsPerPage = pageSize
-                }
-            };
-
-            return View(model);
-        }
-
-        public ActionResult OrdersList(int page = 1)
-        {
-            OrdersListModel model = new OrdersListModel
-            {
-                Orders = ordersRepo.Orders.OrderBy(
-                    orders => orders.OrderId).Skip((page - 1) * pageSize).Take(pageSize),
-                PagingInfo = new PagingInfo
-                {
-                    CurrentPage = page,
-                    ItemsPerPage = pageSize,
-                    TotalItems = ordersRepo.Orders.Count()
                 }
             };
 

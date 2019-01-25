@@ -7,7 +7,7 @@ namespace Startersite
 {
     public class ProductRepository : IProductRepository
     {
-        DentDbContext context = new DentDbContext();
+        ShopDBContext context = new ShopDBContext();
 
         public IEnumerable<Products> Products { get { return context.Products; } }
     }

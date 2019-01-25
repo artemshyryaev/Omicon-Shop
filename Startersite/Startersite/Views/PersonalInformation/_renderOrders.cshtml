@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Startersite.Orders>
+
+@foreach (var el in Model)
+{
+    <div class="container">
+        <table class="table table-hover">
+            <tr>
+                <td>@el.OrderId</td>
+                <td>
+                    <ul>
+                        @foreach (var p in el.Products)
+                        {
+                            <li>@p.ProductName</li>
+                        }
+                    </ul>
+                </td>
+                <td>@el.OrderTotal</td>
+            </tr>
+        </table>
+    </div>
+}

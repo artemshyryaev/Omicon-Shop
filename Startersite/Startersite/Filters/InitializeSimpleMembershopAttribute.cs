@@ -9,7 +9,7 @@ using System.Web.Security;
 namespace Startersite.Filters
 {
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = true, Inherited = true)]
-    public sealed class InitializeSimpleMembershopAttribute : ActionFilterAttribute
+    public sealed class InitializeSimpleMembershipAttribute : ActionFilterAttribute
     {
         private static SimpleMembershipInitializer _initializer;
         private static object _initializerLock = new object();
@@ -25,11 +25,11 @@ namespace Startersite.Filters
     {
         public SimpleMembershipInitializer()
         {
-            Database.SetInitializer<DentDbContext>(null);
+            Database.SetInitializer<ShopDBContext>(null);
 
             try
             {
-                using (var context = new DentDbContext())
+                using (var context = new ShopDBContext())
                 {
                     if (!context.Database.Exists())
                     {
@@ -37,7 +37,7 @@ namespace Startersite.Filters
                     }
                 }
 
-                WebSecurity.InitializeDatabaseConnection("DentDbContext", "UserProfile", "UserId", "UserName", autoCreateTables: true);
+                WebSecurity.InitializeDatabaseConnection("ShopDBContext", "UserProfile", "UserId", "UserName", autoCreateTables: true);
                 SimpleRoleProvider roles = (SimpleRoleProvider)Roles.Provider;
                 SimpleMembershipProvider memberships = (SimpleMembershipProvider)Membership.Provider;
 

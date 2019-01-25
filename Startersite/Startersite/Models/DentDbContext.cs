@@ -4,14 +4,14 @@ using System.Linq;
 
 namespace Startersite
 {
-    public class DentDbContext : DbContext
+    public class ShopDBContext : DbContext
     {
-        static DentDbContext()
+        static ShopDBContext()
         {
-            Database.SetInitializer(new CreateDatabaseIfNotExists<DentDbContext>());
+            Database.SetInitializer(new CreateDatabaseIfNotExists<ShopDBContext>());
         }
-        public DentDbContext()
-            : base("name=DentDbContext")
+        public ShopDBContext()
+            : base("name=ShopDBContext")
         {
         }
 

@@ -17,18 +17,25 @@
         <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
             <div class="container">
                 <div class="nav-heading">
-                    <button class="toggle-nav" data-toggle="open-navbar1"><i class="fa fa-align-right"></i></button>
                     <a class="brand" href="#">Omicon-shop</a>
                 </div>
                 <div class="menu" id="open-navbar1">
-                    <ul class="list">
-                        <li><a href="#">Home</a></li>
-
-                        <li><a href="http://dev.gilan-co.com/">About us</a></li>
-                        <li><a href="#">Contact us</a></li>
-                        <li><a href="#">other</a></li>
-                        <li><a href="#">other</a></li>
-                    </ul>
+                    <div>@Html.RouteLink("All products", new { controller = "Home", action = "ProductsList" })</div>
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Login
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item">@Html.RouteLink("Login", new { controller = "Account", action = "Login" })</a>
+                            <a class="dropdown-item">@Html.RouteLink("Register", new { controller = "Account", action = "Register" })</a>
+                            <div class="dropdown-divider"></div>
+                        </div>
+                    </div>
+                    <div>Basket@*<li>@Html.RouteLink("Basket", new { controller = "Home", action = "Contact" })</li>*@</div>
                 </div>
             </div>
         </nav>
@@ -36,33 +43,12 @@
     <div>
         @RenderBody()
     </div>
-    @*<header>
-            <div class="content-wrapper">
-                <div class="float-left">
-                    <p class="site-title">@Html.ActionLink("your logo here", "Index", "Home")</p>
-                </div>
-                <div class="float-right">
-                    <section id="login">
-                        @Html.Partial("_LoginPartial")
-                    </section>
-                    <nav>
-                        <ul id="menu">
-                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                            <li>@Html.ActionLink("About", "About", "Home")</li>
-                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </header>
-        <div class="container body-content">
-            @RenderBody()
-            <hr />
-
-        </div>*@
-
     <footer>
-        <p>&copy; @DateTime.Now.Year - Omicon-Shop</p>
+        <div>
+            <p>&copy; @DateTime.Now.Year - Omicon-Shop</p>
+            <div>@Html.RouteLink("Contact us", new { controller = "Home", action = "Contact" })</div>
+            <div>@Html.RouteLink("About us", new { controller = "Home", action = "About" })</div>
+        </div>
     </footer>
 
     @Scripts.Render("~/bundles/jquery")

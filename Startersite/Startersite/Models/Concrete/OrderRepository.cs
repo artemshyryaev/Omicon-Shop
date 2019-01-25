@@ -7,7 +7,7 @@ namespace Startersite
 {
     public class OrderRepository : IOrderRepository
     {
-        DentDbContext context = new DentDbContext();
+        ShopDBContext context = new ShopDBContext();
 
         public IEnumerable<Orders> Orders { get { return context.Orders; } }
     }

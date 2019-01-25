@@ -1,0 +1,26 @@
+﻿@model Startersite.Models.ModelViews.ProductsListModel
+@using Startersite.HtmlHelpers
+@using Startersite.Models.ModelViews
+
+@{
+    ViewBag.Title = "ManageProducts";
+}
+
+@foreach (var el in Model.Products)
+{
+    <div class="container">
+        <table class="table table-hover">
+            <tr>
+                <td>@el.ProductId</td>
+                <td>@el.ProductName</td>
+                <td>@el.Description</td>
+                <td>@el.Price</td>
+                <td><button>Edit</button></td>
+            </tr>
+        </table>
+    </div>
+}
+
+<div class="btn-group pull-right">
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("ManageProducts", new { page = x }))
+</div>

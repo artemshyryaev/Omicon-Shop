@@ -2,22 +2,15 @@
 
 @foreach (var el in Model)
 {
-    <div class="well">
-        <div class="row">
-            <div class="col-xs-10">
-                <h3>
-                    <strong>@el.ProductId</strong>
-                </h3>
-                <h4>
-                    <strong>@el.ProductName</strong>
-                </h4>
-                <div class="col-xs-2">
-                    <h3>
-                        <strong class="pull-right label label-primary">@el.Price.ToString("# $")</strong>
-                    </h3>
-                </div>
-            </div>
-            <span class="lead">@el.Description</span>
-        </div>
+    <div class="container">
+        <table class="table table-hover">
+            <tr>
+                <td>@el.ProductId</td>
+                <td>@el.ProductName</td>
+                <td>@el.Description</td>
+                <td>@el.Price</td>
+                <td><button>Add to cart</button></td>
+            </tr>
+        </table>
     </div>
 }

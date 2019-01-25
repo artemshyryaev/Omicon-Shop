@@ -5,14 +5,14 @@ namespace Startersite.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Startersite.DentDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<Startersite.ShopDBContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(Startersite.DentDbContext context)
+        protected override void Seed(Startersite.ShopDBContext context)
         {
             //  This method will be called after migrating to the latest version.
 

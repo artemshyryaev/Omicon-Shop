@@ -8,7 +8,10 @@
 
 
 <body>
-    @Html.RenderPartial("_renderProdutcs", Model)
+    <div>
+       @Html.RouteLink("Create new", new {action = "CreateProduct" });
+    </div>
+    @Html.Partial("_renderOrders", Model.Orders)
 
     @Html.PageLinks(Model.PagingInfo, x => Url.Action("OrderList", new { page = x }))
 </body>
