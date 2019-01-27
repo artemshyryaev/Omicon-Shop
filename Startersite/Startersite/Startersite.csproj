@@ -247,6 +247,7 @@
     <Compile Include="App_Start\Ninject.Web.Common.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\FacetController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PersonalInformationController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershopAttribute.cs" />
@@ -256,12 +257,16 @@
     <Compile Include="Migrations\201901221749011_UpdateEntities.Designer.cs">
       <DependentUpon>201901221749011_UpdateEntities.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901271424339_AddPropToProductsModel.cs" />
+    <Compile Include="Migrations\201901271424339_AddPropToProductsModel.Designer.cs">
+      <DependentUpon>201901271424339_AddPropToProductsModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Abstract\IOrderRepository.cs" />
     <Compile Include="Models\Concrete\OrderRepository.cs" />
     <Compile Include="Models\Concrete\ProductRepository.cs" />
     <Compile Include="Models\Abstract\IProductRepository.cs" />
-    <Compile Include="Models\DentDbContext.cs" />
+    <Compile Include="Models\ShopDbContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -364,6 +369,8 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\PersonalInformation\_renderOrders.cshtml" />
     <Content Include="Views\PersonalInformation\ManageProducts.cshtml" />
+    <Content Include="Views\PersonalInformation\AddProduct.cshtml" />
+    <Content Include="Views\Facet\Types.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -378,6 +385,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201901221749011_UpdateEntities.resx">
       <DependentUpon>201901221749011_UpdateEntities.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901271424339_AddPropToProductsModel.resx">
+      <DependentUpon>201901271424339_AddPropToProductsModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,27 @@
+﻿@model Startersite.Products
+@{
+    ViewBag.Title = "AddProduct";
+}
+
+@using (Html.BeginForm())
+{
+<div>
+    <div>
+        @Html.LabelFor(e => e.ProductName)
+        @Html.TextBoxFor(e => e.ProductName)
+        @Html.ValidationSummary()
+    </div>
+    <div>
+        @Html.LabelFor(e => e.Description)
+        @Html.TextBoxFor(e => e.Description)
+        @Html.ValidationSummary()
+    </div>
+    <div>
+        @Html.LabelFor(e => e.Price)
+        @Html.TextBoxFor(e => e.Price)
+        @Html.ValidationSummary()
+    </div>
+</div>
+<input type="submit" value="Add">
+}
+

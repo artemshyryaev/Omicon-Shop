@@ -10,5 +10,7 @@ namespace Startersite.Models.ModelViews
         public IEnumerable<Products> Products { get; set; }
 
         public PagingInfo PagingInfo { get; set; }
+
+        public string Type { get; set; }
     }
 }

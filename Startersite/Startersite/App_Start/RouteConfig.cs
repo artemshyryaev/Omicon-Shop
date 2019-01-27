@@ -14,9 +14,15 @@ namespace Startersite
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                null,
+                "", 
+                new { controller = "Home", action = "ProductsList",type = (string)null, page = 1 }
+                );
+
+            routes.MapRoute(
                 name: null,
-                url:"Page_{page}",
-                defaults: new { controller = "Home", action= "ProductsList"}
+                url: "Page_{page}",
+                defaults: new { controller = "Home", action = "ProductsList" }
                 );
 
             routes.MapRoute(

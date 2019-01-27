@@ -40,18 +40,20 @@ namespace Startersite.Controllers
             return View();
         }
 
-        public ActionResult ProductsList(int page = 1)
+        public ActionResult ProductsList(string type, int page = 1)
         {
             ProductsListModel model = new ProductsListModel
             {
-                Products = productsRepo.Products.Skip((page - 1) * pageSize).Take(pageSize).OrderBy(
+                Products = productsRepo.Products.Where(p => type == null || p.Type == type).Skip((page - 1) * pageSize).Take(pageSize).OrderBy(
                     products => products.ProductId),
                 PagingInfo = new PagingInfo
                 {
                     CurrentPage = page,
-                    TotalItems = productsRepo.Products.Count(),
+                    TotalItems = type == null ? productsRepo.Products.Count()
+                        : productsRepo.Products.Where(p => p.Type == type).Count(),
                     ItemsPerPage = pageSize
-                }
+                },
+                Type = type
             };
 
             return View(model);

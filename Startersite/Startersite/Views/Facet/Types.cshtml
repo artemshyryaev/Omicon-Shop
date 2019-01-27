@@ -1,0 +1,19 @@
+﻿@model IEnumerable<string>
+
+@Html.ActionLink("Back to list", "Home", "ProductsList", null,
+    new { @class = "btn btn-block btn-default btn-lg" })
+
+@foreach (var el in Model)
+{
+    @Html.RouteLink(
+    el, new
+    {
+        controller = "Home",
+        action = "ProductsList",
+        type = el,
+        page = 1
+    }, new {
+        @class = "btn btn-block bt-default btn-lg"
+            +(el == ViewBag.SeLectedType ? "btn-primaty": "")
+    })
+}

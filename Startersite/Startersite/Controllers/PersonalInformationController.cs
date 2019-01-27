@@ -1,6 +1,7 @@
 ﻿using Startersite.Models.ModelViews;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -9,6 +10,7 @@ namespace Startersite.Controllers
 {
     public class PersonalInformationController : Controller
     {
+        ShopDBContext context = new ShopDBContext();
         int pageSize = 10;
         IOrderRepository ordersRepo;
         IProductRepository productsRepo;
@@ -56,7 +58,20 @@ namespace Startersite.Controllers
             };
 
             return View(model);
+        }
 
+        public ActionResult AddProduct()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddProduct(Products products)
+        {
+            context.Entry(products).State = EntityState.Added;
+            context.SaveChanges();
+
+            return View();
         }
     }
 }
