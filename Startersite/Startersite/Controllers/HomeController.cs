@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Startersite.Filters;
+using Startersite.Managers;
 
 namespace Startersite.Controllers
 {
@@ -42,10 +43,11 @@ namespace Startersite.Controllers
 
         public ActionResult ProductsList(string type, int page = 1)
         {
+            var manager = new ProductManager(productsRepo);
+
             ProductsListModel model = new ProductsListModel
             {
-                Products = productsRepo.Products.Where(p => type == null || p.Type == type).Skip((page - 1) * pageSize).Take(pageSize).OrderBy(
-                    products => products.ProductId),
+                Products = manager.GetProducts(type, page, pageSize),
                 PagingInfo = new PagingInfo
                 {
                     CurrentPage = page,

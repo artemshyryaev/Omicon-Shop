@@ -14,22 +14,10 @@ namespace Startersite
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                null,
-                "", 
-                new { controller = "Home", action = "ProductsList",type = (string)null, page = 1 }
-                );
-
-            routes.MapRoute(
                 name: null,
-                url: "Page_{page}",
-                defaults: new { controller = "Home", action = "ProductsList" }
+                url: "{controller}/{action}",
+                defaults: new { controller = "Home", action = "Index" }
                 );
-
-            routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            );
         }
     }
 }

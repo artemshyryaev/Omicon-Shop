@@ -15,6 +15,7 @@ namespace Startersite.Controllers
             this.productRepo = productRepo;
         }    
 
+        [ChildActionOnly]
         public ActionResult Types(string selectedType = null)
         {
             ViewBag.Type = selectedType;

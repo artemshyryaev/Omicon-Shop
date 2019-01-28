@@ -28,7 +28,7 @@ namespace Startersite.Controllers
         public ActionResult Login(LoginModel model, string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
-            if (ModelState.IsValid && WebSecurity.Login(model.Login, model.Email, persistCookie: model.RememberMe))
+            if (ModelState.IsValid && WebSecurity.Login(model.Email, model.Password, persistCookie: model.RememberMe))
             {
                 return RedirectToLocal(returnUrl);
             }

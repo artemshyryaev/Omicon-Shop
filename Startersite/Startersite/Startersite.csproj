@@ -253,6 +253,7 @@
     <Compile Include="Filters\InitializeSimpleMembershopAttribute.cs" />
     <Compile Include="HtmlHelpers\PagingHelpers.cs" />
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
+    <Compile Include="Managers\ProductManager.cs" />
     <Compile Include="Migrations\201901221749011_UpdateEntities.cs" />
     <Compile Include="Migrations\201901221749011_UpdateEntities.Designer.cs">
       <DependentUpon>201901221749011_UpdateEntities.cs</DependentUpon>
@@ -260,6 +261,10 @@
     <Compile Include="Migrations\201901271424339_AddPropToProductsModel.cs" />
     <Compile Include="Migrations\201901271424339_AddPropToProductsModel.Designer.cs">
       <DependentUpon>201901271424339_AddPropToProductsModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901280754312_RenameLoginModelPropeties.cs" />
+    <Compile Include="Migrations\201901280754312_RenameLoginModelPropeties.Designer.cs">
+      <DependentUpon>201901280754312_RenameLoginModelPropeties.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Abstract\IOrderRepository.cs" />
@@ -388,6 +393,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201901271424339_AddPropToProductsModel.resx">
       <DependentUpon>201901271424339_AddPropToProductsModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901280754312_RenameLoginModelPropeties.resx">
+      <DependentUpon>201901280754312_RenameLoginModelPropeties.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

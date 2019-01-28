@@ -18,14 +18,14 @@
             <legend>Log in Form</legend>
             <ol>
                 <li>
-                    @Html.LabelFor(m => m.Login)
-                    @Html.TextBoxFor(m => m.Login)
-                    @Html.ValidationMessageFor(m => m.Login)
-                </li>
-                <li>
                     @Html.LabelFor(m => m.Email)
                     @Html.TextBoxFor(m => m.Email)
                     @Html.ValidationMessageFor(m => m.Email)
+                </li>
+                <li>
+                    @Html.LabelFor(m => m.Password)
+                    @Html.TextBoxFor(m => m.Password)
+                    @Html.ValidationMessageFor(m => m.Password)
                 </li>
                 <li>
                     @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })

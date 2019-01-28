@@ -6,6 +6,12 @@
     ViewBag.Title = "ManageProducts";
 }
 
+<body>
+    <div>
+        @Html.Action("Types", "Facet");
+    </div>
+</body>
+
 @foreach (var el in Model.Products)
 {
     <div class="container">

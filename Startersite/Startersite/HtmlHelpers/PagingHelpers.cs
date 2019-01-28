@@ -13,11 +13,11 @@ namespace Startersite.HtmlHelpers
         public static MvcHtmlString PageLinks(this HtmlHelper html,
             PagingInfo pagingInfo, Func<int, string> pageUrl)
         {
-            StringBuilder builder = new StringBuilder();
+            var builder = new StringBuilder();
 
-            for (int i = 0; i <= pagingInfo.TotalPages; i++)
+            for (int i = 1; i <= pagingInfo.TotalPages; i++)
             {
-                TagBuilder tag = new TagBuilder("a");
+                var tag = new TagBuilder("a");
                 tag.MergeAttribute("href", pageUrl(i));
                 tag.InnerHtml = i.ToString();
 

@@ -1,6 +1,10 @@
 ﻿@model IEnumerable<string>
 
-@Html.ActionLink("Back to list", "Home", "ProductsList", null,
+@{
+    Layout = null;
+}
+
+@Html.RouteLink("Back to list", new {controller = "Home", action = "ProductsList"},
     new { @class = "btn btn-block btn-default btn-lg" })
 
 @foreach (var el in Model)

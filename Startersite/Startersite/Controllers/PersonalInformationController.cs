@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Startersite.Managers;
 
 namespace Startersite.Controllers
 {
@@ -26,18 +27,20 @@ namespace Startersite.Controllers
             return View();
         }
 
-        public ActionResult ManageProducts(int page = 1)
+        public ActionResult ManageProducts(string type, int page = 1)
         {
+            ProductManager manager = new ProductManager(productsRepo);
+
             ProductsListModel model = new ProductsListModel
             {
-                Products = productsRepo.Products.Skip((page - 1) * pageSize).Take(pageSize).OrderBy(
-                    products => products.ProductId),
+                Products = manager.GetProducts(type, page, pageSize),
                 PagingInfo = new PagingInfo
                 {
                     CurrentPage = page,
-                    TotalItems = productsRepo.Products.Count(),
+                    TotalItems = type == null ? productsRepo.Products.Count() : productsRepo.Products.Where(p => p.Type == type).Count(),
                     ItemsPerPage = pageSize
-                }
+                },
+                Type = type
             };
 
             return View(model);

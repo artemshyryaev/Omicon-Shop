@@ -21,6 +21,11 @@
         @Html.TextBoxFor(e => e.Price)
         @Html.ValidationSummary()
     </div>
+    <div>
+        @Html.LabelFor(e => e.Type)
+        @Html.TextBoxFor(e => e.Type)
+        @Html.ValidationSummary()
+    </div>
 </div>
 <input type="submit" value="Add">
 }
