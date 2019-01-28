@@ -9,6 +9,6 @@ namespace Startersite.Models.ModelViews
     {
         public IEnumerable<Orders> Orders { get; set; }
 
-        public PagingInfo PagingInfo { get; set; }
+        public PagingInfoModel PagingInfo { get; set; }
     }
 }

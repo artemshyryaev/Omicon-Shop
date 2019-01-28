@@ -34,7 +34,7 @@ namespace Startersite.Controllers
             ProductsListModel model = new ProductsListModel
             {
                 Products = manager.GetProducts(type, page, pageSize),
-                PagingInfo = new PagingInfo
+                PagingInfo = new PagingInfoModel
                 {
                     CurrentPage = page,
                     TotalItems = type == null ? productsRepo.Products.Count() : productsRepo.Products.Where(p => p.Type == type).Count(),
@@ -52,7 +52,7 @@ namespace Startersite.Controllers
             {
                 Orders = ordersRepo.Orders.Skip((page - 1) * pageSize).Take(pageSize).OrderBy(
                     orders => orders.OrderId),
-                PagingInfo = new PagingInfo
+                PagingInfo = new PagingInfoModel
                 {
                     CurrentPage = page,
                     ItemsPerPage = pageSize,

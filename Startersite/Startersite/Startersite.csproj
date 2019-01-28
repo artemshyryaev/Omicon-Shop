@@ -271,6 +271,7 @@
     <Compile Include="Models\Concrete\OrderRepository.cs" />
     <Compile Include="Models\Concrete\ProductRepository.cs" />
     <Compile Include="Models\Abstract\IProductRepository.cs" />
+    <Compile Include="Models\ModelViews\BasketModel.cs" />
     <Compile Include="Models\ShopDbContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -278,7 +279,7 @@
     <Compile Include="Models\ModelViews\ChangePasswordModel.cs" />
     <Compile Include="Models\ModelViews\LoginModel.cs" />
     <Compile Include="Models\ModelViews\OrdersListModel.cs" />
-    <Compile Include="Models\ModelViews\PagingInfo.cs" />
+    <Compile Include="Models\ModelViews\PagingInfoModel.cs" />
     <Compile Include="Models\ModelViews\ProductsListModel.cs" />
     <Compile Include="Models\ModelViews\RegisterModel.cs" />
     <Compile Include="Models\Orders.cs" />

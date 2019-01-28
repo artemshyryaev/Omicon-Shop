@@ -48,7 +48,7 @@ namespace Startersite.Controllers
             ProductsListModel model = new ProductsListModel
             {
                 Products = manager.GetProducts(type, page, pageSize),
-                PagingInfo = new PagingInfo
+                PagingInfo = new PagingInfoModel
                 {
                     CurrentPage = page,
                     TotalItems = type == null ? productsRepo.Products.Count()

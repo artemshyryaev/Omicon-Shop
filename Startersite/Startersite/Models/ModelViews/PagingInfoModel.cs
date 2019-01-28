@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Startersite.Models.ModelViews
 {
-    public class PagingInfo
+    public class PagingInfoModel
     {
         public int TotalItems { get; set; }
 
