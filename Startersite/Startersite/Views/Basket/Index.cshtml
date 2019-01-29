@@ -1,0 +1,47 @@
+﻿@model Startersite.Models.ModelViews.BasketIndexModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Your basket</h2>
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Quantity</th>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var el in Model.Basket.Lines)
+            {
+                <tr>
+                    <td>@el.Quantity</td>
+                    <td>@el.Product.ProductName</td>
+                    <td>@el.Product.Price</td>
+                    <td>@(el.Quantity * el.Product.Price)$</td>
+                    <td>
+                        @Html.RouteLink("Delete", new { controller = "Basket", action = "RemoveFromBasket",
+                   productId = el.Product.ProductId, returnUrl = Model.RetunrUrl })
+                </td>
+            </tr>
+        }
+
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">Summary:</td>
+                <td>@Model.Basket.BasketTotal()$</td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+<div>
+    <a class="btn btn-primary" href="@Model.RetunrUrl">Continue shopping</a>
+</div>
+<div>
+    @Html.RouteLink("Empty shopping cart", new { controller = "Basket", action = "EmptyBasket", returnUrl = Model.RetunrUrl })
+</div>

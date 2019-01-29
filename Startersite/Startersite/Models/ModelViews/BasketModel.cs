@@ -37,7 +37,7 @@ namespace Startersite.Models.ModelViews
 
         public double BasketTotal()
         {
-            return lineCollection.Sum(p => p.Product.ProductId * p.Quantity);
+            return lineCollection.Sum(p => p.Product.Price * p.Quantity);
         }
     }
 

@@ -1,15 +1,22 @@
-﻿@model IEnumerable<Startersite.Products>
+﻿@model Startersite.Products
 
-@foreach (var el in Model)
-{
-    <div class="container">
-        <table class="table table-hover">
-            <tr>
-                <td>@el.ProductName</td>
-                <td>@el.Description</td>
-                <td>@el.Price</td>
-                <td><button>Add to cart</button></td>
-            </tr>
-        </table>
-    </div>
+<div class="container">
+    <table class="table table-hover">
+        <tr>
+            <td>@Model.ProductName</td>
+            <td>@Model.Description</td>
+            <td>@Model.Price</td>
+            <td>
+                @using (Html.BeginForm("AddToCart", "Basket"))
+                {
+                    <div>
+                        @Html.HiddenFor(x => x.ProductId)
+                        @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+                        <input type="submit" class="btn btn-success" value="Add to cart">
+                    </div>
+                }
+            </td>
+        </tr>
+    </table>
+</div>
 }

@@ -12,13 +12,18 @@
 
 <body>
     @*<div class="addNew">
-        @Html.RouteLink("Add new", "AddProduct", "Home");
-    </div>*@
+            @Html.RouteLink("Add new", "AddProduct", "Home");
+        </div>*@
     @Html.Action("Types", "Facet");
-    @Html.Partial("_renderProducts", Model.Products);
+
+    @foreach (var el in Model.Products)
+    {
+        @Html.Partial("_renderProducts", el);
+    }
+
 
     <div class="btn-group pull-right">
-        @Html.PageLinks(Model.PagingInfo, x => Url.Action("ProductsList", new { page = x, type = Model.Type}))
+        @Html.PageLinks(Model.PagingInfo, x => Url.Action("ProductsList", new { page = x, type = Model.Type }))
     </div>
 </body>
 

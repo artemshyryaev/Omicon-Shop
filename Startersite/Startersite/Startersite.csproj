@@ -247,6 +247,7 @@
     <Compile Include="App_Start\Ninject.Web.Common.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BasketController.cs" />
     <Compile Include="Controllers\FacetController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PersonalInformationController.cs" />
@@ -271,6 +272,7 @@
     <Compile Include="Models\Concrete\OrderRepository.cs" />
     <Compile Include="Models\Concrete\ProductRepository.cs" />
     <Compile Include="Models\Abstract\IProductRepository.cs" />
+    <Compile Include="Models\ModelViews\BasketIndexModel.cs" />
     <Compile Include="Models\ModelViews\BasketModel.cs" />
     <Compile Include="Models\ShopDbContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -377,6 +379,7 @@
     <Content Include="Views\PersonalInformation\ManageProducts.cshtml" />
     <Content Include="Views\PersonalInformation\AddProduct.cshtml" />
     <Content Include="Views\Facet\Types.cshtml" />
+    <Content Include="Views\Basket\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
