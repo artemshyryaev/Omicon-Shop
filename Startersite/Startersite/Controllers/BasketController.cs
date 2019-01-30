@@ -16,54 +16,42 @@ namespace Startersite.Controllers
             this.productRepo = productRepo;
         }
 
-        public ActionResult Index(string returnUrl)
+        public ActionResult Index(BasketModel basket, string returnUrl)
         {
-            return View(new BasketIndexModel { Basket = GetBaskets(), RetunrUrl = returnUrl });
+            return View(new BasketIndexModel { Basket = basket, RetunrUrl = returnUrl });
         }
 
-        public BasketModel GetBaskets()
-        {
-            var basket = (BasketModel)Session["BasketModel"];
-            if (basket == null)
-            {
-                basket = new BasketModel();
-                Session["BasketModel"] = basket;
-            }
-
-            return basket;
-        }
-
-        public RedirectToRouteResult AddToCart(int productId, string returnUrl)
+        public RedirectToRouteResult AddToCart(BasketModel basket, int productId, string returnUrl)
         {
             var product = productRepo.Products.FirstOrDefault(x => x.ProductId == productId);
 
             if (product != null)
             {
-                GetBaskets().Add(product, 1);
+                basket.Add(product, 1);
             }
 
             return RedirectToAction("Index", new { returnUrl});
         }
 
-        public RedirectToRouteResult RemoveFromBasket(int productId, string returnUrl)
+        public RedirectToRouteResult RemoveFromBasket(BasketModel basket, int productId, string returnUrl)
         {
             var product = productRepo.Products.FirstOrDefault(x => x.ProductId == productId);
 
             if (product != null)
             {
-                GetBaskets().RemoveLine(product);
+                basket.RemoveLine(product);
             }
 
             return RedirectToAction("Index", new { returnUrl });
         }
 
-        public RedirectToRouteResult EmptyBasket( string returnUrl)
+        public RedirectToRouteResult EmptyBasket(BasketModel basket, string returnUrl)
         {
             var product = productRepo.Products.Count();
 
             if (product >= 1)
             {
-                GetBaskets().ClearBasket();
+                basket.ClearBasket();
             }
 
             return RedirectToAction("Index", new { returnUrl });

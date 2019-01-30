@@ -24,11 +24,15 @@
                     <td>@el.Product.Price</td>
                     <td>@(el.Quantity * el.Product.Price)$</td>
                     <td>
-                        @Html.RouteLink("Delete", new { controller = "Basket", action = "RemoveFromBasket",
-                   productId = el.Product.ProductId, returnUrl = Model.RetunrUrl })
-                </td>
-            </tr>
-        }
+                        @using (Html.BeginForm("RemoveFromBasket", "Basket"))
+                        {
+                            @Html.Hidden("productId", el.Product.ProductId)
+                            @Html.HiddenFor(x => x.RetunrUrl)
+                            <input class="btn btn-sm btn-warning" type="submit" value="Delete" />
+                        }
+                    </td>
+                </tr>
+            }
 
         </tbody>
         <tfoot>
@@ -43,5 +47,9 @@
     <a class="btn btn-primary" href="@Model.RetunrUrl">Continue shopping</a>
 </div>
 <div>
-    @Html.RouteLink("Empty shopping cart", new { controller = "Basket", action = "EmptyBasket", returnUrl = Model.RetunrUrl })
+    @using (Html.BeginForm("EmptyBasket", "Basket"))
+    {
+        @Html.HiddenFor(x => x.RetunrUrl)
+        <input class="btn btn-primary" type="submit" value="Empty basket">
+    }
 </div>

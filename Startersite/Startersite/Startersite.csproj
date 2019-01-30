@@ -253,6 +253,7 @@
     <Compile Include="Controllers\PersonalInformationController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershopAttribute.cs" />
     <Compile Include="HtmlHelpers\PagingHelpers.cs" />
+    <Compile Include="Infrastructure\BasketModelBinder.cs" />
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
     <Compile Include="Managers\ProductManager.cs" />
     <Compile Include="Migrations\201901221749011_UpdateEntities.cs" />
