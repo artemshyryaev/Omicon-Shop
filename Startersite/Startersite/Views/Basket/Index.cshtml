@@ -44,12 +44,13 @@
     </table>
 </div>
 <div>
-    <a class="btn btn-primary" href="@Model.RetunrUrl">Continue shopping</a>
-</div>
-<div>
     @using (Html.BeginForm("EmptyBasket", "Basket"))
     {
         @Html.HiddenFor(x => x.RetunrUrl)
         <input class="btn btn-primary" type="submit" value="Empty basket">
     }
+</div>
+<div>
+    <a class="btn btn-primary" href="@Model.RetunrUrl">Continue shopping</a>
+    @Html.RouteLink("Submit order", new { action = "ShippingInformationStep", controller = "Checkout" }, new { @class = "btn btn-primary" })
 </div>
