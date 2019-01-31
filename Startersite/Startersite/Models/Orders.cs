@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Startersite.Models.ModelViews.CheckoutModelView;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -14,15 +15,18 @@ namespace Startersite
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int OrderId { get; set; }
 
-        public Users UserId { get; set; }
+        public ShippingInformation ShippingInformation { get; set; }
 
-        public string UserName { get; set; }
+        public MethodsOfDelivery DeliveryMethod { get; set; }
+
+        public MethodOfPayment PaymentMehod { get; set; }
 
         public ICollection<Products> Products { get; set; }
 
         public int ItemCount { get { return Products.Count; } }
 
-        public double OrderTotal {
+        public double OrderTotal
+        {
             get
             {
                 double sum = 0;

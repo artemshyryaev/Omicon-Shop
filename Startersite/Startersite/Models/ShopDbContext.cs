@@ -20,5 +20,7 @@ namespace Startersite
         public virtual DbSet<Products> Products { get; set; }
 
         public virtual DbSet<Orders> Orders { get; set; }
+
+        public virtual DbSet<ShippingInformation> ShippingInformation { get; set; }
     }
 }

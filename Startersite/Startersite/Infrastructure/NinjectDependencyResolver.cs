@@ -1,4 +1,6 @@
 ﻿using Ninject;
+using Startersite.Models.Abstract;
+using Startersite.Models.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +33,7 @@ namespace Startersite.Infrastructure
         {
             kernel.Bind<IProductRepository>().To<ProductRepository>();
             kernel.Bind<IOrderRepository>().To<OrderRepository>();
+            kernel.Bind<IOrderProcessor>().To<OrderProcessor>();
         }
     }
 }

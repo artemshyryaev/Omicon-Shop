@@ -270,13 +270,17 @@
       <DependentUpon>201901280754312_RenameLoginModelPropeties.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Abstract\IOrderProcessor.cs" />
     <Compile Include="Models\Abstract\IOrderRepository.cs" />
+    <Compile Include="Models\Concrete\OrderProcessor.cs" />
     <Compile Include="Models\Concrete\OrderRepository.cs" />
     <Compile Include="Models\Concrete\ProductRepository.cs" />
     <Compile Include="Models\Abstract\IProductRepository.cs" />
     <Compile Include="Models\ModelViews\BasketModelView\BasketIndexModel.cs" />
     <Compile Include="Models\ModelViews\BasketModelView\BasketModel.cs" />
-    <Compile Include="Models\ModelViews\CheckoutModelView\ShippingInformationModel.cs" />
+    <Compile Include="Models\ModelViews\CheckoutModelView\DeliveryMethod.cs" />
+    <Compile Include="Models\ModelViews\CheckoutModelView\PaymentMethod.cs" />
+    <Compile Include="Models\ShippingInformationModel.cs" />
     <Compile Include="Models\ShopDbContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

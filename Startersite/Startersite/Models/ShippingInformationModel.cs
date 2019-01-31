@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace Startersite.Models.ModelViews
+namespace Startersite
 {
-    public class ShippingInformationModel
+    public class ShippingInformation
     {
         [Display(Name = "Name")]
         [Required(ErrorMessage = "Enter name")]
@@ -45,5 +45,12 @@ namespace Startersite.Models.ModelViews
         [Required(ErrorMessage = "Enter valid zip code")]
         [DataType(DataType.PostalCode)]
         public string ZipCode { get; set; }
+
+        ICollection<Orders> Orders { get; set; }
+
+        public ShippingInformation()
+        {
+            Orders = new List<Orders>();
+        }
     }
 }
