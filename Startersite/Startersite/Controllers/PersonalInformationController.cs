@@ -50,8 +50,8 @@ namespace Startersite.Controllers
         {
             OrdersListModel model = new OrdersListModel
             {
-                Orders = ordersRepo.Orders.Skip((page - 1) * pageSize).Take(pageSize).OrderBy(
-                    orders => orders.OrderId),
+                //Orders = ordersRepo.Orders.Skip((page - 1) * pageSize).Take(pageSize).OrderBy(
+                //    orders => orders.),
                 PagingInfo = new PagingInfoModel
                 {
                     CurrentPage = page,

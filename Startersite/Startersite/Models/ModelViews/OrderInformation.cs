@@ -6,8 +6,11 @@ using System.Web;
 
 namespace Startersite
 {
-    public class ShippingInformation
+    public class OrderInformation
     {
+        [Key]
+        public int Id { get; set; }
+
         [Display(Name = "Name")]
         [Required(ErrorMessage = "Enter name")]
         public string Name { get; set; }
@@ -21,7 +24,7 @@ namespace Startersite
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
-        [Display(Name="Phone numbet")]
+        [Display(Name="Phone number")]
         [Required(ErrorMessage ="Enter valid telephone number")]
         [DataType(DataType.PhoneNumber)]
         public double PhoneNumber { get; set; }
@@ -46,11 +49,47 @@ namespace Startersite
         [DataType(DataType.PostalCode)]
         public string ZipCode { get; set; }
 
+        [Display(Name = "Delivery method")]
+        public MethodsOfDelivery Delivery { get; set; }
+
+        [Display(Name = "Payment method")]
+        public MethodOfPayment Payment { get; set; }
+
         ICollection<Orders> Orders { get; set; }
 
-        public ShippingInformation()
+        public OrderInformation()
         {
             Orders = new List<Orders>();
         }
+    }
+
+    public enum MethodsOfDelivery
+    {
+        Fedex,
+
+        NovaPoshta,
+
+        Buckaroo,
+
+        Post24,
+
+        UaDelivery
+    }
+
+    public enum MethodOfPayment
+    {
+        Visa,
+
+        Mastercard,
+
+        PayPall,
+
+        Dibs,
+
+        Docdata,
+
+        AfterPay,
+
+        Klarna
     }
 }

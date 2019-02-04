@@ -269,18 +269,26 @@
     <Compile Include="Migrations\201901280754312_RenameLoginModelPropeties.Designer.cs">
       <DependentUpon>201901280754312_RenameLoginModelPropeties.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902021620498_OrderInformationEntity.cs" />
+    <Compile Include="Migrations\201902021620498_OrderInformationEntity.Designer.cs">
+      <DependentUpon>201902021620498_OrderInformationEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902031930504_AddOrderEntity.cs" />
+    <Compile Include="Migrations\201902031930504_AddOrderEntity.Designer.cs">
+      <DependentUpon>201902031930504_AddOrderEntity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Abstract\IOrderProcessor.cs" />
     <Compile Include="Models\Abstract\IOrderRepository.cs" />
+    <Compile Include="Models\BasketLine.cs" />
     <Compile Include="Models\Concrete\OrderProcessor.cs" />
     <Compile Include="Models\Concrete\OrderRepository.cs" />
     <Compile Include="Models\Concrete\ProductRepository.cs" />
     <Compile Include="Models\Abstract\IProductRepository.cs" />
+    <Compile Include="Models\Information.cs" />
     <Compile Include="Models\ModelViews\BasketModelView\BasketIndexModel.cs" />
     <Compile Include="Models\ModelViews\BasketModelView\BasketModel.cs" />
-    <Compile Include="Models\ModelViews\CheckoutModelView\DeliveryMethod.cs" />
-    <Compile Include="Models\ModelViews\CheckoutModelView\PaymentMethod.cs" />
-    <Compile Include="Models\ShippingInformationModel.cs" />
+    <Compile Include="Models\ModelViews\OrderInformation.cs" />
     <Compile Include="Models\ShopDbContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -387,7 +395,7 @@
     <Content Include="Views\PersonalInformation\AddProduct.cshtml" />
     <Content Include="Views\Facet\Types.cshtml" />
     <Content Include="Views\Basket\Index.cshtml" />
-    <Content Include="Views\Checkout\ShippingInformationStep.cshtml" />
+    <Content Include="Views\Checkout\OrderInformation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -408,6 +416,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201901280754312_RenameLoginModelPropeties.resx">
       <DependentUpon>201901280754312_RenameLoginModelPropeties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902021620498_OrderInformationEntity.resx">
+      <DependentUpon>201902021620498_OrderInformationEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902031930504_AddOrderEntity.resx">
+      <DependentUpon>201902031930504_AddOrderEntity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

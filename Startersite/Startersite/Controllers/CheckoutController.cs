@@ -1,52 +1,64 @@
 ﻿using Startersite.Models.Abstract;
 using Startersite.Models.ModelViews;
-using Startersite.Models.ModelViews.CheckoutModelView;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Startersite.Models.Concrete;
+using System.Data.Entity;
 
 namespace Startersite.Controllers
 {
     public class CheckoutController : Controller
     {
+        ShopDBContext context;
         IOrderProcessor orderProcessor;
-        DeliveryMethod shippingMethod;
-        PaymentMethod paymentMethod;
-        ShippingInformation shippingInformation;
-        BasketModel basket;
 
         public CheckoutController(IOrderProcessor orderProcessor)
         {
+            context = new ShopDBContext();
             this.orderProcessor = orderProcessor;
         }
 
-        public ActionResult ShippingInformationStep(BasketModel basket)
+        public ActionResult OrderInformation()
         {
-            this.basket = basket;
-
-            return View(new ShippingInformation());
+            return View(new OrderInformation());
         }
 
-        public ActionResult DeliveryMethodStep(ShippingInformation shippingInformation)
+        public ActionResult OrderOverview(BasketModel basket, OrderInformation orderInformation)
         {
-            this.shippingInformation = shippingInformation;
+            Orders order = new Orders
+            {
+                CustomerEmail = orderInformation.Email,
+                OrderDate = DateTime.Today,
+                OrderTotal = basket.BasketTotal(),
 
-            return View();
-        }
+                OrderInformation = new Information {
+                    Address = orderInformation.Address,
+                    Address2 = orderInformation.Address2,
+                    City = orderInformation.City,
+                    Country = orderInformation.Country,
+                    Delivery = orderInformation.Delivery,
+                    Name = orderInformation.Name,
+                    Surname = orderInformation.Surname,
+                    Payment = orderInformation.Payment,
+                    PhoneNumber = orderInformation.PhoneNumber,
+                    ZipCode = orderInformation.ZipCode
+                }
+            };
 
-        public ActionResult PaymentMethodStep(DeliveryMethod deliveryMethod)
-        {
-            shippingMethod = deliveryMethod;
+            foreach (var el in basket.Lines)
+            {
+                var line = new BasketLine();
+                line.ProductId = el.Product.ProductId;
+                line.Qty = el.Quantity;
 
-            return View();
-        }
+                order.BasketLine.Add(line);
+            }
 
-        public ActionResult OrderOverview(PaymentMethod paymentMethod)
-        {
-            this.paymentMethod = paymentMethod;
+            context.Entry(order).State = EntityState.Added;
+            context.SaveChanges();
 
             if (basket.Lines.Count() == 0)
             {
@@ -55,7 +67,7 @@ namespace Startersite.Controllers
 
             if (ModelState.IsValid)
             {
-                orderProcessor.ProcessOrder(basket, shippingInformation, shippingMethod, paymentMethod);
+                orderProcessor.ProcessOrder(basket, orderInformation);
             }
             else
             {

@@ -1,5 +1,4 @@
 ﻿using Startersite.Models.ModelViews;
-using Startersite.Models.ModelViews.CheckoutModelView;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +8,6 @@ namespace Startersite.Models.Abstract
 {
     public interface IOrderProcessor
     {
-        void ProcessOrder(BasketModel basket, ShippingInformation shippingInformation,
-            DeliveryMethod deliveryMethod, PaymentMethod paymentMethod);
+        void ProcessOrder(BasketModel basket, OrderInformation orderInformation);
     }
 }

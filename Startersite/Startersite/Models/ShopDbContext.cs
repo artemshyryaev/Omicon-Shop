@@ -21,6 +21,6 @@ namespace Startersite
 
         public virtual DbSet<Orders> Orders { get; set; }
 
-        public virtual DbSet<ShippingInformation> ShippingInformation { get; set; }
+        public virtual DbSet<Information> OrderInformation { get; set; }
     }
 }

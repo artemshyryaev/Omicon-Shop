@@ -1,0 +1,75 @@
+﻿@model Startersite.OrderInformation
+@{
+
+    ViewBag.Title = "OrderInformation";
+}
+
+<h1>Checkout</h1>
+<h3>Shipping information</h3>
+
+@using (Html.BeginForm("OrderOverview", "Checkout"))
+{
+    foreach (var prop in ViewData.ModelMetadata.Properties)
+    {
+        if (prop.PropertyName != "Id")
+        {
+            <div class="form-group">
+                @Html.Label(prop.PropertyName)
+
+                @if (prop.PropertyName == "Delivery")
+                {
+                    @Html.EnumDropDownListFor(x => x.Delivery, "Select delivery method", new { @class = "form-control" })
+                    continue;
+                }
+
+                @if (prop.PropertyName == "Payment")
+                {
+                    @Html.EnumDropDownListFor(x => x.Payment, "Select Payment method", new { @class = "form-control" })
+                    continue;
+                }
+
+                @Html.TextBox(prop.PropertyName, null, new { @class = "form-control" })
+            </div>
+        }
+    }
+    <div class="text-center">
+        <input class="btn btn-primary" type="submit" value="Next">
+    </div>
+    @*<div class="form-group">
+            @Html.LabelFor(x => x.Name)
+            @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.Surname)
+            @Html.TextBoxFor(x => x.Surname, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.Email)
+            @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.PhoneNumber)
+            @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.Country)
+            @Html.TextBoxFor(x => x.Country, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.Address)
+            @Html.TextBoxFor(x => x.Address, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.Address2)
+            @Html.TextBoxFor(x => x.Address2, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.City)
+            @Html.TextBoxFor(x => x.City, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.ZipCode)
+            @Html.TextBoxFor(x => x.ZipCode, new { @class = "form-control" })
+        </div>*@
+}
+
