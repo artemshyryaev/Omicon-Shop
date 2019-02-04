@@ -9,6 +9,8 @@
 
 @using (Html.BeginForm("OrderOverview", "Checkout"))
 {
+    @Html.ValidationSummary()
+    @Html.AntiForgeryToken()
     foreach (var prop in ViewData.ModelMetadata.Properties)
     {
         if (prop.PropertyName != "Id")
@@ -35,41 +37,5 @@
     <div class="text-center">
         <input class="btn btn-primary" type="submit" value="Next">
     </div>
-    @*<div class="form-group">
-            @Html.LabelFor(x => x.Name)
-            @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(x => x.Surname)
-            @Html.TextBoxFor(x => x.Surname, new { @class = "form-control" })
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(x => x.Email)
-            @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(x => x.PhoneNumber)
-            @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "form-control" })
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(x => x.Country)
-            @Html.TextBoxFor(x => x.Country, new { @class = "form-control" })
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(x => x.Address)
-            @Html.TextBoxFor(x => x.Address, new { @class = "form-control" })
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(x => x.Address2)
-            @Html.TextBoxFor(x => x.Address2, new { @class = "form-control" })
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(x => x.City)
-            @Html.TextBoxFor(x => x.City, new { @class = "form-control" })
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(x => x.ZipCode)
-            @Html.TextBoxFor(x => x.ZipCode, new { @class = "form-control" })
-        </div>*@
 }
 

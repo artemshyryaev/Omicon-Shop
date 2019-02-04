@@ -277,6 +277,10 @@
     <Compile Include="Migrations\201902031930504_AddOrderEntity.Designer.cs">
       <DependentUpon>201902031930504_AddOrderEntity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902041528439_AddForeignKey.cs" />
+    <Compile Include="Migrations\201902041528439_AddForeignKey.Designer.cs">
+      <DependentUpon>201902041528439_AddForeignKey.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Abstract\IOrderProcessor.cs" />
     <Compile Include="Models\Abstract\IOrderRepository.cs" />
@@ -311,6 +315,7 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\ErrorStyles.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -396,6 +401,7 @@
     <Content Include="Views\Facet\Types.cshtml" />
     <Content Include="Views\Basket\Index.cshtml" />
     <Content Include="Views\Checkout\OrderInformation.cshtml" />
+    <Content Include="Views\Checkout\OrderOverview.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -422,6 +428,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902031930504_AddOrderEntity.resx">
       <DependentUpon>201902031930504_AddOrderEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902041528439_AddForeignKey.resx">
+      <DependentUpon>201902041528439_AddForeignKey.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

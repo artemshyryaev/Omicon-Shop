@@ -1,0 +1,38 @@
+﻿@model Startersite.Models.ModelViews.BasketModel
+
+@{
+    ViewBag.Title = "OrderOverview";
+}
+
+<div>
+    <table>
+        <thead>
+            <tr>
+                <td>Product</td>
+                <td>Price</td>
+                <td>Qty</td>
+                <td>Total</td>
+        </thead>
+        <tbody>
+            @foreach (var el in Model.Lines)
+            {
+                <tr>
+                    <td>@el.Product.ProductName</td>
+                    <td>@el.Product.Price</td>
+                    <td>@el.Quantity</td>
+                    <td>@(el.Quantity * el.Product.Price)$</td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4">Total: @Model.BasketTotal() $</td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+<div>
+    @Html.RouteLink("Decline order", new { controller = "Checkout", action = "DeclineOrder", orderId = ViewBag.OrderId }, new { @class = "btn btn-primary"});
+</div>
+

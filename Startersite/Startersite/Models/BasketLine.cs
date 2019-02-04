@@ -10,5 +10,7 @@ namespace Startersite
         public int Id { get; set; }
         public int ProductId { get; set; }
         public double Qty { get; set; }
+
+        public Orders Order { get; set; }
     }
 }

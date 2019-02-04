@@ -22,5 +22,15 @@ namespace Startersite
         public virtual DbSet<Orders> Orders { get; set; }
 
         public virtual DbSet<Information> OrderInformation { get; set; }
+
+        public virtual DbSet<BasketLine> BasketLines { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<BasketLine>()
+                .HasOptional<Orders>(s => s.Order)
+                .WithMany()
+                .WillCascadeOnDelete(false);
+        }
     }
 }

@@ -8,6 +8,6 @@ namespace Startersite.Models.Abstract
 {
     public interface IOrderProcessor
     {
-        void ProcessOrder(BasketModel basket, OrderInformation orderInformation);
+        Orders ProcessOrder(BasketModel basket, OrderInformation orderInformation);
     }
 }
