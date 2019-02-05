@@ -28,7 +28,7 @@ namespace Startersite.Controllers
 
         public ActionResult OrderOverview(BasketModel basket, OrderInformation orderInformation)
         {
-            Orders order;
+            Order order;
             if (basket.Lines.Count() == 0)
             {
                 ModelState.AddModelError("", "Yor basket is empty");
@@ -40,7 +40,7 @@ namespace Startersite.Controllers
             }
             else
             {
-                return View();//какое-то вью
+                return RedirectToAction("DeclinedOrder", "Checkout");
             }
 
             ViewBag.OrderId = order.OrderId;
@@ -50,7 +50,7 @@ namespace Startersite.Controllers
 
         public ActionResult DeclineOrder(int orderId)
         {
-            Orders order = context.Orders.First(x => x.OrderId == orderId);
+            Order order = context.Orders.First(x => x.OrderId == orderId);
 
             if (order != null)
             {
@@ -58,7 +58,7 @@ namespace Startersite.Controllers
                 context.SaveChanges();
             }
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("DeclinedOrder", "Checkout");
         }
     }
 }

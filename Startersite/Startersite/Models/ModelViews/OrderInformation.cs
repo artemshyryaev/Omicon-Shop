@@ -55,11 +55,11 @@ namespace Startersite
         [Display(Name = "Payment method")]
         public MethodOfPayment Payment { get; set; }
 
-        ICollection<Orders> Orders { get; set; }
+        ICollection<Order> Orders { get; set; }
 
         public OrderInformation()
         {
-            Orders = new List<Orders>();
+            Orders = new List<Order>();
         }
     }
 

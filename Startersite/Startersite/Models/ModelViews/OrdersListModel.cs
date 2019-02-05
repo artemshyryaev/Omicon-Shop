@@ -7,7 +7,7 @@ namespace Startersite.Models.ModelViews
 {
     public class OrdersListModel
     {
-        public IEnumerable<Orders> Orders { get; set; }
+        public IEnumerable<Order> Orders { get; set; }
 
         public PagingInfoModel PagingInfo { get; set; }
     }

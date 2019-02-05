@@ -19,7 +19,7 @@ namespace Startersite
 
         public virtual DbSet<Products> Products { get; set; }
 
-        public virtual DbSet<Orders> Orders { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
 
         public virtual DbSet<Information> OrderInformation { get; set; }
 
@@ -27,10 +27,25 @@ namespace Startersite
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            //modelBuilder.Entity<BasketLine>()
+            //    .HasOptional<Order>(s => s.Order)
+            //    .WithMany(t => t.BasketLine)
+            //    .Map(x => x.MapKey("OrderId"));
+
             modelBuilder.Entity<BasketLine>()
-                .HasOptional<Orders>(s => s.Order)
-                .WithMany()
-                .WillCascadeOnDelete(false);
+                .HasOptional<Order>(s => s.Order)
+                .WithMany(t => t.BasketLine)
+                .WillCascadeOnDelete(true);
+
+            //modelBuilder.Entity<Information>()
+            //    .HasOptional<Order>(s => s.Order)
+            //    .WithOptionalPrincipal(t => t.OrderInformation)
+            //    .Map(x => x.MapKey("OrderId"));
+
+            //modelBuilder.Entity<Information>()
+            //    .HasOptional<Order>(s => s.Order)
+            //    .WithOptionalPrincipal(t => t.OrderInformation)
+            //    .WillCascadeOnDelete(true);
         }
     }
 }

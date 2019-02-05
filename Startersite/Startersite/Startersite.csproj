@@ -257,34 +257,17 @@
     <Compile Include="Infrastructure\BasketModelBinder.cs" />
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
     <Compile Include="Managers\ProductManager.cs" />
-    <Compile Include="Migrations\201901221749011_UpdateEntities.cs" />
-    <Compile Include="Migrations\201901221749011_UpdateEntities.Designer.cs">
-      <DependentUpon>201901221749011_UpdateEntities.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201901271424339_AddPropToProductsModel.cs" />
-    <Compile Include="Migrations\201901271424339_AddPropToProductsModel.Designer.cs">
-      <DependentUpon>201901271424339_AddPropToProductsModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201901280754312_RenameLoginModelPropeties.cs" />
-    <Compile Include="Migrations\201901280754312_RenameLoginModelPropeties.Designer.cs">
-      <DependentUpon>201901280754312_RenameLoginModelPropeties.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902021620498_OrderInformationEntity.cs" />
-    <Compile Include="Migrations\201902021620498_OrderInformationEntity.Designer.cs">
-      <DependentUpon>201902021620498_OrderInformationEntity.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902031930504_AddOrderEntity.cs" />
-    <Compile Include="Migrations\201902031930504_AddOrderEntity.Designer.cs">
-      <DependentUpon>201902031930504_AddOrderEntity.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902041528439_AddForeignKey.cs" />
-    <Compile Include="Migrations\201902041528439_AddForeignKey.Designer.cs">
-      <DependentUpon>201902041528439_AddForeignKey.cs</DependentUpon>
+    <Compile Include="Migrations\201902051635586_AddSomeProductPropertiesToBasketLineEntity.cs" />
+    <Compile Include="Migrations\201902051635586_AddSomeProductPropertiesToBasketLineEntity.Designer.cs">
+      <DependentUpon>201902051635586_AddSomeProductPropertiesToBasketLineEntity.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Abstract\IEmailSender.cs" />
     <Compile Include="Models\Abstract\IOrderProcessor.cs" />
     <Compile Include="Models\Abstract\IOrderRepository.cs" />
     <Compile Include="Models\BasketLine.cs" />
+    <Compile Include="Models\Concrete\EmailSender.cs" />
+    <Compile Include="Models\Concrete\EmailSettings.cs" />
     <Compile Include="Models\Concrete\OrderProcessor.cs" />
     <Compile Include="Models\Concrete\OrderRepository.cs" />
     <Compile Include="Models\Concrete\ProductRepository.cs" />
@@ -303,7 +286,7 @@
     <Compile Include="Models\ModelViews\PagingInfoModel.cs" />
     <Compile Include="Models\ModelViews\ProductsListModel.cs" />
     <Compile Include="Models\ModelViews\AccountModelView\RegisterModel.cs" />
-    <Compile Include="Models\Orders.cs" />
+    <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Products.cs" />
     <Compile Include="Models\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -402,6 +385,7 @@
     <Content Include="Views\Basket\Index.cshtml" />
     <Content Include="Views\Checkout\OrderInformation.cshtml" />
     <Content Include="Views\Checkout\OrderOverview.cshtml" />
+    <Content Include="Views\Checkout\DeclinedOrder.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -414,30 +398,15 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201901221749011_UpdateEntities.resx">
-      <DependentUpon>201901221749011_UpdateEntities.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901271424339_AddPropToProductsModel.resx">
-      <DependentUpon>201901271424339_AddPropToProductsModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901280754312_RenameLoginModelPropeties.resx">
-      <DependentUpon>201901280754312_RenameLoginModelPropeties.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902021620498_OrderInformationEntity.resx">
-      <DependentUpon>201902021620498_OrderInformationEntity.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902031930504_AddOrderEntity.resx">
-      <DependentUpon>201902031930504_AddOrderEntity.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902041528439_AddForeignKey.resx">
-      <DependentUpon>201902041528439_AddForeignKey.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201902051635586_AddSomeProductPropertiesToBasketLineEntity.resx">
+      <DependentUpon>201902051635586_AddSomeProductPropertiesToBasketLineEntity.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

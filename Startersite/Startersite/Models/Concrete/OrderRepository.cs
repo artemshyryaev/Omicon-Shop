@@ -9,6 +9,6 @@ namespace Startersite
     {
         ShopDBContext context = new ShopDBContext();
 
-        public IEnumerable<Orders> Orders { get { return context.Orders; } }
+        public IEnumerable<Order> Orders { get { return context.Orders; } }
     }
 }

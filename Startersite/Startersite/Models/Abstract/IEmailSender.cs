@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Startersite
+namespace Startersite.Models.Abstract
 {
-    public interface IOrderRepository
+    interface IEmailSender
     {
-        IEnumerable<Order> Orders { get; }
+        void SendOrderConfirmationEmail(Order order);
     }
 }

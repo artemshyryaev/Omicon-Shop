@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace Startersite
 {
-    public class Orders
+    public class Order
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -24,7 +24,7 @@ namespace Startersite
 
         public DateTime OrderDate { get; set; }
 
-        public Orders()
+        public Order()
         {
             BasketLine = new List<BasketLine>();
         }

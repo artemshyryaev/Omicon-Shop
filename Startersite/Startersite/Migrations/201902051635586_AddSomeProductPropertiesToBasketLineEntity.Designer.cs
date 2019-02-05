@@ -7,13 +7,13 @@ namespace Startersite.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class OrderInformationEntity : IMigrationMetadata
+    public sealed partial class AddSomeProductPropertiesToBasketLineEntity : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(OrderInformationEntity));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddSomeProductPropertiesToBasketLineEntity));
         
         string IMigrationMetadata.Id
         {
-            get { return "201902021620498_OrderInformationEntity"; }
+            get { return "201902051635586_AddSomeProductPropertiesToBasketLineEntity"; }
         }
         
         string IMigrationMetadata.Source

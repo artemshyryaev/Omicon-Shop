@@ -18,9 +18,9 @@ namespace Startersite.Models.Concrete
             context = new ShopDBContext();
         }
 
-        public Orders ProcessOrder(BasketModel basket, OrderInformation orderInformation)
+        public Order ProcessOrder(BasketModel basket, OrderInformation orderInformation)
         {
-            Orders order = null;
+            Order order = null;
 
             AddOrderInformationToOrder(ref order, basket, orderInformation);
             AddBasketLinesToOrder(basket, order);
@@ -29,9 +29,9 @@ namespace Startersite.Models.Concrete
             return order;
         }
 
-        void AddOrderInformationToOrder(ref Orders order, BasketModel basket, OrderInformation orderInformation)
+        void AddOrderInformationToOrder(ref Order order, BasketModel basket, OrderInformation orderInformation)
         {
-            order = new Orders
+            order = new Order
             {
                 CustomerEmail = orderInformation.Email,
                 OrderDate = DateTime.Today,
@@ -53,19 +53,21 @@ namespace Startersite.Models.Concrete
             };
         }
 
-        void AddBasketLinesToOrder(BasketModel basket, Orders order)
+        void AddBasketLinesToOrder(BasketModel basket, Order order)
         {
             foreach (var el in basket.Lines)
             {
                 var line = new BasketLine();
                 line.ProductId = el.Product.ProductId;
+                line.ProductName = el.Product.ProductName;
+                line.Price = el.Product.Price;
                 line.Qty = el.Quantity;
 
                 order.BasketLine.Add(line);
             }
         }
 
-        void SaveChanges(Orders order)
+        void SaveChanges(Order order)
         {
             context.Entry(order).State = EntityState.Added;
             context.SaveChanges();
