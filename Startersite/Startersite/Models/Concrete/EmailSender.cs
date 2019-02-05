@@ -47,9 +47,17 @@ namespace Startersite.Models.Concrete
                     body.Append($"{line.ProductName}" + " " + $"{line.Qty}" + " " + $"{line.Price}" + "$");
                 }
 
-
-
-
+                body.AppendFormat("Total value:" + $"{order.OrderTotal}")
+                .AppendLine("---")
+                .AppendLine("Shipping info:")
+                .AppendLine(order.OrderInformation.Name)
+                .AppendLine(order.OrderInformation.Surname)
+                .AppendLine(order.OrderInformation.Address)
+                .AppendLine(order.OrderInformation.Address2)
+                .AppendLine(order.OrderInformation.City)
+                .AppendLine(order.OrderInformation.Country)
+                .AppendLine(order.OrderInformation.ZipCode);
+                
                 MailMessage mailmessage = new MailMessage(emailSettings.MailFromAddress, emailSettings.MailToAddress,
                     "New order was sucessfully send!", body.ToString());
 
