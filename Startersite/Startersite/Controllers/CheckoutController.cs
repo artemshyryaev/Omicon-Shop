@@ -14,8 +14,9 @@ namespace Startersite.Controllers
     {
         ShopDBContext context;
         IOrderProcessor orderProcessor;
+        IEmailSender emailSender;
 
-        public CheckoutController(IOrderProcessor orderProcessor)
+        public CheckoutController(IOrderProcessor orderProcessor, IEmailSender emailSender)
         {
             context = new ShopDBContext();
             this.orderProcessor = orderProcessor;
@@ -59,6 +60,15 @@ namespace Startersite.Controllers
             }
 
             return RedirectToAction("DeclinedOrder", "Checkout");
+        }
+
+        public ActionResult SubmitOrder(int orderId)
+        {
+            Order order = context.Orders.First(x => x.OrderId == orderId);
+
+            emailSender.SendOrderConfirmationEmail(order);           
+
+            return View("OrderSucessfullyCreated");
         }
     }
 }

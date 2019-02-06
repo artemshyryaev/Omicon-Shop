@@ -9,14 +9,14 @@ using Startersite.Managers;
 
 namespace Startersite.Controllers
 {
-    public class PersonalInformationController : Controller
+    public class AdminController : Controller
     {
         ShopDBContext context = new ShopDBContext();
         int pageSize = 10;
         IOrderRepository ordersRepo;
         IProductRepository productsRepo;
 
-        public PersonalInformationController(OrderRepository ordersRepo, ProductRepository productsRepo)
+        public AdminController(IOrderRepository ordersRepo, IProductRepository productsRepo)
         {
             this.ordersRepo = ordersRepo;
             this.productsRepo = productsRepo;

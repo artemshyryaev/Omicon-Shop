@@ -14,9 +14,9 @@ namespace Startersite.Models.Concrete
     {
         public EmailSettings emailSettings;
 
-        public EmailSender()
+        public EmailSender(EmailSettings emailSettings)
         {
-            emailSettings = new EmailSettings();
+            this.emailSettings = emailSettings;
         }
 
         public void SendOrderConfirmationEmail(Order order)

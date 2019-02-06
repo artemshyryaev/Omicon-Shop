@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Startersite.Models.Abstract
 {
-    interface IEmailSender
+    public interface IEmailSender
     {
         void SendOrderConfirmationEmail(Order order);
     }

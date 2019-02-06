@@ -3,6 +3,7 @@ using Startersite.Models.Abstract;
 using Startersite.Models.Concrete;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -34,6 +35,13 @@ namespace Startersite.Infrastructure
             kernel.Bind<IProductRepository>().To<ProductRepository>();
             kernel.Bind<IOrderRepository>().To<OrderRepository>();
             kernel.Bind<IOrderProcessor>().To<OrderProcessor>();
+
+            EmailSettings emailSettings = new EmailSettings
+            {
+                WriteAsFile = bool.Parse(ConfigurationManager.AppSettings["Email.WriteAdFile"] ?? "false")
+            };
+
+            kernel.Bind<IEmailSender>().To<EmailSender>().WithConstructorArgument("emailSettings", emailSettings);
         }
     }
 }

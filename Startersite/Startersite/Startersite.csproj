@@ -251,7 +251,7 @@
     <Compile Include="Controllers\CheckoutController.cs" />
     <Compile Include="Controllers\FacetController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\PersonalInformationController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershopAttribute.cs" />
     <Compile Include="HtmlHelpers\PagingHelpers.cs" />
     <Compile Include="Infrastructure\BasketModelBinder.cs" />
@@ -368,7 +368,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\ProductsList.cshtml" />
     <Content Include="Views\Home\_renderProducts.cshtml" />
-    <Content Include="Views\PersonalInformation\OrdersList.cshtml" />
+    <Content Include="Views\Admin\OrdersList.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper-utils.min.js.map" />
@@ -378,14 +378,15 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-    <Content Include="Views\PersonalInformation\_renderOrders.cshtml" />
-    <Content Include="Views\PersonalInformation\ManageProducts.cshtml" />
-    <Content Include="Views\PersonalInformation\AddProduct.cshtml" />
+    <Content Include="Views\Admin\_renderOrders.cshtml" />
+    <Content Include="Views\Admin\ManageProducts.cshtml" />
+    <Content Include="Views\Admin\AddProduct.cshtml" />
     <Content Include="Views\Facet\Types.cshtml" />
     <Content Include="Views\Basket\Index.cshtml" />
     <Content Include="Views\Checkout\OrderInformation.cshtml" />
     <Content Include="Views\Checkout\OrderOverview.cshtml" />
     <Content Include="Views\Checkout\DeclinedOrder.cshtml" />
+    <Content Include="Views\Checkout\View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
