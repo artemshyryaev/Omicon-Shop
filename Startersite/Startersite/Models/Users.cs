@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
@@ -14,5 +15,14 @@ namespace Startersite
         public int UserId { get; set; }
 
         public string UserName { get; set; }
+
+        public string Password { get; set; }
+
+        public ICollection<Order> Orders { get; set; }
+
+        public Users()
+        {
+            Orders = new List<Order>();
+        }
     }
 }

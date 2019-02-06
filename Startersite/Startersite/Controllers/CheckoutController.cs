@@ -20,6 +20,7 @@ namespace Startersite.Controllers
         {
             context = new ShopDBContext();
             this.orderProcessor = orderProcessor;
+            this.emailSender = emailSender;
         }
 
         public ActionResult OrderInformation()
@@ -68,7 +69,7 @@ namespace Startersite.Controllers
 
             emailSender.SendOrderConfirmationEmail(order);           
 
-            return View("OrderSucessfullyCreated");
+            return View("OrderSucessfullyCreated", order);
         }
     }
 }

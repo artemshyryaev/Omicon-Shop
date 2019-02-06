@@ -261,6 +261,14 @@
     <Compile Include="Migrations\201902051635586_AddSomeProductPropertiesToBasketLineEntity.Designer.cs">
       <DependentUpon>201902051635586_AddSomeProductPropertiesToBasketLineEntity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902061906484_AddUserProp.cs" />
+    <Compile Include="Migrations\201902061906484_AddUserProp.Designer.cs">
+      <DependentUpon>201902061906484_AddUserProp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902061919599_LinkOrdersAndUsersTables.cs" />
+    <Compile Include="Migrations\201902061919599_LinkOrdersAndUsersTables.Designer.cs">
+      <DependentUpon>201902061919599_LinkOrdersAndUsersTables.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Abstract\IEmailSender.cs" />
     <Compile Include="Models\Abstract\IOrderProcessor.cs" />
@@ -387,6 +395,7 @@
     <Content Include="Views\Checkout\OrderOverview.cshtml" />
     <Content Include="Views\Checkout\DeclinedOrder.cshtml" />
     <Content Include="Views\Checkout\View.cshtml" />
+    <Content Include="Views\Checkout\OrderSucessfullyCreated.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -407,6 +416,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201902051635586_AddSomeProductPropertiesToBasketLineEntity.resx">
       <DependentUpon>201902051635586_AddSomeProductPropertiesToBasketLineEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902061906484_AddUserProp.resx">
+      <DependentUpon>201902061906484_AddUserProp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902061919599_LinkOrdersAndUsersTables.resx">
+      <DependentUpon>201902061919599_LinkOrdersAndUsersTables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

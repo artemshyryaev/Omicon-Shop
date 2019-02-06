@@ -37,7 +37,7 @@ namespace Startersite.Filters
                     }
                 }
 
-                WebSecurity.InitializeDatabaseConnection("ShopDBContext", "UserProfile", "UserId", "UserName", autoCreateTables: true);
+                WebSecurity.InitializeDatabaseConnection("ShopDB", "Users", "UserId", "UserName", autoCreateTables: true);
                 SimpleRoleProvider roles = (SimpleRoleProvider)Roles.Provider;
                 SimpleMembershipProvider memberships = (SimpleMembershipProvider)Membership.Provider;
 

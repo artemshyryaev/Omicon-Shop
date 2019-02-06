@@ -1,0 +1,11 @@
+﻿@model Startersite.Order
+@using Microsoft.AspNet.Identity
+
+@{
+    ViewBag.Title = "SucessfullOrder";
+}
+
+<h2>Dear @User.Identity.GetUserName() ?? anonymous, your order was sucessfully created!!!</h2>
+<div> @Html.RouteLink("Go to your order details", 
+     new { controller = "Admin", action = "OrderDetails", orderId = Model.OrderId})</div>
+

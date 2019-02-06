@@ -24,6 +24,10 @@ namespace Startersite
 
         public DateTime OrderDate { get; set; }
 
+        public int? UserId { get; set; }
+
+        public Users User { get; set; }
+
         public Order()
         {
             BasketLine = new List<BasketLine>();

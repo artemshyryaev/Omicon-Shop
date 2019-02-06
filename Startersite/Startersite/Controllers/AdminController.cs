@@ -76,5 +76,17 @@ namespace Startersite.Controllers
 
             return View();
         }
+
+        public ActionResult OrderDetails(int orderId)
+        {
+            if (!User.Identity.IsAuthenticated)
+            {
+                RedirectToAction("Login", "Account");
+            }
+
+            Order order = context.Orders.First(x => x.OrderId == orderId);
+
+            return View(order);
+        }
     }
 }
