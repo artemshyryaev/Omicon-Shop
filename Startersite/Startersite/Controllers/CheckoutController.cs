@@ -67,8 +67,7 @@ namespace Startersite.Controllers
         public ActionResult SubmitOrder(int orderId)
         {
             Order order = context.Orders.Include(e => e.OrderInformation).Include(e => e.BasketLine).First(x => x.OrderId == orderId);
-
-            emailSender.SendOrderConfirmationEmail(order);           
+            //emailSender.SendOrderConfirmationEmail(order);           
 
             return View("OrderSucessfullyCreated", order);
         }

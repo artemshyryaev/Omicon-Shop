@@ -5,7 +5,18 @@
     ViewBag.Title = "SucessfullOrder";
 }
 
-<h2>Dear @User.Identity.GetUserName() ?? anonymous, your order was sucessfully created!!!</h2>
-<div> @Html.RouteLink("Go to your order details", 
-     new { controller = "Admin", action = "OrderDetails", orderId = Model.OrderId})</div>
+<h2>
+    Dear
+    @if (User.Identity.IsAuthenticated)
+    {@User.Identity.GetUserName()}
+    else
+    {
+        @:anonymous
+    }
+    your order was sucessfully created!!!
+</h2>
+<div>
+    @Html.RouteLink("Go to your order details",
+   new { controller = "Admin", action = "OrderDetails", orderId = Model.OrderId})
+</div>
 

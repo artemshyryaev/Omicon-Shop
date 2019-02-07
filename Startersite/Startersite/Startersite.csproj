@@ -252,10 +252,11 @@
     <Compile Include="Controllers\FacetController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
-    <Compile Include="Filters\InitializeSimpleMembershopAttribute.cs" />
+    <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="HtmlHelpers\PagingHelpers.cs" />
     <Compile Include="Infrastructure\BasketModelBinder.cs" />
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
+    <Compile Include="Managers\IdentityExtensions.cs" />
     <Compile Include="Managers\ProductManager.cs" />
     <Compile Include="Managers\SqlQueries.cs" />
     <Compile Include="Migrations\201902051635586_AddSomeProductPropertiesToBasketLineEntity.cs" />

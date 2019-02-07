@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Startersite.Managers;
+using System.Web.Security;
 
 namespace Startersite.Controllers
 {
@@ -85,7 +86,8 @@ namespace Startersite.Controllers
                 RedirectToAction("Login", "Account", retunrUrl);
             }
 
-            Order order = context.Orders.First(x => x.OrderId == orderId);
+            var getUserName = Membership.GetUser(HttpContext.User.Identity.Name);
+            Order order = context.Orders.First(x => x.OrderId == orderId && x.CustomerEmail == getUserName.Email);
 
             if (order == null)
             {

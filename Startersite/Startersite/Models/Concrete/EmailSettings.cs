@@ -12,8 +12,8 @@ namespace Startersite.Models.Concrete
         public bool UseSsl = true;
         public string Username = "MySmtpUsername";
         public string Password = "MySmtpPassword";
-        public string ServerName = "smtp.example.com";
-        public int ServerPort = 587;
+        public string ServerName = "smtp.gmail.com";
+        public int ServerPort = 465;
         public bool WriteAsFile = true;
         public string FileLocation = @"d:\temp\mails";
     }
