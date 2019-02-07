@@ -16,6 +16,8 @@ namespace Startersite
 
         public string CustomerEmail { get; set; }
 
+        public int? OrderInformationId { get; set; }
+
         public Information OrderInformation { get; set; }
 
         public ICollection<BasketLine> BasketLine { get; set; }

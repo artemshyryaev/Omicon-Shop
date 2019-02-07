@@ -1,0 +1,18 @@
+﻿using System.Linq;
+using System.Data.Entity;
+
+namespace Startersite.Managers
+{
+    public class SqlQueries
+    {
+        public static Order GetOrderById(int orderId)
+        {
+            using (ShopDBContext context = new ShopDBContext())
+            {
+                Order order = context.Orders.Include(e => e.OrderInformation).Include(e => e.BasketLine).First(x => x.OrderId == orderId);
+
+                return order;
+            }
+        }
+    }
+}

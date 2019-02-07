@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using Startersite.Models.Concrete;
 using System.Data.Entity;
+using Startersite.Managers;
 
 namespace Startersite.Controllers
 {
@@ -52,7 +53,7 @@ namespace Startersite.Controllers
 
         public ActionResult DeclineOrder(int orderId)
         {
-            Order order = context.Orders.First(x => x.OrderId == orderId);
+            Order order = SqlQueries.GetOrderById(orderId);
 
             if (order != null)
             {
@@ -65,7 +66,7 @@ namespace Startersite.Controllers
 
         public ActionResult SubmitOrder(int orderId)
         {
-            Order order = context.Orders.First(x => x.OrderId == orderId);
+            Order order = context.Orders.Include(e => e.OrderInformation).Include(e => e.BasketLine).First(x => x.OrderId == orderId);
 
             emailSender.SendOrderConfirmationEmail(order);           
 

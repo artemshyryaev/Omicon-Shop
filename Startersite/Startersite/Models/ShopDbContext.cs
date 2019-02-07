@@ -8,7 +8,7 @@ namespace Startersite
     {
         static ShopDBContext()
         {
-            Database.SetInitializer(new CreateDatabaseIfNotExists<ShopDBContext>());
+            Database.SetInitializer(new CreateDatabaseIfNotExists<ShopDBContext>());            
         }
         public ShopDBContext()
             : base("name=ShopDB")

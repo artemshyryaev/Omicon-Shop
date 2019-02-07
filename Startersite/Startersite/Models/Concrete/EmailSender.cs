@@ -57,7 +57,9 @@ namespace Startersite.Models.Concrete
                 .AppendLine(order.OrderInformation.City)
                 .AppendLine(order.OrderInformation.Country)
                 .AppendLine(order.OrderInformation.ZipCode);
-                
+
+                emailSettings.MailToAddress = order.OrderInformation.Email ?? "temp@email.com";
+
                 MailMessage mailmessage = new MailMessage(emailSettings.MailFromAddress, emailSettings.MailToAddress,
                     "New order was sucessfully send!", body.ToString());
 

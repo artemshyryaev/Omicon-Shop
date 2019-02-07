@@ -11,6 +11,8 @@ namespace Startersite
 
         public string Name { get; set; }
 
+        public string Email { get; set; }
+
         public string Surname { get; set; }
 
         public double PhoneNumber { get; set; }

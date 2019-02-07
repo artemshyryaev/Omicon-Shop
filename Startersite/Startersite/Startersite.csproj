@@ -257,6 +257,7 @@
     <Compile Include="Infrastructure\BasketModelBinder.cs" />
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
     <Compile Include="Managers\ProductManager.cs" />
+    <Compile Include="Managers\SqlQueries.cs" />
     <Compile Include="Migrations\201902051635586_AddSomeProductPropertiesToBasketLineEntity.cs" />
     <Compile Include="Migrations\201902051635586_AddSomeProductPropertiesToBasketLineEntity.Designer.cs">
       <DependentUpon>201902051635586_AddSomeProductPropertiesToBasketLineEntity.cs</DependentUpon>
@@ -268,6 +269,18 @@
     <Compile Include="Migrations\201902061919599_LinkOrdersAndUsersTables.cs" />
     <Compile Include="Migrations\201902061919599_LinkOrdersAndUsersTables.Designer.cs">
       <DependentUpon>201902061919599_LinkOrdersAndUsersTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902071138278_addPropToOrderEntity.cs" />
+    <Compile Include="Migrations\201902071138278_addPropToOrderEntity.Designer.cs">
+      <DependentUpon>201902071138278_addPropToOrderEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902071453523_AddEmailProp.cs" />
+    <Compile Include="Migrations\201902071453523_AddEmailProp.Designer.cs">
+      <DependentUpon>201902071453523_AddEmailProp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902071455042_AddEmailPropToInformationProp.cs" />
+    <Compile Include="Migrations\201902071455042_AddEmailPropToInformationProp.Designer.cs">
+      <DependentUpon>201902071455042_AddEmailPropToInformationProp.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Abstract\IEmailSender.cs" />
@@ -396,6 +409,7 @@
     <Content Include="Views\Checkout\DeclinedOrder.cshtml" />
     <Content Include="Views\Checkout\View.cshtml" />
     <Content Include="Views\Checkout\OrderSucessfullyCreated.cshtml" />
+    <Content Include="Views\Shared\PageNotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -422,6 +436,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902061919599_LinkOrdersAndUsersTables.resx">
       <DependentUpon>201902061919599_LinkOrdersAndUsersTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902071138278_addPropToOrderEntity.resx">
+      <DependentUpon>201902071138278_addPropToOrderEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902071453523_AddEmailProp.resx">
+      <DependentUpon>201902071453523_AddEmailProp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902071455042_AddEmailPropToInformationProp.resx">
+      <DependentUpon>201902071455042_AddEmailPropToInformationProp.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

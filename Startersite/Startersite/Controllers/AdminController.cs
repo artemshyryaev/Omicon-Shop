@@ -81,10 +81,16 @@ namespace Startersite.Controllers
         {
             if (!User.Identity.IsAuthenticated)
             {
-                RedirectToAction("Login", "Account");
+                var retunrUrl = Request.Url.PathAndQuery;
+                RedirectToAction("Login", "Account", retunrUrl);
             }
 
             Order order = context.Orders.First(x => x.OrderId == orderId);
+
+            if (order == null)
+            {
+                View("PageNotFound");
+            }
 
             return View(order);
         }

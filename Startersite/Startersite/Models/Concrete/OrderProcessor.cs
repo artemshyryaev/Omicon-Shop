@@ -48,7 +48,8 @@ namespace Startersite.Models.Concrete
                     Surname = orderInformation.Surname,
                     Payment = orderInformation.Payment,
                     PhoneNumber = orderInformation.PhoneNumber,
-                    ZipCode = orderInformation.ZipCode
+                    ZipCode = orderInformation.ZipCode,
+                    Email = orderInformation.Email
                 }
             };
         }
@@ -62,6 +63,7 @@ namespace Startersite.Models.Concrete
                 line.ProductName = el.Product.ProductName;
                 line.Price = el.Product.Price;
                 line.Qty = el.Quantity;
+                line.OrderId = order.OrderId;
 
                 order.BasketLine.Add(line);
             }

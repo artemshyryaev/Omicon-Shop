@@ -33,6 +33,7 @@
 </div>
 
 <div>
-    @Html.RouteLink("Decline order", new { controller = "Checkout", action = "DeclineOrder", orderId = ViewBag.OrderId }, new { @class = "btn btn-primary"});
+    @Html.RouteLink("Decline order", new { controller = "Checkout", action = "DeclineOrder", orderId = ViewBag.OrderId }, new { @class = "btn btn-primary"})
+    @Html.RouteLink("Submit order", new { controller = "Checkout", action = "SubmitOrder", orderId = ViewBag.OrderId }, new { @class = "btn btn-primary" })
 </div>
 
