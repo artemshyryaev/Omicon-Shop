@@ -26,16 +26,33 @@
                         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                     </form>
-                    <div class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Login
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item">@Html.RouteLink("Login", new { controller = "Account", action = "Login" })</a>
-                            <a class="dropdown-item">@Html.RouteLink("Register", new { controller = "Account", action = "Register" })</a>
-                            <div class="dropdown-divider"></div>
+                    @if (Request.IsAuthenticated)
+                    {
+                        <text>
+                            Hello, @Html.RouteLink(User.Identity.Name, new { controller = "Admin", action = "PesonalInfo" })!
+                            @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+                            }
+                        </text>
+                        <ul>
+                            <li>@Html.ActionLink("My Account", "AddProduct", "Admin")</li>
+                        </ul>
+                    }
+                    else
+                    {
+                        <div class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Login
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item">@Html.RouteLink("Login", new { controller = "Account", action = "Login" })</a>
+                                <a class="dropdown-item">@Html.RouteLink("Register", new { controller = "Account", action = "Register" })</a>
+                                <div class="dropdown-divider"></div>
+                            </div>
                         </div>
-                    </div>
+                    }
                     <div>@Html.RouteLink("Basket", new { controller = "Basket", action = "Index", returnUrl = "Home/ProductsList" })</div>
                 </div>
             </div>

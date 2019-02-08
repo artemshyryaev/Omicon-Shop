@@ -1,4 +1,5 @@
-﻿using Startersite.Models.Abstract;
+﻿using Startersite.Managers;
+using Startersite.Models.Abstract;
 using Startersite.Models.ModelViews;
 using System;
 using System.Collections.Generic;
@@ -34,8 +35,9 @@ namespace Startersite.Models.Concrete
             order = new Order
             {
                 CustomerEmail = orderInformation.Email,
-                OrderDate = DateTime.Today,
-                OrderTotal = basket.BasketTotal(),
+                Date = DateTime.Today,
+                Total = basket.BasketTotal(),
+                Status = OrderStatuses.Pending,
 
                 OrderInformation = new Information
                 {

@@ -42,7 +42,7 @@ namespace Startersite.Controllers
         {
             WebSecurity.Logout();
 
-            return RedirectToAction("Home", "Index");
+            return RedirectToAction("ProductsList", "Home");
         }
 
         [AllowAnonymous]

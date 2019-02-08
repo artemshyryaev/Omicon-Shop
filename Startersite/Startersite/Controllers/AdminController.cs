@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using Startersite.Managers;
 using System.Web.Security;
+using Microsoft.AspNet.Identity;
 
 namespace Startersite.Controllers
 {
@@ -83,11 +84,14 @@ namespace Startersite.Controllers
             if (!User.Identity.IsAuthenticated)
             {
                 var retunrUrl = Request.Url.PathAndQuery;
-                RedirectToAction("Login", "Account", retunrUrl);
+                return RedirectToRoute(new { controller = "Account", action = "Login", returnUrl = retunrUrl });
             }
 
-            var getUserName = Membership.GetUser(HttpContext.User.Identity.Name);
-            Order order = context.Orders.First(x => x.OrderId == orderId && x.CustomerEmail == getUserName.Email);
+
+            var userId = Convert.ToInt32(User.Identity.GetUserId());
+            var userEmail = context.Users.FirstOrDefault(x => x.UserId == userId).Email;
+
+            Order order = context.Orders.First(x => x.OrderId == orderId && x.CustomerEmail == userEmail);
 
             if (order == null)
             {
@@ -95,6 +99,20 @@ namespace Startersite.Controllers
             }
 
             return View(order);
+        }
+
+        public ActionResult Approve(Order order, int orderId)
+        {
+            SqlQueries.ApproveOrderByAdmin(orderId);
+
+            return View("OrderDetails", order);
+        }
+
+        public ActionResult Decline(Order order, int orderId)
+        {
+            SqlQueries.DeclineOrderByAdmin(orderId);
+
+            return View("OrderDetails", order);
         }
     }
 }

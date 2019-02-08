@@ -14,5 +14,36 @@ namespace Startersite.Managers
                 return order;
             }
         }
+
+        public static void DeclineOrderByAdmin(int orderId)
+        {
+            using (ShopDBContext context = new ShopDBContext())
+            {
+                Order order = context.Orders.First(x => x.OrderId == orderId);
+                order.Status = OrderStatuses.Declined;
+                context.Entry(order).State = EntityState.Modified;
+                context.SaveChanges();
+            }
+        }
+
+        public static void ApproveOrderByAdmin(int orderId)
+        {
+            using (ShopDBContext context = new ShopDBContext())
+            {
+                Order order = context.Orders.First(x => x.OrderId == orderId);
+                order.Status = OrderStatuses.Approved;
+                context.Entry(order).State = EntityState.Modified;
+                context.SaveChanges();
+            }
+        }
+    }
+
+    public enum OrderStatuses
+    {
+        Pending,
+
+        Approved,
+
+        Declined
     }
 }

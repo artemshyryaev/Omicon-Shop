@@ -1,0 +1,87 @@
+﻿@model Startersite.Order
+@{
+    ViewBag.Title = "OrderDetails";
+}
+
+<h2>@Model.OrderId Order</h2>
+
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Order no.</th>
+                <th>Order status</th>
+                <th>Shipping method</th>
+                <th>Payment method</th>
+                <th>OrderDate</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.OrderId</td>
+                <td>@Model.Status</td>
+                <td>@Model.OrderInformation.Delivery</td>
+                <td>@Model.OrderInformation.Payment</td>
+                <td>@Model.Date</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>SHIP-TO ADDRESS</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>@Model.OrderInformation.Address</tr>
+            <tr>@Model.OrderInformation.Address2</tr>
+            <tr>@Model.OrderInformation.City</tr>
+            <tr>@Model.OrderInformation.Country</tr>
+            <tr>@Model.OrderInformation.ZipCode</tr>
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Item no.</th>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Qty</th>
+                @*?????<th>UOm</th>*@
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var line in Model.BasketLine)
+            {
+                <tr>
+                    <td>@line.ProductId</td>
+                    <td>@line.ProductName</td>
+                    <td>@line.Price</td>
+                    <td>@line.Qty</td>
+                    <td>@(line.Qty * line.Price)</td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="5">Total $ @Model.Total<</td>>
+    </table>
+</div>
+
+<div>
+    @if (User.Identity.Name == "admin")
+    {
+        @Html.RouteLink("Approve order", new { action = "Approve", controller = "OrderDetails", order = Model, orderId = Model.OrderId },
+            new { @class = "btn btn-primary" })
+        @Html.RouteLink("Decline order", new { action = "Decline", controller = "OrderDetails", order = Model, orderId = Model.OrderId },
+            new { @class = "btn btn-primary" })
+    }
+</div>
+

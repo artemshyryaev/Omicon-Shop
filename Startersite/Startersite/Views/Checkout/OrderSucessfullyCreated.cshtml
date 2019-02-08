@@ -8,7 +8,7 @@
 <h2>
     Dear
     @if (User.Identity.IsAuthenticated)
-    {@User.Identity.GetUserName()}
+    {@User.Identity.Name}
     else
     {
         @:anonymous

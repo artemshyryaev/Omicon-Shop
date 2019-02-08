@@ -47,7 +47,7 @@ namespace Startersite.Models.Concrete
                     body.Append($"{line.ProductName}" + " " + $"{line.Qty}" + " " + $"{line.Price}" + "$");
                 }
 
-                body.AppendFormat("Total value:" + $"{order.OrderTotal}")
+                body.AppendFormat("Total value:" + $"{order.Total}")
                 .AppendLine("---")
                 .AppendLine("Shipping info:")
                 .AppendLine(order.OrderInformation.Name)

@@ -256,7 +256,6 @@
     <Compile Include="HtmlHelpers\PagingHelpers.cs" />
     <Compile Include="Infrastructure\BasketModelBinder.cs" />
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
-    <Compile Include="Managers\IdentityExtensions.cs" />
     <Compile Include="Managers\ProductManager.cs" />
     <Compile Include="Managers\SqlQueries.cs" />
     <Compile Include="Migrations\201902051635586_AddSomeProductPropertiesToBasketLineEntity.cs" />
@@ -282,6 +281,14 @@
     <Compile Include="Migrations\201902071455042_AddEmailPropToInformationProp.cs" />
     <Compile Include="Migrations\201902071455042_AddEmailPropToInformationProp.Designer.cs">
       <DependentUpon>201902071455042_AddEmailPropToInformationProp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902081015110_AddOrderStatus.cs" />
+    <Compile Include="Migrations\201902081015110_AddOrderStatus.Designer.cs">
+      <DependentUpon>201902081015110_AddOrderStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902081042439_ChangeOrderStatusType.cs" />
+    <Compile Include="Migrations\201902081042439_ChangeOrderStatusType.Designer.cs">
+      <DependentUpon>201902081042439_ChangeOrderStatusType.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Abstract\IEmailSender.cs" />
@@ -387,7 +394,6 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\ChangePassword.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\ProductsList.cshtml" />
     <Content Include="Views\Home\_renderProducts.cshtml" />
     <Content Include="Views\Admin\OrdersList.cshtml" />
@@ -411,6 +417,7 @@
     <Content Include="Views\Checkout\View.cshtml" />
     <Content Include="Views\Checkout\OrderSucessfullyCreated.cshtml" />
     <Content Include="Views\Shared\PageNotFound.cshtml" />
+    <Content Include="Views\Admin\OrderDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -446,6 +453,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902071455042_AddEmailPropToInformationProp.resx">
       <DependentUpon>201902071455042_AddEmailPropToInformationProp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902081015110_AddOrderStatus.resx">
+      <DependentUpon>201902081015110_AddOrderStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902081042439_ChangeOrderStatusType.resx">
+      <DependentUpon>201902081042439_ChangeOrderStatusType.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
