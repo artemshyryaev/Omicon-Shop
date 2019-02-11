@@ -71,16 +71,16 @@
         </tbody>
         <tfoot>
             <tr>
-                <td colspan="5">Total $ @Model.Total<</td>>
+                <td colspan="5">Total $ @Model.Total</td>
     </table>
 </div>
 
 <div>
     @if (User.Identity.Name == "admin")
     {
-        @Html.RouteLink("Approve order", new { action = "Approve", controller = "OrderDetails", order = Model, orderId = Model.OrderId },
+        @Html.RouteLink("Approve order", new { action = "Approve", controller = "Admin", order = Model, orderId = Model.OrderId },
             new { @class = "btn btn-primary" })
-        @Html.RouteLink("Decline order", new { action = "Decline", controller = "OrderDetails", order = Model, orderId = Model.OrderId },
+        @Html.RouteLink("Decline order", new { action = "Decline", controller = "Admin", order = Model, orderId = Model.OrderId },
             new { @class = "btn btn-primary" })
     }
 </div>

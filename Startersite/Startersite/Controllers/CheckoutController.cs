@@ -34,19 +34,18 @@ namespace Startersite.Controllers
             Order order;
             if (basket.Lines.Count() == 0)
             {
-                ModelState.AddModelError("", "Yor basket is empty");
+                ModelState.AddModelError("", "Your basket is empty");
             }
 
             if (ModelState.IsValid)
             {
                 order = orderProcessor.ProcessOrder(basket, orderInformation);
+                ViewBag.OrderId = order.OrderId;
             }
             else
             {
-                return RedirectToAction("DeclinedOrder", "Checkout");
+                return View("OrderInformation");
             }
-
-            ViewBag.OrderId = order.OrderId;
 
             return View(basket);
         }
@@ -61,11 +60,16 @@ namespace Startersite.Controllers
                 context.SaveChanges();
             }
 
-            return RedirectToAction("DeclinedOrder", "Checkout");
+            return View();
         }
 
-        public ActionResult SubmitOrder(int orderId)
+        public ActionResult SubmitOrder(BasketModel basket, int orderId)
         {
+            if (basket != null)
+            {
+                basket.ClearBasket();
+            }
+
             Order order = context.Orders.Include(e => e.OrderInformation).Include(e => e.BasketLine).First(x => x.OrderId == orderId);
             //emailSender.SendOrderConfirmationEmail(order);           
 

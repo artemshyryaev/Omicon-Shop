@@ -15,6 +15,17 @@ namespace Startersite.Managers
             }
         }
 
+        public static Order GetOrderByIdAndCustomerEmail(int orderId, string email)
+        {
+            using (ShopDBContext context = new ShopDBContext())
+            {
+                Order order = context.Orders.Include(e => e.OrderInformation).Include(e => e.BasketLine).First(x => x.OrderId == orderId 
+                    && x.CustomerEmail == email);
+
+                return order;
+            }
+        }
+
         public static void DeclineOrderByAdmin(int orderId)
         {
             using (ShopDBContext context = new ShopDBContext())

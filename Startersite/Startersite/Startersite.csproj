@@ -290,6 +290,10 @@
     <Compile Include="Migrations\201902081042439_ChangeOrderStatusType.Designer.cs">
       <DependentUpon>201902081042439_ChangeOrderStatusType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902110824005_RemoveUnnecessaryPropertiesFromUserEntity.cs" />
+    <Compile Include="Migrations\201902110824005_RemoveUnnecessaryPropertiesFromUserEntity.Designer.cs">
+      <DependentUpon>201902110824005_RemoveUnnecessaryPropertiesFromUserEntity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Abstract\IEmailSender.cs" />
     <Compile Include="Models\Abstract\IOrderProcessor.cs" />
@@ -413,7 +417,7 @@
     <Content Include="Views\Basket\Index.cshtml" />
     <Content Include="Views\Checkout\OrderInformation.cshtml" />
     <Content Include="Views\Checkout\OrderOverview.cshtml" />
-    <Content Include="Views\Checkout\DeclinedOrder.cshtml" />
+    <Content Include="Views\Checkout\DeclineOrder.cshtml" />
     <Content Include="Views\Checkout\View.cshtml" />
     <Content Include="Views\Checkout\OrderSucessfullyCreated.cshtml" />
     <Content Include="Views\Shared\PageNotFound.cshtml" />
@@ -459,6 +463,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902081042439_ChangeOrderStatusType.resx">
       <DependentUpon>201902081042439_ChangeOrderStatusType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902110824005_RemoveUnnecessaryPropertiesFromUserEntity.resx">
+      <DependentUpon>201902110824005_RemoveUnnecessaryPropertiesFromUserEntity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

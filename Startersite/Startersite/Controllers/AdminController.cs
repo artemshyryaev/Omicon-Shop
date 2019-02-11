@@ -81,17 +81,23 @@ namespace Startersite.Controllers
 
         public ActionResult OrderDetails(int orderId)
         {
+            Order order = null;
             if (!User.Identity.IsAuthenticated)
             {
                 var retunrUrl = Request.Url.PathAndQuery;
                 return RedirectToRoute(new { controller = "Account", action = "Login", returnUrl = retunrUrl });
             }
 
+            var userEmail = User.Identity.GetUserName();
 
-            var userId = Convert.ToInt32(User.Identity.GetUserId());
-            var userEmail = context.Users.FirstOrDefault(x => x.UserId == userId).Email;
-
-            Order order = context.Orders.First(x => x.OrderId == orderId && x.CustomerEmail == userEmail);
+            if (userEmail == "admin")
+            {
+                order = SqlQueries.GetOrderById(orderId);
+            }
+            else
+            {
+                order = SqlQueries.GetOrderByIdAndCustomerEmail(orderId, userEmail);
+            }            
 
             if (order == null)
             {
