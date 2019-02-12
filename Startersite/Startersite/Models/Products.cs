@@ -5,15 +5,15 @@ using System.Data.Entity;
 using System.Linq;
 
 
-namespace Startersite
+namespace Startersite.Models
 {
-    public class Products
+    public class Product
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ProductId { get; set; }
 
-        public string ProductName { get; set; }
+        public string Name { get; set; }
 
         public string Description { get; set; }
 

@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using WebMatrix.WebData;
-using Startersite.Models.ModelViews;
 using Startersite.Infrastructure;
+using Startersite.Models.ModelViews;
 
 namespace Startersite
 {
@@ -16,8 +10,6 @@ namespace Startersite
     {
         protected void Application_Start()
         {
-            //Database.SetInitializer(new DropCreateDatabaseAlways<DentDbContext>());
-            //WebSecurity.InitializeDatabaseConnection("DentDbContext", "UserProfile", "UserId", "UserName", autoCreateTables: true);
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Startersite.Models.ModelViews;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Startersite
+namespace Startersite.Models
 {
     public class Information
     {

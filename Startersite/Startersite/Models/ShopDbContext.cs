@@ -2,7 +2,7 @@ using System;
 using System.Data.Entity;
 using System.Linq;
 
-namespace Startersite
+namespace Startersite.Models
 {
     public class ShopDBContext : DbContext
     {
@@ -17,7 +17,7 @@ namespace Startersite
 
         public virtual DbSet<Users> Users { get; set; }
 
-        public virtual DbSet<Products> Products { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
 
         public virtual DbSet<Order> Orders { get; set; }
 

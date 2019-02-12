@@ -1,14 +1,11 @@
-﻿using Startersite.Managers;
-using Startersite.Models.Abstract;
+﻿using Startersite.IManagers;
+using Startersite.Models;
 using Startersite.Models.ModelViews;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
-namespace Startersite.Models.Concrete
+namespace Startersite.Managers
 {
     public class OrderProcessor : Controller, IOrderProcessor
     {
@@ -62,7 +59,7 @@ namespace Startersite.Models.Concrete
             {
                 var line = new BasketLine();
                 line.ProductId = el.Product.ProductId;
-                line.ProductName = el.Product.ProductName;
+                line.ProductName = el.Product.Name;
                 line.Price = el.Product.Price;
                 line.Qty = el.Quantity;
                 line.OrderId = order.OrderId;

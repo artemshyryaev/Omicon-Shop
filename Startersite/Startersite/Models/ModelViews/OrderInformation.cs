@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace Startersite
+namespace Startersite.Models.ModelViews
 {
     public class OrderInformation
     {

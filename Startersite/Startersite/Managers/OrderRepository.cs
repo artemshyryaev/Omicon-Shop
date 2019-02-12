@@ -1,9 +1,8 @@
-﻿using System;
+﻿using Startersite.IManagers;
+using Startersite.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
-namespace Startersite
+namespace Startersite.Managers
 {
     public class OrderRepository : IOrderRepository
     {

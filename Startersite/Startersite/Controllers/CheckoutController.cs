@@ -1,13 +1,10 @@
-﻿using Startersite.Models.Abstract;
-using Startersite.Models.ModelViews;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
-using Startersite.Models.Concrete;
 using System.Data.Entity;
 using Startersite.Managers;
+using Startersite.IManagers;
+using Startersite.Models.ModelViews;
+using Startersite.Models;
 
 namespace Startersite.Controllers
 {

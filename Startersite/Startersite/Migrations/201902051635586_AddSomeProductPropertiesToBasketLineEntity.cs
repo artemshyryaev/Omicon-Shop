@@ -26,13 +26,13 @@ namespace Startersite.Migrations
                 "dbo.Orders",
                 c => new
                     {
-                        OrderId = c.Int(nullable: false, identity: true),
+                        Id = c.Int(nullable: false, identity: true),
                         CustomerEmail = c.String(),
                         OrderTotal = c.Double(nullable: false),
                         OrderDate = c.DateTime(nullable: false),
                         OrderInformation_Id = c.Int(),
                     })
-                .PrimaryKey(t => t.OrderId)
+                .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Information", t => t.OrderInformation_Id)
                 .Index(t => t.OrderInformation_Id);
             
@@ -58,13 +58,13 @@ namespace Startersite.Migrations
                 "dbo.Products",
                 c => new
                     {
-                        ProductId = c.Int(nullable: false, identity: true),
-                        ProductName = c.String(),
+                        Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
                         Description = c.String(),
                         Price = c.Int(nullable: false),
                         Type = c.String(),
                     })
-                .PrimaryKey(t => t.ProductId);
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.Users",

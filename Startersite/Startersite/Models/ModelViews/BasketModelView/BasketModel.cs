@@ -11,7 +11,7 @@ namespace Startersite.Models.ModelViews
 
         public IEnumerable<BasketLineModel> Lines { get { return lineCollection; } }
 
-        public void Add(Products product, double quantity)
+        public void Add(Product product, double quantity)
         {
             var isProductInBasket = lineCollection.Where(p => p.Product.ProductId == product.ProductId).FirstOrDefault();
 
@@ -25,7 +25,7 @@ namespace Startersite.Models.ModelViews
             }
         }
 
-        public void RemoveLine(Products product)
+        public void RemoveLine(Product product)
         {
             lineCollection.RemoveAll(p => p.Product.ProductId == product.ProductId);
         }
@@ -43,7 +43,7 @@ namespace Startersite.Models.ModelViews
 
     public class BasketLineModel
     {
-        public Products Product { get; set; }
+        public Product Product { get; set; }
 
         public double Quantity { get; set; }
     }

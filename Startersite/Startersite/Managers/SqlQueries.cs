@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Data.Entity;
+using Startersite.Models;
 
 namespace Startersite.Managers
 {

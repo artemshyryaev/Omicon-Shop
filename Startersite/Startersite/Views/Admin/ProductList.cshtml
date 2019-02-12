@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Startersite.Models.Product>
+
+@{
+    ViewBag.Title = "Admin panel: ProductList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3>Product list</h3>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped table-condensed table-bordered">
+            <tr>
+                <th class="text-right">Id</th>
+                <th>Name</th>
+                <th class="text-right">Description</th>
+                <th class="text-right">Price</th>
+                <th class="text-right">Type</th>
+                <th class="text-center">Actions</th>
+            </tr>
+            @foreach (var el in Model)
+            {
+                <tr>
+                    <td class="text-right">@el.ProductId</td>
+                    <td>@el.Name</td>
+                    <td class="text-right">@el.Description</td>
+                    <td class="text-right">@el.Price</td>
+                    <td class="text-right">@el.Type</td>
+                    <td class="text-center">
+                        @using (Html.BeginForm("DeleteProduct", "Admin"))
+                        {
+                            @Html.Hidden("productId", el.ProductId)
+                            <input type="submit" class="btn btn-default btn-xs" value="Remove">
+                        }
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div class="panel-footer">
+        @Html.ActionLink("Add product", "AddProduct", "Admin", new { @class = "btn btn-default" })
+    </div>

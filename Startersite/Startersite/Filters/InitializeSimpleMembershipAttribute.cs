@@ -5,6 +5,7 @@ using System.Threading;
 using System.Web.Mvc;
 using WebMatrix.WebData;
 using System.Web.Security;
+using Startersite.Models;
 
 namespace Startersite.Filters
 {

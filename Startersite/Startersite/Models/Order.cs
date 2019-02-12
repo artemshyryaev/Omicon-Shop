@@ -7,7 +7,7 @@ using System.Data.Entity;
 using System.Linq;
 
 
-namespace Startersite
+namespace Startersite.Models
 {
     public class Order
     {

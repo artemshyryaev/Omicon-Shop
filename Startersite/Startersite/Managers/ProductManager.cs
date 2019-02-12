@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Startersite.IManagers;
+using Startersite.Models;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace Startersite.Managers
 {
@@ -14,7 +14,7 @@ namespace Startersite.Managers
             this.productsRepo = productsRepo;
         }
 
-        public IEnumerable<Products> GetProducts(string type, int page, int pageSize)
+        public IEnumerable<Product> GetProducts(string type, int page, int pageSize)
         {
             if (type == null)
                return productsRepo.Products.Skip((page - 1) * pageSize).Take(pageSize).OrderBy(

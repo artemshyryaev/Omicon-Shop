@@ -1,14 +1,10 @@
-﻿using Startersite.Models.Abstract;
-using Startersite.Models.ModelViews;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Startersite.IManagers;
+using Startersite.Models;
 using System.Net;
 using System.Net.Mail;
 using System.Text;
-using System.Web;
 
-namespace Startersite.Models.Concrete
+namespace Startersite.Managers
 {
     public class EmailSender : IEmailSender
     {

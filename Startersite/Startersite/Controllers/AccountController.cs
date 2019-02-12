@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using WebMatrix.WebData;
-using Startersite.Models.ModelViews;
-using Startersite;
 using System.Web.Security;
 using Startersite.Filters;
+using Startersite.Models.ModelViews;
 
 namespace Startersite.Controllers
 {

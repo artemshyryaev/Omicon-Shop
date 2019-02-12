@@ -295,32 +295,32 @@
       <DependentUpon>201902110824005_RemoveUnnecessaryPropertiesFromUserEntity.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Abstract\IEmailSender.cs" />
-    <Compile Include="Models\Abstract\IOrderProcessor.cs" />
-    <Compile Include="Models\Abstract\IOrderRepository.cs" />
-    <Compile Include="Models\BasketLine.cs" />
-    <Compile Include="Models\Concrete\EmailSender.cs" />
-    <Compile Include="Models\Concrete\EmailSettings.cs" />
-    <Compile Include="Models\Concrete\OrderProcessor.cs" />
-    <Compile Include="Models\Concrete\OrderRepository.cs" />
-    <Compile Include="Models\Concrete\ProductRepository.cs" />
-    <Compile Include="Models\Abstract\IProductRepository.cs" />
-    <Compile Include="Models\Information.cs" />
-    <Compile Include="Models\ModelViews\BasketModelView\BasketIndexModel.cs" />
-    <Compile Include="Models\ModelViews\BasketModelView\BasketModel.cs" />
-    <Compile Include="Models\ModelViews\OrderInformation.cs" />
-    <Compile Include="Models\ShopDbContext.cs" />
+    <Compile Include="IManagers\IEmailSender.cs" />
+    <Compile Include="IManagers\IOrderProcessor.cs" />
+    <Compile Include="IManagers\IOrderRepository.cs" />
+    <Compile Include="IManagers\IProductRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BasketLine.cs" />
+    <Compile Include="Managers\EmailSender.cs" />
+    <Compile Include="Managers\EmailSettings.cs" />
+    <Compile Include="Managers\OrderProcessor.cs" />
+    <Compile Include="Managers\OrderRepository.cs" />
+    <Compile Include="Managers\ProductRepository.cs" />
+    <Compile Include="Models\Information.cs" />
     <Compile Include="Models\ModelViews\AccountModelView\ChangePasswordModel.cs" />
     <Compile Include="Models\ModelViews\AccountModelView\LoginModel.cs" />
+    <Compile Include="Models\ModelViews\AccountModelView\RegisterModel.cs" />
+    <Compile Include="Models\ModelViews\BasketModelView\BasketIndexModel.cs" />
+    <Compile Include="Models\ModelViews\BasketModelView\BasketModel.cs" />
+    <Compile Include="Models\ModelViews\OrderInformation.cs" />
     <Compile Include="Models\ModelViews\OrdersListModel.cs" />
     <Compile Include="Models\ModelViews\PagingInfoModel.cs" />
     <Compile Include="Models\ModelViews\ProductsListModel.cs" />
-    <Compile Include="Models\ModelViews\AccountModelView\RegisterModel.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Products.cs" />
+    <Compile Include="Models\ShopDbContext.cs" />
     <Compile Include="Models\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -399,7 +399,7 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\ChangePassword.cshtml" />
     <Content Include="Views\Home\ProductsList.cshtml" />
-    <Content Include="Views\Home\_renderProducts.cshtml" />
+    <Content Include="Views\Home\_RenderProducts.cshtml" />
     <Content Include="Views\Admin\OrdersList.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
@@ -422,6 +422,8 @@
     <Content Include="Views\Checkout\OrderSucessfullyCreated.cshtml" />
     <Content Include="Views\Shared\PageNotFound.cshtml" />
     <Content Include="Views\Admin\OrderDetails.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Admin\ProductList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

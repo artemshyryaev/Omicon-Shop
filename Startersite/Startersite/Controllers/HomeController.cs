@@ -1,12 +1,9 @@
-﻿using Startersite.Models.ModelViews;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
 using Startersite.Filters;
 using Startersite.Managers;
+using Startersite.IManagers;
+using Startersite.Models.ModelViews;
 
 namespace Startersite.Controllers
 {

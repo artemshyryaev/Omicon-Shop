@@ -7,7 +7,7 @@ namespace Startersite.Models.ModelViews
 {
     public class ProductsListModel
     {
-        public IEnumerable<Products> Products { get; set; }
+        public IEnumerable<Product> Products { get; set; }
 
         public PagingInfoModel PagingInfo { get; set; }
 

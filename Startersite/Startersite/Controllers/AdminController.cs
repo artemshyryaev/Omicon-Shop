@@ -1,13 +1,11 @@
-﻿using Startersite.Models.ModelViews;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using Startersite.Managers;
-using System.Web.Security;
 using Microsoft.AspNet.Identity;
+using Startersite.IManagers;
+using Startersite.Models.ModelViews;
+using Startersite.Models;
 
 namespace Startersite.Controllers
 {
@@ -29,40 +27,19 @@ namespace Startersite.Controllers
             return View();
         }
 
-        public ActionResult ManageProducts(string type, int page = 1)
+        public ActionResult ProductList()
         {
-            ProductManager manager = new ProductManager(productsRepo);
-
-            ProductsListModel model = new ProductsListModel
-            {
-                Products = manager.GetProducts(type, page, pageSize),
-                PagingInfo = new PagingInfoModel
-                {
-                    CurrentPage = page,
-                    TotalItems = type == null ? productsRepo.Products.Count() : productsRepo.Products.Where(p => p.Type == type).Count(),
-                    ItemsPerPage = pageSize
-                },
-                Type = type
-            };
-
-            return View(model);
+            return View();
         }
 
-        public ActionResult Orders(int page = 1)
+        public ActionResult EditProduct()
         {
-            OrdersListModel model = new OrdersListModel
-            {
-                //Orders = ordersRepo.Orders.Skip((page - 1) * pageSize).Take(pageSize).OrderBy(
-                //    orders => orders.),
-                PagingInfo = new PagingInfoModel
-                {
-                    CurrentPage = page,
-                    ItemsPerPage = pageSize,
-                    TotalItems = ordersRepo.Orders.Count()
-                }
-            };
+            return View();
+        }
 
-            return View(model);
+        public ActionResult DeleteProduct(int productId)
+        {
+            return View();
         }
 
         public ActionResult AddProduct()
@@ -71,7 +48,7 @@ namespace Startersite.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddProduct(Products products)
+        public ActionResult AddProduct(Product products)
         {
             context.Entry(products).State = EntityState.Added;
             context.SaveChanges();

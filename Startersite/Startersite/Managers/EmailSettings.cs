@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Startersite.Models.Concrete
+namespace Startersite.Managers
 {
     public class EmailSettings
     {
