@@ -7,13 +7,13 @@ namespace Startersite.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class RemoveUnnecessaryPropertiesFromUserEntity : IMigrationMetadata
+    public sealed partial class AddModels : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(RemoveUnnecessaryPropertiesFromUserEntity));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddModels));
         
         string IMigrationMetadata.Id
         {
-            get { return "201902110824005_RemoveUnnecessaryPropertiesFromUserEntity"; }
+            get { return "201902131043151_AddModels"; }
         }
         
         string IMigrationMetadata.Source

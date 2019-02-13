@@ -13,7 +13,7 @@ namespace Startersite.Models.ModelViews
 
         public void Add(Product product, double quantity)
         {
-            var isProductInBasket = lineCollection.Where(p => p.Product.ProductId == product.ProductId).FirstOrDefault();
+            var isProductInBasket = lineCollection.Where(p => p.Product.Id == product.Id).FirstOrDefault();
 
             if (isProductInBasket == null)
             {
@@ -27,7 +27,7 @@ namespace Startersite.Models.ModelViews
 
         public void RemoveLine(Product product)
         {
-            lineCollection.RemoveAll(p => p.Product.ProductId == product.ProductId);
+            lineCollection.RemoveAll(p => p.Product.Id == product.Id);
         }
 
         public void ClearBasket()

@@ -18,10 +18,10 @@ namespace Startersite.Managers
         {
             if (type == null)
                return productsRepo.Products.Skip((page - 1) * pageSize).Take(pageSize).OrderBy(
-                    products => products.ProductId);
+                    products => products.Id);
             else
                 return productsRepo.Products.Where(p => p.Type == type).Skip((page - 1) * pageSize).Take(pageSize).OrderBy(
-                    products => products.ProductId);
+                    products => products.Id);
         }
     }
 }

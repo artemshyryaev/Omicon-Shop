@@ -1,4 +1,4 @@
-﻿@model Startersite.Products
+﻿@model Startersite.Models.Product
 @{
     ViewBag.Title = "AddProduct";
 }
@@ -7,8 +7,8 @@
 {
 <div>
     <div>
-        @Html.LabelFor(e => e.ProductName)
-        @Html.TextBoxFor(e => e.ProductName)
+        @Html.LabelFor(e => e.Name)
+        @Html.TextBoxFor(e => e.Name)
         @Html.ValidationSummary()
     </div>
     <div>

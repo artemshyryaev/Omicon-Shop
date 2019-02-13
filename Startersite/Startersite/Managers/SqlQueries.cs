@@ -10,7 +10,7 @@ namespace Startersite.Managers
         {
             using (ShopDBContext context = new ShopDBContext())
             {
-                Order order = context.Orders.Include(e => e.OrderInformation).Include(e => e.BasketLine).First(x => x.OrderId == orderId);
+                Order order = context.Orders.Include(e => e.OrderInformation).Include(e => e.BasketLine).First(x => x.Id == orderId);
 
                 return order;
             }
@@ -20,7 +20,7 @@ namespace Startersite.Managers
         {
             using (ShopDBContext context = new ShopDBContext())
             {
-                Order order = context.Orders.Include(e => e.OrderInformation).Include(e => e.BasketLine).First(x => x.OrderId == orderId 
+                Order order = context.Orders.Include(e => e.OrderInformation).Include(e => e.BasketLine).First(x => x.Id == orderId 
                     && x.CustomerEmail == email);
 
                 return order;
@@ -31,7 +31,7 @@ namespace Startersite.Managers
         {
             using (ShopDBContext context = new ShopDBContext())
             {
-                Order order = context.Orders.First(x => x.OrderId == orderId);
+                Order order = context.Orders.First(x => x.Id == orderId);
                 order.Status = OrderStatuses.Declined;
                 context.Entry(order).State = EntityState.Modified;
                 context.SaveChanges();
@@ -42,7 +42,7 @@ namespace Startersite.Managers
         {
             using (ShopDBContext context = new ShopDBContext())
             {
-                Order order = context.Orders.First(x => x.OrderId == orderId);
+                Order order = context.Orders.First(x => x.Id == orderId);
                 order.Status = OrderStatuses.Approved;
                 context.Entry(order).State = EntityState.Modified;
                 context.SaveChanges();

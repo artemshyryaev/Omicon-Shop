@@ -20,13 +20,13 @@
             {
                 <tr>
                     <td>@el.Quantity</td>
-                    <td>@el.Product.ProductName</td>
+                    <td>@el.Product.Name</td>
                     <td>@el.Product.Price</td>
                     <td>@(el.Quantity * el.Product.Price)$</td>
                     <td>
                         @using (Html.BeginForm("RemoveFromBasket", "Basket"))
                         {
-                            @Html.Hidden("productId", el.Product.ProductId)
+                            @Html.Hidden("productId", el.Product.Id)
                             @Html.HiddenFor(x => x.RetunrUrl)
                             <input class="btn btn-sm btn-warning" type="submit" value="Delete" />
                         }

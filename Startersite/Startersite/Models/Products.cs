@@ -11,7 +11,7 @@ namespace Startersite.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ProductId { get; set; }
+        public int Id { get; set; }
 
         public string Name { get; set; }
 

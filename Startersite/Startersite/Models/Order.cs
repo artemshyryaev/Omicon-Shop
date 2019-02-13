@@ -13,7 +13,7 @@ namespace Startersite.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int OrderId { get; set; }
+        public int Id { get; set; }
 
         public OrderStatuses Status { get; set; }
 

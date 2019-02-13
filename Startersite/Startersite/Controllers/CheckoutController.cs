@@ -37,7 +37,7 @@ namespace Startersite.Controllers
             if (ModelState.IsValid)
             {
                 order = orderProcessor.ProcessOrder(basket, orderInformation);
-                ViewBag.OrderId = order.OrderId;
+                ViewBag.OrderId = order.Id;
             }
             else
             {
@@ -67,7 +67,7 @@ namespace Startersite.Controllers
                 basket.ClearBasket();
             }
 
-            Order order = context.Orders.Include(e => e.OrderInformation).Include(e => e.BasketLine).First(x => x.OrderId == orderId);
+            Order order = context.Orders.Include(e => e.OrderInformation).Include(e => e.BasketLine).First(x => x.Id == orderId);
             //emailSender.SendOrderConfirmationEmail(order);           
 
             return View("OrderSucessfullyCreated", order);

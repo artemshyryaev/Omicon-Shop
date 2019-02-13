@@ -11,9 +11,6 @@
 </hgroup>
 
 <body>
-    @*<div class="addNew">
-            @Html.RouteLink("Add new", "AddProduct", "Home");
-        </div>*@
     @Html.Action("Types", "Facet");
 
     @foreach (var el in Model.Products)

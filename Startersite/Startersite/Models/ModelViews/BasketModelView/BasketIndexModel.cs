@@ -8,6 +8,7 @@ namespace Startersite.Models.ModelViews
     public class BasketIndexModel
     {
         public BasketModel Basket { get; set; }
+
         public string RetunrUrl { get; set; }
     }
 }

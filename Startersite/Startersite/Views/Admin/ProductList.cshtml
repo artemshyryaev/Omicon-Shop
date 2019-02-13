@@ -22,7 +22,7 @@
             @foreach (var el in Model)
             {
                 <tr>
-                    <td class="text-right">@el.ProductId</td>
+                    <td class="text-right">@el.Id</td>
                     <td>@el.Name</td>
                     <td class="text-right">@el.Description</td>
                     <td class="text-right">@el.Price</td>
@@ -30,7 +30,7 @@
                     <td class="text-center">
                         @using (Html.BeginForm("DeleteProduct", "Admin"))
                         {
-                            @Html.Hidden("productId", el.ProductId)
+                            @Html.Hidden("productId", el.Id)
                             <input type="submit" class="btn btn-default btn-xs" value="Remove">
                         }
                     </td>
@@ -41,3 +41,4 @@
     <div class="panel-footer">
         @Html.ActionLink("Add product", "AddProduct", "Admin", new { @class = "btn btn-default" })
     </div>
+</div>

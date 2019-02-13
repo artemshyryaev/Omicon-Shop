@@ -258,41 +258,9 @@
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
     <Compile Include="Managers\ProductManager.cs" />
     <Compile Include="Managers\SqlQueries.cs" />
-    <Compile Include="Migrations\201902051635586_AddSomeProductPropertiesToBasketLineEntity.cs" />
-    <Compile Include="Migrations\201902051635586_AddSomeProductPropertiesToBasketLineEntity.Designer.cs">
-      <DependentUpon>201902051635586_AddSomeProductPropertiesToBasketLineEntity.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902061906484_AddUserProp.cs" />
-    <Compile Include="Migrations\201902061906484_AddUserProp.Designer.cs">
-      <DependentUpon>201902061906484_AddUserProp.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902061919599_LinkOrdersAndUsersTables.cs" />
-    <Compile Include="Migrations\201902061919599_LinkOrdersAndUsersTables.Designer.cs">
-      <DependentUpon>201902061919599_LinkOrdersAndUsersTables.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902071138278_addPropToOrderEntity.cs" />
-    <Compile Include="Migrations\201902071138278_addPropToOrderEntity.Designer.cs">
-      <DependentUpon>201902071138278_addPropToOrderEntity.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902071453523_AddEmailProp.cs" />
-    <Compile Include="Migrations\201902071453523_AddEmailProp.Designer.cs">
-      <DependentUpon>201902071453523_AddEmailProp.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902071455042_AddEmailPropToInformationProp.cs" />
-    <Compile Include="Migrations\201902071455042_AddEmailPropToInformationProp.Designer.cs">
-      <DependentUpon>201902071455042_AddEmailPropToInformationProp.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902081015110_AddOrderStatus.cs" />
-    <Compile Include="Migrations\201902081015110_AddOrderStatus.Designer.cs">
-      <DependentUpon>201902081015110_AddOrderStatus.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902081042439_ChangeOrderStatusType.cs" />
-    <Compile Include="Migrations\201902081042439_ChangeOrderStatusType.Designer.cs">
-      <DependentUpon>201902081042439_ChangeOrderStatusType.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902110824005_RemoveUnnecessaryPropertiesFromUserEntity.cs" />
-    <Compile Include="Migrations\201902110824005_RemoveUnnecessaryPropertiesFromUserEntity.Designer.cs">
-      <DependentUpon>201902110824005_RemoveUnnecessaryPropertiesFromUserEntity.cs</DependentUpon>
+    <Compile Include="Migrations\201902131043151_AddModels.cs" />
+    <Compile Include="Migrations\201902131043151_AddModels.Designer.cs">
+      <DependentUpon>201902131043151_AddModels.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="IManagers\IEmailSender.cs" />
@@ -410,7 +378,6 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-    <Content Include="Views\Admin\_renderOrders.cshtml" />
     <Content Include="Views\Admin\ManageProducts.cshtml" />
     <Content Include="Views\Admin\AddProduct.cshtml" />
     <Content Include="Views\Facet\Types.cshtml" />
@@ -442,32 +409,8 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201902051635586_AddSomeProductPropertiesToBasketLineEntity.resx">
-      <DependentUpon>201902051635586_AddSomeProductPropertiesToBasketLineEntity.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902061906484_AddUserProp.resx">
-      <DependentUpon>201902061906484_AddUserProp.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902061919599_LinkOrdersAndUsersTables.resx">
-      <DependentUpon>201902061919599_LinkOrdersAndUsersTables.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902071138278_addPropToOrderEntity.resx">
-      <DependentUpon>201902071138278_addPropToOrderEntity.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902071453523_AddEmailProp.resx">
-      <DependentUpon>201902071453523_AddEmailProp.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902071455042_AddEmailPropToInformationProp.resx">
-      <DependentUpon>201902071455042_AddEmailPropToInformationProp.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902081015110_AddOrderStatus.resx">
-      <DependentUpon>201902081015110_AddOrderStatus.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902081042439_ChangeOrderStatusType.resx">
-      <DependentUpon>201902081042439_ChangeOrderStatusType.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902110824005_RemoveUnnecessaryPropertiesFromUserEntity.resx">
-      <DependentUpon>201902110824005_RemoveUnnecessaryPropertiesFromUserEntity.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201902131043151_AddModels.resx">
+      <DependentUpon>201902131043151_AddModels.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

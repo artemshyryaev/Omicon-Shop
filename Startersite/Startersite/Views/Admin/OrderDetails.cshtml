@@ -3,7 +3,7 @@
     ViewBag.Title = "OrderDetails";
 }
 
-<h2>@Model.OrderId Order</h2>
+<h2>@Model.Id Order</h2>
 
 <div>
     <table>
@@ -18,7 +18,7 @@
         </thead>
         <tbody>
             <tr>
-                <td>@Model.OrderId</td>
+                <td>@Model.Id</td>
                 <td>@Model.Status</td>
                 <td>@Model.OrderInformation.Delivery</td>
                 <td>@Model.OrderInformation.Payment</td>
@@ -78,9 +78,9 @@
 <div>
     @if (User.Identity.Name == "admin")
     {
-        @Html.RouteLink("Approve order", new { action = "Approve", controller = "Admin", order = Model, orderId = Model.OrderId },
+        @Html.RouteLink("Approve order", new { action = "Approve", controller = "Admin", order = Model, orderId = Model.Id },
             new { @class = "btn btn-primary" })
-        @Html.RouteLink("Decline order", new { action = "Decline", controller = "Admin", order = Model, orderId = Model.OrderId },
+        @Html.RouteLink("Decline order", new { action = "Decline", controller = "Admin", order = Model, orderId = Model.Id },
             new { @class = "btn btn-primary" })
     }
 </div>

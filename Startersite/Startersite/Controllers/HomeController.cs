@@ -11,7 +11,6 @@ namespace Startersite.Controllers
     public class HomeController : Controller
     {
         private IProductRepository productsRepo;
-
         int pageSize = 10;
 
         public HomeController(IProductRepository productsRepo)

@@ -21,7 +21,7 @@ namespace Startersite.Controllers
 
         public RedirectToRouteResult AddToCart(BasketModel basket, int productId, string returnUrl)
         {
-            var product = productRepo.Products.FirstOrDefault(x => x.ProductId == productId);
+            var product = productRepo.Products.FirstOrDefault(x => x.Id == productId);
 
             if (product != null)
             {
@@ -33,7 +33,7 @@ namespace Startersite.Controllers
 
         public RedirectToRouteResult RemoveFromBasket(BasketModel basket, int productId, string returnUrl)
         {
-            var product = productRepo.Products.FirstOrDefault(x => x.ProductId == productId);
+            var product = productRepo.Products.FirstOrDefault(x => x.Id == productId);
 
             if (product != null)
             {

@@ -3,7 +3,7 @@ namespace Startersite.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class AddSomeProductPropertiesToBasketLineEntity : DbMigration
+    public partial class AddModels : DbMigration
     {
         public override void Up()
         {
@@ -27,14 +27,18 @@ namespace Startersite.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
+                        Status = c.Int(nullable: false),
+                        Total = c.Double(nullable: false),
                         CustomerEmail = c.String(),
-                        OrderTotal = c.Double(nullable: false),
-                        OrderDate = c.DateTime(nullable: false),
-                        OrderInformation_Id = c.Int(),
+                        Date = c.DateTime(nullable: false),
+                        OrderInformationId = c.Int(),
+                        UserId = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Information", t => t.OrderInformation_Id)
-                .Index(t => t.OrderInformation_Id);
+                .ForeignKey("dbo.Information", t => t.OrderInformationId)
+                .ForeignKey("dbo.Users", t => t.UserId)
+                .Index(t => t.OrderInformationId)
+                .Index(t => t.UserId);
             
             CreateTable(
                 "dbo.Information",
@@ -42,6 +46,7 @@ namespace Startersite.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Name = c.String(),
+                        Email = c.String(),
                         Surname = c.String(),
                         PhoneNumber = c.Double(nullable: false),
                         Country = c.String(),
@@ -55,6 +60,15 @@ namespace Startersite.Migrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
+                "dbo.Users",
+                c => new
+                    {
+                        UserId = c.Int(nullable: false, identity: true),
+                        Email = c.String(),
+                    })
+                .PrimaryKey(t => t.UserId);
+            
+            CreateTable(
                 "dbo.Products",
                 c => new
                     {
@@ -66,25 +80,18 @@ namespace Startersite.Migrations
                     })
                 .PrimaryKey(t => t.Id);
             
-            CreateTable(
-                "dbo.Users",
-                c => new
-                    {
-                        UserId = c.Int(nullable: false, identity: true),
-                        UserName = c.String(),
-                    })
-                .PrimaryKey(t => t.UserId);
-            
         }
         
         public override void Down()
         {
             DropForeignKey("dbo.BasketLines", "OrderId", "dbo.Orders");
-            DropForeignKey("dbo.Orders", "OrderInformation_Id", "dbo.Information");
-            DropIndex("dbo.Orders", new[] { "OrderInformation_Id" });
+            DropForeignKey("dbo.Orders", "UserId", "dbo.Users");
+            DropForeignKey("dbo.Orders", "OrderInformationId", "dbo.Information");
+            DropIndex("dbo.Orders", new[] { "UserId" });
+            DropIndex("dbo.Orders", new[] { "OrderInformationId" });
             DropIndex("dbo.BasketLines", new[] { "OrderId" });
-            DropTable("dbo.Users");
             DropTable("dbo.Products");
+            DropTable("dbo.Users");
             DropTable("dbo.Information");
             DropTable("dbo.Orders");
             DropTable("dbo.BasketLines");

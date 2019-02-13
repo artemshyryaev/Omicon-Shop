@@ -4,5 +4,5 @@
 }
 
 <h2>Your order @User.Identity.GetUserName() was succesfully created!</h2>
-@Html.RouteLink("Go to order details", new { controller = "", action = ""})
+@Html.RouteLink("Go to order details", new { controller = "Admin", action = "OrderDetails" })
 
