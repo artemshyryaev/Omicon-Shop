@@ -48,6 +48,16 @@ namespace Startersite.Managers
                 context.SaveChanges();
             }
         }
+
+        public static Product GetProductById(int orderId)
+        {
+            using (ShopDBContext context = new ShopDBContext())
+            {
+                Product product = context.Products.FirstOrDefault(x => x.Id == orderId);
+
+                return product;
+            }
+        }
     }
 
     public enum OrderStatuses

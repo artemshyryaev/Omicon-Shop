@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace Startersite.Models.ModelViews
 {
     public class OrderInformation
     {
         [Key]
+        [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
 
         [Display(Name = "Name")]
@@ -24,8 +26,8 @@ namespace Startersite.Models.ModelViews
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
-        [Display(Name="Phone number")]
-        [Required(ErrorMessage ="Enter valid telephone number")]
+        [Display(Name = "Phone number")]
+        [Required(ErrorMessage = "Enter valid telephone number")]
         [DataType(DataType.PhoneNumber)]
         public double PhoneNumber { get; set; }
 
@@ -35,13 +37,16 @@ namespace Startersite.Models.ModelViews
 
         [Display(Name = "Address")]
         [Required(ErrorMessage = "Enter address")]
+        [DataType(DataType.MultilineText)]
         public string Address { get; set; }
 
-        [Display(Name = "Address")]
+        [Display(Name = "Address2")]
+        [DataType(DataType.MultilineText)]
         public string Address2 { get; set; }
 
         [Display(Name = "City")]
         [Required(ErrorMessage = "Enter city")]
+        [DataType(DataType.MultilineText)]
         public string City { get; set; }
 
         [Display(Name = "Zip code")]

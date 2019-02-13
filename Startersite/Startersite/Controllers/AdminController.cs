@@ -32,9 +32,11 @@ namespace Startersite.Controllers
             return View();
         }
 
-        public ActionResult EditProduct()
+        public ActionResult EditProduct(int productId)
         {
-            return View();
+            Product product = SqlQueries.GetProductById(productId);
+
+            return View(product);
         }
 
         public ActionResult DeleteProduct(int productId)
