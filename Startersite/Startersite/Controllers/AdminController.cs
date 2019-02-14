@@ -4,7 +4,7 @@ using System.Web.Mvc;
 using Startersite.Managers;
 using Microsoft.AspNet.Identity;
 using Startersite.IManagers;
-using Startersite.Models.ModelViews;
+using Startersite.Models.ViewModel;
 using Startersite.Models;
 
 namespace Startersite.Controllers
@@ -37,6 +37,21 @@ namespace Startersite.Controllers
             Product product = SqlQueries.GetProductById(productId);
 
             return View(product);
+        }
+
+        [HttpPost]
+        public ActionResult EditProduct(Product product)
+        {
+            if (ModelState.IsValid)
+            {
+                SqlQueries.EditProduct(product);
+                TempData["message"] = string.Format($"Data in {product.Id}/{product.Name} was successfully changed!");
+                return RedirectToAction("ProductList", "Admin");
+            }
+            else
+            {
+                return View(product);
+            }
         }
 
         public ActionResult DeleteProduct(int productId)

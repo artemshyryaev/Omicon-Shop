@@ -1,4 +1,4 @@
-﻿using Startersite.Models.ModelViews;
+﻿using Startersite.Models.ViewModel;
 using System;
 using System.Text;
 using System.Web.Mvc;
@@ -8,7 +8,7 @@ namespace Startersite.HtmlHelpers
     public static class PagingHelpers
     {
         public static MvcHtmlString PageLinks(this HtmlHelper html,
-            PagingInfoModel pagingInfo, Func<int, string> pageUrl)
+            PagingInfoViewModel pagingInfo, Func<int, string> pageUrl)
         {
             var builder = new StringBuilder();
 

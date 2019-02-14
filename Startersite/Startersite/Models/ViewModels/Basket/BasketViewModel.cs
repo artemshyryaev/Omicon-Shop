@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Startersite.Models.ModelViews
+namespace Startersite.Models.ViewModel
 {
-    public class BasketModel
+    public class BasketViewModel
     {
         public List<BasketLineModel> lineCollection = new List<BasketLineModel>();
 

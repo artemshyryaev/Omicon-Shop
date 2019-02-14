@@ -1,10 +1,10 @@
 ﻿using Startersite.Models;
-using Startersite.Models.ModelViews;
+using Startersite.Models.ViewModel;
 
 namespace Startersite.IManagers
 {
     public interface IOrderProcessor
     {
-        Order ProcessOrder(BasketModel basket, OrderInformation orderInformation);
+        Order ProcessOrder(BasketViewModel basket, OrderInformationViewModel orderInformation);
     }
 }

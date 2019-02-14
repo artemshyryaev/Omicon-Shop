@@ -1,5 +1,5 @@
 ﻿using Startersite.IManagers;
-using Startersite.Models.ModelViews;
+using Startersite.Models.ViewModel;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -14,12 +14,12 @@ namespace Startersite.Controllers
             this.productRepo = productRepo;
         }
 
-        public ActionResult Index(BasketModel basket, string returnUrl)
+        public ActionResult Index(BasketViewModel basket, string returnUrl)
         {
-            return View(new BasketIndexModel { Basket = basket, RetunrUrl = returnUrl });
+            return View(new BasketIndexViewModel { Basket = basket, RetunrUrl = returnUrl });
         }
 
-        public RedirectToRouteResult AddToCart(BasketModel basket, int productId, string returnUrl)
+        public RedirectToRouteResult AddToCart(BasketViewModel basket, int productId, string returnUrl)
         {
             var product = productRepo.Products.FirstOrDefault(x => x.Id == productId);
 
@@ -31,7 +31,7 @@ namespace Startersite.Controllers
             return RedirectToAction("Index", new { returnUrl});
         }
 
-        public RedirectToRouteResult RemoveFromBasket(BasketModel basket, int productId, string returnUrl)
+        public RedirectToRouteResult RemoveFromBasket(BasketViewModel basket, int productId, string returnUrl)
         {
             var product = productRepo.Products.FirstOrDefault(x => x.Id == productId);
 
@@ -43,7 +43,7 @@ namespace Startersite.Controllers
             return RedirectToAction("Index", new { returnUrl });
         }
 
-        public RedirectToRouteResult EmptyBasket(BasketModel basket, string returnUrl)
+        public RedirectToRouteResult EmptyBasket(BasketViewModel basket, string returnUrl)
         {
             var product = productRepo.Products.Count();
 

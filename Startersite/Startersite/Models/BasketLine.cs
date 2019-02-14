@@ -1,4 +1,4 @@
-﻿using Startersite.Models.ModelViews;
+﻿using Startersite.Models.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

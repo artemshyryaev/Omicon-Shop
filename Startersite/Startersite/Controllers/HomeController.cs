@@ -3,7 +3,7 @@ using System.Web.Mvc;
 using Startersite.Filters;
 using Startersite.Managers;
 using Startersite.IManagers;
-using Startersite.Models.ModelViews;
+using Startersite.Models.ViewModel;
 
 namespace Startersite.Controllers
 {
@@ -41,10 +41,10 @@ namespace Startersite.Controllers
         {
             var manager = new ProductManager(productsRepo);
 
-            ProductsListModel model = new ProductsListModel
+            ProductsListViewModel model = new ProductsListViewModel
             {
                 Products = manager.GetProducts(type, page, pageSize),
-                PagingInfo = new PagingInfoModel
+                PagingInfo = new PagingInfoViewModel
                 {
                     CurrentPage = page,
                     TotalItems = type == null ? productsRepo.Products.Count()

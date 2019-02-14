@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace Startersite.Models.ModelViews
+namespace Startersite.Models.ViewModel
 {
-    public class RegisterModel
+    public class RegisterViewModel
     {
         [Required]
         [Display(Name = "Login")]

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Startersite.Models.ModelViews
+namespace Startersite.Models.ViewModel
 {
-    public class BasketIndexModel
+    public class BasketIndexViewModel
     {
-        public BasketModel Basket { get; set; }
+        public BasketViewModel Basket { get; set; }
 
         public string RetunrUrl { get; set; }
     }

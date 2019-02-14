@@ -5,9 +5,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Startersite.Models.ModelViews
+namespace Startersite.Models.ViewModel
 {
-    public class OrderInformation
+    public class OrderInformationViewModel
     {
         [Key]
         [HiddenInput(DisplayValue = false)]
@@ -62,7 +62,7 @@ namespace Startersite.Models.ModelViews
 
         ICollection<Order> Orders { get; set; }
 
-        public OrderInformation()
+        public OrderInformationViewModel()
         {
             Orders = new List<Order>();
         }

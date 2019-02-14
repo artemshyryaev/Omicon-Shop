@@ -2,7 +2,7 @@
 using System.Web.Optimization;
 using System.Web.Routing;
 using Startersite.Infrastructure;
-using Startersite.Models.ModelViews;
+using Startersite.Models.ViewModel;
 
 namespace Startersite
 {
@@ -14,7 +14,7 @@ namespace Startersite
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            ModelBinders.Binders.Add(typeof(BasketModel), new BasketModelBinder());
+            ModelBinders.Binders.Add(typeof(BasketViewModel), new BasketModelBinder());
         }
     }
 }

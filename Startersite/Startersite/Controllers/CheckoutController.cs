@@ -3,7 +3,7 @@ using System.Web.Mvc;
 using System.Data.Entity;
 using Startersite.Managers;
 using Startersite.IManagers;
-using Startersite.Models.ModelViews;
+using Startersite.Models.ViewModel;
 using Startersite.Models;
 
 namespace Startersite.Controllers
@@ -23,10 +23,10 @@ namespace Startersite.Controllers
 
         public ActionResult OrderInformation()
         {
-            return View(new OrderInformation());
+            return View(new OrderInformationViewModel());
         }
 
-        public ActionResult OrderOverview(BasketModel basket, OrderInformation orderInformation)
+        public ActionResult OrderOverview(BasketViewModel basket, OrderInformationViewModel orderInformation)
         {
             Order order;
             if (basket.Lines.Count() == 0)
@@ -60,7 +60,7 @@ namespace Startersite.Controllers
             return View();
         }
 
-        public ActionResult SubmitOrder(BasketModel basket, int orderId)
+        public ActionResult SubmitOrder(BasketViewModel basket, int orderId)
         {
             if (basket != null)
             {

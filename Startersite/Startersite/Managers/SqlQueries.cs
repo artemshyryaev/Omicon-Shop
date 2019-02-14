@@ -58,6 +58,22 @@ namespace Startersite.Managers
                 return product;
             }
         }
+
+        public static void EditProduct(Product product)
+        {
+            using (ShopDBContext context = new ShopDBContext())
+            {
+                Product dbEntry = context.Products.FirstOrDefault(x => x.Id == product.Id);
+
+                dbEntry.Name = product.Name;
+                dbEntry.Price = product.Price;
+                dbEntry.Description = product.Description;
+                dbEntry.Type = product.Type;
+
+                context.Entry(dbEntry).State = EntityState.Modified;
+                context.SaveChanges();
+            }
+        }
     }
 
     public enum OrderStatuses

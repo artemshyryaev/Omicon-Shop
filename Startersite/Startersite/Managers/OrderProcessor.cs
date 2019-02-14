@@ -1,6 +1,6 @@
 ﻿using Startersite.IManagers;
 using Startersite.Models;
-using Startersite.Models.ModelViews;
+using Startersite.Models.ViewModel;
 using System;
 using System.Data.Entity;
 using System.Web.Mvc;
@@ -16,7 +16,7 @@ namespace Startersite.Managers
             context = new ShopDBContext();
         }
 
-        public Order ProcessOrder(BasketModel basket, OrderInformation orderInformation)
+        public Order ProcessOrder(BasketViewModel basket, OrderInformationViewModel orderInformation)
         {
             Order order = null;
 
@@ -27,7 +27,7 @@ namespace Startersite.Managers
             return order;
         }
 
-        void AddOrderInformationToOrder(ref Order order, BasketModel basket, OrderInformation orderInformation)
+        void AddOrderInformationToOrder(ref Order order, BasketViewModel basket, OrderInformationViewModel orderInformation)
         {
             order = new Order
             {
@@ -53,7 +53,7 @@ namespace Startersite.Managers
             };
         }
 
-        void AddBasketLinesToOrder(BasketModel basket, Order order)
+        void AddBasketLinesToOrder(BasketViewModel basket, Order order)
         {
             foreach (var el in basket.Lines)
             {

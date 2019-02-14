@@ -1,4 +1,4 @@
-﻿using Startersite.Models.ModelViews;
+﻿using Startersite.Models.ViewModel;
 using System.Web.Mvc;
 
 namespace Startersite.Infrastructure
@@ -8,16 +8,16 @@ namespace Startersite.Infrastructure
         private const string sessionKey = "Basket";
         public object BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
         {
-            BasketModel basket = null;
+            BasketViewModel basket = null;
 
             if (controllerContext.HttpContext.Session != null)
             {
-                basket = (BasketModel)controllerContext.HttpContext.Session[sessionKey];
+                basket = (BasketViewModel)controllerContext.HttpContext.Session[sessionKey];
             }
 
             if (basket == null)
             {
-                basket = new BasketModel();
+                basket = new BasketViewModel();
                 controllerContext.HttpContext.Session[sessionKey] = basket;
             }
 

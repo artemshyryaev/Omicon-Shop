@@ -3,7 +3,7 @@ using System.Web.Mvc;
 using WebMatrix.WebData;
 using System.Web.Security;
 using Startersite.Filters;
-using Startersite.Models.ModelViews;
+using Startersite.Models.ViewModel;
 
 namespace Startersite.Controllers
 {
@@ -21,7 +21,7 @@ namespace Startersite.Controllers
         [AllowAnonymous]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(LoginModel model, string returnUrl)
+        public ActionResult Login(LoginViewModel model, string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
             if (ModelState.IsValid && WebSecurity.Login(model.Email, model.Password, persistCookie: model.RememberMe))
@@ -52,7 +52,7 @@ namespace Startersite.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [AllowAnonymous]
-        public ActionResult Register(RegisterModel model, string returnUrl)
+        public ActionResult Register(RegisterViewModel model, string returnUrl)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace Startersite.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult ChangePassword(ChangePasswordModel model)
+        public ActionResult ChangePassword(ChangePasswordViewModel model)
         {
             if (ModelState.IsValid)
             {
