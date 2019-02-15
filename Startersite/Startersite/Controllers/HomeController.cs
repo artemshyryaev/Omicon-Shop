@@ -43,7 +43,7 @@ namespace Startersite.Controllers
 
             ProductsListViewModel model = new ProductsListViewModel
             {
-                Products = manager.GetProducts(type, page, pageSize),
+                Products = manager.GetProducts(page, pageSize, type),
                 PagingInfo = new PagingInfoViewModel
                 {
                     CurrentPage = page,

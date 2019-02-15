@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Startersite.Models.Product>
+﻿@model Startersite.Models.ViewModel.ProductsListViewModel
+@using Startersite.HtmlHelpers
 
 @{
     ViewBag.Title = "Admin panel: ProductList";
@@ -19,11 +20,11 @@
                 <th class="text-right">Type</th>
                 <th class="text-center">Actions</th>
             </tr>
-            @foreach (var el in Model)
+            @foreach (var el in Model.Products)
             {
                 <tr>
                     <td class="text-right">@el.Id</td>
-                    <td>@el.Name</td>
+                    <td>@Html.RouteLink(el.Name, new { controller = "Admin", action = "EditProduct", productId = el.Id })</td>
                     <td class="text-right">@el.Description</td>
                     <td class="text-right">@el.Price</td>
                     <td class="text-right">@el.Type</td>
@@ -40,5 +41,6 @@
     </div>
     <div class="panel-footer">
         @Html.ActionLink("Add product", "AddProduct", "Admin", new { @class = "btn btn-default" })
+        @Html.PageLinks(Model.PagingInfo, x => Url.Action("ProductsList", new { page = x }))
     </div>
 </div>

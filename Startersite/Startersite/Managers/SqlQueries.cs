@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Data.Entity;
 using Startersite.Models;
+using System;
 
 namespace Startersite.Managers
 {
@@ -38,6 +39,15 @@ namespace Startersite.Managers
             }
         }
 
+        internal static void AddProduct(Product product)
+        {
+            using (ShopDBContext context = new ShopDBContext())
+            {
+                context.Entry(product).State = EntityState.Added;
+                context.SaveChanges();
+            }
+        }
+
         public static void ApproveOrderByAdmin(int orderId)
         {
             using (ShopDBContext context = new ShopDBContext())
@@ -56,6 +66,15 @@ namespace Startersite.Managers
                 Product product = context.Products.FirstOrDefault(x => x.Id == orderId);
 
                 return product;
+            }
+        }
+
+        internal static void DeleteProduct(int productId)
+        {
+            using (ShopDBContext context = new ShopDBContext())
+            {
+                Product product = context.Products.FirstOrDefault(x => x.Id == productId);
+                context.Entry(product).State = EntityState.Deleted;
             }
         }
 

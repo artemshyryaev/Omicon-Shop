@@ -27,9 +27,41 @@ namespace Startersite.Controllers
             return View();
         }
 
-        public ActionResult ProductList()
+        public ActionResult ProductList(int page = 1)
+        {
+            var manager = new ProductManager(productsRepo);
+
+            ProductsListViewModel model = new ProductsListViewModel
+            {
+                Products = manager.GetProducts(page, pageSize),
+                PagingInfo = new PagingInfoViewModel
+                {
+                    CurrentPage = page,
+                    TotalItems = productsRepo.Products.Count(),
+                    ItemsPerPage = pageSize
+                }
+            };
+            return View(model);
+        }
+
+        public ActionResult AddProduct()
         {
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddProduct(Product product)
+        {
+            if (ModelState.IsValid)
+            {
+                SqlQueries.AddProduct(product);
+                TempData["message"] = string.Format($"{product.Id}/{product.Name} was successfully added!");
+                return RedirectToAction("ProductList", "Admin");
+            }
+            else
+            {
+                return View(product);
+            }
         }
 
         public ActionResult EditProduct(int productId)
@@ -56,21 +88,17 @@ namespace Startersite.Controllers
 
         public ActionResult DeleteProduct(int productId)
         {
-            return View();
-        }
+            if (ModelState.IsValid)
+            {
+                SqlQueries.DeleteProduct(productId);
+                TempData["message"] = string.Format($"{productId} was successfully deleted!");               
+            }
+            else
+            {
+                TempData["message"] = string.Format($"Something went wrong, please try again later");
+            }
 
-        public ActionResult AddProduct()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult AddProduct(Product products)
-        {
-            context.Entry(products).State = EntityState.Added;
-            context.SaveChanges();
-
-            return View();
+            return RedirectToAction("ProductList", "Admin");
         }
 
         public ActionResult OrderDetails(int orderId)

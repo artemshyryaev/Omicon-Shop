@@ -1,32 +1,22 @@
-﻿@model Startersite.Models.Product
+﻿@model Startersite.Models.ViewModel.ProductViewModel
 @{
-    ViewBag.Title = "AddProduct";
+    ViewBag.Title = "Add Product";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-@using (Html.BeginForm())
-{
-<div>
-    <div>
-        @Html.LabelFor(e => e.Name)
-        @Html.TextBoxFor(e => e.Name)
-        @Html.ValidationSummary()
-    </div>
-    <div>
-        @Html.LabelFor(e => e.Description)
-        @Html.TextBoxFor(e => e.Description)
-        @Html.ValidationSummary()
-    </div>
-    <div>
-        @Html.LabelFor(e => e.Price)
-        @Html.TextBoxFor(e => e.Price)
-        @Html.ValidationSummary()
-    </div>
-    <div>
-        @Html.LabelFor(e => e.Type)
-        @Html.TextBoxFor(e => e.Type)
-        @Html.ValidationSummary()
+<div class="panel">
+    <div class="panel-heading">
+        <h3>Product editing</h3>
     </div>
 </div>
-<input type="submit" value="Add">
+
+@using (Html.BeginForm("AddProduct", "Admin"))
+{
+    @Html.Partial("_ProductDetails")
+
+    <div class="panel-footer">
+        <input type="submit" value="Save" class="btn btn-primary">
+        @Html.RouteLink("Discard changes and go to list", new { controller = "Admin", action = "ProductList" }, new { @class = "btn btn-default" })
+    </div>
 }
 

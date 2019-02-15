@@ -14,7 +14,7 @@ namespace Startersite.Managers
             this.productsRepo = productsRepo;
         }
 
-        public IEnumerable<Product> GetProducts(string type, int page, int pageSize)
+        public IEnumerable<Product> GetProducts(int page, int pageSize, string type = null)
         {
             if (type == null)
                return productsRepo.Products.Skip((page - 1) * pageSize).Take(pageSize).OrderBy(

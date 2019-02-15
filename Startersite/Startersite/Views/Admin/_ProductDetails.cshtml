@@ -1,0 +1,23 @@
+﻿@model Startersite.Models.ViewModel.ProductViewModel
+
+<div class="panel-body">
+    @Html.HiddenFor(x => x.Id)
+    @foreach (var prop in ViewData.ModelMetadata.Properties)
+    {
+        if (prop.PropertyName != "Id")
+        {
+            <div class="form-group">
+                @Html.Label(prop.DisplayName ?? prop.PropertyName)
+                @if (prop.PropertyName == "Description")
+                {
+                    @Html.TextArea(prop.PropertyName, null, new { @class = "form-control", rows = 5 })
+                }
+                else
+                {
+                    @Html.TextBox(prop.PropertyName, null, new { @class = "form-control" })
+                }
+                @Html.ValidationMessage(prop.PropertyName)
+            </div>
+        }
+    }
+</div>
