@@ -9,6 +9,7 @@ using Startersite.Models;
 
 namespace Startersite.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
         ShopDBContext context = new ShopDBContext();
@@ -50,12 +51,13 @@ namespace Startersite.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddProduct(Product product)
+        public ActionResult AddProduct(ProductViewModel product)
         {
             if (ModelState.IsValid)
             {
-                SqlQueries.AddProduct(product);
-                TempData["message"] = string.Format($"{product.Id}/{product.Name} was successfully added!");
+                var productModel = ProductManager.CreateProductModelFromProductViewModel(product);
+                SqlQueries.AddProduct(productModel);
+                TempData["message"] = string.Format($"{productModel.Name} was successfully added!");
                 return RedirectToAction("ProductList", "Admin");
             }
             else
@@ -67,17 +69,20 @@ namespace Startersite.Controllers
         public ActionResult EditProduct(int productId)
         {
             Product product = SqlQueries.GetProductById(productId);
+            var productViewModel = ProductManager.CreateProductViewModelFromProductModel(product);
+            ViewBag.Id = productId;
 
-            return View(product);
+            return View(productViewModel);
         }
 
         [HttpPost]
-        public ActionResult EditProduct(Product product)
+        public ActionResult EditProduct(ProductViewModel product, int productId)
         {
             if (ModelState.IsValid)
             {
-                SqlQueries.EditProduct(product);
-                TempData["message"] = string.Format($"Data in {product.Id}/{product.Name} was successfully changed!");
+                var productModel = ProductManager.CreateProductModelFromProductViewModel(product, productId);
+                SqlQueries.EditProduct(productModel);
+                TempData["message"] = string.Format($"Data in {productModel.Id}/{productModel.Name} was successfully changed!");
                 return RedirectToAction("ProductList", "Admin");
             }
             else
@@ -91,7 +96,7 @@ namespace Startersite.Controllers
             if (ModelState.IsValid)
             {
                 SqlQueries.DeleteProduct(productId);
-                TempData["message"] = string.Format($"{productId} was successfully deleted!");               
+                TempData["message"] = string.Format($"{productId} was successfully deleted!");
             }
             else
             {
@@ -101,6 +106,12 @@ namespace Startersite.Controllers
             return RedirectToAction("ProductList", "Admin");
         }
 
+        public ActionResult OrderList()
+        {
+            return View();
+        }
+
+        [AllowAnonymous]
         public ActionResult OrderDetails(int orderId)
         {
             Order order = null;
@@ -119,7 +130,7 @@ namespace Startersite.Controllers
             else
             {
                 order = SqlQueries.GetOrderByIdAndCustomerEmail(orderId, userEmail);
-            }            
+            }
 
             if (order == null)
             {

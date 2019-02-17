@@ -1,9 +1,18 @@
 ﻿@model Startersite.Models.Order
+@using Microsoft.AspNet.Identity
+
 @{
     ViewBag.Title = "OrderDetails";
 }
 
 <h2>@Model.Id Order</h2>
+
+@if (User.Identity.IsAuthenticated)
+{
+    <div>
+        @Html.RouteLink("Go to order list page", new { controller = "Admin", action = "OrderList" })
+    </div>
+}
 
 <div>
     <table>

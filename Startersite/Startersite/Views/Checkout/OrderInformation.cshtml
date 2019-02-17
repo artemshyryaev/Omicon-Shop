@@ -12,9 +12,9 @@
     @Html.ValidationSummary()
     @Html.AntiForgeryToken()
 
+    @Html.HiddenFor(x => x.Id)
     foreach (var prop in ViewData.ModelMetadata.Properties)
     {
-        @Html.HiddenFor(x => x.Id)
         if (prop.PropertyName != "Id")
         {
             <div class="form-group">

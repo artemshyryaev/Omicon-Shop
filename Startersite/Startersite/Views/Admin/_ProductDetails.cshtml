@@ -1,7 +1,6 @@
 ﻿@model Startersite.Models.ViewModel.ProductViewModel
 
 <div class="panel-body">
-    @Html.HiddenFor(x => x.Id)
     @foreach (var prop in ViewData.ModelMetadata.Properties)
     {
         if (prop.PropertyName != "Id")

@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "Edit Product";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var id = (int)ViewBag.Id;
 }
 
 <div class="panel">
@@ -15,6 +16,7 @@
     @Html.Partial("_ProductDetails")
 
     <div class="panel-footer">
+        @Html.Hidden("productId", id)
         <input type="submit" value="Save" class="btn btn-primary">
         @Html.RouteLink("Discard changes and go to list", new { controller = "Admin", action = "ProductList" }, new { @class = "btn btn-default" })
     </div>

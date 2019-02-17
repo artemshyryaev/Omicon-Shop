@@ -9,9 +9,6 @@ namespace Startersite.Models.ViewModel
 {
     public class ProductViewModel
     {
-        [HiddenInput(DisplayValue = false)]
-        public int Id { get; set; }
-
         [Display(Name = "Name")]
         [Required(ErrorMessage = "Enter valid name")]
         public string Name { get; set; }

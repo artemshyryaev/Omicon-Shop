@@ -74,7 +74,9 @@ namespace Startersite.Managers
             using (ShopDBContext context = new ShopDBContext())
             {
                 Product product = context.Products.FirstOrDefault(x => x.Id == productId);
+
                 context.Entry(product).State = EntityState.Deleted;
+                context.SaveChanges();
             }
         }
 

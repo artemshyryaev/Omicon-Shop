@@ -2,7 +2,7 @@
 @using Startersite.HtmlHelpers
 
 @{
-    ViewBag.Title = "Admin panel: ProductList";
+    ViewBag.Title = "Admin productList";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -13,7 +13,6 @@
     <div class="panel-body">
         <table class="table table-striped table-condensed table-bordered">
             <tr>
-                <th class="text-right">Id</th>
                 <th>Name</th>
                 <th class="text-right">Description</th>
                 <th class="text-right">Price</th>
@@ -23,7 +22,7 @@
             @foreach (var el in Model.Products)
             {
                 <tr>
-                    <td class="text-right">@el.Id</td>
+                    @Html.HiddenFor(x => el.Id)
                     <td>@Html.RouteLink(el.Name, new { controller = "Admin", action = "EditProduct", productId = el.Id })</td>
                     <td class="text-right">@el.Description</td>
                     <td class="text-right">@el.Price</td>
@@ -41,6 +40,6 @@
     </div>
     <div class="panel-footer">
         @Html.ActionLink("Add product", "AddProduct", "Admin", new { @class = "btn btn-default" })
-        @Html.PageLinks(Model.PagingInfo, x => Url.Action("ProductsList", new { page = x }))
+        @Html.PageLinks(Model.PagingInfo, x => Url.Action("ProductList", new { page = x }))
     </div>
 </div>
