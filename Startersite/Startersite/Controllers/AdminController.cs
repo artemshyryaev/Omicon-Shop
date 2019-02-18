@@ -106,9 +106,24 @@ namespace Startersite.Controllers
             return RedirectToAction("ProductList", "Admin");
         }
 
-        public ActionResult OrderList()
+        public ActionResult OrderList(int page = 1, OrderStatuses orderStatuses = OrderStatuses.All)
         {
-            return View();
+            var manager = new OrderManager(ordersRepo);
+            var asss = manager.GetOrders(page, pageSize, orderStatuses);
+
+            OrdersViewModel model = new OrdersViewModel
+            {
+                Orders = manager.GetOrders(page, pageSize, orderStatuses),
+                PagingInfo = new PagingInfoViewModel
+                {
+                    CurrentPage  = page,
+                    ItemsPerPage = pageSize,
+                    TotalItems = ordersRepo.Orders.Count()
+                },
+                OrderStatuses = orderStatuses
+            };            
+
+            return View(model);
         }
 
         [AllowAnonymous]

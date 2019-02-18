@@ -1,19 +1,51 @@
-﻿@model Startersite.Models.ViewModel.OrdersListModelViewModel
+﻿@model Startersite.Models.ViewModel.OrdersViewModel
 @using Startersite.HtmlHelpers
 @using Startersite.Models.ViewModel
 
 @{
     ViewBag.Title = "OrdersList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var statuses = new Startersite.Managers.OrderStatuses();
 }
-
-
 <body>
     <div>
-       @Html.RouteLink("Create new", new {action = "CreateProduct" });
+        @using (Html.BeginForm("OrderList", "Admin"))
+        {
+            @Html.EnumDropDownListFor(x => statuses, "Filter by status", new { @class = "form-control" })
+            <input type="submit" value="Ok">
+        }
+
     </div>
-    @Html.Partial("_renderOrders", Model.Orders)
-
-    @Html.PageLinks(Model.PagingInfo, x => Url.Action("OrderList", new { page = x }))
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3>Order list</h3>
+        </div>
+        <div class="panel-body">
+            <table class="table table-striped table-condensed table-bordered">
+                <tr>
+                    <th>Order no.</th>
+                    <th class="text-right">Order date</th>
+                    <th class="text-right">Bill-to name</th>
+                    <th class="text-right">Total</th>
+                    <th class="text-center">Order Satus</th>
+                    <th></th>
+                </tr>
+                @foreach (var el in Model.Orders)
+                {
+                    string id = Convert.ToString(el.Id);
+                    <tr>
+                        <td>@Html.RouteLink(id, new { controller = "Admin", action = "OrderDetails", orderId = el.Id })</td>
+                        <td class="text-right">@el.Date</td>
+                        <td class="text-right">@(el.OrderInformation.Name + " " + el.OrderInformation.Surname)</td>
+                        <td class="text-right">@el.Total</td>
+                        <td class="text-right">@el.Status</td>
+                        <td class="text-right">@Html.RouteLink("View details", new { controller = "Admin", action = "OrderDetails", orderId = el.Id })</td>
+                    </tr>
+                }
+            </table>
+        </div>
+        <div class="panel-footer">
+            @Html.PageLinks(Model.PagingInfo, x => Url.Action("ProductList", new { page = x }))
+        </div>
+    </div>
 </body>
-<h2>OrdersList</h2>
-

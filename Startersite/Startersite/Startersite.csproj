@@ -284,7 +284,7 @@
     <Compile Include="Models\ViewModels\Basket\BasketIndexViewModel.cs" />
     <Compile Include="Models\ViewModels\Basket\BasketViewModel.cs" />
     <Compile Include="Models\ViewModels\OrderInformationViewModel.cs" />
-    <Compile Include="Models\ViewModels\Admin\OrdersListModelViewModel.cs" />
+    <Compile Include="Models\ViewModels\Admin\OrdersViewModel.cs" />
     <Compile Include="Models\ViewModels\PagingInfoViewModel.cs" />
     <Compile Include="Models\ViewModels\ProductsListViewModel.cs" />
     <Compile Include="Models\Order.cs" />

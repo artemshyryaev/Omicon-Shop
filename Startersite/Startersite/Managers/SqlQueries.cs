@@ -99,6 +99,8 @@ namespace Startersite.Managers
 
     public enum OrderStatuses
     {
+        All,
+
         Pending,
 
         Approved,
