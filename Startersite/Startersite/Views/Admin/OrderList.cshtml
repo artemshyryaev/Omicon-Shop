@@ -11,9 +11,9 @@
     <div>
         @using (Html.BeginForm("OrderList", "Admin"))
         {
-            @Html.EnumDropDownListFor(x => statuses, "Filter by status", new { @class = "form-control" })
+            @Html.EnumDropdownListFor(x => x.SelectedStatus, statuses)
             <input type="submit" value="Ok">
-        }
+    }
 
     </div>
     <div class="panel panel-default">
@@ -32,9 +32,8 @@
                 </tr>
                 @foreach (var el in Model.Orders)
                 {
-                    string id = Convert.ToString(el.Id);
                     <tr>
-                        <td>@Html.RouteLink(id, new { controller = "Admin", action = "OrderDetails", orderId = el.Id })</td>
+                        <td>@el.Id</td>
                         <td class="text-right">@el.Date</td>
                         <td class="text-right">@(el.OrderInformation.Name + " " + el.OrderInformation.Surname)</td>
                         <td class="text-right">@el.Total</td>

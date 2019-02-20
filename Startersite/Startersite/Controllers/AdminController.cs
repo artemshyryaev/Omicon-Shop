@@ -106,21 +106,18 @@ namespace Startersite.Controllers
             return RedirectToAction("ProductList", "Admin");
         }
 
-        public ActionResult OrderList(int page = 1, OrderStatuses orderStatuses = OrderStatuses.All)
+        public ActionResult OrderList(OrderStatuses? selectedStatus, int page = 1)
         {
-            var manager = new OrderManager(ordersRepo);
-            var asss = manager.GetOrders(page, pageSize, orderStatuses);
-
             OrdersViewModel model = new OrdersViewModel
             {
-                Orders = manager.GetOrders(page, pageSize, orderStatuses),
+                Orders = ordersRepo.GetOrders(page, pageSize, selectedStatus),
                 PagingInfo = new PagingInfoViewModel
                 {
                     CurrentPage  = page,
                     ItemsPerPage = pageSize,
                     TotalItems = ordersRepo.Orders.Count()
                 },
-                OrderStatuses = orderStatuses
+                SelectedStatus = selectedStatus
             };            
 
             return View(model);
@@ -155,16 +152,18 @@ namespace Startersite.Controllers
             return View(order);
         }
 
-        public ActionResult Approve(Order order, int orderId)
+        public ActionResult Approve(int orderId)
         {
             SqlQueries.ApproveOrderByAdmin(orderId);
+            var order = SqlQueries.GetOrderById(orderId);           
 
             return View("OrderDetails", order);
         }
 
-        public ActionResult Decline(Order order, int orderId)
+        public ActionResult Decline(int orderId)
         {
             SqlQueries.DeclineOrderByAdmin(orderId);
+            var order = SqlQueries.GetOrderById(orderId);
 
             return View("OrderDetails", order);
         }

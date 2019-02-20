@@ -85,11 +85,11 @@
 </div>
 
 <div>
-    @if (User.Identity.Name == "admin")
+    @if (User.Identity.Name == "admin" && Model.Status == Startersite.Managers.OrderStatuses.Pending)
     {
-        @Html.RouteLink("Approve order", new { action = "Approve", controller = "Admin", order = Model, orderId = Model.Id },
+        @Html.RouteLink("Approve order", new { action = "Approve", controller = "Admin", orderId = Model.Id },
             new { @class = "btn btn-primary" })
-        @Html.RouteLink("Decline order", new { action = "Decline", controller = "Admin", order = Model, orderId = Model.Id },
+        @Html.RouteLink("Decline order", new { action = "Decline", controller = "Admin", orderId = Model.Id },
             new { @class = "btn btn-primary" })
     }
 </div>

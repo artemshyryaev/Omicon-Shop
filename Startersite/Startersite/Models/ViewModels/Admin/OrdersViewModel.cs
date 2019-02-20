@@ -12,6 +12,6 @@ namespace Startersite.Models.ViewModel
 
         public PagingInfoViewModel PagingInfo { get; set; }
 
-        public OrderStatuses OrderStatuses { get; set; }
+        public OrderStatuses? SelectedStatus { get; set; }
     }
 }
