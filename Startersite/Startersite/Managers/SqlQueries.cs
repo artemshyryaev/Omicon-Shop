@@ -21,7 +21,7 @@ namespace Startersite.Managers
         {
             using (ShopDBContext context = new ShopDBContext())
             {
-                Order order = context.Orders.Include(e => e.OrderInformation).Include(e => e.BasketLine).First(x => x.Id == orderId 
+                Order order = context.Orders.Include(e => e.OrderInformation).Include(e => e.BasketLine).First(x => x.Id == orderId
                     && x.CustomerEmail == email);
 
                 return order;
@@ -93,6 +93,50 @@ namespace Startersite.Managers
 
                 context.Entry(dbEntry).State = EntityState.Modified;
                 context.SaveChanges();
+            }
+        }
+
+        public static Users GetUserByEmail(string email)
+        {
+            using (ShopDBContext context = new ShopDBContext())
+            {
+                Users dbEntry = context.Users.FirstOrDefault(x => x.Email == email);
+
+                return dbEntry;
+            }
+        }
+
+        public static Users GetUserById(int id)
+        {
+            using (ShopDBContext context = new ShopDBContext())
+            {
+                Users dbEntry = context.Users.FirstOrDefault(x => x.UserId == id);
+
+                return dbEntry;
+            }
+        }
+
+        public static void ChangeUserEmail(int id, string email)
+        {
+            var user = GetUserById(id);
+
+            using (ShopDBContext context = new ShopDBContext())
+            {
+                user.Email = email;
+                context.Entry(user).State = EntityState.Modified;
+                context.SaveChanges();
+            }
+        }
+
+        public static void ChangeUserEmailInOrders(string email)
+        {
+            using (ShopDBContext context = new ShopDBContext())
+            {
+                var dbEntry = context.Orders.Where(x => x.CustomerEmail == email).
+                    Include(x =>x.BasketLine).Include(x =>x.OrderInformation);
+
+                foreach (var el in dbEntry)
+                    el.CustomerEmail = email;
             }
         }
     }

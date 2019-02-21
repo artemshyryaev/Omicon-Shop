@@ -394,6 +394,7 @@
     <Content Include="Views\Admin\ProductList.cshtml" />
     <Content Include="Views\Admin\EditProduct.cshtml" />
     <Content Include="Views\Admin\_ProductDetails.cshtml" />
+    <Content Include="Views\Admin\PersonalInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

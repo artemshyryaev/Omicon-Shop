@@ -1,0 +1,19 @@
+﻿@model Startersite.Models.Users
+@{
+    ViewBag.Title = "Your details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Your details</h2>
+
+@using (Html.BeginForm("PersonalInfo", "Admin"))
+{
+    <div>
+        @Html.HiddenFor(x =>x.UserId)
+        @Html.LabelFor(x => x.Email)
+        @Html.TextBoxFor(x => x.Email)
+        @Html.ValidationMessageFor(x => x.Email)
+        <input type="submit" value="Save changes" class="btn btn-primary">
+    </div>
+}
+

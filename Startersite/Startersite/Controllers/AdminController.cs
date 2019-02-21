@@ -25,7 +25,22 @@ namespace Startersite.Controllers
 
         public ActionResult PersonalInfo()
         {
-            return View();
+            var userName = User.Identity.Name;
+            var userModel = SqlQueries.GetUserByEmail(userName);
+
+            return View(userModel);
+        }
+
+        [HttpPost]
+        public ActionResult PersonalInfo(int userId, string email)
+        {
+            SqlQueries.ChangeUserEmail(userId, email);
+            SqlQueries.ChangeUserEmailInOrders(email);
+            var userModel = SqlQueries.GetUserByEmail(email);
+
+            TempData["message"] = string.Format("The user email was successfully changed!");
+
+            return View(userModel);
         }
 
         public ActionResult ProductList(int page = 1)
@@ -108,17 +123,19 @@ namespace Startersite.Controllers
 
         public ActionResult OrderList(OrderStatuses? selectedStatus, int page = 1)
         {
+            var email = User.Identity.Name;
+
             OrdersViewModel model = new OrdersViewModel
             {
-                Orders = ordersRepo.GetOrders(page, pageSize, selectedStatus),
+                Orders = ordersRepo.GetOrders(page, pageSize, selectedStatus, email),
                 PagingInfo = new PagingInfoViewModel
                 {
-                    CurrentPage  = page,
+                    CurrentPage = page,
                     ItemsPerPage = pageSize,
                     TotalItems = ordersRepo.Orders.Count()
                 },
                 SelectedStatus = selectedStatus
-            };            
+            };
 
             return View(model);
         }
@@ -155,7 +172,7 @@ namespace Startersite.Controllers
         public ActionResult Approve(int orderId)
         {
             SqlQueries.ApproveOrderByAdmin(orderId);
-            var order = SqlQueries.GetOrderById(orderId);           
+            var order = SqlQueries.GetOrderById(orderId);
 
             return View("OrderDetails", order);
         }

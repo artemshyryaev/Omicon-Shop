@@ -12,6 +12,6 @@ namespace Startersite.IManagers
     {
         IEnumerable<Order> Orders { get; }
 
-        IEnumerable<Order> GetOrders(int page, int pagesize, OrderStatuses? orderStatus);
+        IEnumerable<Order> GetOrders(int page, int pagesize, OrderStatuses? orderStatus, string userEmail);
     }
 }
