@@ -33,7 +33,7 @@
                     @if (Request.IsAuthenticated)
                     {
                         <text>
-                            Hello, @Html.RouteLink(User.Identity.Name, new { controller = "Admin", action = "PesonalInfo" })!
+                            Hello, @Html.RouteLink(User.Identity.Name, new { controller = "Admin", action = "PersonalInfo" })!
                             @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
                             {
                                 @Html.AntiForgeryToken()

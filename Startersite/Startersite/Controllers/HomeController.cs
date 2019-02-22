@@ -54,6 +54,19 @@ namespace Startersite.Controllers
                 Type = type
             };
 
+            ViewData["Page"] = page;
+            ViewData["Type"] = type;
+
+            return View(model);
+        }
+
+        public ActionResult ProductDetails(int productId, string type, int page = 1)
+        {
+            var model = SqlQueries.GetProductById(productId);
+
+            ViewData["Page"] = page;
+            ViewData["Type"] = type;
+
             return View(model);
         }
     }

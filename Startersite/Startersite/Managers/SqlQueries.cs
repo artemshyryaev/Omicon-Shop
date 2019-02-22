@@ -2,6 +2,8 @@
 using System.Data.Entity;
 using Startersite.Models;
 using System;
+using WebMatrix.WebData;
+using System.Web.Security;
 
 namespace Startersite.Managers
 {
@@ -125,18 +127,26 @@ namespace Startersite.Managers
                 user.Email = email;
                 context.Entry(user).State = EntityState.Modified;
                 context.SaveChanges();
+
+                WebSecurity.Logout();
+                FormsAuthentication.SetAuthCookie(user.Email, false);
             }
         }
 
-        public static void ChangeUserEmailInOrders(string email)
+        public static void ChangeUserEmailInOrders(string oldEmail, string newEmail)
         {
             using (ShopDBContext context = new ShopDBContext())
             {
-                var dbEntry = context.Orders.Where(x => x.CustomerEmail == email).
-                    Include(x =>x.BasketLine).Include(x =>x.OrderInformation);
+                var dbEntry = context.Orders.Where(x => x.CustomerEmail == oldEmail).
+                    Include(x => x.BasketLine).Include(x => x.OrderInformation).ToList();
 
                 foreach (var el in dbEntry)
-                    el.CustomerEmail = email;
+                {
+                    el.CustomerEmail = newEmail;
+
+                    context.Entry(el).State = EntityState.Modified;
+                    context.SaveChanges();
+                }
             }
         }
     }

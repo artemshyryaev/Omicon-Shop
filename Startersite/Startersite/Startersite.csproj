@@ -289,7 +289,7 @@
     <Compile Include="Models\ViewModels\PagingInfoViewModel.cs" />
     <Compile Include="Models\ViewModels\ProductsListViewModel.cs" />
     <Compile Include="Models\Order.cs" />
-    <Compile Include="Models\Products.cs" />
+    <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ShopDbContext.cs" />
     <Compile Include="Models\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -395,6 +395,7 @@
     <Content Include="Views\Admin\EditProduct.cshtml" />
     <Content Include="Views\Admin\_ProductDetails.cshtml" />
     <Content Include="Views\Admin\PersonalInfo.cshtml" />
+    <Content Include="Views\Home\ProductDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

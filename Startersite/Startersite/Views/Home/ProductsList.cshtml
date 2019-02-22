@@ -14,7 +14,7 @@
 
     @foreach (var el in Model.Products)
     {
-        @Html.Partial("_RenderProducts", el);
+        @Html.Partial("_RenderProducts", el, ViewData);
     }
 
 

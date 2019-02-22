@@ -34,8 +34,10 @@ namespace Startersite.Controllers
         [HttpPost]
         public ActionResult PersonalInfo(int userId, string email)
         {
+            var userEmail = User.Identity.Name;
+
             SqlQueries.ChangeUserEmail(userId, email);
-            SqlQueries.ChangeUserEmailInOrders(email);
+            SqlQueries.ChangeUserEmailInOrders(userEmail, email);
             var userModel = SqlQueries.GetUserByEmail(email);
 
             TempData["message"] = string.Format("The user email was successfully changed!");
