@@ -3,6 +3,7 @@ using Startersite.Models;
 using Startersite.Models.ViewModel;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 
 namespace Startersite.Managers
 {
@@ -35,6 +36,8 @@ namespace Startersite.Managers
                 product.Description = productView.Description;
                 product.Price = productView.Price;
                 product.Type = productView.Type;
+                product.ImageData = productView.ImageData;
+                product.ImageMimeType = product.ImageMimeType;
 
                 if (id != 0)
                     product.Id = id;
@@ -53,6 +56,21 @@ namespace Startersite.Managers
                 product.Description = productModel.Description;
                 product.Price = productModel.Price;
                 product.Type = productModel.Type;
+                product.ImageData = productModel.ImageData;
+                product.ImageMimeType = productModel.ImageMimeType;
+            }
+
+            return product;
+        }
+
+        public static ProductViewModel AddImageDataToProduct(HttpPostedFileBase image)
+        {
+            ProductViewModel product = new ProductViewModel();
+
+            if (image != null)
+            {
+                product.ImageData = new byte[image.ContentLength];
+                product.ImageMimeType = image.ContentType;
             }
 
             return product;

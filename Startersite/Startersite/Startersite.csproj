@@ -263,6 +263,10 @@
     <Compile Include="Migrations\201902131043151_AddModels.Designer.cs">
       <DependentUpon>201902131043151_AddModels.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902240859382_AddImagePropertiesToProductEntity.cs" />
+    <Compile Include="Migrations\201902240859382_AddImagePropertiesToProductEntity.Designer.cs">
+      <DependentUpon>201902240859382_AddImagePropertiesToProductEntity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="IManagers\IEmailSender.cs" />
     <Compile Include="IManagers\IOrderProcessor.cs" />
@@ -416,6 +420,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201902131043151_AddModels.resx">
       <DependentUpon>201902131043151_AddModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902240859382_AddImagePropertiesToProductEntity.resx">
+      <DependentUpon>201902240859382_AddImagePropertiesToProductEntity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

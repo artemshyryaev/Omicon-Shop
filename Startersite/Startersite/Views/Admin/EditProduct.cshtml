@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "Edit Product";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
-    var id = (int)ViewBag.Id;
+    var id = (int)ViewData["Id"];
 }
 
 <div class="panel">
@@ -11,9 +11,9 @@
     </div>
 </div>
 
-@using (Html.BeginForm("EditProduct", "Admin"))
+@using (Html.BeginForm("EditProduct", "Admin", FormMethod.Post, new { enctype = "multipart/form-data"}))
 {
-    @Html.Partial("_ProductDetails")
+    @Html.Partial("_ProductDetails", ViewData)
 
     <div class="panel-footer">
         @Html.Hidden("productId", id)

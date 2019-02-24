@@ -20,5 +20,9 @@ namespace Startersite.Models
         public int Price { get; set; }
 
         public string Type { get; set; }
+
+        public byte[] ImageData { get; set; }
+
+        public string ImageMimeType { get; set; }
     }
 }

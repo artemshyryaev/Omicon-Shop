@@ -6,6 +6,7 @@ using Microsoft.AspNet.Identity;
 using Startersite.IManagers;
 using Startersite.Models.ViewModel;
 using Startersite.Models;
+using System.Web;
 
 namespace Startersite.Controllers
 {
@@ -87,17 +88,19 @@ namespace Startersite.Controllers
         {
             Product product = SqlQueries.GetProductById(productId);
             var productViewModel = ProductManager.CreateProductViewModelFromProductModel(product);
-            ViewBag.Id = productId;
+            ViewData["Id"] = productId;
 
             return View(productViewModel);
         }
 
         [HttpPost]
-        public ActionResult EditProduct(ProductViewModel product, int productId)
+        public ActionResult EditProduct(ProductViewModel product, int productId, HttpPostedFileBase image = null)
         {
             if (ModelState.IsValid)
             {
-                var productModel = ProductManager.CreateProductModelFromProductViewModel(product, productId);
+                var updatedProduct = ProductManager.AddImageDataToProduct(image);
+                //image.InputStream.Read(updatedProduct.ImageData, 0, image.ContentLength);
+                var productModel = ProductManager.CreateProductModelFromProductViewModel(updatedProduct, productId);
                 SqlQueries.EditProduct(productModel);
                 TempData["message"] = string.Format($"Data in {productModel.Id}/{productModel.Name} was successfully changed!");
                 return RedirectToAction("ProductList", "Admin");
@@ -185,6 +188,19 @@ namespace Startersite.Controllers
             var order = SqlQueries.GetOrderById(orderId);
 
             return View("OrderDetails", order);
+        }
+
+        public FileContentResult GetImage(int productId)
+        {
+            using (ShopDBContext context = new ShopDBContext())
+            {
+                var productModel = context.Products.FirstOrDefault(x => x.Id == productId);
+
+                if (productModel.ImageData != null && productModel.ImageMimeType != null)
+                    return File(productModel.ImageData, productModel.ImageMimeType);
+                else
+                    return null;
+            }
         }
     }
 }
