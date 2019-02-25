@@ -6,18 +6,24 @@
 <h2>Product Details</h2>
 
 <div>
-    @Html.RouteLink("Back to overview", new { action = "ProductsList", controller = "Home", type =ViewData["Type"],
+    @Html.RouteLink("Back to overview", new { action = "ProductsList", controller = "Home", type = ViewData["Type"],
         page = ViewData["Page"]})
 </div>
+
+@if (Model.ImageData != null)
+{
+    <div>
+        <img class="img-thumbnail" width="75" height="75"
+             src="@Url.Action("GetImage", "Admin", new {productId = Model.Id })">
+    </div>
+}
 
 <div>
     <div>@Model.Name</div>
     <div>Item no.  @Model.Id</div>
-    <div>@Model.Price</div>
-    <div>Description:@Model.Description</div>
+    <div>Price: @Model.Price</div>
+    <div>Description: @Model.Description</div>
 </div>
-
-<div>Photo</div>
 
 <div>
     @using (Html.BeginForm("AddToCart", "Basket"))
