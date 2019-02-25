@@ -15,6 +15,7 @@
             <tr>
                 <th>Name</th>
                 <th class="text-right">Description</th>
+                <th class="text-right">Image</th>
                 <th class="text-right">Price</th>
                 <th class="text-right">Type</th>
                 <th class="text-center">Actions</th>
@@ -25,6 +26,13 @@
                     @Html.HiddenFor(x => el.Id)
                     <td>@Html.RouteLink(el.Name, new { controller = "Admin", action = "EditProduct", productId = el.Id })</td>
                     <td class="text-right">@el.Description</td>
+                    <td class="text-right">
+                        @if (el.ImageData != null)
+                        {
+                            <img class="img-thumbnail" width="75" height="75"
+                                 src="@Url.Action("GetImage", "Admin", new {productId = el.Id })">
+                        }
+                    </td>
                     <td class="text-right">@el.Price</td>
                     <td class="text-right">@el.Type</td>
                     <td class="text-center">

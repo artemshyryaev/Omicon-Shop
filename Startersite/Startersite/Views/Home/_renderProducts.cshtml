@@ -3,6 +3,13 @@
 <div class="container">
     <table class="table table-hover">
         <tr>
+            <td class="text-right">
+                @if (Model.ImageData != null)
+                {
+                    <img class="img-thumbnail" width="75" height="75"
+                         src="@Url.Action("GetImage", "Admin", new {productId = Model.Id })">
+                }
+            </td>
             <td>
                 @Html.RouteLink(Model.Name, new { controller = "Home", action = "ProductDetails", productId = Model.Id,
                     type = ViewData["Type"], page = ViewData["Page"]})

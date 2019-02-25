@@ -69,13 +69,16 @@ namespace Startersite.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddProduct(ProductViewModel product)
+        public ActionResult AddProduct(ProductViewModel product, HttpPostedFileBase image = null)
         {
             if (ModelState.IsValid)
             {
-                var productModel = ProductManager.CreateProductModelFromProductViewModel(product);
+                var updatedProduct = ProductManager.AddImageDataToProduct(product, image);
+                image.InputStream.Read(updatedProduct.ImageData, 0, image.ContentLength);
+                var productModel = ProductManager.CreateProductModelFromProductViewModel(updatedProduct);
                 SqlQueries.AddProduct(productModel);
                 TempData["message"] = string.Format($"{productModel.Name} was successfully added!");
+
                 return RedirectToAction("ProductList", "Admin");
             }
             else
@@ -98,11 +101,12 @@ namespace Startersite.Controllers
         {
             if (ModelState.IsValid)
             {
-                var updatedProduct = ProductManager.AddImageDataToProduct(image);
-                //image.InputStream.Read(updatedProduct.ImageData, 0, image.ContentLength);
+                var updatedProduct = ProductManager.AddImageDataToProduct(product, image);
+                image.InputStream.Read(updatedProduct.ImageData, 0, image.ContentLength);
                 var productModel = ProductManager.CreateProductModelFromProductViewModel(updatedProduct, productId);
                 SqlQueries.EditProduct(productModel);
                 TempData["message"] = string.Format($"Data in {productModel.Id}/{productModel.Name} was successfully changed!");
+
                 return RedirectToAction("ProductList", "Admin");
             }
             else
@@ -192,15 +196,12 @@ namespace Startersite.Controllers
 
         public FileContentResult GetImage(int productId)
         {
-            using (ShopDBContext context = new ShopDBContext())
-            {
-                var productModel = context.Products.FirstOrDefault(x => x.Id == productId);
+            var productModel = SqlQueries.GetProductById(productId);
 
-                if (productModel.ImageData != null && productModel.ImageMimeType != null)
-                    return File(productModel.ImageData, productModel.ImageMimeType);
-                else
-                    return null;
-            }
+            if (productModel.ImageData != null && productModel.ImageMimeType != null)
+                return File(productModel.ImageData, productModel.ImageMimeType);
+            else
+                return null;
         }
     }
 }

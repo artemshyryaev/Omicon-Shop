@@ -33,15 +33,15 @@
             </a>
             <span class='label label-info' id="upload-file-info"></span>
         </div>
-        @if (Model.ImageData == null)
-        {
-            <div class="form-control-static">Нет картинки</div>
-        }
-        else
+        @if (Model != null && Model.ImageData != null)
         {
             <img class="img-thumbnail" width="150" height="150"
                  src="@Url.Action("GetImage", "Admin",
-                        new { productId = ViewData["Id"]})" />
+                   new { productId = ViewData["Id"] })" />
+        }
+        else
+        {
+            <div class="form-control-static">Нет картинки</div>
         }
     </div>
 

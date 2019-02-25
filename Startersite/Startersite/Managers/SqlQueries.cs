@@ -4,6 +4,8 @@ using Startersite.Models;
 using System;
 using WebMatrix.WebData;
 using System.Web.Security;
+using System.Web.Mvc;
+using System.Web;
 
 namespace Startersite.Managers
 {
@@ -92,6 +94,8 @@ namespace Startersite.Managers
                 dbEntry.Price = product.Price;
                 dbEntry.Description = product.Description;
                 dbEntry.Type = product.Type;
+                dbEntry.ImageData = product.ImageData;
+                dbEntry.ImageMimeType = product.ImageMimeType;
 
                 context.Entry(dbEntry).State = EntityState.Modified;
                 context.SaveChanges();
