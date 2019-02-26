@@ -13,21 +13,22 @@ namespace Startersite.Controllers
     [Authorize]
     public class AdminController : Controller
     {
-        ShopDBContext context = new ShopDBContext();
         int pageSize = 10;
         IOrderRepository ordersRepo;
         IProductRepository productsRepo;
+        AdminManager adminManager;
 
         public AdminController(IOrderRepository ordersRepo, IProductRepository productsRepo)
         {
             this.ordersRepo = ordersRepo;
             this.productsRepo = productsRepo;
+            this.adminManager = new AdminManager();
         }
 
         public ActionResult PersonalInfo()
         {
             var userName = User.Identity.Name;
-            var userModel = SqlQueries.GetUserByEmail(userName);
+            var userModel = adminManager.GetUserByEmail(userName);
 
             return View(userModel);
         }
@@ -37,9 +38,10 @@ namespace Startersite.Controllers
         {
             var userEmail = User.Identity.Name;
 
-            SqlQueries.ChangeUserEmail(userId, email);
-            SqlQueries.ChangeUserEmailInOrders(userEmail, email);
-            var userModel = SqlQueries.GetUserByEmail(email);
+            adminManager.ChangeUserEmail(userId, email);
+            adminManager.ChangeUserEmailInOrders(userEmail, email);
+
+            var userModel = adminManager.GetUserByEmail(email);
 
             TempData["message"] = string.Format("The user email was successfully changed!");
 
@@ -76,7 +78,7 @@ namespace Startersite.Controllers
                 var updatedProduct = ProductManager.AddImageDataToProduct(product, image);
                 image.InputStream.Read(updatedProduct.ImageData, 0, image.ContentLength);
                 var productModel = ProductManager.CreateProductModelFromProductViewModel(updatedProduct);
-                SqlQueries.AddProduct(productModel);
+                adminManager.AddProduct(productModel);
                 TempData["message"] = string.Format($"{productModel.Name} was successfully added!");
 
                 return RedirectToAction("ProductList", "Admin");
@@ -89,7 +91,7 @@ namespace Startersite.Controllers
 
         public ActionResult EditProduct(int productId)
         {
-            Product product = SqlQueries.GetProductById(productId);
+            var product = adminManager.GetProductById(productId);
             var productViewModel = ProductManager.CreateProductViewModelFromProductModel(product);
             ViewData["Id"] = productId;
 
@@ -104,7 +106,7 @@ namespace Startersite.Controllers
                 var updatedProduct = ProductManager.AddImageDataToProduct(product, image);
                 image.InputStream.Read(updatedProduct.ImageData, 0, image.ContentLength);
                 var productModel = ProductManager.CreateProductModelFromProductViewModel(updatedProduct, productId);
-                SqlQueries.EditProduct(productModel);
+                adminManager.EditProduct(productModel);
                 TempData["message"] = string.Format($"Data in {productModel.Id}/{productModel.Name} was successfully changed!");
 
                 return RedirectToAction("ProductList", "Admin");
@@ -119,7 +121,7 @@ namespace Startersite.Controllers
         {
             if (ModelState.IsValid)
             {
-                SqlQueries.DeleteProduct(productId);
+                adminManager.DeleteProduct(productId);
                 TempData["message"] = string.Format($"{productId} was successfully deleted!");
             }
             else
@@ -163,11 +165,11 @@ namespace Startersite.Controllers
 
             if (userEmail == "admin")
             {
-                order = SqlQueries.GetOrderById(orderId);
+                order = adminManager.GetOrderById(orderId);
             }
             else
             {
-                order = SqlQueries.GetOrderByIdAndCustomerEmail(orderId, userEmail);
+                order = adminManager.GetOrderByIdAndCustomerEmail(orderId, userEmail);
             }
 
             if (order == null)
@@ -180,23 +182,23 @@ namespace Startersite.Controllers
 
         public ActionResult Approve(int orderId)
         {
-            SqlQueries.ApproveOrderByAdmin(orderId);
-            var order = SqlQueries.GetOrderById(orderId);
+            adminManager.ApproveOrderByAdmin(orderId);
+            var order = adminManager.GetOrderById(orderId);
 
             return View("OrderDetails", order);
         }
 
         public ActionResult Decline(int orderId)
         {
-            SqlQueries.DeclineOrderByAdmin(orderId);
-            var order = SqlQueries.GetOrderById(orderId);
+            adminManager.DeclineOrderByAdmin(orderId);
+            var order = adminManager.GetOrderById(orderId);
 
             return View("OrderDetails", order);
         }
 
         public FileContentResult GetImage(int productId)
         {
-            var productModel = SqlQueries.GetProductById(productId);
+            var productModel = adminManager.GetProductById(productId);
 
             if (productModel.ImageData != null && productModel.ImageMimeType != null)
                 return File(productModel.ImageData, productModel.ImageMimeType);

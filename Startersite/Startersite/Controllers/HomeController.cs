@@ -12,10 +12,12 @@ namespace Startersite.Controllers
     {
         private IProductRepository productsRepo;
         int pageSize = 10;
+        HomeManager homeManager;
 
         public HomeController(IProductRepository productsRepo)
         {
             this.productsRepo = productsRepo;
+            homeManager = new HomeManager();
         }
 
         public ActionResult Index()
@@ -62,7 +64,7 @@ namespace Startersite.Controllers
 
         public ActionResult ProductDetails(int productId, string type, int page = 1)
         {
-            var model = SqlQueries.GetProductById(productId);
+            var model = HomeManager.GetProductById(productId);
 
             ViewData["Page"] = page;
             ViewData["Type"] = type;

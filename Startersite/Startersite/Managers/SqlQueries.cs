@@ -15,9 +15,7 @@ namespace Startersite.Managers
         {
             using (ShopDBContext context = new ShopDBContext())
             {
-                Order order = context.Orders.Include(e => e.OrderInformation).Include(e => e.BasketLine).First(x => x.Id == orderId);
-
-                return order;
+                return context.Orders.Include(e => e.OrderInformation).Include(e => e.BasketLine).First(x => x.Id == orderId);
             }
         }
 
@@ -25,10 +23,8 @@ namespace Startersite.Managers
         {
             using (ShopDBContext context = new ShopDBContext())
             {
-                Order order = context.Orders.Include(e => e.OrderInformation).Include(e => e.BasketLine).First(x => x.Id == orderId
+                return context.Orders.Include(e => e.OrderInformation).Include(e => e.BasketLine).First(x => x.Id == orderId
                     && x.CustomerEmail == email);
-
-                return order;
             }
         }
 
@@ -43,7 +39,7 @@ namespace Startersite.Managers
             }
         }
 
-        internal static void AddProduct(Product product)
+        public static void AddProduct(Product product)
         {
             using (ShopDBContext context = new ShopDBContext())
             {
@@ -67,9 +63,7 @@ namespace Startersite.Managers
         {
             using (ShopDBContext context = new ShopDBContext())
             {
-                Product product = context.Products.FirstOrDefault(x => x.Id == orderId);
-
-                return product;
+                return context.Products.FirstOrDefault(x => x.Id == orderId);
             }
         }
 
@@ -80,6 +74,17 @@ namespace Startersite.Managers
                 Product product = context.Products.FirstOrDefault(x => x.Id == productId);
 
                 context.Entry(product).State = EntityState.Deleted;
+                context.SaveChanges();
+            }
+        }
+
+        internal static void DeleteOrder(int orderId)
+        {
+            using (ShopDBContext context = new ShopDBContext())
+            {
+                Order order = context.Orders.FirstOrDefault(x => x.Id == orderId);
+
+                context.Entry(order).State = EntityState.Deleted;
                 context.SaveChanges();
             }
         }
@@ -106,9 +111,7 @@ namespace Startersite.Managers
         {
             using (ShopDBContext context = new ShopDBContext())
             {
-                Users dbEntry = context.Users.FirstOrDefault(x => x.Email == email);
-
-                return dbEntry;
+                return context.Users.FirstOrDefault(x => x.Email == email);
             }
         }
 
@@ -116,9 +119,7 @@ namespace Startersite.Managers
         {
             using (ShopDBContext context = new ShopDBContext())
             {
-                Users dbEntry = context.Users.FirstOrDefault(x => x.UserId == id);
-
-                return dbEntry;
+                return context.Users.FirstOrDefault(x => x.UserId == id);
             }
         }
 

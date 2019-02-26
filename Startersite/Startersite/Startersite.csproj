@@ -257,6 +257,9 @@
     <Compile Include="HtmlHelpers\PagingHelpers.cs" />
     <Compile Include="Infrastructure\BasketModelBinder.cs" />
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
+    <Compile Include="Managers\AdminManager.cs" />
+    <Compile Include="Managers\CheckoutManager.cs" />
+    <Compile Include="Managers\HomeManager.cs" />
     <Compile Include="Managers\ProductManager.cs" />
     <Compile Include="Managers\SqlQueries.cs" />
     <Compile Include="Migrations\201902131043151_AddModels.cs" />
