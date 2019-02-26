@@ -64,7 +64,7 @@ namespace Startersite.Controllers
 
         public ActionResult ProductDetails(int productId, string type, int page = 1)
         {
-            var model = HomeManager.GetProductById(productId);
+            var model = homeManager.GetProductById(productId);
 
             ViewData["Page"] = page;
             ViewData["Type"] = type;
