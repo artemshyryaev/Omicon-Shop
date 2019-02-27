@@ -19,13 +19,13 @@ namespace Startersite.Controllers
             return View(new BasketIndexViewModel { Basket = basket, RetunrUrl = returnUrl });
         }
 
-        public RedirectToRouteResult AddToCart(BasketViewModel basket, int productId, string returnUrl)
+        public RedirectToRouteResult AddToCart(BasketViewModel basket, int productId, string returnUrl, double quantity)
         {
             var product = productRepo.Products.FirstOrDefault(x => x.Id == productId);
 
             if (product != null)
             {
-                basket.Add(product, 1);
+                basket.Add(product, quantity);
             }
 
             return RedirectToAction("Index", new { returnUrl});

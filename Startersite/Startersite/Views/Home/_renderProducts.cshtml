@@ -16,17 +16,20 @@
             </td>
             <td>@Model.Description</td>
             <td>@Model.Price</td>
-            <td>
-                @using (Html.BeginForm("AddToCart", "Basket"))
-                {
+
+            @using (Html.BeginForm("AddToCart", "Basket"))
+            {
+                <td width="120px">
+                    @Html.TextBox("Quantity", 1, new { @class = "form-control", type = "number", step = "1", min = "1"})
+                </td>
+                <td>
                     <div>
                         @Html.Hidden("productId", Model.Id)
                         @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
                         <input type="submit" class="btn btn-success" value="Add to cart">
                     </div>
-                }
-            </td>
+                </td>
+            }
         </tr>
     </table>
 </div>
-}

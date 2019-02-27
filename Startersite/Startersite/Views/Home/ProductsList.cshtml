@@ -10,11 +10,11 @@
 </hgroup>
 
 <body>
-    @Html.Action("Types", "Facet");
+    @Html.Action("Types", "Facet")
 
     @foreach (var el in Model.Products)
     {
-        @Html.Partial("_RenderProducts", el, ViewData);
+        @Html.Partial("_RenderProducts", el, ViewData)
     }
 
 

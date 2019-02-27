@@ -29,6 +29,9 @@
     @using (Html.BeginForm("AddToCart", "Basket"))
     {
         <div>
+            @Html.TextBox("Quantity", 1, new { @class = "form-control", type = "number", step = "1", min = "1"})
+        </div>
+        <div>
             @Html.Hidden("productId", Model.Id)
             @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
             <input type="submit" class="btn btn-success" value="Add to cart">
