@@ -1,15 +1,22 @@
 ﻿@model Startersite.Models.Product
+@using Startersite.Models.ViewModel
+@using Startersite.HtmlHelpers
+
+@{
+    var uoms = new UOM();
+    var enumName = "uom";
+}
 
 <div class="container">
     <table class="table table-hover">
         <tr>
-            <td class="text-right">
-                @if (Model.ImageData != null)
-                {
-                    <img class="img-thumbnail" width="75" height="75"
-                         src="@Url.Action("GetImage", "Admin", new {productId = Model.Id })">
-                }
-            </td>
+            @*<td class="text-right">
+                    @if (Model.ImageData != null)
+                    {
+                        <img class="img-thumbnail" width="75" height="75"
+                             src="@Url.Action("GetImage", "Admin", new {productId = Model.Id })">
+                    }
+                </td>*@
             <td>
                 @Html.RouteLink(Model.Name, new { controller = "Home", action = "ProductDetails", productId = Model.Id,
                     type = ViewData["Type"], page = ViewData["Page"]})
@@ -20,7 +27,10 @@
             @using (Html.BeginForm("AddToCart", "Basket"))
             {
                 <td width="120px">
-                    @Html.TextBox("Quantity", 1, new { @class = "form-control", type = "number", step = "1", min = "1"})
+                    @Html.TextBox("Quantity", 1, new { @class = "form-control", type = "number", step = "1", min = "1" })
+                </td>
+                <td>
+                    @Html.UomEnumDropdownList(x => enumName, uoms, new { @class = "form-control" })
                 </td>
                 <td>
                     <div>

@@ -22,9 +22,10 @@
                     <td>@el.Product.Name</td>
                     <td>@el.Product.Price</td>
                     @*<td width="80px">
-                    @Html.TextBox("Quantity", el.Quantity, new { @class = "form-control", type = "number", step = "1", min = "1"})
-                    </td>*@
+                        @Html.TextBox("Quantity", el.Quantity, new { @class = "form-control", type = "number", step = "1", min = "1"})
+                        </td>*@
                     <td>@el.Quantity</td>
+                    <td>@(el.Uom)</td>
                     <td>@(el.Quantity * el.Product.Price)$</td>
                     <td>
                         @using (Html.BeginForm("RemoveFromBasket", "Basket"))

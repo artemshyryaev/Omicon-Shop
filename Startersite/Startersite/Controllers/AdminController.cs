@@ -76,7 +76,7 @@ namespace Startersite.Controllers
             if (ModelState.IsValid)
             {
                 var updatedProduct = ProductManager.AddImageDataToProduct(product, image);
-                image.InputStream.Read(updatedProduct.ImageData, 0, image.ContentLength);
+                //image.InputStream.Read(updatedProduct.ImageData, 0, image.ContentLength);
                 var productModel = ProductManager.CreateProductModelFromProductViewModel(updatedProduct);
                 adminManager.AddProduct(productModel);
                 TempData["message"] = string.Format($"{productModel.Name} was successfully added!");
@@ -104,7 +104,7 @@ namespace Startersite.Controllers
             if (ModelState.IsValid)
             {
                 var updatedProduct = ProductManager.AddImageDataToProduct(product, image);
-                image.InputStream.Read(updatedProduct.ImageData, 0, image.ContentLength);
+                //image.InputStream.Read(updatedProduct.ImageData, 0, image.ContentLength);
                 var productModel = ProductManager.CreateProductModelFromProductViewModel(updatedProduct, productId);
                 adminManager.EditProduct(productModel);
                 TempData["message"] = string.Format($"Data in {productModel.Id}/{productModel.Name} was successfully changed!");
@@ -196,14 +196,14 @@ namespace Startersite.Controllers
             return View("OrderDetails", order);
         }
 
-        public FileContentResult GetImage(int productId)
-        {
-            var productModel = adminManager.GetProductById(productId);
+        //public FileContentResult GetImage(int productId)
+        //{
+        //    var productModel = adminManager.GetProductById(productId);
 
-            if (productModel.ImageData != null && productModel.ImageMimeType != null)
-                return File(productModel.ImageData, productModel.ImageMimeType);
-            else
-                return null;
-        }
+        //    if (productModel.ImageData != null && productModel.ImageMimeType != null)
+        //        return File(productModel.ImageData, productModel.ImageMimeType);
+        //    else
+        //        return null;
+        //}
     }
 }

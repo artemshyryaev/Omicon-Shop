@@ -3,7 +3,7 @@
 <div class="panel-body">
     @foreach (var prop in ViewData.ModelMetadata.Properties)
     {
-        if (prop.PropertyName != "Id" && prop.PropertyName != "ImageData" && prop.PropertyName != "ImageMimeType")
+        if (prop.PropertyName != "Id" /*&& prop.PropertyName != "ImageData" && prop.PropertyName != "ImageMimeType"*/)
         {
             <div class="form-group">
                 @Html.Label(prop.DisplayName ?? prop.PropertyName)
@@ -20,7 +20,7 @@
         }
     }
 
-    <div class="form-group">
+    @*<div class="form-group">
         <div style="position:relative;">
             <label>Image</label>
             <a class='btn' href='javascript:;'>
@@ -43,6 +43,6 @@
         {
             <div class="form-control-static">Нет картинки</div>
         }
-    </div>
+    </div>*@
 
 </div>

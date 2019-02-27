@@ -25,11 +25,5 @@ namespace Startersite.Models.ViewModel
         [Display(Name = "Type")]
         [Required(ErrorMessage = "Enter valid type")]
         public string Type { get; set; }
-
-        [Display(Name = "Image Data")]
-        public byte[] ImageData { get; set; }
-
-        [Display(Name = "Image Mime Type")]
-        public string ImageMimeType { get; set; }
     }
 }

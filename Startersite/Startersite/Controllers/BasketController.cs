@@ -1,4 +1,5 @@
 ﻿using Startersite.IManagers;
+using Startersite.Models;
 using Startersite.Models.ViewModel;
 using System.Linq;
 using System.Web.Mvc;
@@ -19,25 +20,25 @@ namespace Startersite.Controllers
             return View(new BasketIndexViewModel { Basket = basket, RetunrUrl = returnUrl });
         }
 
-        public RedirectToRouteResult AddToCart(BasketViewModel basket, int productId, string returnUrl, double quantity)
+        public RedirectToRouteResult AddToCart(BasketViewModel basket, int productId, string returnUrl, double quantity, UOM uom)
         {
             var product = productRepo.Products.FirstOrDefault(x => x.Id == productId);
 
             if (product != null)
             {
-                basket.Add(product, quantity);
+                basket.Add(product, quantity, uom);
             }
 
             return RedirectToAction("Index", new { returnUrl});
         }
 
-        public RedirectToRouteResult RemoveFromBasket(BasketViewModel basket, int productId, string returnUrl)
+        public RedirectToRouteResult RemoveFromBasket(BasketViewModel basket, int productId, string returnUrl, UOM uom)
         {
             var product = productRepo.Products.FirstOrDefault(x => x.Id == productId);
 
             if (product != null)
             {
-                basket.RemoveLine(product);
+                basket.RemoveLine(product, uom);
             }
 
             return RedirectToAction("Index", new { returnUrl });

@@ -11,9 +11,9 @@ namespace Startersite.Models.ViewModel
 
         public IEnumerable<BasketLineModel> Lines { get { return lineCollection; } }
 
-        public void Add(Product product, double quantity)
+        public void Add(Product product, double quantity, UOM uom)
         {
-            var isProductInBasket = lineCollection.Where(p => p.Product.Id == product.Id).FirstOrDefault();
+            var isProductInBasket = lineCollection.Where(p => p.Product.Id == product.Id && p.Uom == uom).FirstOrDefault();
 
             if (isProductInBasket == null)
             {
@@ -25,9 +25,9 @@ namespace Startersite.Models.ViewModel
             }
         }
 
-        public void RemoveLine(Product product)
+        public void RemoveLine(Product product, UOM uom)
         {
-            lineCollection.RemoveAll(p => p.Product.Id == product.Id);
+            lineCollection.RemoveAll(p => p.Product.Id == product.Id && p.Uom == uom);
         }
 
         public void ClearBasket()
@@ -46,5 +46,16 @@ namespace Startersite.Models.ViewModel
         public Product Product { get; set; }
 
         public double Quantity { get; set; }
+
+        public UOM Uom { get; set; }
+    }
+
+    public enum UOM
+    {
+        PCS,
+
+        Piece,
+
+        Box
     }
 }
