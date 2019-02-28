@@ -407,6 +407,8 @@
     <Content Include="Views\Admin\_ProductDetails.cshtml" />
     <Content Include="Views\Admin\PersonalInfo.cshtml" />
     <Content Include="Views\Home\ProductDetails.cshtml" />
+    <Content Include="Views\Shared\_NavBar.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

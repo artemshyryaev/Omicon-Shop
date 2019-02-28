@@ -21,17 +21,21 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
+    <header>
+        @Html.Partial("_NavBar")
+    </header>
+
     @if (User.Identity.IsAuthenticated)
     {
-    <div>
-        @Html.RouteLink("Personal information", new { controller = "Admin", action = "PersonalInfo" })
-        @Html.RouteLink("Orders", new { controller = "Admin", action = "OrderList" })
+        <div>
+            @Html.RouteLink("Personal information", new { controller = "Admin", action = "PersonalInfo" })
+            @Html.RouteLink("Orders", new { controller = "Admin", action = "OrderList" })
 
-        @if (User.Identity.Name == "admin")
-        {
-            @Html.RouteLink("Products", new { controller = "Admin", action = "ProductList" })
-        }
-    </div>
+            @if (User.Identity.Name == "admin")
+            {
+                @Html.RouteLink("Products", new { controller = "Admin", action = "ProductList" })
+            }
+        </div>
     }
 
     <div>
@@ -41,12 +45,9 @@
         }
         @RenderBody()
     </div>
+
     <footer>
-        <div>
-            <p>&copy; @DateTime.Now.Year - Omicon-Shop</p>
-            <div>@Html.RouteLink("Contact us", new { controller = "Home", action = "Contact" })</div>
-            <div>@Html.RouteLink("About us", new { controller = "Home", action = "About" })</div>
-        </div>
+        @Html.Partial("_Footer")
     </footer>
 </body>
 
