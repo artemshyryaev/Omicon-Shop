@@ -11,6 +11,7 @@
                 <th>Product</th>
                 <th>Price</th>
                 <th>Quantity</th>
+                <th>UOM</th>
                 <th>Total</th>
             </tr>
         </thead>
@@ -32,6 +33,7 @@
                         {
                             @Html.Hidden("productId", el.Product.Id)
                             @Html.HiddenFor(x => x.RetunrUrl)
+                            @Html.Hidden("uom", el.Uom)
                             <input class="btn btn-sm btn-warning" type="submit" value="Delete" />
                         }
                     </td>

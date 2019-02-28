@@ -1,6 +1,10 @@
 ﻿@model Startersite.Models.Product
+@using Startersite.Models.ViewModel
+@using Startersite.HtmlHelpers
+
 @{
     ViewBag.Title = "ProductDetails";
+    var selectedUom = UOM.PCS;
 }
 
 <h2>Product Details</h2>
@@ -10,13 +14,13 @@
         page = ViewData["Page"]})
 </div>
 
-@if (Model.ImageData != null)
+@*@if (Model.ImageData != null)
 {
     <div>
         <img class="img-thumbnail" width="75" height="75"
              src="@Url.Action("GetImage", "Admin", new {productId = Model.Id })">
     </div>
-}
+}*@
 
 <div>
     <div>@Model.Name</div>
@@ -29,7 +33,10 @@
     @using (Html.BeginForm("AddToCart", "Basket"))
     {
         <div>
-            @Html.TextBox("Quantity", 1, new { @class = "form-control", type = "number", step = "1", min = "1"})
+            @Html.TextBox("Quantity", 1, new { @class = "form-control", type = "number", step = "1", min = "1" })
+        </div>
+        <div>
+            @Html.UomEnumDropdownList("uom", selectedUom, new { @class = "form-control" })
         </div>
         <div>
             @Html.Hidden("productId", Model.Id)

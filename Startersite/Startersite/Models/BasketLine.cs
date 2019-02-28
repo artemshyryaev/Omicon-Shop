@@ -19,6 +19,8 @@ namespace Startersite.Models
 
         public double Qty { get; set; }
 
+        public UOM Uom { get; set; }
+
         public int? OrderId { get; set; }
 
         public Order Order { get; set; }

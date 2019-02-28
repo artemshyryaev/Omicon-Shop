@@ -58,11 +58,12 @@ namespace Startersite.Managers
             foreach (var el in basket.Lines)
             {
                 var line = new BasketLine();
+                line.OrderId = order.Id;
                 line.ProductId = el.Product.Id;
                 line.ProductName = el.Product.Name;
                 line.Price = el.Product.Price;
                 line.Qty = el.Quantity;
-                line.OrderId = order.Id;
+                line.Uom = el.Uom;
 
                 order.BasketLine.Add(line);
             }

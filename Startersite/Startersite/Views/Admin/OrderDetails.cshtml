@@ -62,7 +62,7 @@
                 <th>Title</th>
                 <th>Price</th>
                 <th>Qty</th>
-                @*?????<th>UOm</th>*@
+                <th>UOM</th>
                 <th>Total</th>
             </tr>
         </thead>
@@ -74,6 +74,7 @@
                     <td>@line.ProductName</td>
                     <td>@line.Price</td>
                     <td>@line.Qty</td>
+                    <td>@line.Uom</td>
                     <td>@(line.Qty * line.Price)</td>
                 </tr>
             }

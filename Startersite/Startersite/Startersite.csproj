@@ -270,6 +270,10 @@
     <Compile Include="Migrations\201902240859382_AddImagePropertiesToProductEntity.Designer.cs">
       <DependentUpon>201902240859382_AddImagePropertiesToProductEntity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902280826178_AddUOMPropToBasketLineEntity.cs" />
+    <Compile Include="Migrations\201902280826178_AddUOMPropToBasketLineEntity.Designer.cs">
+      <DependentUpon>201902280826178_AddUOMPropToBasketLineEntity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="IManagers\IEmailSender.cs" />
     <Compile Include="IManagers\IOrderProcessor.cs" />
@@ -426,6 +430,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902240859382_AddImagePropertiesToProductEntity.resx">
       <DependentUpon>201902240859382_AddImagePropertiesToProductEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902280826178_AddUOMPropToBasketLineEntity.resx">
+      <DependentUpon>201902280826178_AddUOMPropToBasketLineEntity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -5,15 +5,14 @@
 @{
     ViewBag.Title = "OrdersList";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
-    var statuses = new Startersite.Managers.OrderStatuses();
 }
 <body>
     <div>
         @using (Html.BeginForm("OrderList", "Admin"))
         {
-            @Html.EnumDropdownListFor(x => x.SelectedStatus, statuses)
+            @Html.EnumDropdownListFor(x => x.SelectedStatus, Model.SelectedStatus)
             <input type="submit" value="Ok">
-    }
+        }
 
     </div>
     <div class="panel panel-default">

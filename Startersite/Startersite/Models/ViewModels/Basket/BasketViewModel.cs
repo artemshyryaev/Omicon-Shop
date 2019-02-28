@@ -17,7 +17,7 @@ namespace Startersite.Models.ViewModel
 
             if (isProductInBasket == null)
             {
-                lineCollection.Add(new BasketLineModel { Product = product, Quantity = quantity });
+                lineCollection.Add(new BasketLineModel { Product = product, Quantity = quantity, Uom = uom });
             }
             else
             {
@@ -54,7 +54,7 @@ namespace Startersite.Models.ViewModel
     {
         PCS,
 
-        Piece,
+        Pair,
 
         Box
     }

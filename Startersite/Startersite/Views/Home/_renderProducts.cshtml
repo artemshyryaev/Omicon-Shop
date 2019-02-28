@@ -3,8 +3,7 @@
 @using Startersite.HtmlHelpers
 
 @{
-    var uoms = new UOM();
-    var enumName = "uom";
+    var selectedUom = UOM.PCS;
 }
 
 <div class="container">
@@ -30,14 +29,12 @@
                     @Html.TextBox("Quantity", 1, new { @class = "form-control", type = "number", step = "1", min = "1" })
                 </td>
                 <td>
-                    @Html.UomEnumDropdownList(x => enumName, uoms, new { @class = "form-control" })
+                    @Html.UomEnumDropdownList("uom", selectedUom, new { @class = "form-control" })
                 </td>
                 <td>
-                    <div>
-                        @Html.Hidden("productId", Model.Id)
-                        @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
-                        <input type="submit" class="btn btn-success" value="Add to cart">
-                    </div>
+                    @Html.Hidden("productId", Model.Id)
+                    @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+                    <input type="submit" class="btn btn-success" value="Add to cart">
                 </td>
             }
         </tr>

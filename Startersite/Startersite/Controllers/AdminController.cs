@@ -132,7 +132,7 @@ namespace Startersite.Controllers
             return RedirectToAction("ProductList", "Admin");
         }
 
-        public ActionResult OrderList(OrderStatuses? selectedStatus, int page = 1)
+        public ActionResult OrderList(OrderStatuses? selectedStatus = null, int page = 1)
         {
             var email = User.Identity.Name;
 
