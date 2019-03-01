@@ -32,11 +32,12 @@
                     continue;
                 }
 
-                @Html.TextBox(prop.PropertyName, null, new { @class = "form-control" })
+                @Html.EditorFor(x => prop, null, new { @class = "form-control" })
                 @Html.ValidationMessage(prop.PropertyName)
             </div>
         }
     }
+
     <div class="text-center">
         <input class="btn btn-primary" type="submit" value="Next">
     </div>

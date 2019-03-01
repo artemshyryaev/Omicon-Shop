@@ -8,6 +8,7 @@
     <table>
         <thead>
             <tr>
+                <th></th>
                 <th>Product</th>
                 <th>Price</th>
                 <th>Quantity</th>
@@ -20,6 +21,14 @@
             @foreach (var el in Model.Basket.Lines)
             {
                 <tr>
+                    @if (el.Product.ImageUrl != null)
+                    {
+                        <td>
+                        <img class="img-thumbnail" width="30" height="30"
+                             src="@el.Product.ImageUrl">
+                        </td>
+                    }
+
                     <td>@el.Product.Name</td>
                     <td>@el.Product.Price</td>
                     @*<td width="80px">

@@ -111,6 +111,12 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.FileSystem, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.4.3.0\lib\net46\System.IO.FileSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+    </Reference>
     <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
     </Reference>
@@ -274,6 +280,10 @@
     <Compile Include="Migrations\201902280826178_AddUOMPropToBasketLineEntity.Designer.cs">
       <DependentUpon>201902280826178_AddUOMPropToBasketLineEntity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903011135326_AddImageUrlProp.cs" />
+    <Compile Include="Migrations\201903011135326_AddImageUrlProp.Designer.cs">
+      <DependentUpon>201903011135326_AddImageUrlProp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="IManagers\IEmailSender.cs" />
     <Compile Include="IManagers\IOrderProcessor.cs" />
@@ -435,6 +445,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902280826178_AddUOMPropToBasketLineEntity.resx">
       <DependentUpon>201902280826178_AddUOMPropToBasketLineEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903011135326_AddImageUrlProp.resx">
+      <DependentUpon>201903011135326_AddImageUrlProp.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

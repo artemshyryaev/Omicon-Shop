@@ -25,5 +25,8 @@ namespace Startersite.Models.ViewModel
         [Display(Name = "Type")]
         [Required(ErrorMessage = "Enter valid type")]
         public string Type { get; set; }
+
+        [HiddenInput(DisplayValue = false)]
+        public string ImageUrl { get; set; }
     }
 }

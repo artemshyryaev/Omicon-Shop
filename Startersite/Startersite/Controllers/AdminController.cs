@@ -7,6 +7,8 @@ using Startersite.IManagers;
 using Startersite.Models.ViewModel;
 using Startersite.Models;
 using System.Web;
+using System.IO;
+using System;
 
 namespace Startersite.Controllers
 {
@@ -75,9 +77,14 @@ namespace Startersite.Controllers
         {
             if (ModelState.IsValid)
             {
-                var updatedProduct = ProductManager.AddImageDataToProduct(product, image);
-                //image.InputStream.Read(updatedProduct.ImageData, 0, image.ContentLength);
-                var productModel = ProductManager.CreateProductModelFromProductViewModel(updatedProduct);
+                if (image != null)
+                {
+                    var filepath = "/content/files/" + Guid.NewGuid() + ".png";
+
+                    product = ProductManager.AddImagePathToProduct(product, filepath);
+                }
+
+                var productModel = ProductManager.CreateProductModelFromProductViewModel(product);
                 adminManager.AddProduct(productModel);
                 TempData["message"] = string.Format($"{productModel.Name} was successfully added!");
 
@@ -103,9 +110,21 @@ namespace Startersite.Controllers
         {
             if (ModelState.IsValid)
             {
-                var updatedProduct = ProductManager.AddImageDataToProduct(product, image);
-                //image.InputStream.Read(updatedProduct.ImageData, 0, image.ContentLength);
-                var productModel = ProductManager.CreateProductModelFromProductViewModel(updatedProduct, productId);
+                if (image != null)
+                {
+                    var filepath = string.IsNullOrEmpty(product.ImageUrl) ? "/content/files/" + Guid.NewGuid() + ".png" : product.ImageUrl;
+                    var fullPath = Server.MapPath(filepath);
+                    if (System.IO.File.Exists(fullPath))
+                    {
+                        System.IO.File.Delete(fullPath);
+                    }
+
+                    image.SaveAs(fullPath);
+
+                    product = ProductManager.AddImagePathToProduct(product, filepath);
+                }
+
+                var productModel = ProductManager.CreateProductModelFromProductViewModel(product, productId);
                 adminManager.EditProduct(productModel);
                 TempData["message"] = string.Format($"Data in {productModel.Id}/{productModel.Name} was successfully changed!");
 
@@ -195,15 +214,5 @@ namespace Startersite.Controllers
 
             return View("OrderDetails", order);
         }
-
-        //public FileContentResult GetImage(int productId)
-        //{
-        //    var productModel = adminManager.GetProductById(productId);
-
-        //    if (productModel.ImageData != null && productModel.ImageMimeType != null)
-        //        return File(productModel.ImageData, productModel.ImageMimeType);
-        //    else
-        //        return null;
-        //}
     }
 }

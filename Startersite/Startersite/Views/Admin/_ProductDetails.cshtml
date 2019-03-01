@@ -1,26 +1,10 @@
 ﻿@model Startersite.Models.ViewModel.ProductViewModel
 
 <div class="panel-body">
-    @foreach (var prop in ViewData.ModelMetadata.Properties)
-    {
-        if (prop.PropertyName != "Id" /*&& prop.PropertyName != "ImageData" && prop.PropertyName != "ImageMimeType"*/)
-        {
-            <div class="form-group">
-                @Html.Label(prop.DisplayName ?? prop.PropertyName)
-                @if (prop.PropertyName == "Description")
-                {
-                    @Html.TextArea(prop.PropertyName, null, new { @class = "form-control", rows = 5 })
-                }
-                else
-                {
-                    @Html.TextBox(prop.PropertyName, null, new { @class = "form-control" })
-                }
-                @Html.ValidationMessage(prop.PropertyName)
-            </div>
-        }
-    }
 
-    @*<div class="form-group">
+    @Html.EditorForModel(Model)
+
+    <div class="form-group">
         <div style="position:relative;">
             <label>Image</label>
             <a class='btn' href='javascript:;'>
@@ -33,16 +17,15 @@
             </a>
             <span class='label label-info' id="upload-file-info"></span>
         </div>
-        @if (Model != null && Model.ImageData != null)
+        @if (Model != null && Model.ImageUrl != null)
         {
             <img class="img-thumbnail" width="150" height="150"
-                 src="@Url.Action("GetImage", "Admin",
-                   new { productId = ViewData["Id"] })" />
+                 src="@Model.ImageUrl" />
         }
         else
         {
             <div class="form-control-static">Нет картинки</div>
         }
-    </div>*@
+    </div>
 
 </div>

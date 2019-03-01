@@ -14,13 +14,13 @@
         page = ViewData["Page"]})
 </div>
 
-@*@if (Model.ImageData != null)
+@if (Model.ImageUrl != null)
 {
     <div>
         <img class="img-thumbnail" width="75" height="75"
-             src="@Url.Action("GetImage", "Admin", new {productId = Model.Id })">
+             src="@Model.ImageUrl">
     </div>
-}*@
+}
 
 <div>
     <div>@Model.Name</div>

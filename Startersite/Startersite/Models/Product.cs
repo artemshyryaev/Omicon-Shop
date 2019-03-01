@@ -20,5 +20,7 @@ namespace Startersite.Models
         public int Price { get; set; }
 
         public string Type { get; set; }
+
+        public string ImageUrl { get; set; }
     }
 }

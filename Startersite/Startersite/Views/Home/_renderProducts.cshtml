@@ -9,13 +9,13 @@
 <div class="container">
     <table class="table table-hover">
         <tr>
-            @*<td class="text-right">
-                    @if (Model.ImageData != null)
+            <td class="text-right">
+                    @if (Model.ImageUrl != null)
                     {
-                        <img class="img-thumbnail" width="75" height="75"
-                             src="@Url.Action("GetImage", "Admin", new {productId = Model.Id })">
+                        <img class="img-thumbnail" width="30" height="30"
+                             src="@Model.ImageUrl">
                     }
-                </td>*@
+                </td>
             <td>
                 @Html.RouteLink(Model.Name, new { controller = "Home", action = "ProductDetails", productId = Model.Id,
                     type = ViewData["Type"], page = ViewData["Page"]})

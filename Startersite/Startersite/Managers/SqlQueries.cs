@@ -99,8 +99,7 @@ namespace Startersite.Managers
                 dbEntry.Price = product.Price;
                 dbEntry.Description = product.Description;
                 dbEntry.Type = product.Type;
-                //dbEntry.ImageData = product.ImageData;
-                //dbEntry.ImageMimeType = product.ImageMimeType;
+                dbEntry.ImageUrl = product.ImageUrl;
 
                 context.Entry(dbEntry).State = EntityState.Modified;
                 context.SaveChanges();

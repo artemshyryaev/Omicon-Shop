@@ -36,8 +36,7 @@ namespace Startersite.Managers
                 product.Description = productView.Description;
                 product.Price = productView.Price;
                 product.Type = productView.Type;
-                //product.ImageData = productView.ImageData;
-                //product.ImageMimeType = productView.ImageMimeType;
+                product.ImageUrl = productView.ImageUrl;
 
                 if (id != 0)
                     product.Id = id;
@@ -56,19 +55,17 @@ namespace Startersite.Managers
                 product.Description = productModel.Description;
                 product.Price = productModel.Price;
                 product.Type = productModel.Type;
-                //product.ImageData = productModel.ImageData;
-                //product.ImageMimeType = productModel.ImageMimeType;
+                product.ImageUrl = productModel.ImageUrl;
             }
 
             return product;
         }
 
-        public static ProductViewModel AddImageDataToProduct(ProductViewModel productViewModel, HttpPostedFileBase image)
+        public static ProductViewModel AddImagePathToProduct(ProductViewModel productViewModel, string path)
         {
-            if (productViewModel != null && image != null)
+            if (productViewModel != null && path != null)
             {
-                //productViewModel.ImageData = new byte[image.ContentLength];
-                //productViewModel.ImageMimeType = image.ContentType;
+                productViewModel.ImageUrl = path;
             }
 
             return productViewModel;

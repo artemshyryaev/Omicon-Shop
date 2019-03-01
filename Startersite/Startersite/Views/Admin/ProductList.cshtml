@@ -27,10 +27,10 @@
                     <td>@Html.RouteLink(el.Name, new { controller = "Admin", action = "EditProduct", productId = el.Id })</td>
                     <td class="text-right">@el.Description</td>
                     <td class="text-right">
-                        @if (el.ImageData != null)
+                        @if (el.ImageUrl != null)
                         {
                             <img class="img-thumbnail" width="75" height="75"
-                                 src="@Url.Action("GetImage", "Admin", new {productId = el.Id })">
+                                 src="@el.ImageUrl">
                         }
                     </td>
                     <td class="text-right">@el.Price</td>
