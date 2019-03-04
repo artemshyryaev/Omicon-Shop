@@ -11,35 +11,9 @@
 {
     @Html.ValidationSummary()
     @Html.AntiForgeryToken()
-
-    @Html.HiddenFor(x => x.Id)
-    foreach (var prop in ViewData.ModelMetadata.Properties)
-    {
-        if (prop.PropertyName != "Id")
-        {
-            <div class="form-group">
-                @Html.Label(prop.DisplayName ?? prop.PropertyName)
-
-                @if (prop.PropertyName == "Delivery")
-                {
-                    @Html.EnumDropDownListFor(x => x.Delivery, "Select delivery method", new { @class = "form-control" })
-                    continue;
-                }
-
-                @if (prop.PropertyName == "Payment")
-                {
-                    @Html.EnumDropDownListFor(x => x.Payment, "Select Payment method", new { @class = "form-control" })
-                    continue;
-                }
-
-                @Html.EditorFor(x => prop, null, new { @class = "form-control" })
-                @Html.ValidationMessage(prop.PropertyName)
-            </div>
-        }
-    }
-
-    <div class="text-center">
-        <input class="btn btn-primary" type="submit" value="Next">
-    </div>
+    @Html.EditorForModel(Model);
 }
 
+<div class="text-center">
+    <input class="btn btn-primary" type="submit" value="Next">
+</div>

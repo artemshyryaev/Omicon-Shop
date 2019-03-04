@@ -55,9 +55,11 @@ namespace Startersite.Models.ViewModel
         public string ZipCode { get; set; }
 
         [Display(Name = "Delivery method")]
+        [UIHint("EnumDropDown")]
         public MethodsOfDelivery Delivery { get; set; }
 
         [Display(Name = "Payment method")]
+        [UIHint("EnumDropDown")]
         public MethodOfPayment Payment { get; set; }
 
         ICollection<Order> Orders { get; set; }
