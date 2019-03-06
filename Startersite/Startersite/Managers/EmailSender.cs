@@ -24,7 +24,7 @@ namespace Startersite.Managers
                 smtpClient.Port = emailSettings.ServerPort;
                 smtpClient.UseDefaultCredentials = true;
                 smtpClient.Credentials = new NetworkCredential(
-                    emailSettings.Username, emailSettings.Password);
+                    emailSettings.MailFromAddress, emailSettings.Password);
 
                 if (emailSettings.WriteAsFile)
                 {
@@ -56,8 +56,12 @@ namespace Startersite.Managers
 
                 emailSettings.MailToAddress = order.OrderInformation.Email ?? "temp@email.com";
 
-                MailMessage mailmessage = new MailMessage(emailSettings.MailFromAddress, emailSettings.MailToAddress,
-                    "New order was sucessfully send!", body.ToString());
+                MailMessage mailmessage = new MailMessage();
+
+                mailmessage.From = new MailAddress(emailSettings.MailFromAddress);
+                mailmessage.To.Add(emailSettings.MailToAddress);
+                mailmessage.Subject = "New order was sucessfully send!";
+                mailmessage.Body = body.ToString();
 
                 if (emailSettings.WriteAsFile)
                 {

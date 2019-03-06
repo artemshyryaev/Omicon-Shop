@@ -62,7 +62,7 @@ namespace Startersite.Controllers
             }
 
             var order = checkoutManager.GetOrderById(orderId);
-            //emailSender.SendOrderConfirmationEmail(order);           
+            emailSender.SendOrderConfirmationEmail(order);           
 
             return View("OrderSucessfullyCreated", order);
         }

@@ -36,7 +36,7 @@ namespace Startersite.Infrastructure
 
             EmailSettings emailSettings = new EmailSettings
             {
-                WriteAsFile = bool.Parse(ConfigurationManager.AppSettings["Email.WriteAdFile"] ?? "false")
+                WriteAsFile = bool.Parse(ConfigurationManager.AppSettings["Email.WriteAdFile"] ?? "true")
             };
 
             kernel.Bind<IEmailSender>().To<EmailSender>().WithConstructorArgument("emailSettings", emailSettings);

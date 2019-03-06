@@ -8,13 +8,12 @@ namespace Startersite.Managers
     public class EmailSettings
     {
         public string MailToAddress = "";
-        public string MailFromAddress = "omicon-shop@gmail.com";
+        public string MailFromAddress = "imenivenov@gmail.com";
         public bool UseSsl = true;
-        public string Username = "MySmtpUsername";
-        public string Password = "MySmtpPassword";
+        public string Password = "bcec1234567890";
         public string ServerName = "smtp.gmail.com";
-        public int ServerPort = 465;
+        public int ServerPort = 587;
         public bool WriteAsFile = true;
-        public string FileLocation = @"d:\temp\mails";
+        public string FileLocation = @"D:\MyWork\Omicon-Dent\Startersite\Startersite\temp";
     }
 }
