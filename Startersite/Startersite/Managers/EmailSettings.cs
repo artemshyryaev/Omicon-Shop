@@ -14,6 +14,6 @@ namespace Startersite.Managers
         public string ServerName = "smtp.gmail.com";
         public int ServerPort = 587;
         public bool WriteAsFile = true;
-        public string FileLocation = @"D:\MyWork\Omicon-Dent\Startersite\Startersite\temp";
+        public string FileLocation = @"D:\MyWork\Omicon-Dent\Startersite\Startersite\temp\mails";
     }
 }
