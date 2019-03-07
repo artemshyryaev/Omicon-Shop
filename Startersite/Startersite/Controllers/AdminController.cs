@@ -50,13 +50,13 @@ namespace Startersite.Controllers
             return View(userModel);
         }
 
-        public ActionResult ProductList(int page = 1)
+        public ActionResult ProductList(string productName, int page = 1)
         {
             var manager = new ProductManager(productsRepo);
 
             ProductsListViewModel model = new ProductsListViewModel
             {
-                Products = manager.GetProducts(page, pageSize),
+                Products = manager.GetProducts(page: page, pageSize: pageSize, productName: productName),
                 PagingInfo = new PagingInfoViewModel
                 {
                     CurrentPage = page,
@@ -151,13 +151,13 @@ namespace Startersite.Controllers
             return RedirectToAction("ProductList", "Admin");
         }
 
-        public ActionResult OrderList(OrderStatuses? selectedStatus = null, int page = 1)
+        public ActionResult OrderList(string orderId, OrderStatuses? selectedStatus = null, int page = 1)
         {
             var email = User.Identity.Name;
 
             OrdersViewModel model = new OrdersViewModel
             {
-                Orders = ordersRepo.GetOrders(page, pageSize, selectedStatus, email),
+                Orders = ordersRepo.GetOrders(page, pageSize, selectedStatus, email, orderId),
                 PagingInfo = new PagingInfoViewModel
                 {
                     CurrentPage = page,

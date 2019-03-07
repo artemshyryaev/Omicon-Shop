@@ -16,14 +16,20 @@ namespace Startersite.Managers
             this.productsRepo = productsRepo;
         }
 
-        public IEnumerable<Product> GetProducts(int page, int pageSize, string type = null)
+        public IEnumerable<Product> GetProducts(int page, int pageSize, string type = null, string productName = null)
         {
-            if (type == null)
+            if (string.IsNullOrEmpty(type) && string.IsNullOrEmpty(productName))
                 return productsRepo.Products.Skip((page - 1) * pageSize).Take(pageSize).OrderBy(
                      products => products.Id);
-            else
+            else if (string.IsNullOrEmpty(productName) && !string.IsNullOrEmpty(type))
                 return productsRepo.Products.Where(p => p.Type == type).Skip((page - 1) * pageSize).Take(pageSize).OrderBy(
                     products => products.Id);
+            else if (!string.IsNullOrEmpty(productName) && string.IsNullOrEmpty(type))
+                return productsRepo.Products.Where(p => p.Name.Contains(productName)).Skip((page - 1) * pageSize).Take(pageSize).OrderBy(
+                    products => products.Id);
+            else
+                return productsRepo.Products.Where(p => p.Type == type && p.Name.Contains(productName)).Skip((page - 1) * pageSize).Take(
+                    pageSize).OrderBy(products => products.Id);
         }
 
         public static Product CreateProductModelFromProductViewModel(ProductViewModel productView, int id = 0)

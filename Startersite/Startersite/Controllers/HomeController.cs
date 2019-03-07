@@ -39,13 +39,13 @@ namespace Startersite.Controllers
             return View();
         }
 
-        public ActionResult ProductsList(string type, int page = 1)
+        public ActionResult ProductsList(string type, string productName, int page = 1)
         {
             var manager = new ProductManager(productsRepo);
 
             ProductsListViewModel model = new ProductsListViewModel
             {
-                Products = manager.GetProducts(page, pageSize, type),
+                Products = manager.GetProducts(page, pageSize, type, productName),
                 PagingInfo = new PagingInfoViewModel
                 {
                     CurrentPage = page,
