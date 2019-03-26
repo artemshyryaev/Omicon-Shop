@@ -10,8 +10,8 @@ namespace Startersite.Controllers
     [InitializeSimpleMembership]
     public class HomeController : Controller
     {
+        const int PageSize = 10;
         private IProductRepository productsRepo;
-        int pageSize = 10;
         HomeManager homeManager;
 
         public HomeController(IProductRepository productsRepo)
@@ -45,13 +45,13 @@ namespace Startersite.Controllers
 
             ProductsListViewModel model = new ProductsListViewModel
             {
-                Products = manager.GetProducts(page, pageSize, type, productName),
+                Products = manager.GetProducts(page, PageSize, type, productName),
                 PagingInfo = new PagingInfoViewModel
                 {
                     CurrentPage = page,
                     TotalItems = type == null ? productsRepo.Products.Count()
                         : productsRepo.Products.Where(p => p.Type == type).Count(),
-                    ItemsPerPage = pageSize
+                    ItemsPerPage = PageSize
                 },
                 Type = type
             };

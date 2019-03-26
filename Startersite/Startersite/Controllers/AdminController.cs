@@ -15,7 +15,7 @@ namespace Startersite.Controllers
     [Authorize]
     public class AdminController : Controller
     {
-        int pageSize = 10;
+        const int PageSize = 10;
         IOrderRepository ordersRepo;
         IProductRepository productsRepo;
         AdminManager adminManager;
@@ -56,12 +56,12 @@ namespace Startersite.Controllers
 
             ProductsListViewModel model = new ProductsListViewModel
             {
-                Products = manager.GetProducts(page: page, pageSize: pageSize, productName: productName),
+                Products = manager.GetProducts(page: page, pageSize: PageSize, productName: productName),
                 PagingInfo = new PagingInfoViewModel
                 {
                     CurrentPage = page,
                     TotalItems = productsRepo.Products.Count(),
-                    ItemsPerPage = pageSize
+                    ItemsPerPage = PageSize
                 }
             };
             return View(model);
@@ -157,11 +157,11 @@ namespace Startersite.Controllers
 
             OrdersViewModel model = new OrdersViewModel
             {
-                Orders = ordersRepo.GetOrders(page, pageSize, selectedStatus, email, orderId),
+                Orders = ordersRepo.GetOrders(page, PageSize, selectedStatus, email, orderId),
                 PagingInfo = new PagingInfoViewModel
                 {
                     CurrentPage = page,
-                    ItemsPerPage = pageSize,
+                    ItemsPerPage = PageSize,
                     TotalItems = ordersRepo.Orders.Count()
                 },
                 SelectedStatus = selectedStatus
