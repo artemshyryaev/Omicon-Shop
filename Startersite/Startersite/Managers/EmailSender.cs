@@ -1,36 +1,29 @@
 ﻿using Startersite.IManagers;
 using Startersite.Models;
 using System;
+using System.IO;
 using System.Net;
 using System.Net.Mail;
 using System.Text;
+using System.Web;
+using static System.Net.WebRequestMethods;
 
 namespace Startersite.Managers
 {
     public class EmailSender : IEmailSender
     {
         public EmailSettings emailSettings;
-        SmtpClient smtpClient;
+        SmtpClient smtpClient = new SmtpClient();
 
         public EmailSender(EmailSettings emailSettings)
         {
             this.emailSettings = emailSettings;
-            smtpClient = new SmtpClient();
         }
 
         public void SendOrderConfirmationEmail(Order order)
         {
             var mailMessage = Render(order);
-
-            try
-            {
-                Send(mailMessage);
-                mailMessage.Dispose();
-            }
-            catch (InvalidOperationException ex)
-            { }
-            catch (SmtpException ex)
-            { }
+            Send(mailMessage);
         }
 
         void Send(MailMessage mailMessage)
@@ -96,11 +89,9 @@ namespace Startersite.Managers
 
         string SpecifyMailRoot()
         {
-            string root = AppDomain.CurrentDomain.BaseDirectory;
-            string pickupRoot = smtpClient.PickupDirectoryLocation.Replace("~/", root);
-            pickupRoot = pickupRoot.Replace("/", @"\");
+            string root = Path.Combine(HttpRuntime.AppDomainAppPath, @"Mail");
 
-            return pickupRoot;
+            return root;
         }
     }
 }
