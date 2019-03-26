@@ -1,5 +1,6 @@
 ﻿using Startersite.IManagers;
 using Startersite.Models;
+using System;
 using System.Net;
 using System.Net.Mail;
 using System.Text;
@@ -9,15 +10,32 @@ namespace Startersite.Managers
     public class EmailSender : IEmailSender
     {
         public EmailSettings emailSettings;
+        SmtpClient smtpClient;
 
         public EmailSender(EmailSettings emailSettings)
         {
             this.emailSettings = emailSettings;
+            smtpClient = new SmtpClient();
         }
 
         public void SendOrderConfirmationEmail(Order order)
         {
-            using (var smtpClient = new SmtpClient())
+            var mailMessage = Render(order);
+
+            try
+            {
+                Send(mailMessage);
+                mailMessage.Dispose();
+            }
+            catch (InvalidOperationException ex)
+            { }
+            catch (SmtpException ex)
+            { }
+        }
+
+        void Send(MailMessage mailMessage)
+        {
+            using (smtpClient)
             {
                 smtpClient.EnableSsl = emailSettings.UseSsl;
                 smtpClient.Host = emailSettings.ServerName;
@@ -29,19 +47,25 @@ namespace Startersite.Managers
                 if (emailSettings.WriteAsFile)
                 {
                     smtpClient.DeliveryMethod = SmtpDeliveryMethod.SpecifiedPickupDirectory;
-                    smtpClient.PickupDirectoryLocation = emailSettings.FileLocation;
+                    smtpClient.PickupDirectoryLocation = SpecifyMailRoot();
                     smtpClient.EnableSsl = false;
                 }
 
+                smtpClient.Send(mailMessage);
+            }
+        }
+
+        MailMessage Render(Order order)
+        {
+            using (smtpClient)
+            {
                 StringBuilder body = new StringBuilder()
                     .AppendLine("The order was sucessfully processed!")
                     .AppendLine("----")
                     .AppendLine("Items:");
 
                 foreach (var line in order.BasketLine)
-                {
                     body.Append($"{line.ProductName}" + " " + $"{line.Qty}" + " " + $"{line.Price}" + "$");
-                }
 
                 body.AppendFormat("Total value:" + $"{order.Total}")
                 .AppendLine("---")
@@ -64,12 +88,19 @@ namespace Startersite.Managers
                 mailmessage.Body = body.ToString();
 
                 if (emailSettings.WriteAsFile)
-                {
                     mailmessage.BodyEncoding = Encoding.UTF8;
-                }
 
-                smtpClient.Send(mailmessage);
+                return mailmessage;
             }
+        }
+
+        string SpecifyMailRoot()
+        {
+            string root = AppDomain.CurrentDomain.BaseDirectory;
+            string pickupRoot = smtpClient.PickupDirectoryLocation.Replace("~/", root);
+            pickupRoot = pickupRoot.Replace("/", @"\");
+
+            return pickupRoot;
         }
     }
 }
