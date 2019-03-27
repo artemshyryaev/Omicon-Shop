@@ -6,24 +6,34 @@ using System.Net;
 using System.Net.Mail;
 using System.Text;
 using System.Web;
-using static System.Net.WebRequestMethods;
+using Startersite.Logs;
 
 namespace Startersite.Managers
 {
     public class EmailSender : IEmailSender
     {
         public EmailSettings emailSettings;
-        SmtpClient smtpClient = new SmtpClient();
+        SmtpClient smtpClient;
+        CreateLogFiles logFiles;
 
         public EmailSender(EmailSettings emailSettings)
         {
             this.emailSettings = emailSettings;
+            smtpClient = new SmtpClient();
+            logFiles = new CreateLogFiles();
         }
 
         public void SendOrderConfirmationEmail(Order order)
         {
-            var mailMessage = Render(order);
-            Send(mailMessage);
+            try
+            {
+                var mailMessage = Render(order);
+                Send(mailMessage);
+            }
+            catch (Exception ex)
+            {
+                logFiles.CreateErrorLog(ex.Message);
+            }
         }
 
         void Send(MailMessage mailMessage)
