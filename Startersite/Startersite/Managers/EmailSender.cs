@@ -50,48 +50,47 @@ namespace Startersite.Managers
 
         MailMessage Render(Order order)
         {
-            using (smtpClient)
-            {
-                StringBuilder body = new StringBuilder()
-                    .AppendLine("The order was sucessfully processed!")
-                    .AppendLine("----")
-                    .AppendLine("Items:");
+            StringBuilder body = new StringBuilder()
+                .AppendLine("The order was sucessfully processed!")
+                .AppendLine("----")
+                .AppendLine("Items:");
 
-                foreach (var line in order.BasketLine)
-                    body.Append($"{line.ProductName}" + " " + $"{line.Qty}" + " " + $"{line.Price}" + "$");
+            foreach (var line in order.BasketLine)
+                body.Append($"{line.ProductName}" + " " + $"{line.Qty}" + " " + $"{line.Price}" + "$");
 
-                body.AppendFormat("Total value:" + $"{order.Total}")
-                .AppendLine("---")
-                .AppendLine("Shipping info:")
-                .AppendLine(order.OrderInformation.Name)
-                .AppendLine(order.OrderInformation.Surname)
-                .AppendLine(order.OrderInformation.Address)
-                .AppendLine(order.OrderInformation.Address2)
-                .AppendLine(order.OrderInformation.City)
-                .AppendLine(order.OrderInformation.Country)
-                .AppendLine(order.OrderInformation.ZipCode);
+            body.AppendFormat("Total value:" + $"{order.Total}")
+            .AppendLine("---")
+            .AppendLine("Shipping info:")
+            .AppendLine(order.OrderInformation.Name)
+            .AppendLine(order.OrderInformation.Surname)
+            .AppendLine(order.OrderInformation.Address)
+            .AppendLine(order.OrderInformation.Address2)
+            .AppendLine(order.OrderInformation.City)
+            .AppendLine(order.OrderInformation.Country)
+            .AppendLine(order.OrderInformation.ZipCode);
 
-                emailSettings.MailToAddress = order.OrderInformation.Email ?? "temp@email.com";
+            emailSettings.MailToAddress = order.OrderInformation.Email ?? "temp@email.com";
 
-                MailMessage mailmessage = new MailMessage();
+            MailMessage mailmessage = new MailMessage();
 
-                mailmessage.From = new MailAddress(emailSettings.MailFromAddress);
-                mailmessage.To.Add(emailSettings.MailToAddress);
-                mailmessage.Subject = "New order was sucessfully send!";
-                mailmessage.Body = body.ToString();
+            mailmessage.From = new MailAddress(emailSettings.MailFromAddress);
+            mailmessage.To.Add(emailSettings.MailToAddress);
+            mailmessage.Subject = "New order was sucessfully send!";
+            mailmessage.Body = body.ToString();
 
-                if (emailSettings.WriteAsFile)
-                    mailmessage.BodyEncoding = Encoding.UTF8;
+            if (emailSettings.WriteAsFile)
+                mailmessage.BodyEncoding = Encoding.UTF8;
 
-                return mailmessage;
-            }
+            return mailmessage;
         }
 
         string SpecifyMailRoot()
         {
-            string root = Path.Combine(HttpRuntime.AppDomainAppPath, @"Mail");
+            string path = Path.Combine(HttpRuntime.AppDomainAppPath, @"Mail");
+            if (!Directory.Exists(path))
+                Directory.CreateDirectory(path);
 
-            return root;
+            return path;
         }
     }
 }
