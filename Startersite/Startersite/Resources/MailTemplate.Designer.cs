@@ -61,7 +61,38 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;table style=&quot;font-family: verdana; font-size: 12px;&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td style=&quot;font-family: verdana; font-size: 12px;&quot;&gt;Dear [NAME], &lt;br&gt;&lt;br&gt; Thanks for shopping at [SHOPNAME]. &lt;br&gt;&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;font-family: verdana; font-size: 12px;&quot;&gt;&lt;div style=&quot;font-family: verdana; font-size: 12px;&quot;&gt;[PAYMENT_SHIPPING_INFORMATION]&lt;/div&gt;&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;font-family: verdana; font-size: 12px;&quot;&gt;&lt;div style=&quot;font-family: verdana; font-size: 12px;&quot;&gt;[ORDERADDRES [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &lt;table style=&quot;font-family: verdana; font-size: 12px;&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot;&gt;
+        ///    &lt;tbody&gt;
+        ///        &lt;tr&gt;
+        ///            &lt;td style=&quot;padding-bottom: 10px; font-family: verdana; font-size: 12px;&quot;&gt;
+        ///                [ProductName]
+        ///            &lt;/td&gt;
+        ///            &lt;td style=&quot;padding-bottom: 10px; font-family: verdana; font-size: 12px;&quot;&gt;
+        ///                [Qty]
+        ///            &lt;/td&gt;
+        ///            &lt;td style=&quot;padding-bottom: 10px; font-family: verdana; font-size: 12px;&quot;&gt;
+        ///                [Uom]
+        ///         [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string OrderConfirmation_BasketLines {
+            get {
+                return ResourceManager.GetString("OrderConfirmation_BasketLines", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;table style=&quot;font-family: verdana; font-size: 12px;&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot;&gt;
+        ///    &lt;tbody&gt;
+        ///        &lt;tr&gt;
+        ///            &lt;td style=&quot;font-family: verdana; font-size: 12px;&quot;&gt;
+        ///                Dear [UserName], &lt;br&gt;&lt;br&gt; Thanks for shopping at Omicon-Shop.
+        ///                &lt;br&gt;
+        ///                &lt;br&gt;
+        ///            &lt;/td&gt;
+        ///        &lt;/tr&gt;
+        ///        &lt;tr&gt;
+        ///            &lt;td style=&quot;font-family: verdana; font-size: 12px;&quot;&gt;
+        ///                Your order was payed by [Payment] and will be shipped by [Delivery] [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string OrderConfirmation_Body {
             get {

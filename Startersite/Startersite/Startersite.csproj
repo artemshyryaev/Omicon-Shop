@@ -320,6 +320,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReplacementTags\IReplacementTagsProcessor.cs" />
     <Compile Include="ReplacementTags\ReplacementTagsProcessor.cs" />
+    <Compile Include="ReplacementTags\TagsCreator.cs" />
     <Compile Include="Resources\MailTemplate.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -1,4 +1,5 @@
-﻿using Startersite.Models;
+﻿using Startersite.Logs;
+using Startersite.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,8 @@ namespace Startersite.ReplacementTags
     {
         StringBuilder text;
         Order order;
+        TagsCreator tagsCreator;
+        CreateLogFiles logFiles;
 
         Regex regex = new Regex(@"\[([a-zA-Z0-9]+)\]");
         Type type = typeof(Order);
@@ -20,6 +23,8 @@ namespace Startersite.ReplacementTags
         {
             this.text = text;
             this.order = order;
+            logFiles = new CreateLogFiles();
+            this.tagsCreator = new TagsCreator(order);
         }
 
         public string Process()
@@ -33,13 +38,17 @@ namespace Startersite.ReplacementTags
 
         string ReplaceTags(Match match)
         {
-            var replacementTagName = match.Groups[1];
-            var prop = type.GetProperties().FirstOrDefault(x => x.Name.Equals(replacementTagName));
-
-            if (prop != null)
-                return prop.GetValue(order) as string;
-
-            return match.Value;
+            var tags = tagsCreator.CreateDictionary();
+            string replacementTagName = Convert.ToString(match.Groups[1]);
+            try
+            {
+                return tags[replacementTagName];
+            }
+            catch (KeyNotFoundException ex)
+            {
+                logFiles.CreateErrorLog(ex.Message);
+                return match.Value;
+            }
         }
     }
 }
