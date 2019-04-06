@@ -7,6 +7,7 @@ using System.Net.Mail;
 using System.Text;
 using System.Web;
 using Startersite.Logs;
+using Startersite.ReplacementTags;
 
 namespace Startersite.Managers
 {
@@ -15,12 +16,14 @@ namespace Startersite.Managers
         public EmailSettings emailSettings;
         SmtpClient smtpClient;
         CreateLogFiles logFiles;
+        ResourceReader resourceReader;
 
         public EmailSender(EmailSettings emailSettings)
         {
             this.emailSettings = emailSettings;
             smtpClient = new SmtpClient();
             logFiles = new CreateLogFiles();
+            resourceReader = new ResourceReader("Startersite.Resources");
         }
 
         public void SendOrderConfirmationEmail(Order order)
@@ -60,24 +63,9 @@ namespace Startersite.Managers
 
         MailMessage Render(Order order)
         {
-            StringBuilder body = new StringBuilder()
-                .AppendLine("The order was sucessfully processed!")
-                .AppendLine("----")
-                .AppendLine("Items:");
+            StringBuilder body = new StringBuilder();
 
-            foreach (var line in order.BasketLine)
-                body.Append($"{line.ProductName}" + " " + $"{line.Qty}" + " " + $"{line.Price}" + "$");
-
-            body.AppendFormat("Total value:" + $"{order.Total}")
-            .AppendLine("---")
-            .AppendLine("Shipping info:")
-            .AppendLine(order.OrderInformation.Name)
-            .AppendLine(order.OrderInformation.Surname)
-            .AppendLine(order.OrderInformation.Address)
-            .AppendLine(order.OrderInformation.Address2)
-            .AppendLine(order.OrderInformation.City)
-            .AppendLine(order.OrderInformation.Country)
-            .AppendLine(order.OrderInformation.ZipCode);
+            body.AppendLine(resourceReader.GetResourceValueByKey("OrderConfirmation_Body"));
 
             emailSettings.MailToAddress = order.OrderInformation.Email ?? "temp@email.com";
 

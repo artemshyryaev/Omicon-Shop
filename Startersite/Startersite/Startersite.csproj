@@ -318,9 +318,9 @@
     <Compile Include="Models\ShopDbContext.cs" />
     <Compile Include="Models\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReplacementTags\IReplacementTagsProcessor.cs" />
     <Compile Include="ReplacementTags\ReplacementTagsProcessor.cs" />
-    <Compile Include="ReplacementTags\TagReplacer.cs" />
+    <Compile Include="ReplacementTags\ResourceReader.cs" />
+    <Compile Include="ReplacementTags\TagsCreator.cs" />
     <Compile Include="Resources\MailTemplate.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -463,7 +463,7 @@
       <DependentUpon>201903011135326_AddImageUrlProp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\MailTemplate.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>MailTemplate.Designer.cs</LastGenOutput>
       <CustomToolNamespace>Resources</CustomToolNamespace>
     </EmbeddedResource>
