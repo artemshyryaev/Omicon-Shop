@@ -11,19 +11,19 @@ namespace Startersite.Models.ViewModel
         [Required]
         [DataType(DataType.Password)]
         [Display(Name = "Old password")]
-        [StringLength(100, MinimumLength = 3, ErrorMessage = "The minimum length must be 3 digits!")]
+        [StringLength(100, MinimumLength = 3, ErrorMessage = "The minimum length must be 3 digits.")]
         public string OldPassword { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
         [Display(Name = "New password")]
-        [StringLength(100, MinimumLength = 3, ErrorMessage = "The minimum length must be 3 digits!")]
+        [StringLength(100, MinimumLength = 3, ErrorMessage = "The minimum length must be 3 digits.")]
         public string NewPassword { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
         [Display(Name = "Confirm new password")]
-        [Compare("NewPassword", ErrorMessage = "The passwords do no match!")]
+        [Compare("NewPassword", ErrorMessage = "The passwords do not match.")]
         public string ConfirmNewPassword { get; set; }
     }
 }

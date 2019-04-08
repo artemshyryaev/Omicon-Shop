@@ -15,13 +15,13 @@ namespace Startersite.Models.ViewModel
         [Required]
         [Display(Name = "Password")]
         [DataType(DataType.Password)]
-        [StringLength(30, MinimumLength = 3, ErrorMessage = "The minimum length must be 3 digits!")]
+        [StringLength(30, MinimumLength = 3, ErrorMessage = "The minimum length must be 3 digits.")]
         public string Password { get; set; }
 
         [Required]
         [Display(Name = "Confirm password")]
         [DataType(DataType.Password)]
-        [Compare("Password", ErrorMessage = "The passwords do no match!")]
+        [Compare("Password", ErrorMessage = "The passwords do not match.")]
         public string ConfirmPassword { get; set; }
 
         [Display(Name = "Remember me?")]
