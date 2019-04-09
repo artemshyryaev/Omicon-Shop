@@ -8,7 +8,6 @@ using Startersite.Models.ViewModel;
 namespace Startersite.Controllers
 {
     [Authorize]
-    [InitializeSimpleMembership]
     public class AccountController : Controller
     {
         [AllowAnonymous]

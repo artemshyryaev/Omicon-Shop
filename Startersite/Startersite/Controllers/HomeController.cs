@@ -7,7 +7,6 @@ using Startersite.Models.ViewModel;
 
 namespace Startersite.Controllers
 {
-    [InitializeSimpleMembership]
     public class HomeController : Controller
     {
         const int PageSize = 10;
