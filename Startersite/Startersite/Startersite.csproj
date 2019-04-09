@@ -253,7 +253,6 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\Ninject.Web.Common.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BasketController.cs" />
@@ -265,7 +264,7 @@
     <Compile Include="HtmlHelpers\DropDownHelpers.cs" />
     <Compile Include="HtmlHelpers\PagingHelpers.cs" />
     <Compile Include="Infrastructure\BasketModelBinder.cs" />
-    <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
+    <Compile Include="Infrastructure\NinjectRegistrations.cs" />
     <Compile Include="Logs\CreateLogFiles.cs" />
     <Compile Include="Managers\AdminManager.cs" />
     <Compile Include="Managers\CheckoutManager.cs" />

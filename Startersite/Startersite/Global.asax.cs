@@ -1,6 +1,9 @@
 ﻿using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Ninject;
+using Ninject.Modules;
+using Ninject.Web.Mvc;
 using Startersite.Filters;
 using Startersite.Infrastructure;
 using Startersite.Models.ViewModel;
@@ -17,6 +20,10 @@ namespace Startersite
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             ModelBinders.Binders.Add(typeof(BasketViewModel), new BasketModelBinder());
             GlobalFilters.Filters.Add(new InitializeSimpleMembershipAttribute());
+
+            NinjectModule registrations = new NinjectRegistrations();
+            var kernel = new StandardKernel(registrations);
+            DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));
         }
     }
 }
