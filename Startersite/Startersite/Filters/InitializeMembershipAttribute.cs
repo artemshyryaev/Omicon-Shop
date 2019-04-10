@@ -9,16 +9,17 @@ using Startersite.Models;
 
 namespace Startersite.Filters
 {
-    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = true, Inherited = true)]
-    public sealed class InitializeSimpleMembershipAttribute : ActionFilterAttribute
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = false, Inherited = true)]
+    public class InitializeMembershipAttribute : AuthorizeAttribute
     {
         private static SimpleMembershipInitializer _initializer;
         private static object _initializerLock = new object();
         private static bool _isInitialized;
 
-        public override void OnActionExecuted(ActionExecutedContext filterContext)
+        public override void OnAuthorization(AuthorizationContext filterContext)
         {
             LazyInitializer.EnsureInitialized(ref _initializer, ref _isInitialized, ref _initializerLock);
+            base.OnAuthorization(filterContext);
         }
     }
 
