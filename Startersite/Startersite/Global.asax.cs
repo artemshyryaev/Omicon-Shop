@@ -23,6 +23,7 @@ namespace Startersite
             NinjectModule registrations = new NinjectRegistrations();
             var kernel = new StandardKernel(registrations);
             DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));
+            new SimpleMembershipInitializer();
         }
     }
 }
