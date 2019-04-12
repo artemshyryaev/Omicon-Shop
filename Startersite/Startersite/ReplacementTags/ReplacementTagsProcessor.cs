@@ -11,50 +11,50 @@ namespace Startersite.ReplacementTags
 {
     public class ReplacementTagsProcessor
     {
-        StringBuilder text;
-        Order order;
-        TagsCreator tagsCreator;
-        CreateLogFiles logFiles;
-
         Regex regex = new Regex(@"\[([a-zA-Z0-9]+)\]");
-        Type type = typeof(Order);
 
-        public ReplacementTagsProcessor(StringBuilder text, Order order)
+        public StringBuilder GetReplacedText(Order order)
         {
-            this.text = text;
-            this.order = order;
-            logFiles = new CreateLogFiles();
-            this.tagsCreator = new TagsCreator(order);
-        }
+            var resourceReader = new ResourceReader("Startersite.MailTemplate");
+            StringBuilder replacedText = new StringBuilder();
 
-        public string ProcessReplacingOrderTags()
-        {
-            return regex.Replace(text.ToString(), match =>
+            foreach (var line in order.BasketLine)
             {
-                return ReplaceOrderTags(match);
+                ReplaceBasketLineTags(resourceReader, replacedText, line);
             }
-            );
+
+            return ReplaceMailBodyTags(order, resourceReader, replacedText);
         }
 
-        public string ProcessReplacingBasketlineTags(BasketLine line)
+        StringBuilder ReplaceMailBodyTags(Order order, ResourceReader resourceReader, StringBuilder replacedText)
         {
-            return regex.Replace(text.ToString(), match =>
+            StringBuilder emailBodyResourceValue = new StringBuilder();
+            emailBodyResourceValue.Append(resourceReader.GetResourceValueByKey("OrderConfirmation_Body"));
+
+            TagsCreator emailBodyTagsCreator = new TagsCreator();
+            var orderDictionary = emailBodyTagsCreator.CreateMailBodyDictionary(order, replacedText);
+            replacedText.Clear();
+
+            return replacedText.Append(regex.Replace(emailBodyResourceValue.ToString(), match =>
             {
-                return ReplaceBaketLineTags(match, line);
+                return ReplaceTags(match, orderDictionary);
             }
-            );
+            ));
         }
 
-        string ReplaceOrderTags(Match match)
+        void ReplaceBasketLineTags(ResourceReader resourceReader, StringBuilder replacedText, BasketLine line)
         {
-            var tags = tagsCreator.CreateOrderDictionary();
-            return ReplaceTags(match, tags);
-        }
+            StringBuilder basketLineResourceValue = new StringBuilder();
+            basketLineResourceValue.Append(resourceReader.GetResourceValueByKey("Basket_Lines"));
 
-        string ReplaceBaketLineTags(Match match, BasketLine line)
-        {
-            var tags = tagsCreator.CreateBasketLineDictionary(line);
-            return ReplaceTags(match, tags);
+            TagsCreator basketLineTagsCreator = new TagsCreator();
+            var lineDictionary = basketLineTagsCreator.CreateBasketLineDictionary(line);
+
+            replacedText.Append(regex.Replace(basketLineResourceValue.ToString(), match =>
+            {
+                return ReplaceTags(match, lineDictionary);
+            }
+            ));
         }
 
         string ReplaceTags(Match match, Dictionary<string, string> tags)
@@ -66,6 +66,7 @@ namespace Startersite.ReplacementTags
             }
             catch (KeyNotFoundException ex)
             {
+                CreateLogFiles logFiles = new CreateLogFiles();
                 logFiles.CreateErrorLog(ex.Message);
                 return match.Value;
             }

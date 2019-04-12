@@ -8,6 +8,7 @@ using System.Text;
 using System.Web;
 using Startersite.Logs;
 using Startersite.ReplacementTags;
+using System.Web.Configuration;
 
 namespace Startersite.Managers
 {
@@ -15,15 +16,14 @@ namespace Startersite.Managers
     {
         public EmailSettings emailSettings;
         SmtpClient smtpClient;
-        CreateLogFiles logFiles;
-        ResourceReader resourceReader;
+        ReplacementTagsProcessor replacementTagsProcessor;
 
-        public EmailSender(EmailSettings emailSettings)
+        public EmailSender(EmailSettings emailSettings, SmtpClient smtpClient, 
+            ReplacementTagsProcessor replacementTagsProcessor)
         {
             this.emailSettings = emailSettings;
-            smtpClient = new SmtpClient();
-            logFiles = new CreateLogFiles();
-            resourceReader = new ResourceReader("Startersite.Resources");
+            this.smtpClient = smtpClient;
+            this.replacementTagsProcessor = replacementTagsProcessor;
         }
 
         public void SendOrderConfirmationEmail(Order order)
@@ -35,6 +35,7 @@ namespace Startersite.Managers
             }
             catch (Exception ex)
             {
+                CreateLogFiles logFiles = new CreateLogFiles();
                 logFiles.CreateErrorLog(ex.Message);
             }
         }
@@ -43,14 +44,14 @@ namespace Startersite.Managers
         {
             using (smtpClient)
             {
-                smtpClient.EnableSsl = emailSettings.UseSsl;
-                smtpClient.Host = emailSettings.ServerName;
-                smtpClient.Port = emailSettings.ServerPort;
+                smtpClient.EnableSsl = Convert.ToBoolean(WebConfigurationManager.AppSettings["Email.UseSsl"]);
+                smtpClient.Host = WebConfigurationManager.AppSettings["Email.ServerName"];
+                smtpClient.Port = Convert.ToInt32(WebConfigurationManager.AppSettings["Email.ServerPort"]);
                 smtpClient.UseDefaultCredentials = true;
                 smtpClient.Credentials = new NetworkCredential(
-                    emailSettings.MailFromAddress, emailSettings.Password);
+                    emailSettings.MailFromAddress, WebConfigurationManager.AppSettings["Email.Password"]);
 
-                if (emailSettings.WriteAsFile)
+                if (Convert.ToBoolean(WebConfigurationManager.AppSettings["Email.WriteAsFile"]))
                 {
                     smtpClient.DeliveryMethod = SmtpDeliveryMethod.SpecifiedPickupDirectory;
                     smtpClient.PickupDirectoryLocation = SpecifyMailRoot();
@@ -65,7 +66,7 @@ namespace Startersite.Managers
         {
             StringBuilder body = new StringBuilder();
 
-            body.AppendLine(resourceReader.GetResourceValueByKey("OrderConfirmation_Body"));
+            body.Append(replacementTagsProcessor.GetReplacedText(order));
 
             emailSettings.MailToAddress = order.OrderInformation.Email ?? "temp@email.com";
 
@@ -76,7 +77,7 @@ namespace Startersite.Managers
             mailmessage.Subject = "New order was sucessfully send!";
             mailmessage.Body = body.ToString();
 
-            if (emailSettings.WriteAsFile)
+            if (Convert.ToBoolean(WebConfigurationManager.AppSettings["Email.WriteAsFile"]))
                 mailmessage.BodyEncoding = Encoding.UTF8;
 
             return mailmessage;

@@ -464,7 +464,6 @@
     <EmbeddedResource Include="Resources\MailTemplate.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>MailTemplate.Designer.cs</LastGenOutput>
-      <CustomToolNamespace>Resources</CustomToolNamespace>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

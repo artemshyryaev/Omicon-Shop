@@ -11,12 +11,10 @@ namespace Startersite.ReplacementTags
     public class ResourceReader
     {
         ResourceManager resourceManager;
-        CreateLogFiles logFiles;
 
         public ResourceReader(string resourceNamespace)
         {
             this.resourceManager = new ResourceManager(resourceNamespace, Assembly.GetExecutingAssembly());
-            logFiles = new CreateLogFiles();
         }
 
         public string GetResourceValueByKey(string key)
@@ -29,6 +27,7 @@ namespace Startersite.ReplacementTags
             }
             catch (Exception e)
             {
+                CreateLogFiles logFiles = new CreateLogFiles();
                 logFiles.CreateErrorLog(e.Message);
             }
 

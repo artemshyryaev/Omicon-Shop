@@ -10,16 +10,7 @@ namespace Startersite.ReplacementTags
 {
     public class TagsCreator
     {
-        Order order;
-        ResourceReader resourceReader;
-
-        public TagsCreator(Order order)
-        {
-            this.order = order;
-            this.resourceReader = new ResourceReader("Startersite.Resources");
-        }
-
-        public Dictionary<string, string> CreateOrderDictionary()
+        public Dictionary<string, string> CreateMailBodyDictionary(Order order, StringBuilder basketLineText)
         {
             Dictionary<string, string> orderTags = new Dictionary<string, string>();
 
@@ -35,7 +26,7 @@ namespace Startersite.ReplacementTags
             orderTags.Add("[Total]", Convert.ToString(order.Total));
             orderTags.Add("[Date]", Convert.ToString(order.Date));
             orderTags.Add("[OrderId]", Convert.ToString(order.Id));
-            orderTags.Add("[Basket_Lines]", ReplaceBasketLinesTags());
+            orderTags.Add("[Basket_Lines]", Convert.ToString(basketLineText));
 
             return orderTags;
         }
@@ -50,23 +41,6 @@ namespace Startersite.ReplacementTags
             basketLineTags.Add("[Price]", Convert.ToString(basketLine.Price));
 
             return basketLineTags;
-        }
-
-        string ReplaceBasketLinesTags()
-        {
-            string text = null;
-
-            foreach (var line in order.BasketLine)
-            {
-                string textWithReplacementTags = resourceReader.GetResourceValueByKey("Basket_Lines");
-                StringBuilder sb = new StringBuilder();
-                sb.AppendLine(textWithReplacementTags);
-                ReplacementTagsProcessor replacementTagsProcessor =
-                    new ReplacementTagsProcessor(sb, order);
-                text += replacementTagsProcessor.ProcessReplacingBasketlineTags(line);
-            }
-
-            return text;
         }
     }
 }
