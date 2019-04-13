@@ -14,19 +14,19 @@ namespace Startersite.ReplacementTags
         {
             Dictionary<string, string> orderTags = new Dictionary<string, string>();
 
-            orderTags.Add("[UserName]", order.OrderInformation?.Name);
-            orderTags.Add("[Country]", order.OrderInformation?.Country);
-            orderTags.Add("[Address]", order.OrderInformation?.Address);
-            orderTags.Add("[Address2]", order.OrderInformation?.Address2);
-            orderTags.Add("[City]", order.OrderInformation?.City);
-            orderTags.Add("[ZipCode]", order.OrderInformation?.ZipCode);
-            orderTags.Add("[Delivery]", Convert.ToString(order.OrderInformation?.Delivery));
-            orderTags.Add("[Payment]", Convert.ToString(order.OrderInformation?.Payment));
-            orderTags.Add("[Status]", Convert.ToString(order.Status));
-            orderTags.Add("[Total]", Convert.ToString(order.Total));
-            orderTags.Add("[Date]", Convert.ToString(order.Date));
-            orderTags.Add("[OrderId]", Convert.ToString(order.Id));
-            orderTags.Add("[Basket_Lines]", Convert.ToString(basketLineText));
+            orderTags.Add("UserName", order.OrderInformation?.Name);
+            orderTags.Add("Country", order.OrderInformation?.Country);
+            orderTags.Add("Address", order.OrderInformation?.Address);
+            orderTags.Add("Address2", order.OrderInformation?.Address2);
+            orderTags.Add("City", order.OrderInformation?.City);
+            orderTags.Add("ZipCode", order.OrderInformation?.ZipCode);
+            orderTags.Add("Delivery", Convert.ToString(order.OrderInformation?.Delivery));
+            orderTags.Add("Payment", Convert.ToString(order.OrderInformation?.Payment));
+            orderTags.Add("Status", Convert.ToString(order.Status));
+            orderTags.Add("Total", Convert.ToString(order.Total));
+            orderTags.Add("Date", Convert.ToString(order.Date));
+            orderTags.Add("OrderId", Convert.ToString(order.Id));
+            orderTags.Add("BasketLines", Convert.ToString(basketLineText));
 
             return orderTags;
         }
@@ -35,10 +35,10 @@ namespace Startersite.ReplacementTags
         {
             Dictionary<string, string> basketLineTags = new Dictionary<string, string>();
 
-            basketLineTags.Add("[ProductName]", basketLine.ProductName);
-            basketLineTags.Add("[Qty]", Convert.ToString(basketLine.Qty));
-            basketLineTags.Add("[Uom]", Convert.ToString(basketLine.Uom));
-            basketLineTags.Add("[Price]", Convert.ToString(basketLine.Price));
+            basketLineTags.Add("ProductName", basketLine.ProductName);
+            basketLineTags.Add("Qty", Convert.ToString(basketLine.Qty));
+            basketLineTags.Add("Uom", Convert.ToString(basketLine.Uom));
+            basketLineTags.Add("Price", Convert.ToString(basketLine.Price));
 
             return basketLineTags;
         }

@@ -15,14 +15,14 @@ namespace Startersite.Managers
 
         public IEnumerable<Order> GetOrders(int page, int pagesize, OrderStatuses? orderStatus, string userEmail, string orderId = null)
         {
-            IQueryable<Order> query = null;
+            IQueryable<Order> query = context.Orders
+                    .Include(e => e.OrderInformation)
+                    .Include(e => e.BasketLine);
 
             if (userEmail != "admin")
-                query = context.Orders.Include(e => e.OrderInformation).Include(e => e.BasketLine).
-                    Where(x => x.CustomerEmail == userEmail).OrderBy(x => x.Id);
-            else
-                query = context.Orders.Include(e => e.OrderInformation).Include(e => e.BasketLine).OrderBy(x => x.Id);
+                query = query.Where(x => x.CustomerEmail == userEmail);
 
+            query = query.OrderBy(x => x.Id);
             if (!string.IsNullOrEmpty(orderId))
             {
                 int orderID = Convert.ToInt32(orderId);

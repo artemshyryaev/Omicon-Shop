@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
+using Startersite.Resources;
 
 namespace Startersite.ReplacementTags
 {
@@ -15,7 +16,7 @@ namespace Startersite.ReplacementTags
 
         public StringBuilder GetReplacedText(Order order)
         {
-            var resourceReader = new ResourceReader("Startersite.MailTemplate");
+            var resourceReader = new ResourceReader();
             StringBuilder replacedText = new StringBuilder();
 
             foreach (var line in order.BasketLine)
@@ -29,7 +30,8 @@ namespace Startersite.ReplacementTags
         StringBuilder ReplaceMailBodyTags(Order order, ResourceReader resourceReader, StringBuilder replacedText)
         {
             StringBuilder emailBodyResourceValue = new StringBuilder();
-            emailBodyResourceValue.Append(resourceReader.GetResourceValueByKey("OrderConfirmation_Body"));
+            emailBodyResourceValue.Append(resourceReader
+                .GetResourceValueByKey(Startersite.Resources.MailTemplate.OrderConfirmation_Body));
 
             TagsCreator emailBodyTagsCreator = new TagsCreator();
             var orderDictionary = emailBodyTagsCreator.CreateMailBodyDictionary(order, replacedText);
@@ -45,7 +47,8 @@ namespace Startersite.ReplacementTags
         void ReplaceBasketLineTags(ResourceReader resourceReader, StringBuilder replacedText, BasketLine line)
         {
             StringBuilder basketLineResourceValue = new StringBuilder();
-            basketLineResourceValue.Append(resourceReader.GetResourceValueByKey("Basket_Lines"));
+            basketLineResourceValue.Append(resourceReader
+                .GetResourceValueByKey(Startersite.Resources.MailTemplate.OrderConfirmation_BasketLines));
 
             TagsCreator basketLineTagsCreator = new TagsCreator();
             var lineDictionary = basketLineTagsCreator.CreateBasketLineDictionary(line);

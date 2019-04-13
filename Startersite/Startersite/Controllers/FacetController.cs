@@ -19,7 +19,7 @@ namespace Startersite.Controllers
         public ActionResult Types(string selectedType = null)
         {
             ViewBag.Type = selectedType;
-            IEnumerable<string> types = productRepo.Products.Select(p => p.Type).Distinct().OrderBy(x => x);
+            IEnumerable<string> types = productRepo.Products.Select(p => p.Type).Distinct().OrderBy(x => x).ToList();
 
             return View(types);
         }

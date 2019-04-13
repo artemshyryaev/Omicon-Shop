@@ -76,6 +76,7 @@ namespace Startersite.Managers
             mailmessage.To.Add(emailSettings.MailToAddress);
             mailmessage.Subject = "New order was sucessfully send!";
             mailmessage.Body = body.ToString();
+            mailmessage.IsBodyHtml = true;
 
             if (Convert.ToBoolean(WebConfigurationManager.AppSettings["Email.WriteAsFile"]))
                 mailmessage.BodyEncoding = Encoding.UTF8;
