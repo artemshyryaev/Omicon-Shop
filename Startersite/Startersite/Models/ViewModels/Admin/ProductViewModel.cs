@@ -4,26 +4,31 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Startersite.Resources;
 
 namespace Startersite.Models.ViewModel
 {
     public class ProductViewModel
     {
-        [Display(Name = "Name")]
-        [Required(ErrorMessage = "Enter valid name.")]
+        [Display(Name = "Name", ResourceType = typeof(ProductResources))]
+        [Required(ErrorMessageResourceName = "NameValidation",
+            ErrorMessageResourceType = typeof(ProductResources))]
         public string Name { get; set; }
 
-        [Display(Name = "Description")]
+        [Display(Name = "Description", ResourceType = typeof(ProductResources))]
         [DataType(DataType.MultilineText)]
-        [Required(ErrorMessage = "Enter valid description.")]
+        [Required(ErrorMessageResourceName = "DescriptionValidation",
+            ErrorMessageResourceType = typeof(ProductResources))]
         public string Description { get; set; }
 
-        [Display(Name = "Price")]
-        [Range(0.01, double.MaxValue, ErrorMessage = "Enter valid price.")]
+        [Display(Name = "Price", ResourceType = typeof(ProductResources))]
+        [Range(0.01, double.MaxValue, ErrorMessageResourceName = "PriceValidation",
+            ErrorMessageResourceType = typeof(ProductResources))]
         public int Price { get; set; }
 
-        [Display(Name = "Type")]
-        [Required(ErrorMessage = "Enter valid type.")]
+        [Display(Name = "Type", ResourceType = typeof(ProductResources))]
+        [Required(ErrorMessageResourceName = "TypeValidation",
+            ErrorMessageResourceType = typeof(ProductResources))]
         public string Type { get; set; }
 
         [HiddenInput(DisplayValue = false)]

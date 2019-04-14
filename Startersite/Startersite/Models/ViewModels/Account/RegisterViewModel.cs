@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Startersite.Resources;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -9,22 +10,24 @@ namespace Startersite.Models.ViewModel
     public class RegisterViewModel
     {
         [Required]
-        [Display(Name = "Login")]
+        [Display(Name = "Login", ResourceType =typeof(LoginResources))]
         public string Login { get; set; }
 
         [Required]
-        [Display(Name = "Password")]
+        [Display(Name = "Password", ResourceType = typeof(LoginResources))]
         [DataType(DataType.Password)]
-        [StringLength(30, MinimumLength = 3, ErrorMessage = "The minimum length must be 3 digits.")]
+        [StringLength(30, MinimumLength = 3, ErrorMessageResourceName = "LengthValidation",
+            ErrorMessageResourceType = typeof(LoginResources))]
         public string Password { get; set; }
 
         [Required]
-        [Display(Name = "Confirm password")]
+        [Display(Name = "ConfirmPassword", ResourceType = typeof(LoginResources))]
         [DataType(DataType.Password)]
-        [Compare("Password", ErrorMessage = "The passwords do not match.")]
+        [Compare("Password", ErrorMessageResourceName = "PasswordComparisonValidation",
+            ErrorMessageResourceType = typeof(LoginResources))]
         public string ConfirmPassword { get; set; }
 
-        [Display(Name = "Remember me?")]
+        [Display(Name = "RememberMe", ResourceType = typeof(LoginResources))]
         public bool RememberMe { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Startersite.Resources;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -13,52 +14,60 @@ namespace Startersite.Models.ViewModel
         [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
 
-        [Display(Name = "Name")]
-        [Required(ErrorMessage = "Enter name.")]
+        [Display(Name = "Name", ResourceType = typeof(OrderInformationResources))]
+        [Required(ErrorMessageResourceName = "NameValidation",
+            ErrorMessageResourceType = typeof(OrderInformationResources))]
         public string Name { get; set; }
 
-        [Display(Name = "Surname")]
-        [Required(ErrorMessage = "Enter surname.")]
+        [Display(Name = "Surname", ResourceType = typeof(OrderInformationResources))]
+        [Required(ErrorMessageResourceName = "SurnameValidation",
+            ErrorMessageResourceType = typeof(OrderInformationResources))]
         public string Surname { get; set; }
 
-        [Display(Name = "E-mail")]
-        [Required(ErrorMessage = "Enter valid E-mail.")]
+        [Display(Name = "Email", ResourceType = typeof(OrderInformationResources))]
+        [Required(ErrorMessageResourceName = "EmailValidation",
+            ErrorMessageResourceType = typeof(OrderInformationResources))]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
-        [Display(Name = "Phone number")]
-        [Required(ErrorMessage = "Enter valid telephone number.")]
+        [Display(Name = "PhoneNumber", ResourceType = typeof(OrderInformationResources))]
+        [Required(ErrorMessageResourceName = "PhoneNumberValidation",
+            ErrorMessageResourceType = typeof(OrderInformationResources))]
         [DataType(DataType.PhoneNumber)]
         public double PhoneNumber { get; set; }
 
-        [Display(Name = "Country")]
-        [Required(ErrorMessage = "Enter country.")]
+        [Display(Name = "Country", ResourceType = typeof(OrderInformationResources))]
+        [Required(ErrorMessageResourceName = "CountryValidation",
+            ErrorMessageResourceType = typeof(OrderInformationResources))]
         public string Country { get; set; }
 
-        [Display(Name = "Address")]
-        [Required(ErrorMessage = "Enter address.")]
+        [Display(Name = "Address", ResourceType = typeof(OrderInformationResources))]
+        [Required(ErrorMessageResourceName = "AddressValidation",
+            ErrorMessageResourceType = typeof(OrderInformationResources))]
         [DataType(DataType.MultilineText)]
         public string Address { get; set; }
 
-        [Display(Name = "Address2")]
+        [Display(Name = "Address2", ResourceType = typeof(OrderInformationResources))]
         [DataType(DataType.MultilineText)]
         public string Address2 { get; set; }
 
-        [Display(Name = "City")]
-        [Required(ErrorMessage = "Enter city.")]
+        [Display(Name = "City", ResourceType = typeof(OrderInformationResources))]
+        [Required(ErrorMessageResourceName = "CityValidation",
+            ErrorMessageResourceType = typeof(OrderInformationResources))]
         [DataType(DataType.MultilineText)]
         public string City { get; set; }
 
-        [Display(Name = "Zip code")]
-        [Required(ErrorMessage = "Enter valid zip code.")]
+        [Display(Name = "ZipCode", ResourceType = typeof(OrderInformationResources))]
+        [Required(ErrorMessageResourceName = "ZipCodeValidation",
+            ErrorMessageResourceType = typeof(OrderInformationResources))]
         [DataType(DataType.PostalCode)]
         public string ZipCode { get; set; }
 
-        [Display(Name = "Delivery method")]
+        [Display(Name = "Delivery", ResourceType = typeof(OrderInformationResources))]
         [UIHint("EnumDropDown")]
         public MethodsOfDelivery Delivery { get; set; }
 
-        [Display(Name = "Payment method")]
+        [Display(Name = "Payment", ResourceType = typeof(OrderInformationResources))]
         [UIHint("EnumDropDown")]
         public MethodOfPayment Payment { get; set; }
 

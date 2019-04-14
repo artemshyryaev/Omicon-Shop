@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Startersite.Resources;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -10,20 +11,23 @@ namespace Startersite.Models.ViewModel
     {
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Old password")]
-        [StringLength(100, MinimumLength = 3, ErrorMessage = "The minimum length must be 3 digits.")]
+        [Display(Name = "OldPassword", ResourceType = typeof(LoginResources))]
+        [StringLength(100, MinimumLength = 3, ErrorMessageResourceName ="LengthValidation",
+            ErrorMessageResourceType = typeof(LoginResources))]
         public string OldPassword { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "New password")]
-        [StringLength(100, MinimumLength = 3, ErrorMessage = "The minimum length must be 3 digits.")]
+        [Display(Name = "NewPassword", ResourceType = typeof(LoginResources))]
+        [StringLength(100, MinimumLength = 3, ErrorMessageResourceName = "LengthValidation",
+            ErrorMessageResourceType = typeof(LoginResources))]
         public string NewPassword { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm new password")]
-        [Compare("NewPassword", ErrorMessage = "The passwords do not match.")]
+        [Display(Name = "ConfirmNewPassword", ResourceType = typeof(LoginResources))]
+        [Compare("NewPassword", ErrorMessageResourceName = "PasswordComparisonValidation",
+            ErrorMessageResourceType = typeof(LoginResources))]
         public string ConfirmNewPassword { get; set; }
     }
 }
