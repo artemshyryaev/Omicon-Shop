@@ -1,4 +1,6 @@
-﻿using System;
+﻿using OmiconShop.Domain.Entities;
+using OmiconShop.Domain.Enumerations;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -48,14 +50,5 @@ namespace Startersite.Models.ViewModel
         public double Quantity { get; set; }
 
         public UOM Uom { get; set; }
-    }
-
-    public enum UOM
-    {
-        PCS,
-
-        Pair,
-
-        Box
     }
 }

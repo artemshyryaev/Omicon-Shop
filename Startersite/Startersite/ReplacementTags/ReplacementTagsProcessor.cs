@@ -1,12 +1,10 @@
-﻿using Startersite.Logs;
-using Startersite.Models;
+﻿using OmiconShop.Domain.Entities;
+using Startersite.Logs;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
-using Startersite.Resources;
 
 namespace Startersite.ReplacementTags
 {

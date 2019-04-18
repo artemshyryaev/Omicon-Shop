@@ -5,10 +5,11 @@ using Startersite.Managers;
 using Microsoft.AspNet.Identity;
 using Startersite.IManagers;
 using Startersite.Models.ViewModel;
-using Startersite.Models;
 using System.Web;
 using System.IO;
 using System;
+using OmiconShop.Domain.Enumerations;
+using OmiconShop.Domain.Entities;
 
 namespace Startersite.Controllers
 {

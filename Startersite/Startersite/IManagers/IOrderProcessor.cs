@@ -1,4 +1,4 @@
-﻿using Startersite.Models;
+﻿using OmiconShop.Domain.Entities;
 using Startersite.Models.ViewModel;
 
 namespace Startersite.IManagers

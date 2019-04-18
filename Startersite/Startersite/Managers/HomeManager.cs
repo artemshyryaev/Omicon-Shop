@@ -1,4 +1,5 @@
-﻿using Startersite.Models;
+﻿using OmiconShop.Domain.Entities;
+using Startersite.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

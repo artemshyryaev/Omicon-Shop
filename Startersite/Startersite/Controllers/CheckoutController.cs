@@ -5,6 +5,7 @@ using Startersite.Managers;
 using Startersite.IManagers;
 using Startersite.Models.ViewModel;
 using Startersite.Models;
+using OmiconShop.Domain.Entities;
 
 namespace Startersite.Controllers
 {

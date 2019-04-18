@@ -1,4 +1,6 @@
-﻿using Startersite.Resources;
+using OmiconShop.Domain.Entities;
+using OmiconShop.Domain.Enumerations;
+using Startersite.Resources;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -34,7 +36,7 @@ namespace Startersite.Models.ViewModel
         [Required(ErrorMessageResourceName = "PhoneNumberValidation",
             ErrorMessageResourceType = typeof(OrderInformationResources))]
         [DataType(DataType.PhoneNumber)]
-        public double PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
 
         [Display(Name = "Country", ResourceType = typeof(OrderInformationResources))]
         [Required(ErrorMessageResourceName = "CountryValidation",
@@ -65,11 +67,11 @@ namespace Startersite.Models.ViewModel
 
         [Display(Name = "Delivery", ResourceType = typeof(OrderInformationResources))]
         [UIHint("EnumDropDown")]
-        public MethodsOfDelivery Delivery { get; set; }
+        public ShippingMethods Delivery { get; set; }
 
         [Display(Name = "Payment", ResourceType = typeof(OrderInformationResources))]
         [UIHint("EnumDropDown")]
-        public MethodOfPayment Payment { get; set; }
+        public PaymentMethods Payment { get; set; }
 
         ICollection<Order> Orders { get; set; }
 
@@ -77,35 +79,5 @@ namespace Startersite.Models.ViewModel
         {
             Orders = new List<Order>();
         }
-    }
-
-    public enum MethodsOfDelivery
-    {
-        Fedex,
-
-        NovaPoshta,
-
-        Buckaroo,
-
-        Post24,
-
-        UaDelivery
-    }
-
-    public enum MethodOfPayment
-    {
-        Visa,
-
-        Mastercard,
-
-        PayPall,
-
-        Dibs,
-
-        Docdata,
-
-        AfterPay,
-
-        Klarna
     }
 }

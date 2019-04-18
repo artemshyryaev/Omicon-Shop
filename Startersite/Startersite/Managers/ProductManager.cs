@@ -1,4 +1,5 @@
-﻿using Startersite.IManagers;
+﻿using OmiconShop.Domain.Entities;
+using Startersite.IManagers;
 using Startersite.Models;
 using Startersite.Models.ViewModel;
 using System.Collections.Generic;

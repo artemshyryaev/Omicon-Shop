@@ -1,5 +1,7 @@
-﻿using Startersite.IManagers;
-using Startersite.Models;
+﻿using OmiconShop.Domain.Entities;
+using OmiconShop.Domain.Enumerations;
+using OmiconShop.Persistence;
+using Startersite.IManagers;
 using Startersite.Models.ViewModel;
 using System;
 using System.Data.Entity;
@@ -29,28 +31,25 @@ namespace Startersite.Managers
 
         void AddOrderInformationToOrder(ref Order order, BasketViewModel basket, OrderInformationViewModel orderInformation)
         {
-            order = new Order
-            {
-                CustomerEmail = orderInformation.Email,
-                Date = DateTime.Today,
-                Total = basket.BasketTotal(),
-                Status = OrderStatuses.Pending,
+            order = new Order();
 
-                OrderInformation = new Information
-                {
-                    Address = orderInformation.Address,
-                    Address2 = orderInformation.Address2,
-                    City = orderInformation.City,
-                    Country = orderInformation.Country,
-                    Delivery = orderInformation.Delivery,
-                    Name = orderInformation.Name,
-                    Surname = orderInformation.Surname,
-                    Payment = orderInformation.Payment,
-                    PhoneNumber = orderInformation.PhoneNumber,
-                    ZipCode = orderInformation.ZipCode,
-                    Email = orderInformation.Email
-                }
-            };
+            order.Status = OrderStatuses.Pending;
+            order.OrderInformation.Date = DateTime.Today;
+            order.OrderInformation.Total = basket.BasketTotal();
+            order.OrderInformation.Delivery = orderInformation.Delivery;
+            order.OrderInformation.Payment = orderInformation.Payment;
+
+            order.User.UserAddress.Country = orderInformation.Country;
+            order.User.UserAddress.City = orderInformation.City;
+            order.User.UserAddress.Address = orderInformation.Address;
+            order.User.UserAddress.Address2 = orderInformation.Address2;
+            order.User.UserAddress.ZipCode = orderInformation.ZipCode;
+
+            order.User.UserPersonalInformation.Name = orderInformation.Name;
+            order.User.UserPersonalInformation.Surname = orderInformation.Surname;
+            order.User.UserPersonalInformation.PhoneNumber = orderInformation.PhoneNumber;
+            order.User.Email = orderInformation.Email;
+
         }
 
         void AddBasketLinesToOrder(BasketViewModel basket, Order order)
@@ -60,8 +59,8 @@ namespace Startersite.Managers
                 var line = new BasketLine();
                 line.OrderId = order.Id;
                 line.ProductId = el.Product.Id;
-                line.ProductName = el.Product.Name;
-                line.Price = el.Product.Price;
+                line.Product.Name = el.Product.Name;
+                line.Product.Price = el.Product.Price;
                 line.Qty = el.Quantity;
                 line.Uom = el.Uom;
 

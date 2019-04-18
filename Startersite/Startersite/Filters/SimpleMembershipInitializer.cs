@@ -5,7 +5,7 @@ using System.Threading;
 using System.Web.Mvc;
 using WebMatrix.WebData;
 using System.Web.Security;
-using Startersite.Models;
+using OmiconShop.Persistence;
 
 namespace Startersite.Filters
 {
@@ -25,7 +25,7 @@ namespace Startersite.Filters
                     }
                 }
 
-                WebSecurity.InitializeDatabaseConnection("ShopDB", "Users", "UserId", "Email", autoCreateTables: true);
+                WebSecurity.InitializeDatabaseConnection("ShopDB", "User", "Id", "Email", autoCreateTables: true);
                 SimpleRoleProvider roles = (SimpleRoleProvider)Roles.Provider;
                 SimpleMembershipProvider memberships = (SimpleMembershipProvider)Membership.Provider;
 

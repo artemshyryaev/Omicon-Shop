@@ -1,5 +1,4 @@
 ﻿using Startersite.IManagers;
-using Startersite.Models;
 using System;
 using System.IO;
 using System.Net;
@@ -9,6 +8,7 @@ using System.Web;
 using Startersite.Logs;
 using Startersite.ReplacementTags;
 using System.Web.Configuration;
+using OmiconShop.Domain.Entities;
 
 namespace Startersite.Managers
 {
@@ -68,7 +68,7 @@ namespace Startersite.Managers
 
             body.Append(replacementTagsProcessor.GetReplacedText(order));
 
-            emailSettings.MailToAddress = order.OrderInformation.Email ?? "temp@email.com";
+            emailSettings.MailToAddress = order.User.Email ?? "temp@email.com";
 
             MailMessage mailmessage = new MailMessage();
 

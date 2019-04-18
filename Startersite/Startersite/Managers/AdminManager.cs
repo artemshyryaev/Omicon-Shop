@@ -1,16 +1,15 @@
-﻿using Startersite.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.IO;
-using Startersite.Models.ViewModel;
+using OmiconShop.Domain.Entities;
 
 namespace Startersite.Managers
 {
     public class AdminManager
     {
-        public Users GetUserByEmail(string email)
+        public User GetUserByEmail(string email)
         {
             return SqlQueries.GetUserByEmail(email); ;
         }

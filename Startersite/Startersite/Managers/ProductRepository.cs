@@ -1,5 +1,6 @@
-﻿using Startersite.IManagers;
-using Startersite.Models;
+﻿using OmiconShop.Domain.Entities;
+using OmiconShop.Persistence;
+using Startersite.IManagers;
 using System.Collections.Generic;
 
 namespace Startersite.Managers

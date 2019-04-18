@@ -1,9 +1,11 @@
 ﻿using Startersite.IManagers;
-using Startersite.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Data.Entity;
 using System;
+using OmiconShop.Domain.Entities;
+using OmiconShop.Persistence;
+using OmiconShop.Domain.Enumerations;
 
 namespace Startersite.Managers
 {
@@ -20,7 +22,10 @@ namespace Startersite.Managers
                     .Include(e => e.BasketLine);
 
             if (userEmail != "admin")
-                query = query.Where(x => x.CustomerEmail == userEmail);
+                query = context.Orders.Include(e => e.OrderInformation).Include(e => e.BasketLine).
+                    Where(x => x.User.Email == userEmail).OrderBy(x => x.Id);
+            else
+                query = context.Orders.Include(e => e.OrderInformation).Include(e => e.BasketLine).OrderBy(x => x.Id);
 
             query = query.OrderBy(x => x.Id);
             if (!string.IsNullOrEmpty(orderId))

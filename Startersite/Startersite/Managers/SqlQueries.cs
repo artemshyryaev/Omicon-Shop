@@ -1,11 +1,13 @@
 ﻿using System.Linq;
 using System.Data.Entity;
-using Startersite.Models;
 using System;
 using WebMatrix.WebData;
 using System.Web.Security;
 using System.Web.Mvc;
 using System.Web;
+using OmiconShop.Domain.Entities;
+using OmiconShop.Domain.Enumerations;
+using OmiconShop.Persistence;
 
 namespace Startersite.Managers
 {
@@ -24,7 +26,7 @@ namespace Startersite.Managers
             using (ShopDBContext context = new ShopDBContext())
             {
                 return context.Orders.Include(e => e.OrderInformation).Include(e => e.BasketLine).First(x => x.Id == orderId
-                    && x.CustomerEmail == email);
+                    && x.User.Email == email);
             }
         }
 
@@ -106,7 +108,7 @@ namespace Startersite.Managers
             }
         }
 
-        public static Users GetUserByEmail(string email)
+        public static User GetUserByEmail(string email)
         {
             using (ShopDBContext context = new ShopDBContext())
             {
@@ -114,11 +116,11 @@ namespace Startersite.Managers
             }
         }
 
-        public static Users GetUserById(int id)
+        public static User GetUserById(int id)
         {
             using (ShopDBContext context = new ShopDBContext())
             {
-                return context.Users.FirstOrDefault(x => x.UserId == id);
+                return context.Users.FirstOrDefault(x => x.Id == id);
             }
         }
 
@@ -141,26 +143,17 @@ namespace Startersite.Managers
         {
             using (ShopDBContext context = new ShopDBContext())
             {
-                var dbEntry = context.Orders.Where(x => x.CustomerEmail == oldEmail).
+                var dbEntry = context.Orders.Where(x => x.User.Email == oldEmail).
                     Include(x => x.BasketLine).Include(x => x.OrderInformation).ToList();
 
                 foreach (var el in dbEntry)
                 {
-                    el.CustomerEmail = newEmail;
+                    el.User.Email = newEmail;
 
                     context.Entry(el).State = EntityState.Modified;
                     context.SaveChanges();
                 }
             }
         }
-    }
-
-    public enum OrderStatuses
-    {
-        Pending,
-
-        Approved,
-
-        Declined
     }
 }

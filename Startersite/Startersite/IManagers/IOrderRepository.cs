@@ -1,10 +1,10 @@
-﻿using Startersite.Managers;
-using Startersite.Models;
-using System;
+﻿using System;
+using OmiconShop.Domain.Entities;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using OmiconShop.Domain.Enumerations;
 
 namespace Startersite.IManagers
 {
