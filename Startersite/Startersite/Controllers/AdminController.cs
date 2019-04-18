@@ -10,6 +10,9 @@ using System.IO;
 using System;
 using OmiconShop.Domain.Enumerations;
 using OmiconShop.Domain.Entities;
+using WebMatrix.WebData;
+using System.Web.Security;
+using Startersite.Repository;
 
 namespace Startersite.Controllers
 {
@@ -20,6 +23,7 @@ namespace Startersite.Controllers
         IOrderRepository ordersRepo;
         IProductRepository productsRepo;
         AdminManager adminManager;
+        UserRepository userRepository = new UserRepository();
 
         public AdminController(IOrderRepository ordersRepo, IProductRepository productsRepo)
         {
@@ -42,6 +46,10 @@ namespace Startersite.Controllers
             var userEmail = User.Identity.Name;
 
             adminManager.ChangeUserEmail(userId, email);
+            var user = userRepository.GetUserById(userId);
+
+            WebSecurity.Logout();
+            FormsAuthentication.SetAuthCookie(user.Email, false);
             adminManager.ChangeUserEmailInOrders(userEmail, email);
 
             var userModel = adminManager.GetUserByEmail(email);

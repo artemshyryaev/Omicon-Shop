@@ -4,19 +4,22 @@ using System.Linq;
 using System.Web;
 using System.IO;
 using OmiconShop.Domain.Entities;
+using Startersite.Repository;
 
 namespace Startersite.Managers
 {
     public class AdminManager
     {
+        UserRepository userRepository = new UserRepository();
+
         public User GetUserByEmail(string email)
         {
-            return SqlQueries.GetUserByEmail(email); ;
+            return userRepository.GetUserByEmail(email); ;
         }
 
         public void ChangeUserEmail(int id, string email)
         {
-            SqlQueries.ChangeUserEmail(id, email);
+            userRepository.ChangeUserEmail(id, email);
         }
 
         public void ChangeUserEmailInOrders(string oldEmail, string newEmail)

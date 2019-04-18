@@ -108,37 +108,6 @@ namespace Startersite.Managers
             }
         }
 
-        public static User GetUserByEmail(string email)
-        {
-            using (ShopDBContext context = new ShopDBContext())
-            {
-                return context.Users.FirstOrDefault(x => x.Email == email);
-            }
-        }
-
-        public static User GetUserById(int id)
-        {
-            using (ShopDBContext context = new ShopDBContext())
-            {
-                return context.Users.FirstOrDefault(x => x.Id == id);
-            }
-        }
-
-        public static void ChangeUserEmail(int id, string email)
-        {
-            var user = GetUserById(id);
-
-            using (ShopDBContext context = new ShopDBContext())
-            {
-                user.Email = email;
-                context.Entry(user).State = EntityState.Modified;
-                context.SaveChanges();
-
-                WebSecurity.Logout();
-                FormsAuthentication.SetAuthCookie(user.Email, false);
-            }
-        }
-
         public static void ChangeUserEmailInOrders(string oldEmail, string newEmail)
         {
             using (ShopDBContext context = new ShopDBContext())
