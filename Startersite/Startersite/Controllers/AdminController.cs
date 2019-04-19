@@ -13,29 +13,32 @@ using OmiconShop.Domain.Entities;
 using WebMatrix.WebData;
 using System.Web.Security;
 using Startersite.Repository;
+using OmiconShop.Application.Admin;
 
 namespace Startersite.Controllers
 {
     [Authorize]
     public class AdminController : Controller
     {
+        AdminApi adminApi;
         const int PageSize = 10;
         IOrderRepository ordersRepo;
         IProductRepository productsRepo;
         AdminManager adminManager;
         UserRepository userRepository = new UserRepository();
 
-        public AdminController(IOrderRepository ordersRepo, IProductRepository productsRepo)
+        public AdminController(IOrderRepository ordersRepo, IProductRepository productsRepo, AdminApi adminApi)
         {
             this.ordersRepo = ordersRepo;
             this.productsRepo = productsRepo;
             this.adminManager = new AdminManager();
+            this.adminApi = adminApi;
         }
 
         public ActionResult PersonalInfo()
         {
             var userName = User.Identity.Name;
-            var userModel = adminManager.GetUserByEmail(userName);
+            var userModel = adminApi.GetCurrentUserData(userName);
 
             return View(userModel);
         }
@@ -44,19 +47,14 @@ namespace Startersite.Controllers
         public ActionResult PersonalInfo(int userId, string email)
         {
             var userEmail = User.Identity.Name;
-
-            adminManager.ChangeUserEmail(userId, email);
-            var user = userRepository.GetUserById(userId);
+            var changedUser = adminApi.GetCurrentUserData(userEmail);
 
             WebSecurity.Logout();
-            FormsAuthentication.SetAuthCookie(user.Email, false);
-            adminManager.ChangeUserEmailInOrders(userEmail, email);
-
-            var userModel = adminManager.GetUserByEmail(email);
+            FormsAuthentication.SetAuthCookie(changedUser.Email, false);
 
             TempData["message"] = string.Format("The user email was successfully changed!");
 
-            return View(userModel);
+            return View(changedUser);
         }
 
         public ActionResult ProductList(string productName, int page = 1)

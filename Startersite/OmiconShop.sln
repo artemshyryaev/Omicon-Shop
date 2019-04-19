@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Startersite", "Startersite\Startersite.csproj", "{3508FFD8-97A2-4C36-B565-F85D7902FDC3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OmiconShop.WebUI", "Startersite\OmiconShop.WebUI.csproj", "{3508FFD8-97A2-4C36-B565-F85D7902FDC3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{8A51FF5A-B164-4FCF-95EF-9C4C38F13532}"
 EndProject
@@ -12,6 +12,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{EB304701-BB8E-46D7-8BB4-A879B88050AA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OmiconShop.Persistence", "OmiconShop.Persistence\OmiconShop.Persistence.csproj", "{529CA0CE-B676-4765-8C3A-DF6A47F99E5A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{CAD8C103-C565-431A-97F9-03E1D054B34F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OmiconShop.Application", "OmiconShop.Application\OmiconShop.Application.csproj", "{BAD449FD-F535-426D-A413-80170A8DC59D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,13 +35,19 @@ Global
 		{529CA0CE-B676-4765-8C3A-DF6A47F99E5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{529CA0CE-B676-4765-8C3A-DF6A47F99E5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{529CA0CE-B676-4765-8C3A-DF6A47F99E5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAD449FD-F535-426D-A413-80170A8DC59D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAD449FD-F535-426D-A413-80170A8DC59D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAD449FD-F535-426D-A413-80170A8DC59D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAD449FD-F535-426D-A413-80170A8DC59D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{3508FFD8-97A2-4C36-B565-F85D7902FDC3} = {CAD8C103-C565-431A-97F9-03E1D054B34F}
 		{8EEB6A5A-A7DC-4F54-AA6A-B94BE12E2F68} = {8A51FF5A-B164-4FCF-95EF-9C4C38F13532}
 		{529CA0CE-B676-4765-8C3A-DF6A47F99E5A} = {EB304701-BB8E-46D7-8BB4-A879B88050AA}
+		{BAD449FD-F535-426D-A413-80170A8DC59D} = {8A51FF5A-B164-4FCF-95EF-9C4C38F13532}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {03BBDACE-4477-4172-A460-BED37CCF9198}

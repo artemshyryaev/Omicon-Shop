@@ -1,10 +1,8 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
-using System.Data.Entity;
 using Startersite.Managers;
 using Startersite.IManagers;
 using Startersite.Models.ViewModel;
-using Startersite.Models;
 using OmiconShop.Domain.Entities;
 
 namespace Startersite.Controllers
@@ -20,6 +18,7 @@ namespace Startersite.Controllers
             this.orderProcessor = orderProcessor;
             this.emailSender = emailSender;
             checkoutManager = new CheckoutManager();
+            
         }
 
         public ActionResult OrderInformation()

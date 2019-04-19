@@ -1,5 +1,7 @@
 ﻿using Ninject;
 using Ninject.Modules;
+using OmiconShop.Application.Admin;
+using OmiconShop.Application.Admin.Operations;
 using Startersite.IManagers;
 using Startersite.Managers;
 using Startersite.ReplacementTags;
@@ -22,6 +24,9 @@ namespace Startersite.Infrastructure
             Bind<EmailSettings>().To<EmailSettings>();
             Bind<SmtpClient>().To<SmtpClient>();
             Bind<ReplacementTagsProcessor>().To<ReplacementTagsProcessor>();
+            Bind<AdminApi>().To<AdminApi>();
+            Bind<UserOperations>().To<UserOperations>();
+            Bind<OrderOperations>().To<OrderOperations>();
         }
     }
 }

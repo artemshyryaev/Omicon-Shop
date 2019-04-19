@@ -19,6 +19,6 @@ namespace Startersite.IRepository
 
         void DeleteOrder(int orderId);
 
-        void ChangeUserEmailInOrders(string oldEmail, string newEmail);
+        void ChangeUserEmailInOrders(int id, string newEmail);
     }
 }

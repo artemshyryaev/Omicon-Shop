@@ -259,9 +259,6 @@
     <Compile Include="HtmlHelpers\PagingHelpers.cs" />
     <Compile Include="Infrastructure\BasketModelBinder.cs" />
     <Compile Include="Infrastructure\NinjectRegistrations.cs" />
-    <Compile Include="IRepository\IOrderRepository.cs" />
-    <Compile Include="IRepository\IProductRepository.cs" />
-    <Compile Include="IRepository\IUserRepository.cs" />
     <Compile Include="Logs\CreateLogFiles.cs" />
     <Compile Include="Managers\AdminManager.cs" />
     <Compile Include="Managers\CheckoutManager.cs" />
@@ -293,29 +290,6 @@
     <Compile Include="ReplacementTags\ReplacementTagsProcessor.cs" />
     <Compile Include="ReplacementTags\ResourceReader.cs" />
     <Compile Include="ReplacementTags\TagsCreator.cs" />
-    <Compile Include="Repository\OrderRepository.cs" />
-    <Compile Include="Repository\ProductRepository.cs" />
-    <Compile Include="Repository\UserRepository.cs" />
-    <Compile Include="Resources\MailTemplate.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MailTemplate.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\LoginResources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LoginResources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\ProductResources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ProductResources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\OrderInformationResources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>OrderInformationResources.resx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-grid.css" />
@@ -437,24 +411,10 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\MailTemplate.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>MailTemplate.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\LoginResources.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>LoginResources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\ProductResources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>ProductResources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\OrderInformationResources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>OrderInformationResources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
+    <ProjectReference Include="..\OmiconShop.Application\OmiconShop.Application.csproj">
+      <Project>{bad449fd-f535-426d-a413-80170a8dc59d}</Project>
+      <Name>OmiconShop.Application</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OmiconShop.Domain\OmiconShop.Domain.csproj">
       <Project>{8eeb6a5a-a7dc-4f54-aa6a-b94be12e2f68}</Project>
       <Name>OmiconShop.Domain</Name>
@@ -466,6 +426,9 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

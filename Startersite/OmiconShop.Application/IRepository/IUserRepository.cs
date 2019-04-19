@@ -13,6 +13,6 @@ namespace Startersite.IRepository
 
         User GetUserById(int id);
 
-        void ChangeUserEmail(int id, string email);
+        User ChangeUserEmail(int id, string email);
     }
 }

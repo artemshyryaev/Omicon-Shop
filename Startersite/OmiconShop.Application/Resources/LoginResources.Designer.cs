@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Startersite.Resources {
+namespace OmiconShop.Application.Resources {
     using System;
     
     
@@ -22,24 +22,24 @@ namespace Startersite.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class ProductResources {
+    public class LoginResources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal ProductResources() {
+        internal LoginResources() {
         }
         
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Startersite.Resources.ProductResources", typeof(ProductResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("OmiconShop.Application.Resources.LoginResources", typeof(LoginResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -51,7 +51,7 @@ namespace Startersite.Resources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -61,74 +61,92 @@ namespace Startersite.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Description.
+        ///   Looks up a localized string similar to Confirm new password.
         /// </summary>
-        internal static string Description {
+        public static string ConfirmNewPassword {
             get {
-                return ResourceManager.GetString("Description", resourceCulture);
+                return ResourceManager.GetString("ConfirmNewPassword", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enter valid description..
+        ///   Looks up a localized string similar to ConfirmPassword.
         /// </summary>
-        internal static string DescriptionValidation {
+        public static string ConfirmPassword {
             get {
-                return ResourceManager.GetString("DescriptionValidation", resourceCulture);
+                return ResourceManager.GetString("ConfirmPassword", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Name.
+        ///   Looks up a localized string similar to Email.
         /// </summary>
-        internal static string Name {
+        public static string Email {
             get {
-                return ResourceManager.GetString("Name", resourceCulture);
+                return ResourceManager.GetString("Email", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enter valid name..
+        ///   Looks up a localized string similar to The minimum length should be 3 digits..
         /// </summary>
-        internal static string NameValidation {
+        public static string LengthValidation {
             get {
-                return ResourceManager.GetString("NameValidation", resourceCulture);
+                return ResourceManager.GetString("LengthValidation", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Price.
+        ///   Looks up a localized string similar to Login.
         /// </summary>
-        internal static string Price {
+        public static string Login {
             get {
-                return ResourceManager.GetString("Price", resourceCulture);
+                return ResourceManager.GetString("Login", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enter valid price..
+        ///   Looks up a localized string similar to New password.
         /// </summary>
-        internal static string PriceValidation {
+        public static string NewPassword {
             get {
-                return ResourceManager.GetString("PriceValidation", resourceCulture);
+                return ResourceManager.GetString("NewPassword", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Type.
+        ///   Looks up a localized string similar to Old password.
         /// </summary>
-        internal static string Type {
+        public static string OldPassword {
             get {
-                return ResourceManager.GetString("Type", resourceCulture);
+                return ResourceManager.GetString("OldPassword", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enter valid type..
+        ///   Looks up a localized string similar to Password.
         /// </summary>
-        internal static string TypeValidation {
+        public static string Password {
             get {
-                return ResourceManager.GetString("TypeValidation", resourceCulture);
+                return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The passwords do not match..
+        /// </summary>
+        public static string PasswordComparisonValidation {
+            get {
+                return ResourceManager.GetString("PasswordComparisonValidation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remember me?.
+        /// </summary>
+        public static string RememberMe {
+            get {
+                return ResourceManager.GetString("RememberMe", resourceCulture);
             }
         }
     }

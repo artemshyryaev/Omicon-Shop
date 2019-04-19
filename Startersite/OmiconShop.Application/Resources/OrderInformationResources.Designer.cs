@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Startersite.Resources {
+namespace OmiconShop.Application.Resources {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Startersite.Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Startersite.Resources.OrderInformationResources", typeof(OrderInformationResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("OmiconShop.Application.Resources.OrderInformationResources", typeof(OrderInformationResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

@@ -27,7 +27,7 @@ namespace Startersite.Repository
             }
         }
 
-        public void ChangeUserEmail(int id, string email)
+        public User ChangeUserEmail(int id, string email)
         {
             var user = GetUserById(id);
 
@@ -37,6 +37,8 @@ namespace Startersite.Repository
                 context.Entry(user).State = EntityState.Modified;
                 context.SaveChanges();
             }
+
+            return user;
         }
     }
 }

@@ -67,11 +67,11 @@ namespace Startersite.Repository
             }
         }
 
-        public void ChangeUserEmailInOrders(string oldEmail, string newEmail)
+        public void ChangeUserEmailInOrders(int id, string newEmail)
         {
             using (ShopDBContext context = new ShopDBContext())
             {
-                var dbEntry = context.Orders.Where(e => e.User.Email == oldEmail)
+                var dbEntry = context.Orders.Where(e => e.User.Id == id)
                         .Include(e => e.BasketLine)
                         .Include(e => e.OrderInformation)
                         .Include(e => e.User).ToList();
