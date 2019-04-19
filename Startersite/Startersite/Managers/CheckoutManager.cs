@@ -9,14 +9,16 @@ namespace Startersite.Managers
 {
     public class CheckoutManager
     {
+        Repository.OrderRepository orderRepository = new Repository.OrderRepository();
+
         public Order GetOrderById(int orderId)
         {
-            return SqlQueries.GetOrderById(orderId);
+            return orderRepository.GetOrderById(orderId);
         }
 
         public void DeleteOrder(int orderId)
         {
-            SqlQueries.DeleteOrder(orderId);
+            orderRepository.DeleteOrder(orderId);
         }
     }
 }

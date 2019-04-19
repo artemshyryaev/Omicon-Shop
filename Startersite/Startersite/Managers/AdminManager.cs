@@ -11,7 +11,8 @@ namespace Startersite.Managers
     public class AdminManager
     {
         UserRepository userRepository = new UserRepository();
-        Startersite.Repository.ProductRepository productRepository = new Startersite.Repository.ProductRepository();
+        Repository.ProductRepository productRepository = new Startersite.Repository.ProductRepository();
+        Repository.OrderRepository orderRepository = new Repository.OrderRepository();
 
         public User GetUserByEmail(string email)
         {
@@ -25,7 +26,7 @@ namespace Startersite.Managers
 
         public void ChangeUserEmailInOrders(string oldEmail, string newEmail)
         {
-            SqlQueries.ChangeUserEmailInOrders(oldEmail, newEmail);
+            orderRepository.ChangeUserEmailInOrders(oldEmail, newEmail);
         }
 
         public void AddProduct(Product product)
@@ -50,22 +51,22 @@ namespace Startersite.Managers
 
         public Order GetOrderById(int orderId)
         {
-            return SqlQueries.GetOrderById(orderId);
+            return orderRepository.GetOrderById(orderId);
         }
 
         public Order GetOrderByIdAndCustomerEmail(int orderId, string email)
         {
-            return SqlQueries.GetOrderByIdAndCustomerEmail(orderId, email);
+            return orderRepository.GetOrderByIdAndCustomerEmail(orderId, email);
         }
 
         public void ApproveOrderByAdmin(int orderId)
         {
-            SqlQueries.ApproveOrderByAdmin(orderId);
+            orderRepository.ApproveOrderByAdmin(orderId);
         }
 
         public void DeclineOrderByAdmin(int orderId)
         {
-            SqlQueries.DeclineOrderByAdmin(orderId);
+            orderRepository.DeclineOrderByAdmin(orderId);
         }
     }
 }
