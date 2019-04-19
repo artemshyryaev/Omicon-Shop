@@ -9,9 +9,11 @@ namespace Startersite.Managers
 {
     public class HomeManager
     {
+        Startersite.Repository.ProductRepository productRepository = new Repository.ProductRepository();
+
         public Product GetProductById(int orderId)
         {
-            return SqlQueries.GetProductById(orderId);
+            return productRepository.GetProductById(orderId);
         }
     }
 }

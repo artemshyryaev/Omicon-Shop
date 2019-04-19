@@ -259,6 +259,7 @@
     <Compile Include="HtmlHelpers\PagingHelpers.cs" />
     <Compile Include="Infrastructure\BasketModelBinder.cs" />
     <Compile Include="Infrastructure\NinjectRegistrations.cs" />
+    <Compile Include="IRepository\IProductRepository.cs" />
     <Compile Include="IRepository\IUserRepository.cs" />
     <Compile Include="Logs\CreateLogFiles.cs" />
     <Compile Include="Managers\AdminManager.cs" />
@@ -292,6 +293,7 @@
     <Compile Include="ReplacementTags\ReplacementTagsProcessor.cs" />
     <Compile Include="ReplacementTags\ResourceReader.cs" />
     <Compile Include="ReplacementTags\TagsCreator.cs" />
+    <Compile Include="Repository\ProductRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Resources\MailTemplate.Designer.cs">
       <AutoGen>True</AutoGen>

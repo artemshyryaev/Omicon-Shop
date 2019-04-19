@@ -11,6 +11,7 @@ namespace Startersite.Managers
     public class AdminManager
     {
         UserRepository userRepository = new UserRepository();
+        Startersite.Repository.ProductRepository productRepository = new Startersite.Repository.ProductRepository();
 
         public User GetUserByEmail(string email)
         {
@@ -29,22 +30,22 @@ namespace Startersite.Managers
 
         public void AddProduct(Product product)
         {
-            SqlQueries.AddProduct(product);
+            productRepository.AddProduct(product);
         }
 
         public Product GetProductById(int orderId)
         {
-            return SqlQueries.GetProductById(orderId);
+            return productRepository.GetProductById(orderId);
         }
 
         public void EditProduct(Product product)
         {
-            SqlQueries.EditProduct(product);
+            productRepository.EditProduct(product);
         }
 
         public void DeleteProduct(int productId)
         {
-            SqlQueries.DeleteProduct(productId);
+            productRepository.DeleteProduct(productId);
         }
 
         public Order GetOrderById(int orderId)
