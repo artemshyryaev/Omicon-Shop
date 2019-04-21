@@ -1,14 +1,15 @@
 ﻿using OmiconShop.Domain.Entities;
-using Startersite.Repository;
+using Startersite.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OmiconShop.Application.Admin.Operations
+namespace Startersite.IManagers
 {
-    public class UserOperations : UserRepository
+    public interface IProductRepositoryы
     {
+        IEnumerable<Product> Products { get; }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Startersite.Models.ViewModel
+namespace OmiconShop.Application.Admin.ViewModel
 {
     public class PagingInfoViewModel
     {

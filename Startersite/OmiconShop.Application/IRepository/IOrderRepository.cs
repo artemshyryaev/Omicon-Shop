@@ -5,10 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Startersite.IRepository
+namespace OmiconShop.Application.IRepository
 {
     public interface IOrderRepository
     {
+        IQueryable<Order> GetAllOrders();
+
         Order GetOrderById(int orderId);
 
         Order GetOrderByIdAndCustomerEmail(int orderId, string email);

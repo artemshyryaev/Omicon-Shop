@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Startersite.Managers
 {
-    public class ProductRepository : IProductRepository
+    public class ProductRepositorys : IProductRepositoryы
     {
         ShopDBContext context = new ShopDBContext();
 

@@ -10,10 +10,10 @@ namespace Startersite.Controllers
     public class HomeController : Controller
     {
         const int PageSize = 10;
-        private IProductRepository productsRepo;
+        private IProductRepositoryы productsRepo;
         HomeManager homeManager;
 
-        public HomeController(IProductRepository productsRepo)
+        public HomeController(IProductRepositoryы productsRepo)
         {
             this.productsRepo = productsRepo;
             homeManager = new HomeManager();

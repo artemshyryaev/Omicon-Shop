@@ -1,13 +1,12 @@
 ﻿using OmiconShop.Domain.Entities;
 using OmiconShop.Persistence;
-using Startersite.IRepository;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
-namespace Startersite.Repository
+namespace OmiconShop.Application.IRepository
 {
     public class UserRepository : IUserRepository
     {

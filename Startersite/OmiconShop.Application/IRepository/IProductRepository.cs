@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Startersite.IRepository
+namespace OmiconShop.Application.IRepository
 {
     public interface IProductRepository
     {
+        IQueryable<Product> GetAllProducts();
+
         Product GetProductById(int orderId);
 
         void AddProduct(Product product);

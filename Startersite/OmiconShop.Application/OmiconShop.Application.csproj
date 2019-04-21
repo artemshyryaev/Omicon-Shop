@@ -43,6 +43,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
     </Reference>
@@ -71,8 +72,10 @@
   <ItemGroup>
     <Compile Include="Admin\AdminApi.cs" />
     <Compile Include="Admin\Operations\OrderOperations.cs" />
-    <Compile Include="Admin\Operations\UserOperations.cs" />
+    <Compile Include="Admin\Operations\ProductOperations.cs" />
     <Compile Include="Admin\ViewModels\OrdersViewModel.cs" />
+    <Compile Include="Admin\ViewModels\PagingInfoViewModel.cs" />
+    <Compile Include="Admin\ViewModels\ProductsListViewModel.cs" />
     <Compile Include="Admin\ViewModels\ProductViewModel.cs" />
     <Compile Include="IRepository\IOrderRepository.cs" />
     <Compile Include="IRepository\IProductRepository.cs" />

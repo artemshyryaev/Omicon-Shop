@@ -8,7 +8,7 @@ using OmiconShop.Domain.Enumerations;
 
 namespace Startersite.IManagers
 {
-    public interface IOrderRepository
+    public interface IOrderRepositorys
     {
         IEnumerable<Order> Orders { get; }
 

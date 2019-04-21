@@ -1,19 +1,15 @@
-﻿using System.Data.Entity;
-using System.Linq;
+﻿using System.Linq;
 using System.Web.Mvc;
 using Startersite.Managers;
 using Microsoft.AspNet.Identity;
 using Startersite.IManagers;
-using Startersite.Models.ViewModel;
 using System.Web;
-using System.IO;
 using System;
 using OmiconShop.Domain.Enumerations;
-using OmiconShop.Domain.Entities;
 using WebMatrix.WebData;
 using System.Web.Security;
-using Startersite.Repository;
 using OmiconShop.Application.Admin;
+using OmiconShop.Application.Admin.ViewModel;
 
 namespace Startersite.Controllers
 {
@@ -22,16 +18,9 @@ namespace Startersite.Controllers
     {
         AdminApi adminApi;
         const int PageSize = 10;
-        IOrderRepository ordersRepo;
-        IProductRepository productsRepo;
-        AdminManager adminManager;
-        UserRepository userRepository = new UserRepository();
 
-        public AdminController(IOrderRepository ordersRepo, IProductRepository productsRepo, AdminApi adminApi)
+        public AdminController(AdminApi adminApi)
         {
-            this.ordersRepo = ordersRepo;
-            this.productsRepo = productsRepo;
-            this.adminManager = new AdminManager();
             this.adminApi = adminApi;
         }
 
@@ -59,19 +48,9 @@ namespace Startersite.Controllers
 
         public ActionResult ProductList(string productName, int page = 1)
         {
-            var manager = new ProductManager(productsRepo);
+            var productListViewModel = adminApi.GetProductsListViewModel(productName, page, PageSize);
 
-            ProductsListViewModel model = new ProductsListViewModel
-            {
-                Products = manager.GetProducts(page: page, pageSize: PageSize, productName: productName),
-                PagingInfo = new PagingInfoViewModel
-                {
-                    CurrentPage = page,
-                    TotalItems = productsRepo.Products.Count(),
-                    ItemsPerPage = PageSize
-                }
-            };
-            return View(model);
+            return View(productListViewModel);
         }
 
         public ActionResult AddProduct()
@@ -85,14 +64,9 @@ namespace Startersite.Controllers
             if (ModelState.IsValid)
             {
                 if (image != null)
-                {
-                    var filepath = "/content/files/" + Guid.NewGuid() + ".png";
+                    adminApi.AddImagePathToProduct(ref product);
 
-                    product = ProductManager.AddImagePathToProduct(product, filepath);
-                }
-
-                var productModel = ProductManager.CreateProductModelFromProductViewModel(product);
-                adminManager.AddProduct(productModel);
+                var productModel = adminApi.CreateProduct(product);
                 TempData["message"] = string.Format($"{productModel.Name} was successfully added!");
 
                 return RedirectToAction("ProductList", "Admin");
@@ -105,8 +79,7 @@ namespace Startersite.Controllers
 
         public ActionResult EditProduct(int productId)
         {
-            var product = adminManager.GetProductById(productId);
-            var productViewModel = ProductManager.CreateProductViewModelFromProductModel(product);
+            var productViewModel = adminApi.CreateProductViewModelByProductId(productId);
             ViewData["Id"] = productId;
 
             return View(productViewModel);
@@ -118,21 +91,9 @@ namespace Startersite.Controllers
             if (ModelState.IsValid)
             {
                 if (image != null)
-                {
-                    var filepath = string.IsNullOrEmpty(product.ImageUrl) ? "/content/files/" + Guid.NewGuid() + ".png" : product.ImageUrl;
-                    var fullPath = Server.MapPath(filepath);
-                    if (System.IO.File.Exists(fullPath))
-                    {
-                        System.IO.File.Delete(fullPath);
-                    }
+                    image.SaveAs(adminApi.CreateProductFullPath(ref product));
 
-                    image.SaveAs(fullPath);
-
-                    product = ProductManager.AddImagePathToProduct(product, filepath);
-                }
-
-                var productModel = ProductManager.CreateProductModelFromProductViewModel(product, productId);
-                adminManager.EditProduct(productModel);
+                var productModel = adminApi.EditProduct(productId, product);
                 TempData["message"] = string.Format($"Data in {productModel.Id}/{productModel.Name} was successfully changed!");
 
                 return RedirectToAction("ProductList", "Admin");
@@ -147,7 +108,7 @@ namespace Startersite.Controllers
         {
             if (ModelState.IsValid)
             {
-                adminManager.DeleteProduct(productId);
+                adminApi.DeleteProduct(productId);
                 TempData["message"] = string.Format($"{productId} was successfully deleted!");
             }
             else
@@ -160,19 +121,8 @@ namespace Startersite.Controllers
 
         public ActionResult OrderList(string orderId, OrderStatuses? selectedStatus = null, int page = 1)
         {
-            var email = User.Identity.Name;
-
-            OrdersViewModel model = new OrdersViewModel
-            {
-                Orders = ordersRepo.GetOrders(page, PageSize, selectedStatus, email, orderId),
-                PagingInfo = new PagingInfoViewModel
-                {
-                    CurrentPage = page,
-                    ItemsPerPage = PageSize,
-                    TotalItems = ordersRepo.Orders.Count()
-                },
-                SelectedStatus = selectedStatus
-            };
+            var userEmail = User.Identity.Name;
+            var model = adminApi.GetOrdersViewModel(orderId, selectedStatus, userEmail, page, PageSize);
 
             return View(model);
         }
@@ -180,7 +130,6 @@ namespace Startersite.Controllers
         [AllowAnonymous]
         public ActionResult OrderDetails(int orderId)
         {
-            Order order = null;
             if (!User.Identity.IsAuthenticated)
             {
                 var retunrUrl = Request.Url.PathAndQuery;
@@ -188,15 +137,7 @@ namespace Startersite.Controllers
             }
 
             var userEmail = User.Identity.GetUserName();
-
-            if (userEmail == "admin")
-            {
-                order = adminManager.GetOrderById(orderId);
-            }
-            else
-            {
-                order = adminManager.GetOrderByIdAndCustomerEmail(orderId, userEmail);
-            }
+            var order = adminApi.GetCurrentUserOrder(orderId, userEmail);
 
             if (order == null)
             {
@@ -208,16 +149,14 @@ namespace Startersite.Controllers
 
         public ActionResult Approve(int orderId)
         {
-            adminManager.ApproveOrderByAdmin(orderId);
-            var order = adminManager.GetOrderById(orderId);
+            var order = adminApi.ApproveOrder(orderId);
 
             return View("OrderDetails", order);
         }
 
         public ActionResult Decline(int orderId)
         {
-            adminManager.DeclineOrderByAdmin(orderId);
-            var order = adminManager.GetOrderById(orderId);
+            var order = adminApi.DeclineOrder(orderId);
 
             return View("OrderDetails", order);
         }

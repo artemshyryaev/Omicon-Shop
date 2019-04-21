@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using OmiconShop.Application.Resources;
 
-namespace Startersite.Models.ViewModel
+namespace OmiconShop.Application.Admin.ViewModel
 {
     public class ProductViewModel
     {

@@ -1,17 +1,28 @@
-﻿using OmiconShop.Domain.Entities;
+﻿using OmiconShop.Application.IRepository;
+using OmiconShop.Domain.Entities;
 using OmiconShop.Domain.Enumerations;
 using OmiconShop.Persistence;
-using Startersite.IRepository;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
-namespace Startersite.Repository
+namespace OmiconShop.Application.Repository
 {
     public class OrderRepository : IOrderRepository
     {
+        public IQueryable<Order> GetAllOrders()
+        {
+            using (ShopDBContext context = new ShopDBContext())
+            {
+                return context.Orders
+                    .Include(e => e.OrderInformation)
+                    .Include(e => e.BasketLine)
+                    .Include(e => e.User);
+            }
+        }
+
         public Order GetOrderById(int orderId)
         {
             using (ShopDBContext context = new ShopDBContext())

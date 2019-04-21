@@ -8,9 +8,9 @@ namespace Startersite.Controllers
 {
     public class FacetController : Controller
     {
-        IProductRepository productRepo;
+        IProductRepositoryы productRepo;
 
-        public FacetController(IProductRepository productRepo)
+        public FacetController(IProductRepositoryы productRepo)
         {
             this.productRepo = productRepo;
         }    

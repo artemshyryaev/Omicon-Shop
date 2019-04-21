@@ -1,16 +1,23 @@
 ﻿using OmiconShop.Domain.Entities;
 using OmiconShop.Persistence;
-using Startersite.IRepository;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
-namespace Startersite.Repository
+namespace OmiconShop.Application.IRepository
 {
     public class ProductRepository : IProductRepository
     {
+        public IQueryable<Product> GetAllProducts()
+        {
+            using (ShopDBContext context = new ShopDBContext())
+            {
+                return context.Products;
+            }
+        }
+
         public void AddProduct(Product product)
         {
             using (ShopDBContext context = new ShopDBContext())
