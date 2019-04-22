@@ -259,7 +259,6 @@
     <Compile Include="HtmlHelpers\PagingHelpers.cs" />
     <Compile Include="Infrastructure\BasketModelBinder.cs" />
     <Compile Include="Infrastructure\NinjectRegistrations.cs" />
-    <Compile Include="Managers\ProductManager.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

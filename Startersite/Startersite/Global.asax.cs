@@ -4,9 +4,10 @@ using System.Web.Routing;
 using Ninject;
 using Ninject.Modules;
 using Ninject.Web.Mvc;
-using Startersite.Filters;
-using Startersite.Infrastructure;
-using Startersite.Models.ViewModel;
+using OmiconShop.Application.Basket.ViewModel;
+using OmiconShop.WebUI;
+using OmiconShop.WebUI.Filters;
+using OmiconShop.WebUI.Infrastructure;
 
 namespace Startersite
 {

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using OmiconShop.Application.Home;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace OmiconShop.WebUI.Controllers
@@ -6,13 +7,11 @@ namespace OmiconShop.WebUI.Controllers
     public class HomeController : Controller
     {
         const int PageSize = 10;
-        private IProductRepositoryы productsRepo;
-        HomeManager homeManager;
+        HomeApi homeApi;
 
-        public HomeController(IProductRepositoryы productsRepo)
+        public HomeController(HomeApi homeApi)
         {
-            this.productsRepo = productsRepo;
-            homeManager = new HomeManager();
+            this.homeApi = homeApi;
         }
 
         public ActionResult Index()
@@ -36,20 +35,7 @@ namespace OmiconShop.WebUI.Controllers
 
         public ActionResult ProductsList(string type, string productName, int page = 1)
         {
-            var manager = new ProductManager(productsRepo);
-
-            ProductsListViewModel model = new ProductsListViewModel
-            {
-                Products = manager.GetProducts(page, PageSize, type, productName),
-                PagingInfo = new PagingInfoViewModel
-                {
-                    CurrentPage = page,
-                    TotalItems = type == null ? productsRepo.Products.Count()
-                        : productsRepo.Products.Where(p => p.Type == type).Count(),
-                    ItemsPerPage = PageSize
-                },
-                Type = type
-            };
+            var model = homeApi.GetProductsListViewModel(type, productName, page, PageSize);
 
             ViewData["Page"] = page;
             ViewData["Type"] = type;
@@ -59,7 +45,7 @@ namespace OmiconShop.WebUI.Controllers
 
         public ActionResult ProductDetails(int productId, string type, int page = 1)
         {
-            var model = homeManager.GetProductById(productId);
+            var model = homeApi.GetProductById(productId);
 
             ViewData["Page"] = page;
             ViewData["Type"] = type;

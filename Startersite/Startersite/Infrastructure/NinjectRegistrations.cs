@@ -12,6 +12,9 @@ using System.Net.Mail;
 using System.Web.Mvc;
 using AdminOrderOperations = OmiconShop.Application.Admin.Operations.OrderOperations;
 using CheckoutOrderOperations = OmiconShop.Application.Checkout.Operations.OrderOperations;
+using AdminProductOperations = OmiconShop.Application.Admin.Operations.ProductOperations;
+using HomeProductOperations = OmiconShop.Application.Home.Operations.ProductOperations;
+using OmiconShop.Application.ReplacementTags;
 
 namespace OmiconShop.WebUI.Infrastructure
 {
@@ -19,18 +22,18 @@ namespace OmiconShop.WebUI.Infrastructure
     {
         public override void Load()
         {
-            Bind<EmailSender>().To<EmailSender>();
-            Bind<EmailSettings>().To<EmailSettings>();
-            Bind<SmtpClient>().To<SmtpClient>();
-            //Bind<ReplacementTagsProcessor>().To<ReplacementTagsProcessor>();
-            Bind<AdminApi>().To<AdminApi>();
-            //Bind<UserOperations>().To<UserOperations>();
-            Bind<AdminOrderOperations>().To<AdminOrderOperations>();
-            Bind<ProductOperations>().To<ProductOperations>();
-            Bind<CheckoutOrderOperations>().To<CheckoutOrderOperations>();
             Bind<IOrderRepository>().To<OrderRepository>();
             Bind<IProductRepository>().To<ProductRepository>();
             Bind<IUserRepository>().To<UserRepository>();
+            Bind<EmailSender>().To<EmailSender>();
+            Bind<EmailSettings>().To<EmailSettings>();
+            Bind<SmtpClient>().To<SmtpClient>();
+            Bind<ReplacementTagsProcessor>().To<ReplacementTagsProcessor>();
+            Bind<AdminApi>().To<AdminApi>();
+            Bind<AdminOrderOperations>().To<AdminOrderOperations>();
+            Bind<AdminProductOperations>().To<AdminProductOperations>();
+            Bind<HomeProductOperations>().To<HomeProductOperations>();
+            Bind<CheckoutOrderOperations>().To<CheckoutOrderOperations>();
             Bind<BasketApi>().To<BasketApi>();
         }
     }

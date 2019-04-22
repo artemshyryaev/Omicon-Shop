@@ -89,6 +89,8 @@
     <Compile Include="Checkout\Operations\OrderOperations.cs" />
     <Compile Include="Checkout\ViewModel\OrderInformationViewModel.cs" />
     <Compile Include="Facet\FacetApi.cs" />
+    <Compile Include="Home\HomeApi.cs" />
+    <Compile Include="Home\Operations\ProductOperations.cs" />
     <Compile Include="IRepository\IOrderRepository.cs" />
     <Compile Include="IRepository\IProductRepository.cs" />
     <Compile Include="IRepository\IUserRepository.cs" />
