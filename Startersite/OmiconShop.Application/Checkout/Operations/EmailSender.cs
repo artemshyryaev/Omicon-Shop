@@ -85,7 +85,7 @@ namespace OmiconShop.Application.Checkout.Operations
 
         string SpecifyMailRoot()
         {
-            string path = Path.Combine(HttpRuntime.AppDomainAppPath, @"Mail");
+            string path = string.Concat(AppDomain.CurrentDomain.BaseDirectory, "App_Data\\Mail\\");
             if (!Directory.Exists(path))
                 Directory.CreateDirectory(path);
 
