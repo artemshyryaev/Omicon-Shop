@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Startersite.Models.ViewModel
+namespace OmiconShop.Application.Basket.ViewModel
 {
     public class BasketViewModel
     {
@@ -18,13 +18,9 @@ namespace Startersite.Models.ViewModel
             var isProductInBasket = lineCollection.Where(p => p.Product.Id == product.Id && p.Uom == uom).FirstOrDefault();
 
             if (isProductInBasket == null)
-            {
                 lineCollection.Add(new BasketLineModel { Product = product, Quantity = quantity, Uom = uom });
-            }
             else
-            {
                 isProductInBasket.Quantity += quantity;
-            }
         }
 
         public void RemoveLine(Product product, UOM uom)

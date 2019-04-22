@@ -1,7 +1,6 @@
-﻿using OmiconShop.Domain.Enumerations;
-using Startersite.IManagers;
-using Startersite.Models;
-using Startersite.Models.ViewModel;
+﻿using OmiconShop.Application.Basket;
+using OmiconShop.Application.Basket.ViewModel;
+using OmiconShop.Domain.Enumerations;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -9,11 +8,11 @@ namespace Startersite.Controllers
 {
     public class BasketController : Controller
     {
-        IProductRepositoryы productRepo;
+        BasketApi basketApi;
 
-        public BasketController(IProductRepositoryы productRepo)
+        public BasketController(BasketApi basketApi)
         {
-            this.productRepo = productRepo;
+            this.basketApi = basketApi;
         }
 
         public ActionResult Index(BasketViewModel basket, string returnUrl)
@@ -23,36 +22,21 @@ namespace Startersite.Controllers
 
         public RedirectToRouteResult AddToCart(BasketViewModel basket, int productId, string returnUrl, double quantity, UOM uom)
         {
-            var product = productRepo.Products.FirstOrDefault(x => x.Id == productId);
+            basketApi.AddToCart(basket, productId, quantity, uom);
 
-            if (product != null)
-            {
-                basket.Add(product, quantity, uom);
-            }
-
-            return RedirectToAction("Index", new { returnUrl});
+            return RedirectToAction("Index", new { returnUrl });
         }
 
         public RedirectToRouteResult RemoveFromBasket(BasketViewModel basket, int productId, string returnUrl, UOM uom)
         {
-            var product = productRepo.Products.FirstOrDefault(x => x.Id == productId);
-
-            if (product != null)
-            {
-                basket.RemoveLine(product, uom);
-            }
+            basketApi.RemoveFromBasket(basket, productId, uom);
 
             return RedirectToAction("Index", new { returnUrl });
         }
 
         public RedirectToRouteResult EmptyBasket(BasketViewModel basket, string returnUrl)
         {
-            var product = productRepo.Products.Count();
-
-            if (product >= 1)
-            {
-                basket.ClearBasket();
-            }
+            basketApi.EmptyBasket(basket);
 
             return RedirectToAction("Index", new { returnUrl });
         }

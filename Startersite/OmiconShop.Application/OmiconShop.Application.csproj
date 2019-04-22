@@ -77,6 +77,9 @@
     <Compile Include="Admin\ViewModels\PagingInfoViewModel.cs" />
     <Compile Include="Admin\ViewModels\ProductsListViewModel.cs" />
     <Compile Include="Admin\ViewModels\ProductViewModel.cs" />
+    <Compile Include="Basket\BasketApi.cs" />
+    <Compile Include="Basket\ViewModel\BasketIndexViewModel.cs" />
+    <Compile Include="Basket\ViewModel\BasketViewModel.cs" />
     <Compile Include="IRepository\IOrderRepository.cs" />
     <Compile Include="IRepository\IProductRepository.cs" />
     <Compile Include="IRepository\IUserRepository.cs" />
@@ -137,5 +140,6 @@
       <LastGenOutput>ProductResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
