@@ -1,12 +1,12 @@
-﻿using OmiconShop.Domain.Entities;
-using Startersite.Logs;
+﻿using OmiconShop.Application.Logs;
+using OmiconShop.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
 
-namespace Startersite.ReplacementTags
+namespace OmiconShop.Application.ReplacementTags
 {
     public class ReplacementTagsProcessor
     {
@@ -29,7 +29,7 @@ namespace Startersite.ReplacementTags
         {
             StringBuilder emailBodyResourceValue = new StringBuilder();
             emailBodyResourceValue.Append(resourceReader
-                .GetResourceValueByKey(Startersite.Resources.MailTemplate.OrderConfirmation_Body));
+                .GetResourceValueByKey(Resources.MailTemplate.OrderConfirmation_Body));
 
             TagsCreator emailBodyTagsCreator = new TagsCreator();
             var orderDictionary = emailBodyTagsCreator.CreateMailBodyDictionary(order, replacedText);
@@ -46,7 +46,7 @@ namespace Startersite.ReplacementTags
         {
             StringBuilder basketLineResourceValue = new StringBuilder();
             basketLineResourceValue.Append(resourceReader
-                .GetResourceValueByKey(Startersite.Resources.MailTemplate.OrderConfirmation_BasketLines));
+                .GetResourceValueByKey(Resources.MailTemplate.OrderConfirmation_BasketLines));
 
             TagsCreator basketLineTagsCreator = new TagsCreator();
             var lineDictionary = basketLineTagsCreator.CreateBasketLineDictionary(line);

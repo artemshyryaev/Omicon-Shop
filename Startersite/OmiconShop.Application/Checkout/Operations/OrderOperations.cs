@@ -1,35 +1,18 @@
-﻿using OmiconShop.Domain.Entities;
+﻿using OmiconShop.Application.Basket.ViewModel;
+using OmiconShop.Application.Checkout.ViewModel;
+using OmiconShop.Domain.Entities;
 using OmiconShop.Domain.Enumerations;
-using OmiconShop.Persistence;
-using Startersite.IManagers;
-using Startersite.Models.ViewModel;
 using System;
-using System.Data.Entity;
-using System.Web.Mvc;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Startersite.Managers
+namespace OmiconShop.Application.Checkout.Operations
 {
-    public class OrderProcessor : Controller, IOrderProcessor
+    public class OrderOperations
     {
-        ShopDBContext context;
-
-        public OrderProcessor()
-        {
-            context = new ShopDBContext();
-        }
-
-        public Order ProcessOrder(BasketViewModel basket, OrderInformationViewModel orderInformation)
-        {
-            Order order = null;
-
-            AddOrderInformationToOrder(ref order, basket, orderInformation);
-            AddBasketLinesToOrder(basket, order);
-            SaveChanges(order);
-
-            return order;
-        }
-
-        void AddOrderInformationToOrder(ref Order order, BasketViewModel basket, OrderInformationViewModel orderInformation)
+        public void AddOrderInformationToOrder(ref Order order, BasketViewModel basket, OrderInformationViewModel orderInformation)
         {
             order = new Order();
 
@@ -52,7 +35,7 @@ namespace Startersite.Managers
 
         }
 
-        void AddBasketLinesToOrder(BasketViewModel basket, Order order)
+        public void AddBasketLinesToOrder(BasketViewModel basket, Order order)
         {
             foreach (var el in basket.Lines)
             {
@@ -66,12 +49,6 @@ namespace Startersite.Managers
 
                 order.BasketLine.Add(line);
             }
-        }
-
-        void SaveChanges(Order order)
-        {
-            context.Entry(order).State = EntityState.Added;
-            context.SaveChanges();
         }
     }
 }

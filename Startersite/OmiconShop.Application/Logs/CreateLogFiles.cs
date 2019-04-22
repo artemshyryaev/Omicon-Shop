@@ -5,7 +5,7 @@ using System.Web;
 using System.IO;
 using System.Text;
 
-namespace Startersite.Logs
+namespace OmiconShop.Application.Logs
 {
     public class CreateLogFiles
     {

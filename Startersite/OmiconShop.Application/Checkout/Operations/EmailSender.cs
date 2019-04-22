@@ -1,18 +1,17 @@
-﻿using Startersite.IManagers;
-using System;
+﻿using System;
 using System.IO;
 using System.Net;
 using System.Net.Mail;
 using System.Text;
 using System.Web;
-using Startersite.Logs;
-using Startersite.ReplacementTags;
 using System.Web.Configuration;
+using OmiconShop.Application.Logs;
+using OmiconShop.Application.ReplacementTags;
 using OmiconShop.Domain.Entities;
 
-namespace Startersite.Managers
+namespace OmiconShop.Application.Checkout.Operations
 {
-    public class EmailSender : IEmailSender
+    public class EmailSender
     {
         public EmailSettings emailSettings;
         SmtpClient smtpClient;

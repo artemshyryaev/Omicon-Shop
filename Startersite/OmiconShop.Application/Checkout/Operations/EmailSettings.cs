@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Startersite.Managers
+namespace OmiconShop.Application.Checkout.Operations
 {
     public class EmailSettings
     {

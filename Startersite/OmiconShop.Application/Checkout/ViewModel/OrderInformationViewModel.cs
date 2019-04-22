@@ -1,6 +1,6 @@
+using OmiconShop.Application.Resources;
 using OmiconShop.Domain.Entities;
 using OmiconShop.Domain.Enumerations;
-using Startersite.Resources;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Startersite.Models.ViewModel
+namespace OmiconShop.Application.Checkout.ViewModel
 {
     public class OrderInformationViewModel
     {

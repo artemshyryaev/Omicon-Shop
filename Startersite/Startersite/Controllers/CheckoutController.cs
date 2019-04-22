@@ -1,24 +1,19 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
-using Startersite.Managers;
-using Startersite.IManagers;
-using Startersite.Models.ViewModel;
 using OmiconShop.Domain.Entities;
+using OmiconShop.Application.Basket.ViewModel;
+using OmiconShop.Application.Checkout;
+using OmiconShop.Application.Checkout.ViewModel;
 
 namespace Startersite.Controllers
 {
     public class CheckoutController : Controller
     {
-        IOrderProcessor orderProcessor;
-        IEmailSender emailSender;
-        CheckoutManager checkoutManager;
+        CheckoutApi checkoutApi;
 
-        public CheckoutController(IOrderProcessor orderProcessor, IEmailSender emailSender)
+        public CheckoutController(CheckoutApi checkoutApi)
         {
-            this.orderProcessor = orderProcessor;
-            this.emailSender = emailSender;
-            checkoutManager = new CheckoutManager();
-            
+            this.checkoutApi = checkoutApi; 
         }
 
         public ActionResult OrderInformation()
@@ -36,7 +31,7 @@ namespace Startersite.Controllers
 
             if (ModelState.IsValid)
             {
-                order = orderProcessor.ProcessOrder(basket, orderInformation);
+                order = checkoutApi.ProcessOrder(basket, orderInformation);
                 ViewBag.OrderId = order.Id;
             }
             else
@@ -49,20 +44,14 @@ namespace Startersite.Controllers
 
         public ActionResult DeclineOrder(int orderId)
         {
-            checkoutManager.DeleteOrder(orderId);
+            checkoutApi.DeclineOrder(orderId);
 
             return View();
         }
 
         public ActionResult SubmitOrder(BasketViewModel basket, int orderId)
         {
-            if (basket != null)
-            {
-                basket.ClearBasket();
-            }
-
-            var order = checkoutManager.GetOrderById(orderId);
-            emailSender.SendOrderConfirmationEmail(order);
+            var order = checkoutApi.SubmitOrder(basket, orderId);
 
             return View("OrderSucessfullyCreated", order);
         }

@@ -22,5 +22,7 @@ namespace OmiconShop.Application.IRepository
         void DeleteOrder(int orderId);
 
         void ChangeUserEmailInOrders(int id, string newEmail);
+
+        void AddOrder(Order order);
     }
 }

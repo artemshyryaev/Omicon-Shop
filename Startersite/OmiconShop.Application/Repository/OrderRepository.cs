@@ -96,5 +96,14 @@ namespace OmiconShop.Application.Repository
                 }
             }
         }
+
+        public void AddOrder(Order order)
+        {
+            using (ShopDBContext context = new ShopDBContext())
+            {
+                context.Entry(order).State = EntityState.Added;
+                context.SaveChanges();
+            }
+        }
     }
 }
