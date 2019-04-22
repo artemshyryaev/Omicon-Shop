@@ -1,11 +1,7 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
-using Startersite.Filters;
-using Startersite.Managers;
-using Startersite.IManagers;
-using Startersite.Models.ViewModel;
 
-namespace Startersite.Controllers
+namespace OmiconShop.WebUI.Controllers
 {
     public class HomeController : Controller
     {

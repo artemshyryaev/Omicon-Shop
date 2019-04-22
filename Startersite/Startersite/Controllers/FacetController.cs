@@ -1,25 +1,24 @@
-﻿using Startersite.IManagers;
-using Startersite.Managers;
+﻿using OmiconShop.Application.Facet;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 
-namespace Startersite.Controllers
+namespace OmiconShop.WebUI.Controllers
 {
     public class FacetController : Controller
     {
-        IProductRepositoryы productRepo;
+        FacetApi facetApi;
 
-        public FacetController(IProductRepositoryы productRepo)
+        public FacetController(FacetApi facetApi)
         {
-            this.productRepo = productRepo;
+            this.facetApi = facetApi;
         }    
 
         [ChildActionOnly]
         public ActionResult Types(string selectedType = null)
         {
             ViewBag.Type = selectedType;
-            IEnumerable<string> types = productRepo.Products.Select(p => p.Type).Distinct().OrderBy(x => x).ToList();
+            var types = facetApi.GetAllProductFacets().ToList();
 
             return View(types);
         }

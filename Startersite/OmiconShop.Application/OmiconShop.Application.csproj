@@ -70,6 +70,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account\ViewModel\ChangePasswordViewModel.cs" />
+    <Compile Include="Account\ViewModel\LoginViewModel.cs" />
+    <Compile Include="Account\ViewModel\RegisterViewModel.cs" />
     <Compile Include="Admin\AdminApi.cs" />
     <Compile Include="Admin\Operations\OrderOperations.cs" />
     <Compile Include="Admin\Operations\ProductOperations.cs" />
@@ -85,6 +88,7 @@
     <Compile Include="Checkout\Operations\EmailSettings.cs" />
     <Compile Include="Checkout\Operations\OrderOperations.cs" />
     <Compile Include="Checkout\ViewModel\OrderInformationViewModel.cs" />
+    <Compile Include="Facet\FacetApi.cs" />
     <Compile Include="IRepository\IOrderRepository.cs" />
     <Compile Include="IRepository\IProductRepository.cs" />
     <Compile Include="IRepository\IUserRepository.cs" />

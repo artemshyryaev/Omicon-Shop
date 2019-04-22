@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace Startersite
+namespace OmiconShop.WebUI
 {
     public class BundleConfig
     {

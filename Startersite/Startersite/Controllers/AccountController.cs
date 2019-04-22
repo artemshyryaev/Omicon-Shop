@@ -2,10 +2,9 @@
 using System.Web.Mvc;
 using WebMatrix.WebData;
 using System.Web.Security;
-using Startersite.Filters;
-using Startersite.Models.ViewModel;
+using OmiconShop.Application.Account.ViewModel;
 
-namespace Startersite.Controllers
+namespace OmiconShop.WebUI.Controllers
 {
     [Authorize]
     public class AccountController : Controller

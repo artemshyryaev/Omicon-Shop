@@ -1,10 +1,9 @@
 ﻿using OmiconShop.Application.Basket;
 using OmiconShop.Application.Basket.ViewModel;
 using OmiconShop.Domain.Enumerations;
-using System.Linq;
 using System.Web.Mvc;
 
-namespace Startersite.Controllers
+namespace OmiconShop.WebUI.Controllers
 {
     public class BasketController : Controller
     {

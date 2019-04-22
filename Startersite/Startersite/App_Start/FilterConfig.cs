@@ -1,8 +1,7 @@
-﻿using Startersite.Filters;
-using System.Web;
+﻿using System.Web;
 using System.Web.Mvc;
 
-namespace Startersite
+namespace OmiconShop.WebUI
 {
     public class FilterConfig
     {

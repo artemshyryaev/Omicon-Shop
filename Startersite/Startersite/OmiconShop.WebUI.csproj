@@ -259,14 +259,10 @@
     <Compile Include="HtmlHelpers\PagingHelpers.cs" />
     <Compile Include="Infrastructure\BasketModelBinder.cs" />
     <Compile Include="Infrastructure\NinjectRegistrations.cs" />
-    <Compile Include="Managers\HomeManager.cs" />
     <Compile Include="Managers\ProductManager.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\ViewModels\Account\ChangePasswordViewModel.cs" />
-    <Compile Include="Models\ViewModels\Account\LoginViewModel.cs" />
-    <Compile Include="Models\ViewModels\Account\RegisterViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -377,7 +373,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\ViewModels\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config">

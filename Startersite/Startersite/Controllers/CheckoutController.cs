@@ -5,7 +5,7 @@ using OmiconShop.Application.Basket.ViewModel;
 using OmiconShop.Application.Checkout;
 using OmiconShop.Application.Checkout.ViewModel;
 
-namespace Startersite.Controllers
+namespace OmiconShop.WebUI.Controllers
 {
     public class CheckoutController : Controller
     {

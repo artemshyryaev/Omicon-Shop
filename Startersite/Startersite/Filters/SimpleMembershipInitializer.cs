@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
-using System.Threading;
-using System.Web.Mvc;
 using WebMatrix.WebData;
 using System.Web.Security;
 using OmiconShop.Persistence;
 
-namespace Startersite.Filters
+namespace OmiconShop.WebUI.Filters
 {
     public class SimpleMembershipInitializer
     {
@@ -20,9 +18,7 @@ namespace Startersite.Filters
                 using (var context = new ShopDBContext())
                 {
                     if (!context.Database.Exists())
-                    {
                         ((IObjectContextAdapter)context).ObjectContext.CreateDatabase();
-                    }
                 }
 
                 WebSecurity.InitializeDatabaseConnection("ShopDB", "User", "Id", "Email", autoCreateTables: true);

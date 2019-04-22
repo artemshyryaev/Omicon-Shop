@@ -1,8 +1,5 @@
-﻿using System.Linq;
-using System.Web.Mvc;
-using Startersite.Managers;
+﻿using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
-using Startersite.IManagers;
 using System.Web;
 using System;
 using OmiconShop.Domain.Enumerations;
@@ -11,7 +8,7 @@ using System.Web.Security;
 using OmiconShop.Application.Admin;
 using OmiconShop.Application.Admin.ViewModel;
 
-namespace Startersite.Controllers
+namespace OmiconShop.WebUI.Controllers
 {
     [Authorize]
     public class AdminController : Controller

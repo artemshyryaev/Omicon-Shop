@@ -1,9 +1,9 @@
-﻿using Startersite.Models.ViewModel;
+﻿using OmiconShop.Application.Admin.ViewModel;
 using System;
 using System.Text;
 using System.Web.Mvc;
 
-namespace Startersite.HtmlHelpers
+namespace OmiconShop.WebUI.HtmlHelpers
 {
     public static class PagingHelpers
     {

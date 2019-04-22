@@ -10,8 +10,10 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Net.Mail;
 using System.Web.Mvc;
+using AdminOrderOperations = OmiconShop.Application.Admin.Operations.OrderOperations;
+using CheckoutOrderOperations = OmiconShop.Application.Checkout.Operations.OrderOperations;
 
-namespace Startersite.Infrastructure
+namespace OmiconShop.WebUI.Infrastructure
 {
     public class NinjectRegistrations : NinjectModule
     {
@@ -23,8 +25,9 @@ namespace Startersite.Infrastructure
             //Bind<ReplacementTagsProcessor>().To<ReplacementTagsProcessor>();
             Bind<AdminApi>().To<AdminApi>();
             //Bind<UserOperations>().To<UserOperations>();
-            Bind<OrderOperations>().To<OrderOperations>();
+            Bind<AdminOrderOperations>().To<AdminOrderOperations>();
             Bind<ProductOperations>().To<ProductOperations>();
+            Bind<CheckoutOrderOperations>().To<CheckoutOrderOperations>();
             Bind<IOrderRepository>().To<OrderRepository>();
             Bind<IProductRepository>().To<ProductRepository>();
             Bind<IUserRepository>().To<UserRepository>();

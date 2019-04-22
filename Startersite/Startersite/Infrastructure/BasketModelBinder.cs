@@ -1,7 +1,7 @@
-﻿using Startersite.Models.ViewModel;
+﻿using OmiconShop.Application.Basket.ViewModel;
 using System.Web.Mvc;
 
-namespace Startersite.Infrastructure
+namespace OmiconShop.WebUI.Infrastructure
 {
     public class BasketModelBinder : IModelBinder
     {

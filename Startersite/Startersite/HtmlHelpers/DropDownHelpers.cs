@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Mvc.Html;
 
-namespace Startersite.HtmlHelpers
+namespace OmiconShop.WebUI.HtmlHelpers
 {
     public static class DropDownHelpers
     {
@@ -49,6 +49,5 @@ namespace Startersite.HtmlHelpers
                        Selected = (value.Equals(stringified))
                    };
         }
-
     }
 }

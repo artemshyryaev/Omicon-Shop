@@ -1,11 +1,11 @@
-﻿using Startersite.Resources;
+﻿using OmiconShop.Application.Resources;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace Startersite.Models.ViewModel
+namespace OmiconShop.Application.Account.ViewModel
 {
     public class ChangePasswordViewModel
     {
