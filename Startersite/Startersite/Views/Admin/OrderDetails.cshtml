@@ -1,4 +1,4 @@
-﻿@model Startersite.Models.Order
+﻿@model OmiconShop.Domain.Entities.Order
 @using Microsoft.AspNet.Identity
 
 @{
@@ -31,7 +31,7 @@
                 <td>@Model.Status</td>
                 <td>@Model.OrderInformation.Delivery</td>
                 <td>@Model.OrderInformation.Payment</td>
-                <td>@Model.Date</td>
+                <td>@Model.OrderInformation.Date</td>
             </tr>
         </tbody>
     </table>
@@ -45,11 +45,11 @@
             </tr>
         </thead>
         <tbody>
-            <tr>@Model.OrderInformation.Address</tr>
-            <tr>@Model.OrderInformation.Address2</tr>
-            <tr>@Model.OrderInformation.City</tr>
-            <tr>@Model.OrderInformation.Country</tr>
-            <tr>@Model.OrderInformation.ZipCode</tr>
+            <tr>@Model.User.UserAddress.Address</tr>
+            <tr>@Model.User.UserAddress.Address2</tr>
+            <tr>@Model.User.UserAddress.City</tr>
+            <tr>@Model.User.UserAddress.Country</tr>
+            <tr>@Model.User.UserAddress.ZipCode</tr>
         </tbody>
     </table>
 </div>
@@ -71,22 +71,22 @@
             {
                 <tr>
                     <td>@line.ProductId</td>
-                    <td>@line.ProductName</td>
-                    <td>@line.Price</td>
+                    <td>@line.Product.Name</td>
+                    <td>@line.Product.Price</td>
                     <td>@line.Qty</td>
                     <td>@line.Uom</td>
-                    <td>@(line.Qty * line.Price)</td>
+                    <td>@(line.Qty * line.Product.Price)</td>
                 </tr>
             }
         </tbody>
         <tfoot>
             <tr>
-                <td colspan="5">Total $ @Model.Total</td>
+                <td colspan="5">Total $ @Model.OrderInformation.Total</td>
     </table>
 </div>
 
 <div>
-    @if (User.Identity.Name == "admin" && Model.Status == Startersite.Managers.OrderStatuses.Pending)
+    @if (User.Identity.Name == "admin" && Model.Status == OmiconShop.Domain.Enumerations.OrderStatuses.Pending)
     {
         @Html.RouteLink("Approve order", new { action = "Approve", controller = "Admin", orderId = Model.Id },
             new { @class = "btn btn-primary" })
