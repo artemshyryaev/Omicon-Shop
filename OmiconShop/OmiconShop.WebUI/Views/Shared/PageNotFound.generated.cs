@@ -27,8 +27,8 @@ namespace ASP
     using System.Web.Security;
     using System.Web.UI;
     using System.Web.WebPages;
-    using Startersite;
-    using Startersite.HtmlHelpers;
+    using OmiconShop.WebUI;
+    using OmiconShop.WebUI.HtmlHelpers;
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("RazorGenerator", "2.0.0.0")]
     [System.Web.WebPages.PageVirtualPathAttribute("~/Views/Shared/PageNotFound.cshtml")]
