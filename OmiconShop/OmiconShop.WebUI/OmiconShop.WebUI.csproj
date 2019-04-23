@@ -13,7 +13,7 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Startersite</RootNamespace>
+    <RootNamespace>OmiconShop.WebUI</RootNamespace>
     <AssemblyName>Startersite</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
@@ -263,6 +263,161 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Account\ChangePassword.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ChangePassword.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Account\Login.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Login.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Account\Register.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Register.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\AddProduct.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AddProduct.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\EditProduct.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditProduct.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\ManageProducts.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ManageProducts.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\OrderDetails.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OrderDetails.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\OrderList.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OrderList.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\PersonalInfo.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PersonalInfo.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\ProductList.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProductList.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\_ProductDetails.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_ProductDetails.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Basket\Index.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Index.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Checkout\DeclineOrder.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DeclineOrder.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Checkout\OrderInformation.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OrderInformation.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Checkout\OrderOverview.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OrderOverview.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Checkout\OrderSucessfullyCreated.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OrderSucessfullyCreated.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Facet\Types.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Types.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Home\About.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>About.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Home\Contact.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Contact.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Home\Index.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Index.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Home\ProductDetails.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProductDetails.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Home\ProductsList.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProductsList.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Home\_RenderProducts.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_RenderProducts.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shared\EditorTemplates\EnumDropDown.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EnumDropDown.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shared\Error.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Error.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shared\PageNotFound.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PageNotFound.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shared\_AdminLayout.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_AdminLayout.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shared\_Footer.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_Footer.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shared\_Layout.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_Layout.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shared\_NavBar.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_NavBar.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\_ViewStart.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_ViewStart.cshtml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-grid.css" />
@@ -329,37 +484,126 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\ChangePassword.cshtml" />
-    <Content Include="Views\Home\ProductsList.cshtml" />
-    <Content Include="Views\Home\_RenderProducts.cshtml" />
-    <Content Include="Views\Admin\OrderList.cshtml" />
-    <Content Include="Views\Admin\ManageProducts.cshtml" />
-    <Content Include="Views\Admin\AddProduct.cshtml" />
-    <Content Include="Views\Facet\Types.cshtml" />
-    <Content Include="Views\Basket\Index.cshtml" />
-    <Content Include="Views\Checkout\OrderInformation.cshtml" />
-    <Content Include="Views\Checkout\OrderOverview.cshtml" />
-    <Content Include="Views\Checkout\DeclineOrder.cshtml" />
-    <Content Include="Views\Checkout\OrderSucessfullyCreated.cshtml" />
-    <Content Include="Views\Shared\PageNotFound.cshtml" />
-    <Content Include="Views\Admin\OrderDetails.cshtml" />
-    <Content Include="Views\Shared\_AdminLayout.cshtml" />
-    <Content Include="Views\Admin\ProductList.cshtml" />
-    <Content Include="Views\Admin\EditProduct.cshtml" />
-    <Content Include="Views\Admin\_ProductDetails.cshtml" />
-    <Content Include="Views\Admin\PersonalInfo.cshtml" />
-    <Content Include="Views\Home\ProductDetails.cshtml" />
-    <Content Include="Views\Shared\_NavBar.cshtml" />
-    <Content Include="Views\Shared\_Footer.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\EnumDropDown.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>_ViewStart.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\Shared\Error.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Error.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\Shared\_Layout.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>_Layout.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\Home\About.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>About.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\Home\Contact.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Contact.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\Account\Login.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Login.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\Account\Register.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Register.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\Account\ChangePassword.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>ChangePassword.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\Home\ProductsList.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>ProductsList.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\Home\_RenderProducts.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>_RenderProducts.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\Admin\OrderList.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>OrderList.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\Admin\ManageProducts.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>ManageProducts.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\Admin\AddProduct.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>AddProduct.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\Facet\Types.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Types.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\Basket\Index.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Index.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\Checkout\OrderInformation.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>OrderInformation.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\Checkout\OrderOverview.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>OrderOverview.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\Checkout\DeclineOrder.cshtml">
+      <Generator>Razor Generator</Generator>
+      <LastGenOutput>DeclineOrder.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\Checkout\OrderSucessfullyCreated.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>OrderSucessfullyCreated.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\Shared\PageNotFound.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>PageNotFound.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\Admin\OrderDetails.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>OrderDetails.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\Shared\_AdminLayout.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>_AdminLayout.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\Admin\ProductList.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>ProductList.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\Admin\EditProduct.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>EditProduct.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\Admin\_ProductDetails.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>_ProductDetails.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\Admin\PersonalInfo.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>PersonalInfo.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\Home\ProductDetails.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>ProductDetails.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\Shared\_NavBar.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>_NavBar.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\Shared\_Footer.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>_Footer.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\Shared\EditorTemplates\EnumDropDown.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>EnumDropDown.generated.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper-utils.min.js.map" />
@@ -369,6 +613,10 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Home\Index.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Index.generated.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
