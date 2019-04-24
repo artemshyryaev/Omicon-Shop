@@ -3,12 +3,20 @@ using System.Web.Mvc;
 using WebMatrix.WebData;
 using System.Web.Security;
 using OmiconShop.Application.Account.ViewModel;
+using OmiconShop.Application.Account;
 
 namespace OmiconShop.WebUI.Controllers
 {
     [Authorize]
     public class AccountController : Controller
     {
+        AccountApi accountApi;
+
+        public AccountController(AccountApi accountApi)
+        {
+            this.accountApi = accountApi;
+        }    
+
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
@@ -57,6 +65,7 @@ namespace OmiconShop.WebUI.Controllers
                 try
                 {
                     WebSecurity.CreateUserAndAccount(model.Login, model.Password);
+                    accountApi.CreateUser(model);
 
                     WebSecurity.Login(model.Login, model.Password);
                     return RedirectToLocal(returnUrl);

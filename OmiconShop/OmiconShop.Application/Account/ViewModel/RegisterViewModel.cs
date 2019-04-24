@@ -10,8 +10,51 @@ namespace OmiconShop.Application.Account.ViewModel
     public class RegisterViewModel
     {
         [Required]
-        [Display(Name = "Login", ResourceType =typeof(LoginResources))]
+        [Display(Name = "Login", ResourceType = typeof(LoginResources))]
         public string Login { get; set; }
+
+        [Display(Name = "Name", ResourceType = typeof(OrderInformationResources))]
+        [Required(ErrorMessageResourceName = "NameValidation",
+            ErrorMessageResourceType = typeof(OrderInformationResources))]
+        public string Name { get; set; }
+
+        [Display(Name = "Surname", ResourceType = typeof(OrderInformationResources))]
+        [Required(ErrorMessageResourceName = "SurnameValidation",
+            ErrorMessageResourceType = typeof(OrderInformationResources))]
+        public string Surname { get; set; }
+
+        [Display(Name = "PhoneNumber", ResourceType = typeof(OrderInformationResources))]
+        [Required(ErrorMessageResourceName = "PhoneNumberValidation",
+            ErrorMessageResourceType = typeof(OrderInformationResources))]
+        [DataType(DataType.PhoneNumber)]
+        public string PhoneNumber { get; set; }
+
+        [Display(Name = "Country", ResourceType = typeof(OrderInformationResources))]
+        [Required(ErrorMessageResourceName = "CountryValidation",
+            ErrorMessageResourceType = typeof(OrderInformationResources))]
+        public string Country { get; set; }
+
+        [Display(Name = "Address", ResourceType = typeof(OrderInformationResources))]
+        [Required(ErrorMessageResourceName = "AddressValidation",
+            ErrorMessageResourceType = typeof(OrderInformationResources))]
+        [DataType(DataType.MultilineText)]
+        public string Address { get; set; }
+
+        [Display(Name = "Address2", ResourceType = typeof(OrderInformationResources))]
+        [DataType(DataType.MultilineText)]
+        public string Address2 { get; set; }
+
+        [Display(Name = "City", ResourceType = typeof(OrderInformationResources))]
+        [Required(ErrorMessageResourceName = "CityValidation",
+            ErrorMessageResourceType = typeof(OrderInformationResources))]
+        [DataType(DataType.MultilineText)]
+        public string City { get; set; }
+
+        [Display(Name = "ZipCode", ResourceType = typeof(OrderInformationResources))]
+        [Required(ErrorMessageResourceName = "ZipCodeValidation",
+            ErrorMessageResourceType = typeof(OrderInformationResources))]
+        [DataType(DataType.PostalCode)]
+        public string ZipCode { get; set; }
 
         [Required]
         [Display(Name = "Password", ResourceType = typeof(LoginResources))]

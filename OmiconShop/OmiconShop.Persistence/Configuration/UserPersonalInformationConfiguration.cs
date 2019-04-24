@@ -14,10 +14,9 @@ namespace OmiconShop.Persistence.Configuration
         {
             HasKey(e => e.Id);
 
-            Property(e => e.Name).HasMaxLength(60).HasColumnType("ntext").IsRequired();
-            Property(e => e.Surname).HasMaxLength(80).HasColumnType("ntext").IsRequired();
-            Property(e => e.PhoneNumber).HasMaxLength(24).HasColumnType("ntext").IsRequired();
-            //Property(e => e.Email).HasMaxLength(60).HasColumnType("ntext").IsRequired();
+            Property(e => e.Name).HasMaxLength(60).HasColumnType("nvarchar(max)").IsRequired();
+            Property(e => e.Surname).HasMaxLength(80).HasColumnType("nvarchar(max)").IsRequired();
+            Property(e => e.PhoneNumber).HasMaxLength(24).HasColumnType("nvarchar(max)").IsRequired();
         }
     }
 }

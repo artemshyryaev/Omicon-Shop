@@ -8,7 +8,7 @@ namespace OmiconShop.Application.IRepository
 {
     public interface IProductRepository
     {
-        IQueryable<Product> GetAllProducts();
+        IEnumerable<Product> GetAllProducts();
 
         Product GetProductById(int orderId);
 

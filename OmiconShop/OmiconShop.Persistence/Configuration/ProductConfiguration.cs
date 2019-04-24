@@ -16,11 +16,11 @@ namespace OmiconShop.Persistence.Configuration
             HasKey(e => e.Id);
 
             Property(e => e.Id).IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            Property(e => e.Name).IsRequired().HasMaxLength(40).HasColumnType("ntext");
-            Property(e => e.Description).HasMaxLength(250).HasColumnType("ntext");
+            Property(e => e.Name).IsRequired().HasMaxLength(40).HasColumnType("nvarchar(max)");
+            Property(e => e.Description).HasMaxLength(250).HasColumnType("nvarchar(max)");
             Property(e => e.Price).IsRequired().HasColumnType("money");
-            Property(e => e.Type).IsRequired().HasMaxLength(40).HasColumnType("ntext");
-            Property(e => e.ImageUrl).HasColumnType("ntext");
+            Property(e => e.Type).IsRequired().HasMaxLength(40).HasColumnType("nvarchar(max)");
+            Property(e => e.ImageUrl).HasColumnType("nvarchar(max)");
         }
     }
 }

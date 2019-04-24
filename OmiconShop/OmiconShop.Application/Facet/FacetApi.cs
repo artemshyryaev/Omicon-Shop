@@ -16,7 +16,7 @@ namespace OmiconShop.Application.Facet
             this.productRepository = productRepository;
         }
 
-        public IQueryable<string> GetAllProductFacets()
+        public IEnumerable<string> GetAllProductFacets()
         {
             return productRepository.GetAllProducts().Select(p => p.Type).Distinct().OrderBy(x => x);
         }

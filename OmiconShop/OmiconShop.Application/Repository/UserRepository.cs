@@ -1,4 +1,5 @@
-﻿using OmiconShop.Domain.Entities;
+﻿using OmiconShop.Application.Account.ViewModel;
+using OmiconShop.Domain.Entities;
 using OmiconShop.Persistence;
 using System;
 using System.Collections.Generic;
@@ -10,19 +11,32 @@ namespace OmiconShop.Application.IRepository
 {
     public class UserRepository : IUserRepository
     {
+        ShopDBContext context;
+
+        public UserRepository(ShopDBContext context)
+        {
+            this.context = context;
+        }
+
         public User GetUserByEmail(string email)
         {
-            using (ShopDBContext context = new ShopDBContext())
+            using (context)
             {
-                return context.Users.FirstOrDefault(x => x.Email == email);
+                return context.Users
+                         .Include(x => x.UserAddress)
+                         .Include(x => x.UserPersonalInformation)
+                         .FirstOrDefault(x => x.Email == email);
             }
         }
 
         public User GetUserById(int id)
         {
-            using (ShopDBContext context = new ShopDBContext())
+            using (context)
             {
-                return context.Users.FirstOrDefault(x => x.Id == id);
+                return context.Users
+                    .Include(x => x.UserAddress)
+                    .Include(x => x.UserPersonalInformation)
+                    .FirstOrDefault(x => x.Id == id);
             }
         }
 
@@ -30,7 +44,7 @@ namespace OmiconShop.Application.IRepository
         {
             var user = GetUserById(id);
 
-            using (ShopDBContext context = new ShopDBContext())
+            using (context)
             {
                 user.Email = email;
                 context.Entry(user).State = EntityState.Modified;
@@ -38,6 +52,15 @@ namespace OmiconShop.Application.IRepository
             }
 
             return user;
+        }
+
+        public void SaveUser(User user)
+        {
+            using (context)
+            {
+                context.Entry(user).State = EntityState.Modified;
+                context.SaveChanges();
+            }
         }
     }
 }

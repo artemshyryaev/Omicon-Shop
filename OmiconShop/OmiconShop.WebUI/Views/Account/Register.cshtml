@@ -16,27 +16,7 @@
 
         <fieldset>
             <legend>Log in Form</legend>
-            <ol>
-                <li>
-                    @Html.LabelFor(m => m.Login)
-                    @Html.TextBoxFor(m => m.Login)
-                    @Html.ValidationMessageFor(m => m.Login)
-                </li>
-                <li>
-                    @Html.LabelFor(m => m.Password)
-                    @Html.TextBoxFor(m => m.Password)
-                    @Html.ValidationMessageFor(m => m.Password)
-                </li>
-                <li>
-                    @Html.LabelFor(m => m.ConfirmPassword)
-                    @Html.TextBoxFor(m => m.ConfirmPassword)
-                    @Html.ValidationMessageFor(m => m.ConfirmPassword)
-                </li>
-                <li>
-                    @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
-                    @Html.CheckBoxFor(m => m.RememberMe)
-                </li>
-            </ol>
+            @Html.EditorForModel()
             <input type="submit" value="Register">
         </fieldset>
     }

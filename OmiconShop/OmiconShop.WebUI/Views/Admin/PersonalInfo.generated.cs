@@ -29,7 +29,7 @@ namespace ASP
     using System.Web.WebPages;
     using OmiconShop.WebUI;
     using OmiconShop.WebUI.HtmlHelpers;
-
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("RazorGenerator", "2.0.0.0")]
     [System.Web.WebPages.PageVirtualPathAttribute("~/Views/Admin/PersonalInfo.cshtml")]
     public partial class _Views_Admin_PersonalInfo_cshtml : System.Web.Mvc.WebViewPage<OmiconShop.Domain.Entities.User>
@@ -64,7 +64,7 @@ WriteLiteral("        ");
 
             
             #line 12 "..\..\Views\Admin\PersonalInfo.cshtml"
-   Write(Html.HiddenFor(x =>x.Id));
+   Write(Html.HiddenFor(x => x.Id));
 
             
             #line default

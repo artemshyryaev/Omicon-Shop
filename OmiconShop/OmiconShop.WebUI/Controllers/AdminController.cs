@@ -30,7 +30,7 @@ namespace OmiconShop.WebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult PersonalInfo(int userId, string email)
+        public ActionResult PersonalInfo(int id, string email)
         {
             var userEmail = User.Identity.Name;
             var changedUser = adminApi.GetCurrentUserData(userEmail);

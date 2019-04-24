@@ -15,6 +15,8 @@ using CheckoutOrderOperations = OmiconShop.Application.Checkout.Operations.Order
 using AdminProductOperations = OmiconShop.Application.Admin.Operations.ProductOperations;
 using HomeProductOperations = OmiconShop.Application.Home.Operations.ProductOperations;
 using OmiconShop.Application.ReplacementTags;
+using OmiconShop.Persistence;
+using OmiconShop.Application.Account;
 
 namespace OmiconShop.WebUI.Infrastructure
 {
@@ -35,6 +37,8 @@ namespace OmiconShop.WebUI.Infrastructure
             Bind<HomeProductOperations>().To<HomeProductOperations>();
             Bind<CheckoutOrderOperations>().To<CheckoutOrderOperations>();
             Bind<BasketApi>().To<BasketApi>();
+            Bind<ShopDBContext>().To<ShopDBContext>();
+            Bind<AccountApi>().To<AccountApi>();
         }
     }
 }

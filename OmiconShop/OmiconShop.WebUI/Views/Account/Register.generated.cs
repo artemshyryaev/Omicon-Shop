@@ -29,7 +29,7 @@ namespace ASP
     using System.Web.WebPages;
     using OmiconShop.WebUI;
     using OmiconShop.WebUI.HtmlHelpers;
-
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("RazorGenerator", "2.0.0.0")]
     [System.Web.WebPages.PageVirtualPathAttribute("~/Views/Account/Register.cshtml")]
     public partial class _Views_Account_Register_cshtml : System.Web.Mvc.WebViewPage<OmiconShop.Application.Account.ViewModel.RegisterViewModel>
@@ -109,129 +109,18 @@ WriteLiteral(">\r\n");
             
             #line default
             #line hidden
-WriteLiteral("        <fieldset>\r\n            <legend>Log in Form</legend>\r\n            <ol>\r\n " +
-"               <li>\r\n");
+WriteLiteral("        <fieldset>\r\n            <legend>Log in Form</legend>\r\n");
 
-WriteLiteral("                    ");
-
-            
-            #line 21 "..\..\Views\Account\Register.cshtml"
-               Write(Html.LabelFor(m => m.Login));
+WriteLiteral("            ");
 
             
-            #line default
-            #line hidden
-WriteLiteral("\r\n");
-
-WriteLiteral("                    ");
-
-            
-            #line 22 "..\..\Views\Account\Register.cshtml"
-               Write(Html.TextBoxFor(m => m.Login));
+            #line 19 "..\..\Views\Account\Register.cshtml"
+       Write(Html.EditorForModel());
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n");
-
-WriteLiteral("                    ");
-
-            
-            #line 23 "..\..\Views\Account\Register.cshtml"
-               Write(Html.ValidationMessageFor(m => m.Login));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n                </li>\r\n                <li>\r\n");
-
-WriteLiteral("                    ");
-
-            
-            #line 26 "..\..\Views\Account\Register.cshtml"
-               Write(Html.LabelFor(m => m.Password));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n");
-
-WriteLiteral("                    ");
-
-            
-            #line 27 "..\..\Views\Account\Register.cshtml"
-               Write(Html.TextBoxFor(m => m.Password));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n");
-
-WriteLiteral("                    ");
-
-            
-            #line 28 "..\..\Views\Account\Register.cshtml"
-               Write(Html.ValidationMessageFor(m => m.Password));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n                </li>\r\n                <li>\r\n");
-
-WriteLiteral("                    ");
-
-            
-            #line 31 "..\..\Views\Account\Register.cshtml"
-               Write(Html.LabelFor(m => m.ConfirmPassword));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n");
-
-WriteLiteral("                    ");
-
-            
-            #line 32 "..\..\Views\Account\Register.cshtml"
-               Write(Html.TextBoxFor(m => m.ConfirmPassword));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n");
-
-WriteLiteral("                    ");
-
-            
-            #line 33 "..\..\Views\Account\Register.cshtml"
-               Write(Html.ValidationMessageFor(m => m.ConfirmPassword));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n                </li>\r\n                <li>\r\n");
-
-WriteLiteral("                    ");
-
-            
-            #line 36 "..\..\Views\Account\Register.cshtml"
-               Write(Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" }));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n");
-
-WriteLiteral("                    ");
-
-            
-            #line 37 "..\..\Views\Account\Register.cshtml"
-               Write(Html.CheckBoxFor(m => m.RememberMe));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n                </li>\r\n            </ol>\r\n            <input");
+WriteLiteral("\r\n            <input");
 
 WriteLiteral(" type=\"submit\"");
 
@@ -240,7 +129,7 @@ WriteLiteral(" value=\"Register\"");
 WriteLiteral(">\r\n        </fieldset>\r\n");
 
             
-            #line 42 "..\..\Views\Account\Register.cshtml"
+            #line 22 "..\..\Views\Account\Register.cshtml"
     }
 
             
@@ -251,7 +140,7 @@ WriteLiteral("\r\n    <p>\r\n");
 WriteLiteral("        ");
 
             
-            #line 45 "..\..\Views\Account\Register.cshtml"
+            #line 25 "..\..\Views\Account\Register.cshtml"
    Write(Html.RouteLink("Log in", new { controller = "Action", action = "Login" }));
 
             
@@ -266,7 +155,7 @@ WriteLiteral("\r\n");
 WriteLiteral("    ");
 
             
-            #line 50 "..\..\Views\Account\Register.cshtml"
+            #line 30 "..\..\Views\Account\Register.cshtml"
 Write(Scripts.Render("~/bundles/jqueryval"));
 
             

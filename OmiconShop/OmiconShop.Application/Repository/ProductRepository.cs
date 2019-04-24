@@ -10,17 +10,18 @@ namespace OmiconShop.Application.IRepository
 {
     public class ProductRepository : IProductRepository
     {
-        public IQueryable<Product> GetAllProducts()
+        ShopDBContext context;
+
+        public ProductRepository(ShopDBContext context)
         {
-            using (ShopDBContext context = new ShopDBContext())
-            {
-                return context.Products;
-            }
+            this.context = context;
         }
+
+        public IEnumerable<Product> GetAllProducts() => context.Products;
 
         public void AddProduct(Product product)
         {
-            using (ShopDBContext context = new ShopDBContext())
+            using (context)
             {
                 context.Entry(product).State = EntityState.Added;
                 context.SaveChanges();
@@ -29,7 +30,7 @@ namespace OmiconShop.Application.IRepository
 
         public Product GetProductById(int orderId)
         {
-            using (ShopDBContext context = new ShopDBContext())
+            using (context)
             {
                 return context.Products.FirstOrDefault(x => x.Id == orderId);
             }
@@ -37,7 +38,7 @@ namespace OmiconShop.Application.IRepository
 
         public void DeleteProduct(int productId)
         {
-            using (ShopDBContext context = new ShopDBContext())
+            using (context)
             {
                 Product product = context.Products.FirstOrDefault(x => x.Id == productId);
 
@@ -48,7 +49,7 @@ namespace OmiconShop.Application.IRepository
 
         public void EditProduct(Product product)
         {
-            using (ShopDBContext context = new ShopDBContext())
+            using (context)
             {
                 Product dbEntry = context.Products.FirstOrDefault(x => x.Id == product.Id);
 

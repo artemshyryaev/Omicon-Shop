@@ -1,4 +1,5 @@
-﻿using OmiconShop.Domain.Entities;
+﻿using OmiconShop.Application.Account.ViewModel;
+using OmiconShop.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,5 +15,7 @@ namespace OmiconShop.Application.IRepository
         User GetUserById(int id);
 
         User ChangeUserEmail(int id, string email);
+
+        void SaveUser(User user);
     }
 }

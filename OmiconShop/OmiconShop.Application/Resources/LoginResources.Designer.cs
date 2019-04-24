@@ -79,7 +79,7 @@ namespace OmiconShop.Application.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Email.
+        ///   Looks up a localized string similar to Enter email.
         /// </summary>
         public static string Email {
             get {
@@ -97,7 +97,7 @@ namespace OmiconShop.Application.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Login.
+        ///   Looks up a localized string similar to Enter login.
         /// </summary>
         public static string Login {
             get {
@@ -106,7 +106,7 @@ namespace OmiconShop.Application.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to New password.
+        ///   Looks up a localized string similar to Enter new password.
         /// </summary>
         public static string NewPassword {
             get {
@@ -115,7 +115,7 @@ namespace OmiconShop.Application.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Old password.
+        ///   Looks up a localized string similar to Enter old password.
         /// </summary>
         public static string OldPassword {
             get {
@@ -124,7 +124,7 @@ namespace OmiconShop.Application.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Password.
+        ///   Looks up a localized string similar to Enter your password.
         /// </summary>
         public static string Password {
             get {

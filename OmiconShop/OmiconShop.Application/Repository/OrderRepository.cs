@@ -12,20 +12,21 @@ namespace OmiconShop.Application.Repository
 {
     public class OrderRepository : IOrderRepository
     {
-        public IQueryable<Order> GetAllOrders()
+        ShopDBContext context;
+
+        public OrderRepository(ShopDBContext context)
         {
-            using (ShopDBContext context = new ShopDBContext())
-            {
-                return context.Orders
+            this.context = context;
+        }
+
+        public IEnumerable<Order> GetAllOrders() => context.Orders
                     .Include(e => e.OrderInformation)
                     .Include(e => e.BasketLine)
                     .Include(e => e.User);
-            }
-        }
 
         public Order GetOrderById(int orderId)
         {
-            using (ShopDBContext context = new ShopDBContext())
+            using (context)
             {
                 return context.Orders.Include(e => e.OrderInformation)
                             .Include(e => e.BasketLine)
@@ -36,7 +37,7 @@ namespace OmiconShop.Application.Repository
 
         public Order GetOrderByIdAndCustomerEmail(int orderId, string email)
         {
-            using (ShopDBContext context = new ShopDBContext())
+            using (context)
             {
                 return context.Orders.Include(e => e.OrderInformation)
                             .Include(e => e.BasketLine)
@@ -47,7 +48,7 @@ namespace OmiconShop.Application.Repository
 
         public void DeclineOrderByAdmin(int orderId)
         {
-            using (ShopDBContext context = new ShopDBContext())
+            using (context)
             {
                 Order order = context.Orders.First(e => e.Id == orderId);
                 order.Status = OrderStatuses.Declined;
@@ -58,7 +59,7 @@ namespace OmiconShop.Application.Repository
 
         public void ApproveOrderByAdmin(int orderId)
         {
-            using (ShopDBContext context = new ShopDBContext())
+            using (context)
             {
                 Order order = context.Orders.First(e => e.Id == orderId);
                 order.Status = OrderStatuses.Approved;
@@ -69,7 +70,7 @@ namespace OmiconShop.Application.Repository
 
         public void DeleteOrder(int orderId)
         {
-            using (ShopDBContext context = new ShopDBContext())
+            using (context)
             {
                 Order order = context.Orders.FirstOrDefault(e => e.Id == orderId);
 
@@ -80,7 +81,7 @@ namespace OmiconShop.Application.Repository
 
         public void ChangeUserEmailInOrders(int id, string newEmail)
         {
-            using (ShopDBContext context = new ShopDBContext())
+            using (context)
             {
                 var dbEntry = context.Orders.Where(e => e.User.Id == id)
                         .Include(e => e.BasketLine)
@@ -99,7 +100,7 @@ namespace OmiconShop.Application.Repository
 
         public void AddOrder(Order order)
         {
-            using (ShopDBContext context = new ShopDBContext())
+            using (context)
             {
                 context.Entry(order).State = EntityState.Added;
                 context.SaveChanges();
