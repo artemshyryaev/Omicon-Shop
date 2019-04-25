@@ -1,6 +1,7 @@
 ﻿using OmiconShop.Application.Account.ViewModel;
 using OmiconShop.Application.IRepository;
 using OmiconShop.Domain.Entities;
+using OmiconShop.Persistence;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,24 +21,21 @@ namespace OmiconShop.Application.Account
 
         public void CreateUser(RegisterViewModel model)
         {
-            var user = userRepository.GetUserByEmail(model.Login);
-            FillUserData(model, user);
-            userRepository.SaveUser(user);
+            userRepository.UpdateUser(model.Login, (user)=> FillUserData(model, user));
         }
 
         void FillUserData(RegisterViewModel model, User user)
         {
-            user.UserAddress.Country = model.Country;
-            user.UserAddress.City = model.City;
-            user.UserAddress.Address = model.Address;
-            user.UserAddress.Address2 = model.Address2;
-            user.UserAddress.ZipCode = model.ZipCode;
-            user.UserAddress.UserId = user.Id;
 
-            user.UserPersonalInformation.UserId = user.Id;
-            user.UserPersonalInformation.Name = model.Name;
-            user.UserPersonalInformation.Surname = model.Surname;
-            user.UserPersonalInformation.PhoneNumber = model.PhoneNumber;
+            UserPersonalInformation userPersonalInformation = new UserPersonalInformation()
+            {
+                UserId = user.Id,
+                Name = model.Name,
+                Surname = model.Surname,
+                PhoneNumber = model.PhoneNumber
+            };
+
+            user.UserPersonalInformation = userPersonalInformation;
         }
     }
 }

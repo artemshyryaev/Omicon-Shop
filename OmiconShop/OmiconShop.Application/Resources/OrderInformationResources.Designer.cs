@@ -22,7 +22,7 @@ namespace OmiconShop.Application.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class OrderInformationResources {
+    public class OrderInformationResources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace OmiconShop.Application.Resources {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("OmiconShop.Application.Resources.OrderInformationResources", typeof(OrderInformationResources).Assembly);
@@ -51,7 +51,7 @@ namespace OmiconShop.Application.Resources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace OmiconShop.Application.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Address.
         /// </summary>
-        internal static string Address {
+        public static string Address {
             get {
                 return ResourceManager.GetString("Address", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace OmiconShop.Application.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Address2.
         /// </summary>
-        internal static string Address2 {
+        public static string Address2 {
             get {
                 return ResourceManager.GetString("Address2", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace OmiconShop.Application.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Enter address..
         /// </summary>
-        internal static string AddressValidation {
+        public static string AddressValidation {
             get {
                 return ResourceManager.GetString("AddressValidation", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace OmiconShop.Application.Resources {
         /// <summary>
         ///   Looks up a localized string similar to City.
         /// </summary>
-        internal static string City {
+        public static string City {
             get {
                 return ResourceManager.GetString("City", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace OmiconShop.Application.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Enter city..
         /// </summary>
-        internal static string CityValidation {
+        public static string CityValidation {
             get {
                 return ResourceManager.GetString("CityValidation", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace OmiconShop.Application.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Country.
         /// </summary>
-        internal static string Country {
+        public static string Country {
             get {
                 return ResourceManager.GetString("Country", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace OmiconShop.Application.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Enter country..
         /// </summary>
-        internal static string CountryValidation {
+        public static string CountryValidation {
             get {
                 return ResourceManager.GetString("CountryValidation", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace OmiconShop.Application.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Delivery.
         /// </summary>
-        internal static string Delivery {
+        public static string Delivery {
             get {
                 return ResourceManager.GetString("Delivery", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace OmiconShop.Application.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Email.
         /// </summary>
-        internal static string Email {
+        public static string Email {
             get {
                 return ResourceManager.GetString("Email", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace OmiconShop.Application.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Enter email..
         /// </summary>
-        internal static string EmailValidation {
+        public static string EmailValidation {
             get {
                 return ResourceManager.GetString("EmailValidation", resourceCulture);
             }
@@ -153,7 +153,7 @@ namespace OmiconShop.Application.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Name.
         /// </summary>
-        internal static string Name {
+        public static string Name {
             get {
                 return ResourceManager.GetString("Name", resourceCulture);
             }
@@ -162,7 +162,7 @@ namespace OmiconShop.Application.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Enter name..
         /// </summary>
-        internal static string NameValidation {
+        public static string NameValidation {
             get {
                 return ResourceManager.GetString("NameValidation", resourceCulture);
             }
@@ -171,7 +171,7 @@ namespace OmiconShop.Application.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Payment.
         /// </summary>
-        internal static string Payment {
+        public static string Payment {
             get {
                 return ResourceManager.GetString("Payment", resourceCulture);
             }
@@ -180,7 +180,7 @@ namespace OmiconShop.Application.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Phone number.
         /// </summary>
-        internal static string PhoneNumber {
+        public static string PhoneNumber {
             get {
                 return ResourceManager.GetString("PhoneNumber", resourceCulture);
             }
@@ -189,7 +189,7 @@ namespace OmiconShop.Application.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Enter valid telephone number..
         /// </summary>
-        internal static string PhoneNumberValidation {
+        public static string PhoneNumberValidation {
             get {
                 return ResourceManager.GetString("PhoneNumberValidation", resourceCulture);
             }
@@ -198,7 +198,7 @@ namespace OmiconShop.Application.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Surname.
         /// </summary>
-        internal static string Surname {
+        public static string Surname {
             get {
                 return ResourceManager.GetString("Surname", resourceCulture);
             }
@@ -207,7 +207,7 @@ namespace OmiconShop.Application.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Enter surname..
         /// </summary>
-        internal static string SurnameValidation {
+        public static string SurnameValidation {
             get {
                 return ResourceManager.GetString("SurnameValidation", resourceCulture);
             }
@@ -216,7 +216,7 @@ namespace OmiconShop.Application.Resources {
         /// <summary>
         ///   Looks up a localized string similar to ZipCode.
         /// </summary>
-        internal static string ZipCode {
+        public static string ZipCode {
             get {
                 return ResourceManager.GetString("ZipCode", resourceCulture);
             }
@@ -225,7 +225,7 @@ namespace OmiconShop.Application.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Enter zip code..
         /// </summary>
-        internal static string ZipCodeValidation {
+        public static string ZipCodeValidation {
             get {
                 return ResourceManager.GetString("ZipCodeValidation", resourceCulture);
             }

@@ -21,7 +21,7 @@ namespace OmiconShop.WebUI.Filters
                         ((IObjectContextAdapter)context).ObjectContext.CreateDatabase();
                 }
 
-                WebSecurity.InitializeDatabaseConnection("ShopDB", "User", "Id", "Email", autoCreateTables: true);
+                WebSecurity.InitializeDatabaseConnection("ShopDB", "Users", "Id", "Email", autoCreateTables: true);
                 SimpleRoleProvider roles = (SimpleRoleProvider)Roles.Provider;
                 SimpleMembershipProvider memberships = (SimpleMembershipProvider)Membership.Provider;
 

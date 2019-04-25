@@ -54,22 +54,22 @@ namespace OmiconShop.Persistence
                 .WithMany()
                 .HasForeignKey(s => s.OrderId);
 
-            modelBuilder.Entity<User>()
-                .HasRequired(s => s.UserAddress)
-                .WithMany()
-                .HasForeignKey(s => s.UserAddressId)
-                .WillCascadeOnDelete(false);
+            //modelBuilder.Entity<User>()
+            //    .HasRequired(s => s.UserAddress)
+            //    .WithMany()
+            //    .HasForeignKey(s => s.UserAddressId)
+            //    .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<UserAddress>()
                 .HasRequired(s => s.User)
                 .WithMany()
                 .HasForeignKey(s => s.UserId);
 
-            modelBuilder.Entity<User>()
-                .HasRequired(s => s.UserPersonalInformation)
-                .WithMany()
-                .HasForeignKey(s => s.UsersPersonalInformationId)
-                .WillCascadeOnDelete(false);
+            //modelBuilder.Entity<User>()
+            //    .HasRequired(s => s.UserPersonalInformation)
+            //    .WithMany()
+            //    .HasForeignKey(s => s.UsersPersonalInformationId)
+            //    .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<UserPersonalInformation>()
                 .HasRequired(s => s.User)

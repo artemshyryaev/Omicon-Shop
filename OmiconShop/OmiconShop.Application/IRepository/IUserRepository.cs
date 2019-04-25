@@ -17,5 +17,9 @@ namespace OmiconShop.Application.IRepository
         User ChangeUserEmail(int id, string email);
 
         void SaveUser(User user);
+
+        void DeleteUserByUserId(int userId);
+
+        void UpdateUser(string email, Action<User> user);
     }
 }

@@ -14,7 +14,7 @@ namespace OmiconShop.Domain.Entities
 
         public string Email { get; set; }
 
-        public int? UsersPersonalInformationId { get; set; }
+        public int? UserPersonalInformationId { get; set; }
 
         public UserPersonalInformation UserPersonalInformation { get; set; }
 

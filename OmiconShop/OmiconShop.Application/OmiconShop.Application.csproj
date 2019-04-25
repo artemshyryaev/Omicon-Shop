@@ -71,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\AccountApi.cs" />
+    <Compile Include="Account\UserOperations.cs" />
     <Compile Include="Account\ViewModel\ChangePasswordViewModel.cs" />
     <Compile Include="Account\ViewModel\LoginViewModel.cs" />
     <Compile Include="Account\ViewModel\RegisterViewModel.cs" />
@@ -148,7 +149,7 @@
       <LastGenOutput>MailTemplate.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\OrderInformationResources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>OrderInformationResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\ProductResources.resx">
