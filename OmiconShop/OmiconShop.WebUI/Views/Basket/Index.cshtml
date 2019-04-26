@@ -61,7 +61,7 @@
 <div>
     @using (Html.BeginForm("EmptyBasket", "Basket"))
     {
-        @Html.HiddenFor(x => x.RetunrUrl)
+        @Html.Hidden("returnUrl", Model.RetunrUrl)
         <input class="btn btn-primary" type="submit" value="Empty basket">
     }
 </div>

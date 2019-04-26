@@ -153,7 +153,7 @@
       <LastGenOutput>OrderInformationResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\ProductResources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ProductResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>

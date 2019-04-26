@@ -20,6 +20,10 @@
         @Html.Partial("_NavBar")
     </header>
     <div>
+        @if (TempData["message"] != null)
+        {
+            <div class="alert alert-success">@TempData["message"]</div>
+        }
         @RenderBody()
     </div>
     <footer>

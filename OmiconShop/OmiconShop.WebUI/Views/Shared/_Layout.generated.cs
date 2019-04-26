@@ -148,10 +148,46 @@ WriteLiteral("        ");
             #line hidden
 WriteLiteral("\r\n    </header>\r\n    <div>\r\n");
 
+            
+            #line 23 "..\..\Views\Shared\_Layout.cshtml"
+        
+            
+            #line default
+            #line hidden
+            
+            #line 23 "..\..\Views\Shared\_Layout.cshtml"
+         if (TempData["message"] != null)
+        {
+
+            
+            #line default
+            #line hidden
+WriteLiteral("            <div");
+
+WriteLiteral(" class=\"alert alert-success\"");
+
+WriteLiteral(">");
+
+            
+            #line 25 "..\..\Views\Shared\_Layout.cshtml"
+                                        Write(TempData["message"]);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</div>\r\n");
+
+            
+            #line 26 "..\..\Views\Shared\_Layout.cshtml"
+        }
+
+            
+            #line default
+            #line hidden
 WriteLiteral("        ");
 
             
-            #line 23 "..\..\Views\Shared\_Layout.cshtml"
+            #line 27 "..\..\Views\Shared\_Layout.cshtml"
    Write(RenderBody());
 
             
@@ -162,7 +198,7 @@ WriteLiteral("\r\n    </div>\r\n    <footer>\r\n");
 WriteLiteral("        ");
 
             
-            #line 26 "..\..\Views\Shared\_Layout.cshtml"
+            #line 30 "..\..\Views\Shared\_Layout.cshtml"
    Write(Html.Partial("_Footer"));
 
             
@@ -173,7 +209,7 @@ WriteLiteral("\r\n    </footer>\r\n\r\n");
 WriteLiteral("    ");
 
             
-            #line 29 "..\..\Views\Shared\_Layout.cshtml"
+            #line 33 "..\..\Views\Shared\_Layout.cshtml"
 Write(Scripts.Render("~/bundles/jquery"));
 
             
@@ -184,7 +220,7 @@ WriteLiteral("\r\n");
 WriteLiteral("    ");
 
             
-            #line 30 "..\..\Views\Shared\_Layout.cshtml"
+            #line 34 "..\..\Views\Shared\_Layout.cshtml"
 Write(Scripts.Render("~/bundles/bootstrap"));
 
             
@@ -195,7 +231,7 @@ WriteLiteral("\r\n");
 WriteLiteral("    ");
 
             
-            #line 31 "..\..\Views\Shared\_Layout.cshtml"
+            #line 35 "..\..\Views\Shared\_Layout.cshtml"
 Write(RenderSection("scripts", required: false));
 
             

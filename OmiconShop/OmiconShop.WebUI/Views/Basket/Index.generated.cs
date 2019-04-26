@@ -29,7 +29,7 @@ namespace ASP
     using System.Web.WebPages;
     using OmiconShop.WebUI;
     using OmiconShop.WebUI.HtmlHelpers;
-
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("RazorGenerator", "2.0.0.0")]
     [System.Web.WebPages.PageVirtualPathAttribute("~/Views/Basket/Index.cshtml")]
     public partial class _Views_Basket_Index_cshtml : System.Web.Mvc.WebViewPage<OmiconShop.Application.Basket.ViewModel.BasketIndexViewModel>
@@ -285,14 +285,14 @@ WriteLiteral("$</td>\r\n            </tr>\r\n        </tfoot>\r\n    </table>\r\
             #line hidden
             
             #line 64 "..\..\Views\Basket\Index.cshtml"
-   Write(Html.HiddenFor(x => x.RetunrUrl));
+   Write(Html.Hidden("returnUrl", Model.RetunrUrl));
 
             
             #line default
             #line hidden
             
             #line 64 "..\..\Views\Basket\Index.cshtml"
-                                         
+                                                  
 
             
             #line default
@@ -318,14 +318,14 @@ WriteLiteral("</div>\r\n<div>\r\n    <a");
 
 WriteLiteral(" class=\"btn btn-primary\"");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 2248), Tuple.Create("\"", 2271)
+WriteAttribute("href", Tuple.Create(" href=\"", 2257), Tuple.Create("\"", 2280)
             
             #line 69 "..\..\Views\Basket\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 2255), Tuple.Create<System.Object, System.Int32>(Model.RetunrUrl
+, Tuple.Create(Tuple.Create("", 2264), Tuple.Create<System.Object, System.Int32>(Model.RetunrUrl
             
             #line default
             #line hidden
-, 2255), false)
+, 2264), false)
 );
 
 WriteLiteral(">Continue shopping</a>\r\n");

@@ -16,8 +16,15 @@ namespace OmiconShop.WebUI.Controllers
             this.checkoutApi = checkoutApi; 
         }
 
-        public ActionResult OrderInformation()
+        public ActionResult OrderInformation(BasketViewModel basket)
         {
+            if (basket.Lines.Count() == 0)
+            {
+                TempData["message"] = string.Format("Your basket is empty");
+                return RedirectToAction("Index", "Basket");
+            }
+
+
             return View(new OrderInformationViewModel());
         }
 

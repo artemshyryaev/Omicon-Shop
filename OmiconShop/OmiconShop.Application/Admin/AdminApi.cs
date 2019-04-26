@@ -99,14 +99,6 @@ namespace OmiconShop.Application.Admin
             return product;
         }
 
-        public ProductViewModel AddImagePathToProduct(ref ProductViewModel product)
-        {
-            var filepath = "/content/files/" + Guid.NewGuid() + ".png";
-            productOperations.AddImagePathToProduct(ref product, filepath);
-
-            return product;
-        }
-
         public ProductViewModel CreateProductViewModelByProductId(int productId)
         {
             var product = productRepository.GetProductById(productId);

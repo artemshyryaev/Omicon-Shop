@@ -29,7 +29,7 @@ namespace ASP
     using System.Web.WebPages;
     using OmiconShop.WebUI;
     using OmiconShop.WebUI.HtmlHelpers;
-
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("RazorGenerator", "2.0.0.0")]
     [System.Web.WebPages.PageVirtualPathAttribute("~/Views/Admin/_ProductDetails.cshtml")]
     public partial class _Views_Admin__ProductDetails_cshtml : System.Web.Mvc.WebViewPage<OmiconShop.Application.Admin.ViewModel.ProductViewModel>

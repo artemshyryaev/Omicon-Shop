@@ -22,7 +22,7 @@ namespace OmiconShop.Application.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class ProductResources {
+    public class ProductResources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace OmiconShop.Application.Resources {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("OmiconShop.Application.Resources.ProductResources", typeof(ProductResources).Assembly);
@@ -51,7 +51,7 @@ namespace OmiconShop.Application.Resources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace OmiconShop.Application.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Description.
         /// </summary>
-        internal static string Description {
+        public static string Description {
             get {
                 return ResourceManager.GetString("Description", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace OmiconShop.Application.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Enter valid description..
         /// </summary>
-        internal static string DescriptionValidation {
+        public static string DescriptionValidation {
             get {
                 return ResourceManager.GetString("DescriptionValidation", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace OmiconShop.Application.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Name.
         /// </summary>
-        internal static string Name {
+        public static string Name {
             get {
                 return ResourceManager.GetString("Name", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace OmiconShop.Application.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Enter valid name..
         /// </summary>
-        internal static string NameValidation {
+        public static string NameValidation {
             get {
                 return ResourceManager.GetString("NameValidation", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace OmiconShop.Application.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Price.
         /// </summary>
-        internal static string Price {
+        public static string Price {
             get {
                 return ResourceManager.GetString("Price", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace OmiconShop.Application.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Enter valid price..
         /// </summary>
-        internal static string PriceValidation {
+        public static string PriceValidation {
             get {
                 return ResourceManager.GetString("PriceValidation", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace OmiconShop.Application.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Type.
         /// </summary>
-        internal static string Type {
+        public static string Type {
             get {
                 return ResourceManager.GetString("Type", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace OmiconShop.Application.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Enter valid type..
         /// </summary>
-        internal static string TypeValidation {
+        public static string TypeValidation {
             get {
                 return ResourceManager.GetString("TypeValidation", resourceCulture);
             }

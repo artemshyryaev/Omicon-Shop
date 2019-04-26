@@ -61,7 +61,7 @@ namespace OmiconShop.WebUI.Controllers
             if (ModelState.IsValid)
             {
                 if (image != null)
-                    adminApi.AddImagePathToProduct(ref product);
+                    image.SaveAs(adminApi.CreateProductFullPath(ref product));
 
                 var productModel = adminApi.CreateProduct(product);
                 TempData["message"] = string.Format($"{productModel.Name} was successfully added!");
