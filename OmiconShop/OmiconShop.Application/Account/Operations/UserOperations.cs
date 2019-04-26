@@ -6,11 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OmiconShop.Application.Account
+namespace OmiconShop.Application.Account.Operations
 {
     public class UserOperations
-    {
-        public UserAddress FillUserAddressProperties(RegisterViewModel model, User user)
+    {  
+        public void FillUserAddressProperties(RegisterViewModel model, User user)
         {
             UserAddress userAddress = new UserAddress()
             {
@@ -23,8 +23,19 @@ namespace OmiconShop.Application.Account
             };
 
             user.UserAddress = userAddress;
+        }
 
-            return userAddress;
+        public void FillUserPersonalInformationProperties(RegisterViewModel model, User user)
+        {
+            UserPersonalInformation userPersonalInformation = new UserPersonalInformation()
+            {
+                UserId = user.Id,
+                Name = model.Name,
+                Surname = model.Surname,
+                PhoneNumber = model.PhoneNumber
+            };
+
+            user.UserPersonalInformation = userPersonalInformation;
         }
     }
 }

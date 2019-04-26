@@ -1,4 +1,5 @@
-﻿using OmiconShop.Application.Account.ViewModel;
+﻿using OmiconShop.Application.Account.Operations;
+using OmiconShop.Application.Account.ViewModel;
 using OmiconShop.Application.IRepository;
 using OmiconShop.Domain.Entities;
 using OmiconShop.Persistence;
@@ -10,32 +11,25 @@ using System.Threading.Tasks;
 
 namespace OmiconShop.Application.Account
 {
+    public delegate void UpdateUser(RegisterViewModel model, User user);
     public class AccountApi
     {
         IUserRepository userRepository;
+        UserOperations userOperations;
 
-        public AccountApi(IUserRepository userRepository)
+        public AccountApi(IUserRepository userRepository, UserOperations userOperations)
         {
             this.userRepository = userRepository;
+            this.userOperations = userOperations;
         }
 
-        public void CreateUser(RegisterViewModel model)
+        public void UpdateUser(RegisterViewModel model)
         {
-            userRepository.UpdateUser(model.Login, (user)=> FillUserData(model, user));
-        }
-
-        void FillUserData(RegisterViewModel model, User user)
-        {
-
-            UserPersonalInformation userPersonalInformation = new UserPersonalInformation()
+            userRepository.UpdateUser(model.Login, (user) =>
             {
-                UserId = user.Id,
-                Name = model.Name,
-                Surname = model.Surname,
-                PhoneNumber = model.PhoneNumber
-            };
-
-            user.UserPersonalInformation = userPersonalInformation;
+                userOperations.FillUserAddressProperties(model, user);
+                userOperations.FillUserPersonalInformationProperties(model, user);
+            });
         }
     }
 }

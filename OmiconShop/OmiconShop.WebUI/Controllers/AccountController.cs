@@ -65,7 +65,7 @@ namespace OmiconShop.WebUI.Controllers
                 try
                 {
                     WebSecurity.CreateUserAndAccount(model.Login, model.Password);
-                    accountApi.CreateUser(model);
+                    accountApi.UpdateUser(model);
 
                     WebSecurity.Login(model.Login, model.Password);
                     return RedirectToLocal(returnUrl);

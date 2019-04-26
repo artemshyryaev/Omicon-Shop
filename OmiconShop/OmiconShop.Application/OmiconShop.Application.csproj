@@ -71,7 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\AccountApi.cs" />
-    <Compile Include="Account\UserOperations.cs" />
+    <Compile Include="Account\Operations\UserOperations.cs" />
     <Compile Include="Account\ViewModel\ChangePasswordViewModel.cs" />
     <Compile Include="Account\ViewModel\LoginViewModel.cs" />
     <Compile Include="Account\ViewModel\RegisterViewModel.cs" />
