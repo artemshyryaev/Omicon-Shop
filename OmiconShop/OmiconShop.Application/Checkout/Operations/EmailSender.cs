@@ -3,6 +3,7 @@ using System.IO;
 using System.Net;
 using System.Net.Mail;
 using System.Text;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Configuration;
 using OmiconShop.Application.Logs;
@@ -25,12 +26,12 @@ namespace OmiconShop.Application.Checkout.Operations
             this.replacementTagsProcessor = replacementTagsProcessor;
         }
 
-        public void SendOrderConfirmationEmail(Order order)
+        public async void SendOrderConfirmationEmail(Order order)
         {
             try
             {
                 var mailMessage = Render(order);
-                Send(mailMessage);
+                await SendAsync(mailMessage);
             }
             catch (Exception ex)
             {
@@ -39,7 +40,7 @@ namespace OmiconShop.Application.Checkout.Operations
             }
         }
 
-        void Send(MailMessage mailMessage)
+        async Task SendAsync(MailMessage mailMessage)
         {
             using (smtpClient)
             {
@@ -57,7 +58,7 @@ namespace OmiconShop.Application.Checkout.Operations
                     smtpClient.EnableSsl = false;
                 }
 
-                smtpClient.Send(mailMessage);
+                await smtpClient.SendMailAsync(mailMessage);
             }
         }
 
