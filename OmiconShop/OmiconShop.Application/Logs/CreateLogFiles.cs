@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.IO;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace OmiconShop.Application.Logs
 {
@@ -25,14 +26,16 @@ namespace OmiconShop.Application.Logs
             errorTime = string.Concat(date, ".txt");
         }
 
-        public void CreateErrorLog(string errMsg)
+        public async void CreateErrorLog(string errMsg)
         {
             var path = DirectoryCreation();
 
-            StreamWriter sw = new StreamWriter(string.Concat(path, errorTime), true);
-            sw.WriteLine(logFormat + errMsg);
-            sw.Flush();
-            sw.Close();
+            using (StreamWriter sw = new StreamWriter(string.Concat(path, errorTime), true))
+            {
+                await sw.WriteLineAsync(logFormat + errMsg);
+                sw.Flush();
+                sw.Close();
+            }
         }
 
         string DirectoryCreation()
