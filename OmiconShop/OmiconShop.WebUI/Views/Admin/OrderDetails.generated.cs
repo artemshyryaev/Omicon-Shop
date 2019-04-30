@@ -59,7 +59,7 @@ WriteLiteral("\r\n\r\n<h2>");
 
             
             #line 8 "..\..\Views\Admin\OrderDetails.cshtml"
-Write(Model.Id);
+Write(Model.OrderId);
 
             
             #line default
@@ -112,7 +112,7 @@ WriteLiteral(@"
 
             
             #line 30 "..\..\Views\Admin\OrderDetails.cshtml"
-               Write(Model.Id);
+               Write(Model.OrderId);
 
             
             #line default
@@ -328,7 +328,7 @@ WriteLiteral("</td>\r\n    </table>\r\n</div>\r\n\r\n<div>\r\n");
             #line hidden
             
             #line 91 "..\..\Views\Admin\OrderDetails.cshtml"
-   Write(Html.RouteLink("Approve order", new { action = "Approve", controller = "Admin", orderId = Model.Id },
+   Write(Html.RouteLink("Approve order", new { action = "Approve", controller = "Admin", orderId = Model.OrderId },
             new { @class = "btn btn-primary" }));
 
             
@@ -343,7 +343,7 @@ WriteLiteral("</td>\r\n    </table>\r\n</div>\r\n\r\n<div>\r\n");
             #line hidden
             
             #line 93 "..\..\Views\Admin\OrderDetails.cshtml"
-   Write(Html.RouteLink("Decline order", new { action = "Decline", controller = "Admin", orderId = Model.Id },
+   Write(Html.RouteLink("Decline order", new { action = "Decline", controller = "Admin", orderId = Model.OrderId },
             new { @class = "btn btn-primary" }));
 
             

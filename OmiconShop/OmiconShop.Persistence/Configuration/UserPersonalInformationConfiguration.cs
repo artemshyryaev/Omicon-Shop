@@ -12,7 +12,7 @@ namespace OmiconShop.Persistence.Configuration
     {
         public UserPersonalInformationConfiguration()
         {
-            HasKey(e => e.Id);
+            HasKey(e => e.UserPersonalInformationId);
 
             Property(e => e.Name).HasMaxLength(60).HasColumnType("nvarchar(max)").IsRequired();
             Property(e => e.Surname).HasMaxLength(80).HasColumnType("nvarchar(max)").IsRequired();

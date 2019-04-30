@@ -96,7 +96,7 @@ WriteLiteral("    ");
             
             #line 18 "..\..\Views\Checkout\OrderSucessfullyCreated.cshtml"
 Write(Html.RouteLink("Go to your order details",
-   new { controller = "Admin", action = "OrderDetails", orderId = Model.Id}));
+   new { controller = "Admin", action = "OrderDetails", orderId = Model.OrderId }));
 
             
             #line default

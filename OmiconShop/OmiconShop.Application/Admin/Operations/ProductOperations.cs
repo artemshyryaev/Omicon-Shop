@@ -24,10 +24,10 @@ namespace OmiconShop.Application.Admin.Operations
 
             if (string.IsNullOrEmpty(productName))
                 return allProducts.Skip((page - 1) * pageSize).Take(pageSize).OrderBy(
-                     products => products.Id).ToList();
+                     products => products.ProductId).ToList();
             else
                 return allProducts.Where(p => p.Name.Contains(productName)).Skip((page - 1) * pageSize).Take(pageSize).OrderBy(
-                    products => products.Id).ToList();
+                    products => products.ProductId).ToList();
         }
 
         public void AddImagePathToProduct(ref ProductViewModel productViewModel, string path)
@@ -51,7 +51,7 @@ namespace OmiconShop.Application.Admin.Operations
                 product.ImageUrl = productView.ImageUrl;
 
                 if (id != 0)
-                    product.Id = id;
+                    product.ProductId = id;
             }
 
             return product;

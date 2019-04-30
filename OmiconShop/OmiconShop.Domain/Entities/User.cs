@@ -10,7 +10,7 @@ namespace OmiconShop.Domain.Entities
 {
     public class User
     {
-        public int Id { get; set; }
+        public int UserId { get; set; }
 
         public string Email { get; set; }
 
@@ -26,7 +26,7 @@ namespace OmiconShop.Domain.Entities
 
         public User()
         {
-            Orders = new List<Order>();
+            Orders = new HashSet<Order>();
         }
     }
 }

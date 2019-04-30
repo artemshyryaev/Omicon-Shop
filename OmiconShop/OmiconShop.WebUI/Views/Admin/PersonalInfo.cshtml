@@ -9,7 +9,7 @@
 @using (Html.BeginForm("PersonalInfo", "Admin"))
 {
     <div>
-        @Html.HiddenFor(x => x.Id)
+        @Html.HiddenFor(x => x.UserId)
         @Html.LabelFor(x => x.Email)
         @Html.TextBoxFor(x => x.Email)
         @Html.ValidationMessageFor(x => x.Email)

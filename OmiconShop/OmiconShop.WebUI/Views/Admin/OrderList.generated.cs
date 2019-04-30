@@ -175,7 +175,7 @@ WriteLiteral("                    <tr>\r\n                        <td>");
 
             
             #line 39 "..\..\Views\Admin\OrderList.cshtml"
-                       Write(el.Id);
+                       Write(el.OrderId);
 
             
             #line default
@@ -240,7 +240,7 @@ WriteLiteral(">");
 
             
             #line 44 "..\..\Views\Admin\OrderList.cshtml"
-                                          Write(Html.RouteLink("View details", new { controller = "Admin", action = "OrderDetails", orderId = el.Id }));
+                                          Write(Html.RouteLink("View details", new { controller = "Admin", action = "OrderDetails", orderId = el.OrderId }));
 
             
             #line default

@@ -134,7 +134,7 @@ WriteLiteral("                    ");
 
             
             #line 32 "..\..\Views\Admin\ProductList.cshtml"
-               Write(Html.HiddenFor(x => el.Id));
+               Write(Html.HiddenFor(x => el.ProductId));
 
             
             #line default
@@ -143,7 +143,7 @@ WriteLiteral("\r\n                    <td>");
 
             
             #line 33 "..\..\Views\Admin\ProductList.cshtml"
-                   Write(Html.RouteLink(el.Name, new { controller = "Admin", action = "EditProduct", productId = el.Id }));
+                   Write(Html.RouteLink(el.Name, new { controller = "Admin", action = "EditProduct", productId = el.ProductId }));
 
             
             #line default
@@ -256,7 +256,7 @@ WriteLiteral(">\r\n");
             #line hidden
             
             #line 47 "..\..\Views\Admin\ProductList.cshtml"
-                       Write(Html.Hidden("productId", el.Id));
+                       Write(Html.Hidden("productId", el.ProductId));
 
             
             #line default

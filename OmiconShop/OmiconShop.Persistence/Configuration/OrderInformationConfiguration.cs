@@ -12,7 +12,7 @@ namespace OmiconShop.Persistence.Configuration
     {
         public OrderInformationConfiguration()
         {
-            HasKey(e => e.Id);
+            HasKey(e => e.OrderInformationId);
 
             Property(e => e.Total).IsRequired();
             Property(e => e.Date).HasColumnType("datetime").IsRequired();

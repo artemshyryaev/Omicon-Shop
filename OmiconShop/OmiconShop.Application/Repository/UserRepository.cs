@@ -29,7 +29,7 @@ namespace OmiconShop.Application.IRepository
                 return context.Users
                     .Include(x => x.UserAddress)
                     .Include(x => x.UserPersonalInformation)
-                    .FirstOrDefault(x => x.Id == id);
+                    .FirstOrDefault(x => x.UserId == id);
             }
         }
 

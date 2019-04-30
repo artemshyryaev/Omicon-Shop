@@ -31,7 +31,7 @@
             @Html.RouteLink("Personal information", new { controller = "Admin", action = "PersonalInfo" })
             @Html.RouteLink("Orders", new { controller = "Admin", action = "OrderList" })
 
-            @if (User.Identity.Name == "admin")
+            @if (User.Identity.Name == "admin@gmail.com")
             {
                 @Html.RouteLink("Products", new { controller = "Admin", action = "ProductList" })
             }

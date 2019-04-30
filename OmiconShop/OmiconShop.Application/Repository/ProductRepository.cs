@@ -32,7 +32,7 @@ namespace OmiconShop.Application.IRepository
         {
             using (context)
             {
-                return context.Products.FirstOrDefault(x => x.Id == orderId);
+                return context.Products.FirstOrDefault(x => x.ProductId == orderId);
             }
         }
 
@@ -40,7 +40,7 @@ namespace OmiconShop.Application.IRepository
         {
             using (context)
             {
-                Product product = context.Products.FirstOrDefault(x => x.Id == productId);
+                Product product = context.Products.FirstOrDefault(x => x.ProductId == productId);
 
                 context.Entry(product).State = EntityState.Deleted;
                 context.SaveChanges();
@@ -51,7 +51,7 @@ namespace OmiconShop.Application.IRepository
         {
             using (context)
             {
-                Product dbEntry = context.Products.FirstOrDefault(x => x.Id == product.Id);
+                Product dbEntry = context.Products.FirstOrDefault(x => x.ProductId == product.ProductId);
 
                 dbEntry.Name = product.Name;
                 dbEntry.Price = product.Price;

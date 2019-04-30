@@ -6,7 +6,7 @@ namespace OmiconShop.Domain.Entities
 {
     public class OrderInformation
     {
-        public int Id { get; set; }
+        public int OrderInformationId { get; set; }
 
         public double Total { get; set; }
 
@@ -18,6 +18,6 @@ namespace OmiconShop.Domain.Entities
 
         public int? OrderId { get; set; }
 
-        public Order Order { get; set; }
+        public virtual Order Order { get; set; }
     }
 }

@@ -13,9 +13,9 @@ namespace OmiconShop.Persistence.Configuration
     {
         public OrderConfiguration()
         {
-            HasKey(e => e.Id);
+            HasKey(e => e.OrderId);
 
-            Property(e => e.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            Property(e => e.OrderId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(e => e.Status).IsRequired();
         }
     }

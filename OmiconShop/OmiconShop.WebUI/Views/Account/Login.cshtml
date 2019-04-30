@@ -15,28 +15,13 @@
 
         <fieldset>
             <legend>Log in Form</legend>
-            <ol>
-                <li>
-                    @Html.LabelFor(m => m.Email)
-                    @Html.TextBoxFor(m => m.Email)
-                    @Html.ValidationMessageFor(m => m.Email)
-                </li>
-                <li>
-                    @Html.LabelFor(m => m.Password)
-                    @Html.TextBoxFor(m => m.Password)
-                    @Html.ValidationMessageFor(m => m.Password)
-                </li>
-                <li>
-                    @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
-                    @Html.CheckBoxFor(m => m.RememberMe)
-                </li>
-            </ol>
+            @Html.EditorForModel()
             <input type="submit" value="Log in">
         </fieldset>
     }
 
     <p>
-        @Html.RouteLink("Register", new { controller = "Action", action = "Register"}) if you don`t have an account!
+        @Html.RouteLink("Register", new { controller = "Action", action = "Register" }) if you don`t have an account!
     </p>
 </section>
 

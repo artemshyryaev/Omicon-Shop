@@ -23,16 +23,16 @@ namespace OmiconShop.Application.Home.Operations
 
             if (string.IsNullOrEmpty(type) && string.IsNullOrEmpty(productName))
                 return allProducts.Skip((page - 1) * pageSize).Take(pageSize).OrderBy(
-                     products => products.Id).ToList();
+                     products => products.ProductId).ToList();
             else if (string.IsNullOrEmpty(productName) && !string.IsNullOrEmpty(type))
                 return allProducts.Where(p => p.Type == type).Skip((page - 1) * pageSize).Take(pageSize).OrderBy(
-                    products => products.Id).ToList();
+                    products => products.ProductId).ToList();
             else if (!string.IsNullOrEmpty(productName) && string.IsNullOrEmpty(type))
                 return allProducts.Where(p => p.Name.Contains(productName)).Skip((page - 1) * pageSize).Take(pageSize).OrderBy(
-                    products => products.Id).ToList();
+                    products => products.ProductId).ToList();
             else
                 return allProducts.Where(p => p.Type == type && p.Name.Contains(productName)).Skip((page - 1) * pageSize).Take(
-                    pageSize).OrderBy(products => products.Id).ToList();
+                    pageSize).OrderBy(products => products.ProductId).ToList();
         }
     }
 }

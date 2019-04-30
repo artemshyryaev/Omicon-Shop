@@ -15,7 +15,7 @@ namespace OmiconShop.Application.Basket.ViewModel
 
         public void Add(Product product, double quantity, UOM uom)
         {
-            var isProductInBasket = lineCollection.Where(p => p.Product.Id == product.Id && p.Uom == uom).FirstOrDefault();
+            var isProductInBasket = lineCollection.Where(p => p.Product.ProductId == product.ProductId && p.Uom == uom).FirstOrDefault();
 
             if (isProductInBasket == null)
                 lineCollection.Add(new BasketLineModel { Product = product, Quantity = quantity, Uom = uom });
@@ -25,7 +25,7 @@ namespace OmiconShop.Application.Basket.ViewModel
 
         public void RemoveLine(Product product, UOM uom)
         {
-            lineCollection.RemoveAll(p => p.Product.Id == product.Id && p.Uom == uom);
+            lineCollection.RemoveAll(p => p.Product.ProductId == product.ProductId && p.Uom == uom);
         }
 
         public void ClearBasket()

@@ -24,7 +24,7 @@
 
 <div>
     <div>@Model.Name</div>
-    <div>Item no.  @Model.Id</div>
+    <div>Item no.  @Model.ProductId</div>
     <div>Price: @Model.Price</div>
     <div>Description: @Model.Description</div>
 </div>
@@ -39,7 +39,7 @@
             @Html.UomEnumDropdownList("uom", selectedUom, new { @class = "form-control" })
         </div>
         <div>
-            @Html.Hidden("productId", Model.Id)
+            @Html.Hidden("productId", Model.ProductId)
             @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
             <input type="submit" class="btn btn-success" value="Add to cart">
         </div>

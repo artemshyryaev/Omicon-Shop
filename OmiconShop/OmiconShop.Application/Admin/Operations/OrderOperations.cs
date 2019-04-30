@@ -24,15 +24,15 @@ namespace OmiconShop.Application.Admin.Operations
             var allOrders = orderRepository.GetAllOrders();
 
             if (userEmail != "admin")
-                allOrders = allOrders.Where(x => x.User.Email == userEmail).OrderBy(x => x.Id);
+                allOrders = allOrders.Where(x => x.User.Email == userEmail).OrderBy(x => x.OrderId);
             else
-                allOrders = allOrders.OrderBy(x => x.Id);
+                allOrders = allOrders.OrderBy(x => x.OrderId);
 
-            allOrders = allOrders.OrderBy(x => x.Id);
+            allOrders = allOrders.OrderBy(x => x.OrderId);
             if (!string.IsNullOrEmpty(orderId))
             {
                 int orderID = Convert.ToInt32(orderId);
-                allOrders = allOrders.Where(e => e.Id == orderID);
+                allOrders = allOrders.Where(e => e.OrderId == orderID);
             }
 
             if (orderStatus != null)

@@ -12,7 +12,7 @@ namespace OmiconShop.Persistence.Configuration
     {
         public BasketLineConfiguration()
         {
-            HasKey(e => e.Id);
+            HasKey(e => e.BasketLineId);
 
             Property(e => e.Qty).IsRequired();
             Property(e => e.Uom).IsRequired();

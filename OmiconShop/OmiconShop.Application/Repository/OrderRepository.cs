@@ -31,7 +31,7 @@ namespace OmiconShop.Application.Repository
                 return context.Orders.Include(e => e.OrderInformation)
                             .Include(e => e.BasketLine)
                             .Include(e => e.User)
-                            .First(e => e.Id == orderId);
+                            .First(e => e.OrderId == orderId);
             }
         }
 
@@ -42,7 +42,7 @@ namespace OmiconShop.Application.Repository
                 return context.Orders.Include(e => e.OrderInformation)
                             .Include(e => e.BasketLine)
                             .Include(e => e.User)
-                            .First(e => e.Id == orderId && e.User.Email == email);
+                            .First(e => e.OrderId == orderId && e.User.Email == email);
             }
         }
 
@@ -50,7 +50,7 @@ namespace OmiconShop.Application.Repository
         {
             using (context)
             {
-                Order order = context.Orders.First(e => e.Id == orderId);
+                Order order = context.Orders.First(e => e.OrderId == orderId);
                 order.Status = OrderStatuses.Declined;
                 context.Entry(order).State = EntityState.Modified;
                 context.SaveChanges();
@@ -61,7 +61,7 @@ namespace OmiconShop.Application.Repository
         {
             using (context)
             {
-                Order order = context.Orders.First(e => e.Id == orderId);
+                Order order = context.Orders.First(e => e.OrderId == orderId);
                 order.Status = OrderStatuses.Approved;
                 context.Entry(order).State = EntityState.Modified;
                 context.SaveChanges();
@@ -72,7 +72,7 @@ namespace OmiconShop.Application.Repository
         {
             using (context)
             {
-                Order order = context.Orders.FirstOrDefault(e => e.Id == orderId);
+                Order order = context.Orders.FirstOrDefault(e => e.OrderId == orderId);
 
                 context.Entry(order).State = EntityState.Deleted;
                 context.SaveChanges();
@@ -83,7 +83,7 @@ namespace OmiconShop.Application.Repository
         {
             using (context)
             {
-                var dbEntry = context.Orders.Where(e => e.User.Id == id)
+                var dbEntry = context.Orders.Where(e => e.User.UserId == id)
                         .Include(e => e.BasketLine)
                         .Include(e => e.OrderInformation)
                         .Include(e => e.User).ToList();
@@ -98,10 +98,11 @@ namespace OmiconShop.Application.Repository
             }
         }
 
-        public void AddOrder(Order order)
+        public void AddOrder(Order order, Action addOrderData)
         {
             using (context)
             {
+                addOrderData();
                 context.Entry(order).State = EntityState.Added;
                 context.SaveChanges();
             }

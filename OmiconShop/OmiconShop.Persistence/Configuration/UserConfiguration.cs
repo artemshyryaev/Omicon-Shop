@@ -13,9 +13,9 @@ namespace OmiconShop.Persistence.Configuration
     {
         public UserConfiguration()
         {
-            HasKey(e => e.Id);
+            HasKey(e => e.UserId);
 
-            Property(e => e.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            Property(e => e.UserId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(e => e.Email).HasMaxLength(60).HasColumnType("nvarchar(max)").IsRequired();
         }
     }

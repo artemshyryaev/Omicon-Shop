@@ -29,8 +29,8 @@
             @foreach (var el in Model.Products)
             {
                 <tr>
-                    @Html.HiddenFor(x => el.Id)
-                    <td>@Html.RouteLink(el.Name, new { controller = "Admin", action = "EditProduct", productId = el.Id })</td>
+                    @Html.HiddenFor(x => el.ProductId)
+                    <td>@Html.RouteLink(el.Name, new { controller = "Admin", action = "EditProduct", productId = el.ProductId })</td>
                     <td class="text-right">@el.Description</td>
                     <td class="text-right">
                         @if (el.ImageUrl != null)
@@ -44,7 +44,7 @@
                     <td class="text-center">
                         @using (Html.BeginForm("DeleteProduct", "Admin"))
                         {
-                            @Html.Hidden("productId", el.Id)
+                            @Html.Hidden("productId", el.ProductId)
                             <input type="submit" class="btn btn-default btn-xs" value="Remove">
                         }
                     </td>

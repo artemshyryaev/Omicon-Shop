@@ -21,7 +21,7 @@ namespace OmiconShop.WebUI.Filters
                         ((IObjectContextAdapter)context).ObjectContext.CreateDatabase();
                 }
 
-                WebSecurity.InitializeDatabaseConnection("ShopDB", "Users", "Id", "Email", autoCreateTables: true);
+                WebSecurity.InitializeDatabaseConnection("ShopDB", "Users", "UserId", "Email", autoCreateTables: true);
                 SimpleRoleProvider roles = (SimpleRoleProvider)Roles.Provider;
                 SimpleMembershipProvider memberships = (SimpleMembershipProvider)Membership.Provider;
 
@@ -30,10 +30,10 @@ namespace OmiconShop.WebUI.Filters
                     roles.CreateRole("Admin");
                 }
 
-                if (memberships.GetUser("admin", false) == null)
+                if (memberships.GetUser("admin@gmail.com", false) == null)
                 {
-                    memberships.CreateUserAndAccount("admin", "qwerty1234");
-                    roles.AddUsersToRoles(new[] { "admin" }, new[] { "Admin" });
+                    memberships.CreateUserAndAccount("admin@gmail.com", "qwerty1234");
+                    roles.AddUsersToRoles(new[] { "admin@gmail.com" }, new[] { "Admin" });
                 }
             }
             catch (Exception ex)

@@ -123,7 +123,7 @@ WriteLiteral("</div>\r\n    <div>Item no.  ");
 
             
             #line 27 "..\..\Views\Home\ProductDetails.cshtml"
-              Write(Model.Id);
+              Write(Model.ProductId);
 
             
             #line default
@@ -194,7 +194,7 @@ WriteLiteral("            ");
 
             
             #line 42 "..\..\Views\Home\ProductDetails.cshtml"
-       Write(Html.Hidden("productId", Model.Id));
+       Write(Html.Hidden("productId", Model.ProductId));
 
             
             #line default

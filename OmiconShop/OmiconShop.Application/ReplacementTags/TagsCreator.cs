@@ -25,7 +25,7 @@ namespace OmiconShop.Application.ReplacementTags
             orderTags.Add("[Status]", Convert.ToString(order.Status));
             orderTags.Add("[Total]", Convert.ToString(order.OrderInformation?.Total));
             orderTags.Add("[Date]", Convert.ToString(order.OrderInformation?.Date));
-            orderTags.Add("[OrderId]", Convert.ToString(order.Id));
+            orderTags.Add("[OrderId]", Convert.ToString(order.OrderId));
             orderTags.Add("[Basket_Lines]", Convert.ToString(basketLineText));
 
             return orderTags;

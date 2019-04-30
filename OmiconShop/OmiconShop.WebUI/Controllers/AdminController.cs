@@ -91,7 +91,7 @@ namespace OmiconShop.WebUI.Controllers
                     image.SaveAs(adminApi.CreateProductFullPath(ref product));
 
                 var productModel = adminApi.EditProduct(productId, product);
-                TempData["message"] = string.Format($"Data in {productModel.Id}/{productModel.Name} was successfully changed!");
+                TempData["message"] = string.Format($"Data in {productModel.ProductId}/{productModel.Name} was successfully changed!");
 
                 return RedirectToAction("ProductList", "Admin");
             }

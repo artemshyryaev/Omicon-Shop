@@ -40,7 +40,7 @@
                     <td>
                         @using (Html.BeginForm("RemoveFromBasket", "Basket"))
                         {
-                            @Html.Hidden("productId", el.Product.Id)
+                            @Html.Hidden("productId", el.Product.ProductId)
                             @Html.Hidden("returnUrl", Model.RetunrUrl)
                             @Html.Hidden("uom", el.Uom)
                             <input class="btn btn-sm btn-warning" type="submit" value="Delete" />

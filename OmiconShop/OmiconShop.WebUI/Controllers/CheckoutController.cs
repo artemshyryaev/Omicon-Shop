@@ -13,7 +13,7 @@ namespace OmiconShop.WebUI.Controllers
 
         public CheckoutController(CheckoutApi checkoutApi)
         {
-            this.checkoutApi = checkoutApi; 
+            this.checkoutApi = checkoutApi;
         }
 
         public ActionResult OrderInformation(BasketViewModel basket)
@@ -23,7 +23,6 @@ namespace OmiconShop.WebUI.Controllers
                 TempData["message"] = string.Format("Your basket is empty");
                 return RedirectToAction("Index", "Basket");
             }
-
 
             return View(new OrderInformationViewModel());
         }
@@ -39,7 +38,7 @@ namespace OmiconShop.WebUI.Controllers
             if (ModelState.IsValid)
             {
                 order = checkoutApi.ProcessOrder(basket, orderInformation);
-                ViewBag.OrderId = order.Id;
+                ViewBag.OrderId = order.OrderId;
             }
             else
             {

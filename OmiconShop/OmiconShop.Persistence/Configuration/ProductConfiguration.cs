@@ -13,9 +13,9 @@ namespace OmiconShop.Persistence.Configuration
     {
         public ProductConfiguration()
         {
-            HasKey(e => e.Id);
+            HasKey(e => e.ProductId);
 
-            Property(e => e.Id).IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            Property(e => e.ProductId).IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(e => e.Name).IsRequired().HasMaxLength(40).HasColumnType("nvarchar(max)");
             Property(e => e.Description).HasMaxLength(250).HasColumnType("nvarchar(max)");
             Property(e => e.Price).IsRequired().HasColumnType("money");

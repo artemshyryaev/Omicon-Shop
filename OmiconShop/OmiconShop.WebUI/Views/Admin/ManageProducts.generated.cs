@@ -87,7 +87,7 @@ WriteLiteral(">\r\n            <tr>\r\n                <td>");
 
             
             #line 19 "..\..\Views\Admin\ManageProducts.cshtml"
-               Write(el.Id);
+               Write(el.ProductId);
 
             
             #line default

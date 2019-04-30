@@ -188,7 +188,7 @@ WriteLiteral("$</td>\r\n                    <td>\r\n");
             #line hidden
             
             #line 43 "..\..\Views\Basket\Index.cshtml"
-                       Write(Html.Hidden("productId", el.Product.Id));
+                       Write(Html.Hidden("productId", el.Product.ProductId));
 
             
             #line default

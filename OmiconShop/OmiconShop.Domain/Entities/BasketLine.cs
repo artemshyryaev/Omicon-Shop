@@ -6,7 +6,7 @@ namespace OmiconShop.Domain.Entities
 {
     public class BasketLine
     {
-        public int Id { get; set; }
+        public int BasketLineId { get; set; }
 
         public double Qty { get; set; }
 

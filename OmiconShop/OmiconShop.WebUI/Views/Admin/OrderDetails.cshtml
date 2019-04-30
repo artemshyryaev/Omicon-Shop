@@ -5,7 +5,7 @@
     ViewBag.Title = "OrderDetails";
 }
 
-<h2>@Model.Id Order</h2>
+<h2>@Model.OrderId Order</h2>
 
 @if (User.Identity.IsAuthenticated)
 {
@@ -27,7 +27,7 @@
         </thead>
         <tbody>
             <tr>
-                <td>@Model.Id</td>
+                <td>@Model.OrderId</td>
                 <td>@Model.Status</td>
                 <td>@Model.OrderInformation.Delivery</td>
                 <td>@Model.OrderInformation.Payment</td>
@@ -88,9 +88,9 @@
 <div>
     @if (User.Identity.Name == "admin" && Model.Status == OmiconShop.Domain.Enumerations.OrderStatuses.Pending)
     {
-        @Html.RouteLink("Approve order", new { action = "Approve", controller = "Admin", orderId = Model.Id },
+        @Html.RouteLink("Approve order", new { action = "Approve", controller = "Admin", orderId = Model.OrderId },
             new { @class = "btn btn-primary" })
-        @Html.RouteLink("Decline order", new { action = "Decline", controller = "Admin", orderId = Model.Id },
+        @Html.RouteLink("Decline order", new { action = "Decline", controller = "Admin", orderId = Model.OrderId },
             new { @class = "btn btn-primary" })
     }
 </div>

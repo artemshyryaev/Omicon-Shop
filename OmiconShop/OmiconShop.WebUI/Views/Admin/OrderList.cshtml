@@ -36,12 +36,12 @@
                 @foreach (var el in Model.Orders)
                 {
                     <tr>
-                        <td>@el.Id</td>
+                        <td>@el.OrderId</td>
                         <td class="text-right">@el.OrderInformation.Date</td>
                         <td class="text-right">@(el.User.UserPersonalInformation.Name + " " + el.User.UserPersonalInformation.Surname)</td>
                         <td class="text-right">@el.OrderInformation.Total</td>
                         <td class="text-right">@el.Status</td>
-                        <td class="text-right">@Html.RouteLink("View details", new { controller = "Admin", action = "OrderDetails", orderId = el.Id })</td>
+                        <td class="text-right">@Html.RouteLink("View details", new { controller = "Admin", action = "OrderDetails", orderId = el.OrderId })</td>
                     </tr>
                 }
             </table>

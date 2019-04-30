@@ -12,7 +12,7 @@ namespace OmiconShop.Persistence.Configuration
     {
         public UserAddressConfiguration()
         {
-            HasKey(e => e.Id);
+            HasKey(e => e.UserAddressId);
 
             Property(e => e.Country).HasMaxLength(60).HasColumnType("nvarchar(max)").IsRequired();
             Property(e => e.City).HasMaxLength(60).HasColumnType("nvarchar(max)").IsRequired();

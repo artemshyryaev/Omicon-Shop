@@ -17,7 +17,7 @@
                     }
                 </td>
             <td>
-                @Html.RouteLink(Model.Name, new { controller = "Home", action = "ProductDetails", productId = Model.Id,
+                @Html.RouteLink(Model.Name, new { controller = "Home", action = "ProductDetails", productId = Model.ProductId,
                     type = ViewData["Type"], page = ViewData["Page"]})
             </td>
             <td>@Model.Description</td>
@@ -32,7 +32,7 @@
                     @Html.UomEnumDropdownList("uom", selectedUom, new { @class = "form-control" })
                 </td>
                 <td>
-                    @Html.Hidden("productId", Model.Id)
+                    @Html.Hidden("productId", Model.ProductId)
                     @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
                     <input type="submit" class="btn btn-success" value="Add to cart">
                 </td>

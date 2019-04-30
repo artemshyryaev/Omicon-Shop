@@ -64,7 +64,7 @@ WriteLiteral("        ");
 
             
             #line 12 "..\..\Views\Admin\PersonalInfo.cshtml"
-   Write(Html.HiddenFor(x => x.Id));
+   Write(Html.HiddenFor(x => x.UserId));
 
             
             #line default

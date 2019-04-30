@@ -9,7 +9,7 @@ namespace OmiconShop.Domain.Entities
 {
     public class UserAddress
     {
-        public int Id { get; set; }
+        public int UserAddressId { get; set; }
 
         public string Country { get; set; }
 

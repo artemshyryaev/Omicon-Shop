@@ -23,6 +23,6 @@ namespace OmiconShop.Application.IRepository
 
         void ChangeUserEmailInOrders(int id, string newEmail);
 
-        void AddOrder(Order order);
+        void AddOrder(Order order, Action addOrderData);
     }
 }
