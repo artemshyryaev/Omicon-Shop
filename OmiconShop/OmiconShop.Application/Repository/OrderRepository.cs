@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 
 namespace OmiconShop.Application.Repository
@@ -19,19 +20,19 @@ namespace OmiconShop.Application.Repository
             this.context = context;
         }
 
-        public IEnumerable<Order> GetAllOrders() => context.Orders
+        public IEnumerable<Order> GetAllOrders() =>  context.Orders
                     .Include(e => e.OrderInformation)
                     .Include(e => e.BasketLine)
-                    .Include(e => e.User);
+                    .Include(e => e.User).ToList();
 
         public Order GetOrderById(int orderId)
         {
             using (context)
             {
-                return context.Orders.Include(e => e.OrderInformation)
+                 return context.Orders.Include(e => e.OrderInformation)
                             .Include(e => e.BasketLine)
                             .Include(e => e.User)
-                            .First(e => e.OrderId == orderId);
+                            .FirstOrDefault(e => e.OrderId == orderId);
             }
         }
 
@@ -42,44 +43,44 @@ namespace OmiconShop.Application.Repository
                 return context.Orders.Include(e => e.OrderInformation)
                             .Include(e => e.BasketLine)
                             .Include(e => e.User)
-                            .First(e => e.OrderId == orderId && e.User.Email == email);
+                            .FirstOrDefault(e => e.OrderId == orderId && e.User.Email == email);
             }
         }
 
-        public void DeclineOrderByAdmin(int orderId)
+        public async void DeclineOrderByAdminAsync(int orderId)
         {
             using (context)
             {
                 Order order = context.Orders.First(e => e.OrderId == orderId);
                 order.Status = OrderStatuses.Declined;
                 context.Entry(order).State = EntityState.Modified;
-                context.SaveChanges();
+                await context.SaveChangesAsync();
             }
         }
 
-        public void ApproveOrderByAdmin(int orderId)
+        public async void ApproveOrderByAdminAsync(int orderId)
         {
             using (context)
             {
                 Order order = context.Orders.First(e => e.OrderId == orderId);
                 order.Status = OrderStatuses.Approved;
                 context.Entry(order).State = EntityState.Modified;
-                context.SaveChanges();
+                await context.SaveChangesAsync();
             }
         }
 
-        public void DeleteOrder(int orderId)
+        public async void DeleteOrderAsync(int orderId)
         {
             using (context)
             {
                 Order order = context.Orders.FirstOrDefault(e => e.OrderId == orderId);
 
                 context.Entry(order).State = EntityState.Deleted;
-                context.SaveChanges();
+                await context.SaveChangesAsync();
             }
         }
 
-        public void ChangeUserEmailInOrders(int id, string newEmail)
+        public async void ChangeUserEmailInOrdersAsync(int id, string newEmail)
         {
             using (context)
             {
@@ -93,18 +94,18 @@ namespace OmiconShop.Application.Repository
                     el.User.Email = newEmail;
 
                     context.Entry(el).State = EntityState.Modified;
-                    context.SaveChanges();
+                    await context.SaveChangesAsync();
                 }
             }
         }
 
-        public void AddOrder(Order order, Action addOrderData)
+        public async void AddOrderAsync(Order order, Action addOrderData)
         {
             using (context)
             {
                 addOrderData();
                 context.Entry(order).State = EntityState.Added;
-                context.SaveChanges();
+                await context.SaveChangesAsync();
             }
         }
     }

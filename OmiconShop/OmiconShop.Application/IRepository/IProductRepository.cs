@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 
 namespace OmiconShop.Application.IRepository
@@ -12,10 +13,10 @@ namespace OmiconShop.Application.IRepository
 
         Product GetProductById(int orderId);
 
-        void AddProduct(Product product);
+        void AddProductAsync(Product product);
 
-        void DeleteProduct(int productId);
+        void DeleteProductAsync(int productId);
 
-        void EditProduct(Product product);
+        void EditProductAsync(Product product);
     }
 }

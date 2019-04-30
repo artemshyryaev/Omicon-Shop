@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 
 namespace OmiconShop.Application.IRepository
@@ -33,41 +34,25 @@ namespace OmiconShop.Application.IRepository
             }
         }
 
-        public User ChangeUserEmail(int id, string email)
+        public User ChangeUserEmail(int id, string newEmail)
         {
             var user = GetUserById(id);
-
-            using (ShopDBContext context = new ShopDBContext())
-            {
-                user.Email = email;
-                context.Entry(user).State = EntityState.Modified;
-                context.SaveChanges();
-            }
+            user.Email = newEmail;
+            Task.Run(() => ModifyUserEmailAsync(user));
 
             return user;
         }
 
-        public void SaveUser(User user)
+        private async void ModifyUserEmailAsync(User user)
         {
             using (ShopDBContext context = new ShopDBContext())
             {
                 context.Entry(user).State = EntityState.Modified;
-                context.SaveChanges();
+                await context.SaveChangesAsync();
             }
         }
 
-        public void DeleteUserByUserId(int userId)
-        {
-            var user = GetUserById(userId);
-
-            using (ShopDBContext context = new ShopDBContext())
-            {
-                context.Entry(user).State = EntityState.Deleted;
-                context.SaveChanges();
-            }
-        }
-
-        public void UpdateUser(string email, Action<User> user)
+        public async void UpdateUserAsync(string email, Action<User> user)
         {
             var _user = GetUserByEmail(email)?? throw new NotImplementedException();
 
@@ -75,7 +60,7 @@ namespace OmiconShop.Application.IRepository
             {
                 context.Users.Attach(_user);
                 user(_user);
-                context.SaveChanges();
+                await context.SaveChangesAsync();
             }
         }
     }

@@ -25,11 +25,11 @@ namespace OmiconShop.Application.Account
 
         public void UpdateUser(RegisterViewModel model)
         {
-            userRepository.UpdateUser(model.Login, (user) =>
+            Task.Run(() => userRepository.UpdateUserAsync(model.Login, (user) =>
             {
                 userOperations.FillUserAddressProperties(model, user);
                 userOperations.FillUserPersonalInformationProperties(model, user);
-            });
+            }));
         }
     }
 }

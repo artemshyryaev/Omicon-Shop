@@ -28,7 +28,7 @@ namespace OmiconShop.Application.Checkout
 
         public void DeclineOrder(int orderId)
         {
-            orderRepository.DeleteOrder(orderId);
+            Task.Run(() => orderRepository.DeleteOrderAsync(orderId));
         }
 
         public Order SubmitOrder(BasketViewModel basket, int orderId)
@@ -45,12 +45,12 @@ namespace OmiconShop.Application.Checkout
         {
             Order order = new Order();
 
-            orderRepository.AddOrder(order, () =>
+            Task.Run(() => orderRepository.AddOrderAsync(order, () =>
             {
                 orderOperations.AddUserInformationToOrder(ref order, orderInformation);
                 orderOperations.AddOrderInformationToOrder(ref order, basket, orderInformation);
                 orderOperations.AddBasketLinesToOrder(basket, ref order);
-            });
+            }));
 
             return order;
         }

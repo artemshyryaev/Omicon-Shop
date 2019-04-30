@@ -15,14 +15,14 @@ namespace OmiconShop.Application.IRepository
 
         Order GetOrderByIdAndCustomerEmail(int orderId, string email);
 
-        void DeclineOrderByAdmin(int orderId);
+        void DeclineOrderByAdminAsync(int orderId);
 
-        void ApproveOrderByAdmin(int orderId);
+        void ApproveOrderByAdminAsync(int orderId);
 
-        void DeleteOrder(int orderId);
+        void DeleteOrderAsync(int orderId);
 
-        void ChangeUserEmailInOrders(int id, string newEmail);
+        void ChangeUserEmailInOrdersAsync(int id, string newEmail);
 
-        void AddOrder(Order order, Action addOrderData);
+        void AddOrderAsync(Order order, Action addOrderData);
     }
 }

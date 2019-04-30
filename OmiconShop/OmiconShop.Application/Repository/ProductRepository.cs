@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 
 namespace OmiconShop.Application.IRepository
@@ -17,14 +18,14 @@ namespace OmiconShop.Application.IRepository
             this.context = context;
         }
 
-        public IEnumerable<Product> GetAllProducts() => context.Products;
+        public IEnumerable<Product> GetAllProducts() => context.Products.ToList();
 
-        public void AddProduct(Product product)
+        public async void AddProductAsync(Product product)
         {
             using (context)
             {
                 context.Entry(product).State = EntityState.Added;
-                context.SaveChanges();
+                await context.SaveChangesAsync();
             }
         }
 
@@ -36,18 +37,18 @@ namespace OmiconShop.Application.IRepository
             }
         }
 
-        public void DeleteProduct(int productId)
+        public async void DeleteProductAsync(int productId)
         {
             using (context)
             {
                 Product product = context.Products.FirstOrDefault(x => x.ProductId == productId);
 
                 context.Entry(product).State = EntityState.Deleted;
-                context.SaveChanges();
+                await context.SaveChangesAsync();
             }
         }
 
-        public void EditProduct(Product product)
+        public async void EditProductAsync(Product product)
         {
             using (context)
             {
@@ -60,7 +61,7 @@ namespace OmiconShop.Application.IRepository
                 dbEntry.ImageUrl = product.ImageUrl;
 
                 context.Entry(dbEntry).State = EntityState.Modified;
-                context.SaveChanges();
+                await context.SaveChangesAsync();
             }
         }
     }

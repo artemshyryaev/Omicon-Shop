@@ -39,8 +39,8 @@ namespace OmiconShop.Application.Admin
 
         public User ChangeUserData(int userId, string userEmail)
         {
-            var changedUser = userRepository.ChangeUserEmail(userId, userEmail);
-            orderRepository.ChangeUserEmailInOrders(userId, changedUser.Email);
+            var changedUser = Task.Run(() => userRepository.ChangeUserEmail(userId, userEmail)).Result;
+            Task.Run(() => orderRepository.ChangeUserEmailInOrdersAsync(userId, changedUser.Email));
 
             return changedUser;
         }
@@ -63,38 +63,35 @@ namespace OmiconShop.Application.Admin
 
         public Order GetCurrentUserOrder(int orderId, string userEmail)
         {
-            Order order;
-
-            if (userEmail == "admin")
-                return order = orderRepository.GetOrderById(orderId);
+            if (userEmail == "admin@gmail.com")
+                return orderRepository.GetOrderById(orderId);
             else
-                return order = orderRepository.GetOrderByIdAndCustomerEmail(orderId, userEmail);
-
+                return orderRepository.GetOrderByIdAndCustomerEmail(orderId, userEmail);
         }
 
         public Order DeclineOrder(int orderId)
         {
-            orderRepository.DeclineOrderByAdmin(orderId);
+            Task.Run(() => orderRepository.DeclineOrderByAdminAsync(orderId));
 
             return orderRepository.GetOrderById(orderId);
         }
 
         public Order ApproveOrder(int orderId)
         {
-            orderRepository.ApproveOrderByAdmin(orderId);
+            Task.Run(() => orderRepository.ApproveOrderByAdminAsync(orderId));
 
             return orderRepository.GetOrderById(orderId);
         }
 
         public void DeleteProduct(int productId)
         {
-            productRepository.DeleteProduct(productId);
+            Task.Run(() => productRepository.DeleteProductAsync(productId));
         }
 
         public Product CreateProduct(ProductViewModel productViewModel)
         {
             var product = productOperations.CreateProductModelFromProductViewModel(productViewModel);
-            productRepository.AddProduct(product);
+            Task.Run(() => productRepository.AddProductAsync(product));
 
             return product;
         }
@@ -126,8 +123,8 @@ namespace OmiconShop.Application.Admin
 
         public string CreateProductFullPath(ref ProductViewModel product)
         {
-            var filepath = string.IsNullOrEmpty(product.ImageUrl) 
-                ? "/content/files/" + Guid.NewGuid() + ".png" 
+            var filepath = string.IsNullOrEmpty(product.ImageUrl)
+                ? "/content/files/" + Guid.NewGuid() + ".png"
                 : product.ImageUrl;
 
             var fullPath = HostingEnvironment.MapPath(filepath);
@@ -142,7 +139,7 @@ namespace OmiconShop.Application.Admin
         public Product EditProduct(int productId, ProductViewModel productViewModel)
         {
             var productModel = productOperations.CreateProductModelFromProductViewModel(productViewModel, productId);
-            productRepository.EditProduct(productModel);
+            Task.Run(() => productRepository.EditProductAsync(productModel));
 
             return productModel;
         }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace OmiconShop.Application.Admin.Operations
 {
@@ -23,7 +24,7 @@ namespace OmiconShop.Application.Admin.Operations
         {
             var allOrders = orderRepository.GetAllOrders();
 
-            if (userEmail != "admin")
+            if (userEmail != "admin@gmail.com")
                 allOrders = allOrders.Where(x => x.User.Email == userEmail).OrderBy(x => x.OrderId);
             else
                 allOrders = allOrders.OrderBy(x => x.OrderId);

@@ -30,10 +30,10 @@ namespace OmiconShop.WebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult PersonalInfo(int id, string email)
+        public ActionResult PersonalInfo(int userId, string email)
         {
             var userEmail = User.Identity.Name;
-            var changedUser = adminApi.GetCurrentUserData(userEmail);
+            var changedUser = adminApi.ChangeUserData(userId, email);
 
             WebSecurity.Logout();
             FormsAuthentication.SetAuthCookie(changedUser.Email, false);
