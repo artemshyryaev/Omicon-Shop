@@ -39,11 +39,12 @@ namespace OmiconShop.WebUI.Controllers
             return Json(basket);
         }
 
-        public RedirectToRouteResult EmptyBasket(BasketViewModel basket, string returnUrl)
+        [HttpPost]
+        public ActionResult EmptyBasket(BasketViewModel basket)
         {
             basketApi.EmptyBasket(basket);
 
-            return RedirectToAction("Index", new { returnUrl });
+            return Json(basket);
         }
     }
 }

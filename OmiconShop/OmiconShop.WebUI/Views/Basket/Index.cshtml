@@ -16,7 +16,7 @@
                 <th>Total</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="basketItems">
 
             @foreach (var el in Model.Basket.Lines)
             {
@@ -52,11 +52,7 @@
     </table>
 </div>
 <div>
-    @using (Html.BeginForm("EmptyBasket", "Basket"))
-    {
-        @Html.Hidden("returnUrl", Model.RetunrUrl)
-        <input class="btn btn-primary" type="submit" value="Empty basket">
-    }
+    <input id="emptyBasket" class="btn btn-primary" type="button" value="Empty basket">
 </div>
 <div>
     <a class="btn btn-primary" href="@Model.RetunrUrl">Continue shopping</a>
@@ -76,6 +72,18 @@
                         $('#cart-status').text("Summary: " + data.BasketTotal + " $");
                     });
             }
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    $(function () {
+        $("#emptyBasket").click(function () {
+            $.post("Basket/EmptyBasket",
+                function (data) {
+                    $('#basketItems').empty();
+                    $('#cart-status').text("Summary: " + data.BasketTotal + " $");
+                });
         });
     });
 </script>
