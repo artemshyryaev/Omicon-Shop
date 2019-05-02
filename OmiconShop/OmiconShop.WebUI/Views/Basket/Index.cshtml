@@ -20,12 +20,12 @@
 
             @foreach (var el in Model.Basket.Lines)
             {
-                <tr>
+                <tr id="row-@el.Product.ProductId-@el.Uom">
                     @if (el.Product.ImageUrl != null)
                     {
                         <td>
-                        <img class="img-thumbnail" width="30" height="30"
-                             src="@el.Product.ImageUrl">
+                            <img class="img-thumbnail" width="30" height="30"
+                                 src="@el.Product.ImageUrl">
                         </td>
                     }
 
@@ -38,13 +38,7 @@
                     <td>@(el.Uom)</td>
                     <td>@(el.Quantity * el.Product.Price)$</td>
                     <td>
-                        @using (Html.BeginForm("RemoveFromBasket", "Basket"))
-                        {
-                            @Html.Hidden("productId", el.Product.ProductId)
-                            @Html.Hidden("returnUrl", Model.RetunrUrl)
-                            @Html.Hidden("uom", el.Uom)
-                            <input class="btn btn-sm btn-warning" type="submit" value="Delete" />
-                        }
+                        <a href="#" class="RemoveLink" data-id="@el.Product.ProductId-@el.Uom">Delete</a>
                     </td>
                 </tr>
             }
@@ -52,8 +46,7 @@
         </tbody>
         <tfoot>
             <tr>
-                <td colspan="3">Summary:</td>
-                <td>@Model.Basket.BasketTotal()$</td>
+                <td id="cart-status" colspan="4">Summary: @Model.Basket.BasketTotal $</td>
             </tr>
         </tfoot>
     </table>
@@ -69,3 +62,20 @@
     <a class="btn btn-primary" href="@Model.RetunrUrl">Continue shopping</a>
     @Html.RouteLink("Procceed to checkout", new { action = "OrderInformation", controller = "Checkout" }, new { @class = "btn btn-primary" })
 </div>
+
+<script src="/Scripts/jquery-1.4.4.min.js"
+        type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        $(".RemoveLink").click(function () {
+            var product = $(this).attr("data-id");
+            if (product != null) {
+                $.post("Basket/RemoveFromBasket", { "productInfo": product },
+                    function (data) {
+                        $('#row-' + product).fadeOut('slow');
+                        $('#cart-status').text("Summary: " + data.BasketTotal + " $");
+                    });
+            }
+        });
+    });
+</script>

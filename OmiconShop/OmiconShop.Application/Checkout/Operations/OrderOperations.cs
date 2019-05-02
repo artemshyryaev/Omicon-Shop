@@ -73,7 +73,7 @@ namespace OmiconShop.Application.Checkout.Operations
             OrderInformation orderInformation = new OrderInformation()
             {
                 Date = DateTime.Today,
-                Total = basket.BasketTotal(),
+                Total = basket.BasketTotal,
                 Delivery = orderInformationViewModel.Delivery,
                 Payment = orderInformationViewModel.Payment,
             };

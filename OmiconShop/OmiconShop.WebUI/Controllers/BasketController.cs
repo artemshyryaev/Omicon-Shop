@@ -1,6 +1,8 @@
 ﻿using OmiconShop.Application.Basket;
 using OmiconShop.Application.Basket.ViewModel;
 using OmiconShop.Domain.Enumerations;
+using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
 
 namespace OmiconShop.WebUI.Controllers
@@ -26,11 +28,15 @@ namespace OmiconShop.WebUI.Controllers
             return RedirectToAction("Index", new { returnUrl });
         }
 
-        public RedirectToRouteResult RemoveFromBasket(BasketViewModel basket, int productId, string returnUrl, UOM uom)
+        [HttpPost]
+        public ActionResult RemoveFromBasket(BasketViewModel basket, string productInfo)
         {
-            basketApi.RemoveFromBasket(basket, productId, uom);
+            var productId = Convert.ToInt32(productInfo.Split('-')[0]);
+            Enum.TryParse((productInfo.Split('-')[1]), out UOM productUOM);
 
-            return RedirectToAction("Index", new { returnUrl });
+            basketApi.RemoveFromBasket(basket, productId, productUOM);
+
+            return Json(basket);
         }
 
         public RedirectToRouteResult EmptyBasket(BasketViewModel basket, string returnUrl)

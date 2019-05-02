@@ -9,7 +9,13 @@ namespace OmiconShop.Application.Basket.ViewModel
 {
     public class BasketViewModel
     {
-        public List<BasketLineModel> lineCollection = new List<BasketLineModel>();
+        public List<BasketLineModel> lineCollection;
+        public double BasketTotal { get => lineCollection.Sum(p => p.Product.Price * p.Quantity);} 
+
+        public BasketViewModel()
+        {
+            lineCollection = new List<BasketLineModel>();
+        }
 
         public IEnumerable<BasketLineModel> Lines { get { return lineCollection; } }
 
@@ -31,11 +37,6 @@ namespace OmiconShop.Application.Basket.ViewModel
         public void ClearBasket()
         {
             lineCollection.Clear();
-        }
-
-        public double BasketTotal()
-        {
-            return lineCollection.Sum(p => p.Product.Price * p.Quantity);
         }
     }
 
