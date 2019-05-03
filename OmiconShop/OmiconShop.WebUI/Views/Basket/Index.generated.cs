@@ -47,77 +47,76 @@ namespace ASP
             
             #line default
             #line hidden
-WriteLiteral(@"
+WriteLiteral("\r\n\r\n    <h2>Your basket</h2>\r\n    <div>\r\n        <table");
 
-<h2>Your basket</h2>
-<div>
-    <table>
-        <thead>
-            <tr>
-                <th></th>
-                <th>Product</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>UOM</th>
-                <th>Total</th>
-            </tr>
-        </thead>
-        <tbody>
+WriteLiteral(" id=\"basketItems\"");
 
+WriteLiteral(@">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>UOM</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
 ");
 
             
-            #line 21 "..\..\Views\Basket\Index.cshtml"
-            
+            #line 20 "..\..\Views\Basket\Index.cshtml"
+                
             
             #line default
             #line hidden
             
-            #line 21 "..\..\Views\Basket\Index.cshtml"
-             foreach (var el in Model.Basket.Lines)
-            {
+            #line 20 "..\..\Views\Basket\Index.cshtml"
+                 foreach (var el in Model.Basket.Lines)
+                {
 
             
             #line default
             #line hidden
-WriteLiteral("                <tr");
+WriteLiteral("                    <tr");
 
-WriteAttribute("id", Tuple.Create(" id=\"", 518), Tuple.Create("\"", 556)
-, Tuple.Create(Tuple.Create("", 523), Tuple.Create("row-", 523), true)
+WriteAttribute("id", Tuple.Create(" id=\"", 601), Tuple.Create("\"", 639)
+, Tuple.Create(Tuple.Create("", 606), Tuple.Create("row-", 606), true)
             
-            #line 23 "..\..\Views\Basket\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 527), Tuple.Create<System.Object, System.Int32>(el.Product.ProductId
-            
-            #line default
-            #line hidden
-, 527), false)
-, Tuple.Create(Tuple.Create("", 548), Tuple.Create("-", 548), true)
-            
-            #line 23 "..\..\Views\Basket\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 549), Tuple.Create<System.Object, System.Int32>(el.Uom
+            #line 22 "..\..\Views\Basket\Index.cshtml"
+, Tuple.Create(Tuple.Create("", 610), Tuple.Create<System.Object, System.Int32>(el.Product.ProductId
             
             #line default
             #line hidden
-, 549), false)
+, 610), false)
+, Tuple.Create(Tuple.Create("", 631), Tuple.Create("-", 631), true)
+            
+            #line 22 "..\..\Views\Basket\Index.cshtml"
+, Tuple.Create(Tuple.Create("", 632), Tuple.Create<System.Object, System.Int32>(el.Uom
+            
+            #line default
+            #line hidden
+, 632), false)
 );
 
 WriteLiteral(">\r\n");
 
             
-            #line 24 "..\..\Views\Basket\Index.cshtml"
-                    
+            #line 23 "..\..\Views\Basket\Index.cshtml"
+                        
             
             #line default
             #line hidden
             
-            #line 24 "..\..\Views\Basket\Index.cshtml"
-                     if (el.Product.ImageUrl != null)
-                    {
+            #line 23 "..\..\Views\Basket\Index.cshtml"
+                         if (el.Product.ImageUrl != null)
+                        {
 
             
             #line default
             #line hidden
-WriteLiteral("                        <td>\r\n                            <img");
+WriteLiteral("                            <td>\r\n                                <img");
 
 WriteLiteral(" class=\"img-thumbnail\"");
 
@@ -125,73 +124,79 @@ WriteLiteral(" width=\"30\"");
 
 WriteLiteral(" height=\"30\"");
 
-WriteAttribute("src", Tuple.Create("\r\n                                 src=\"", 745), Tuple.Create("\"", 805)
+WriteAttribute("src", Tuple.Create("\r\n                                     src=\"", 844), Tuple.Create("\"", 908)
             
-            #line 28 "..\..\Views\Basket\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 785), Tuple.Create<System.Object, System.Int32>(el.Product.ImageUrl
+            #line 27 "..\..\Views\Basket\Index.cshtml"
+, Tuple.Create(Tuple.Create("", 888), Tuple.Create<System.Object, System.Int32>(el.Product.ImageUrl
             
             #line default
             #line hidden
-, 785), false)
+, 888), false)
 );
 
-WriteLiteral(">\r\n                        </td>\r\n");
+WriteLiteral(">\r\n                            </td>\r\n");
+
+            
+            #line 29 "..\..\Views\Basket\Index.cshtml"
+                        }
+
+            
+            #line default
+            #line hidden
+WriteLiteral("                        <td>");
 
             
             #line 30 "..\..\Views\Basket\Index.cshtml"
-                    }
+                       Write(el.Product.Name);
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n                    <td>");
+WriteLiteral("</td>\r\n                        <td>");
 
             
-            #line 32 "..\..\Views\Basket\Index.cshtml"
-                   Write(el.Product.Name);
+            #line 31 "..\..\Views\Basket\Index.cshtml"
+                       Write(el.Product.Price);
 
             
             #line default
             #line hidden
-WriteLiteral("</td>\r\n                    <td>");
+WriteLiteral("</td>\r\n                        <td");
+
+WriteLiteral(" class=\"uom\"");
+
+WriteLiteral(" width=\"80px\"");
+
+WriteLiteral(">\r\n");
+
+WriteLiteral("                            ");
 
             
             #line 33 "..\..\Views\Basket\Index.cshtml"
-                   Write(el.Product.Price);
+                       Write(Html.TextBox("Quantity", el.Quantity, new { @class = "form-control", type = "number", step = "1", min = "1" }));
 
             
             #line default
             #line hidden
-WriteLiteral("</td>\r\n                    ");
-
-WriteLiteral("\r\n                    <td>");
+WriteLiteral("\r\n                        </td>\r\n                        <td>");
 
             
-            #line 37 "..\..\Views\Basket\Index.cshtml"
-                   Write(el.Quantity);
+            #line 35 "..\..\Views\Basket\Index.cshtml"
+                        Write(el.Uom);
 
             
             #line default
             #line hidden
-WriteLiteral("</td>\r\n                    <td>");
+WriteLiteral("</td>\r\n                        <td>");
 
             
-            #line 38 "..\..\Views\Basket\Index.cshtml"
-                    Write(el.Uom);
-
-            
-            #line default
-            #line hidden
-WriteLiteral("</td>\r\n                    <td>");
-
-            
-            #line 39 "..\..\Views\Basket\Index.cshtml"
-                    Write(el.Quantity * el.Product.Price);
+            #line 36 "..\..\Views\Basket\Index.cshtml"
+                        Write(el.Quantity * el.Product.Price);
 
             
             #line default
             #line hidden
-WriteLiteral("$</td>\r\n                    <td>\r\n                        <a");
+WriteLiteral("$</td>\r\n                        <td>\r\n                            <a");
 
 WriteLiteral(" href=\"#\"");
 
@@ -200,8 +205,8 @@ WriteLiteral(" class=\"RemoveLink\"");
 WriteLiteral(" data-id=\"");
 
             
-            #line 41 "..\..\Views\Basket\Index.cshtml"
-                                                           Write(el.Product.ProductId);
+            #line 38 "..\..\Views\Basket\Index.cshtml"
+                                                               Write(el.Product.ProductId);
 
             
             #line default
@@ -209,24 +214,25 @@ WriteLiteral(" data-id=\"");
 WriteLiteral("-");
 
             
-            #line 41 "..\..\Views\Basket\Index.cshtml"
-                                                                                 Write(el.Uom);
+            #line 38 "..\..\Views\Basket\Index.cshtml"
+                                                                                     Write(el.Uom);
 
             
             #line default
             #line hidden
 WriteLiteral("\"");
 
-WriteLiteral(">Delete</a>\r\n                    </td>\r\n                </tr>\r\n");
+WriteLiteral(">Delete</a>\r\n                        </td>\r\n                    </tr>\r\n");
 
             
-            #line 44 "..\..\Views\Basket\Index.cshtml"
-            }
+            #line 41 "..\..\Views\Basket\Index.cshtml"
+                }
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n        </tbody>\r\n        <tfoot>\r\n            <tr>\r\n                <td");
+WriteLiteral("            </tbody>\r\n            <tfoot>\r\n                <tr>\r\n                " +
+"    <td");
 
 WriteLiteral(" id=\"cart-status\"");
 
@@ -235,71 +241,47 @@ WriteLiteral(" colspan=\"4\"");
 WriteLiteral(">Summary: ");
 
             
-            #line 49 "..\..\Views\Basket\Index.cshtml"
-                                                     Write(Model.Basket.BasketTotal);
+            #line 45 "..\..\Views\Basket\Index.cshtml"
+                                                         Write(Model.Basket.BasketTotal);
 
             
             #line default
             #line hidden
-WriteLiteral(" $</td>\r\n            </tr>\r\n        </tfoot>\r\n    </table>\r\n</div>\r\n<div>\r\n");
+WriteLiteral(" $</td>\r\n                </tr>\r\n            </tfoot>\r\n        </table>\r\n    </div" +
+">\r\n    <div>\r\n        <input");
 
-            
-            #line 55 "..\..\Views\Basket\Index.cshtml"
-    
-            
-            #line default
-            #line hidden
-            
-            #line 55 "..\..\Views\Basket\Index.cshtml"
-     using (Html.BeginForm("EmptyBasket", "Basket"))
-    {
-        
-            
-            #line default
-            #line hidden
-            
-            #line 57 "..\..\Views\Basket\Index.cshtml"
-   Write(Html.Hidden("returnUrl", Model.RetunrUrl));
-
-            
-            #line default
-            #line hidden
-            
-            #line 57 "..\..\Views\Basket\Index.cshtml"
-                                                  
-
-            
-            #line default
-            #line hidden
-WriteLiteral("        <input");
+WriteLiteral(" id=\"recalculate\"");
 
 WriteLiteral(" class=\"btn btn-primary\"");
 
 WriteLiteral(" type=\"submit\"");
 
-WriteLiteral(" value=\"Empty basket\"");
+WriteLiteral(" value=\"Recalculate shopping cart\"");
 
-WriteLiteral(">\r\n");
+WriteLiteral(" />\r\n    </div>\r\n\r\n<div>\r\n    <input");
 
-            
-            #line 59 "..\..\Views\Basket\Index.cshtml"
-    }
-
-            
-            #line default
-            #line hidden
-WriteLiteral("</div>\r\n<div>\r\n    <a");
+WriteLiteral(" id=\"emptyBasket\"");
 
 WriteLiteral(" class=\"btn btn-primary\"");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 1970), Tuple.Create("\"", 1993)
+WriteLiteral(" type=\"button\"");
+
+WriteLiteral(" value=\"Empty basket\"");
+
+WriteLiteral(">\r\n</div>\r\n<div>\r\n    <a");
+
+WriteLiteral(" id=\"returnUrl\"");
+
+WriteLiteral(" class=\"btn btn-primary\"");
+
+WriteAttribute("href", Tuple.Create(" href=\"", 2160), Tuple.Create("\"", 2183)
             
-            #line 62 "..\..\Views\Basket\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 1977), Tuple.Create<System.Object, System.Int32>(Model.RetunrUrl
+            #line 58 "..\..\Views\Basket\Index.cshtml"
+, Tuple.Create(Tuple.Create("", 2167), Tuple.Create<System.Object, System.Int32>(Model.RetunrUrl
             
             #line default
             #line hidden
-, 1977), false)
+, 2167), false)
 );
 
 WriteLiteral(">Continue shopping</a>\r\n");
@@ -307,13 +289,14 @@ WriteLiteral(">Continue shopping</a>\r\n");
 WriteLiteral("    ");
 
             
-            #line 63 "..\..\Views\Basket\Index.cshtml"
-Write(Html.RouteLink("Procceed to checkout", new { action = "OrderInformation", controller = "Checkout" }, new { @class = "btn btn-primary" }));
+            #line 59 "..\..\Views\Basket\Index.cshtml"
+Write(Html.RouteLink("Procceed to checkout", new { action = "OrderInformation", controller = "Checkout" },
+        new { id = "procceedToCheckout", @class = "btn btn-primary" }));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n</div>\r\n\r\n<script");
+WriteLiteral("\r\n</div>\r\n\r\n\r\n<script");
 
 WriteLiteral(" src=\"/Scripts/jquery-1.4.4.min.js\"");
 
@@ -337,7 +320,56 @@ WriteLiteral(@">
         });
     });
 </script>
-");
+
+<script");
+
+WriteLiteral(" type=\"text/javascript\"");
+
+WriteLiteral(">\r\n    $(function () {\r\n        $(\"#emptyBasket\").click(function () {\r\n          " +
+"  $.post(\"Basket/EmptyBasket\", {\"returnUrl\": ");
+
+            
+            #line 84 "..\..\Views\Basket\Index.cshtml"
+                                                  Write(Model.RetunrUrl);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("},\r\n                function (data) {\r\n                    $(\'#basketItems\').empt" +
+"y();\r\n                    $(\'#cart-status\').text(\"Summary: \" + data.BasketTotal " +
+"+ \" $\");\r\n                });\r\n        });\r\n    });\r\n</script>\r\n\r\n<script");
+
+WriteLiteral(" type=\"text/javascript\"");
+
+WriteLiteral(@">
+    $(function () {
+        $("".uom"").change(function () {
+            $(""#recalculate"").show();
+            $(""#emptyBasket"").addClass('disabled');
+            $(""#returnUrl"").addClass('disabled');
+            $(""#procceedToCheckout"").addClass('disabled');
+        });
+    });
+</script>
+
+<script");
+
+WriteLiteral(" type=\"text/javascript\"");
+
+WriteLiteral(@">
+    $(function () {
+        $(""#recalculate"").click(function () {
+            $.post(""Basket/RecalculateBasket"",
+                function (data) {
+                    $(""#recalculate"").hide();
+                    $(""#emptyBasket"").removeClass('disabled');
+                    $(""#returnUrl"").removeClass('disabled');
+                    $(""#procceedToCheckout"").removeClass('disabled');
+                    $('#cart-status').text(""Summary: "" + data.BasketTotal + "" $"");
+                });
+        });
+    });
+</script>");
 
         }
     }

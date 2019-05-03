@@ -46,5 +46,13 @@ namespace OmiconShop.WebUI.Controllers
 
             return Json(basket);
         }
+
+        [HttpPost]
+        public ActionResult RecalculateBasket(BasketViewModel basket)
+        {
+            //basketApi.EmptyBasket(basket);
+
+            return Json(basket);
+        }
     }
 }
