@@ -3,8 +3,9 @@
     ViewBag.Title = "Index";
 }
 
-    <h2>Your basket</h2>
-    <div>
+<h2>Your basket</h2>
+<div>
+    <form id="id">
         <table id="basketItems">
             <thead>
                 <tr>
@@ -20,20 +21,21 @@
                 @foreach (var el in Model.Basket.Lines)
                 {
                     <tr id="row-@el.Product.ProductId-@el.Uom">
-                        @if (el.Product.ImageUrl != null)
-                        {
-                            <td>
+                        <td>
+                            @if (el.Product.ImageUrl != null)
+                            {
                                 <img class="img-thumbnail" width="30" height="30"
                                      src="@el.Product.ImageUrl">
-                            </td>
-                        }
+                            }
+                        </td>
                         <td>@el.Product.Name</td>
-                        <td>@el.Product.Price</td>
-                        <td class="uom" width="80px">
-                            @Html.TextBox("Quantity", el.Quantity, new { @class = "form-control", type = "number", step = "1", min = "1" })
+                        <td>@((double)el.Product.Price)</td>
+                        <td class="uom" width="80">
+                            @*<input type="hidden" name="lines[0].ProductId" value="id"*@ />
+                            @Html.TextBox(@*"lines[0].Quantity"*@"Quantity", el.Quantity, new { @class = "form-control", type = "number", step = "1", min = "1" })
                         </td>
                         <td>@(el.Uom)</td>
-                        <td>@(el.Quantity * el.Product.Price)$</td>
+                        <td>@(el.Quantity * (double)el.Product.Price)$</td>
                         <td>
                             <a href="#" class="RemoveLink" data-id="@el.Product.ProductId-@el.Uom">Delete</a>
                         </td>
@@ -46,10 +48,11 @@
                 </tr>
             </tfoot>
         </table>
-    </div>
-    <div>
-        <input id="recalculate" class="btn btn-primary" type="submit" value="Recalculate shopping cart" />
-    </div>
+    </form>
+</div>
+<div>
+    <input id="recalculate" class="btn btn-primary" type="submit" value="Recalculate shopping cart" />
+</div>
 
 <div>
     <input id="emptyBasket" class="btn btn-primary" type="button" value="Empty basket">
@@ -104,7 +107,10 @@
 <script type="text/javascript">
     $(function () {
         $("#recalculate").click(function () {
-            $.post("Basket/RecalculateBasket",
+            var data = [];
+
+            data.push({ productId: '', quantity: +1 });
+            $.post("Basket/RecalculateBasket", {lines:data}
                 function (data) {
                     $("#recalculate").hide();
                     $("#emptyBasket").removeClass('disabled');

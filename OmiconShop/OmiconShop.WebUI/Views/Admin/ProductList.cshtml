@@ -39,7 +39,7 @@
                                  src="@el.ImageUrl">
                         }
                     </td>
-                    <td class="text-right">@el.Price</td>
+                    <td class="text-right">@((double)el.Price)</td>
                     <td class="text-right">@el.Type</td>
                     <td class="text-center">
                         @using (Html.BeginForm("DeleteProduct", "Admin"))

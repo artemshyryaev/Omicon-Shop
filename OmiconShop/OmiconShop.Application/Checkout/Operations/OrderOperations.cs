@@ -47,7 +47,6 @@ namespace OmiconShop.Application.Checkout.Operations
                 Address = model.Address,
                 Address2 = model.Address2,
                 ZipCode = model.ZipCode,
-                UserId = user.UserId
             };
 
             user.UserAddress = userAddress;
@@ -60,7 +59,6 @@ namespace OmiconShop.Application.Checkout.Operations
                 Name = model.Name,
                 Surname = model.Surname,
                 PhoneNumber = model.PhoneNumber,
-                UserId = user.UserId
             };
 
             user.UserPersonalInformation = userPersonalInformation;

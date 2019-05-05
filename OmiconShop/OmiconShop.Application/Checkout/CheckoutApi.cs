@@ -43,16 +43,15 @@ namespace OmiconShop.Application.Checkout
         }
         public Order ProcessOrder(BasketViewModel basket, OrderInformationViewModel orderInformation)
         {
-            Order order = new Order();
 
-            Task.Run(() => orderRepository.AddOrderAsync(order, () =>
+            var t= orderRepository.AddOrderAsync((order) =>
             {
                 orderOperations.AddUserInformationToOrder(ref order, orderInformation);
                 orderOperations.AddOrderInformationToOrder(ref order, basket, orderInformation);
                 orderOperations.AddBasketLinesToOrder(basket, ref order);
-            }));
-
-            return order;
+            });
+            t.Wait();
+            return t.Result;
         }
     }
 }

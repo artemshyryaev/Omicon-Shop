@@ -101,6 +101,7 @@
     <Compile Include="ReplacementTags\ReplacementTagsProcessor.cs" />
     <Compile Include="ReplacementTags\ResourceReader.cs" />
     <Compile Include="ReplacementTags\TagsCreator.cs" />
+    <Compile Include="Repository\ContextHelper.cs" />
     <Compile Include="Repository\OrderRepository.cs" />
     <Compile Include="Repository\ProductRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />

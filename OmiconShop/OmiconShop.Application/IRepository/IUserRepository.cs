@@ -1,9 +1,5 @@
-﻿using OmiconShop.Application.Account.ViewModel;
-using OmiconShop.Domain.Entities;
+﻿using OmiconShop.Domain.Entities;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace OmiconShop.Application.IRepository
@@ -16,6 +12,6 @@ namespace OmiconShop.Application.IRepository
 
         User ChangeUserEmail(int id, string email);
 
-        void UpdateUserAsync(string email, Action<User> user);
+        Task UpdateUserAsync(string email, Action<User> user);
     }
 }

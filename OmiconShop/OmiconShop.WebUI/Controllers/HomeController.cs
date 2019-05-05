@@ -14,11 +14,13 @@ namespace OmiconShop.WebUI.Controllers
             this.homeApi = homeApi;
         }
 
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
         }
 
+        [HttpGet]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -26,6 +28,7 @@ namespace OmiconShop.WebUI.Controllers
             return View();
         }
 
+        [HttpGet]
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
@@ -33,6 +36,7 @@ namespace OmiconShop.WebUI.Controllers
             return View();
         }
 
+        [HttpGet]
         public ActionResult ProductsList(string type, string productName, int page = 1)
         {
             var model = homeApi.GetProductsListViewModel(type, productName, page, PageSize);
@@ -43,6 +47,7 @@ namespace OmiconShop.WebUI.Controllers
             return View(model);
         }
 
+        [HttpGet]
         public ActionResult ProductDetails(int productId, string type, int page = 1)
         {
             var model = homeApi.GetProductById(productId);

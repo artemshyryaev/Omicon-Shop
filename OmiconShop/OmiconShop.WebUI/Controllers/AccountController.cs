@@ -18,6 +18,7 @@ namespace OmiconShop.WebUI.Controllers
         }    
 
         [AllowAnonymous]
+        [HttpGet]
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
@@ -48,6 +49,7 @@ namespace OmiconShop.WebUI.Controllers
         }
 
         [AllowAnonymous]
+        [HttpGet]
         public ActionResult Register(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
@@ -79,6 +81,7 @@ namespace OmiconShop.WebUI.Controllers
             return View(model);
         }
 
+        [HttpGet]
         public ActionResult ChangePassword()
         {
             return View();

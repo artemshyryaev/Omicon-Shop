@@ -191,7 +191,7 @@ WriteLiteral("</td>\r\n                        <td>");
 
             
             #line 36 "..\..\Views\Basket\Index.cshtml"
-                        Write(el.Quantity * el.Product.Price);
+                        Write(el.Quantity * (double)el.Product.Price);
 
             
             #line default

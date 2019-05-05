@@ -16,11 +16,13 @@ namespace OmiconShop.WebUI.Controllers
             this.basketApi = basketApi;
         }
 
+        [HttpGet]
         public ActionResult Index(BasketViewModel basket, string returnUrl)
         {
             return View(new BasketIndexViewModel { Basket = basket, RetunrUrl = returnUrl });
         }
 
+        [HttpPost]
         public RedirectToRouteResult AddToCart(BasketViewModel basket, int productId, string returnUrl, double quantity, UOM uom)
         {
             basketApi.AddToCart(basket, productId, quantity, uom);
@@ -48,7 +50,7 @@ namespace OmiconShop.WebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult RecalculateBasket(BasketViewModel basket)
+        public ActionResult RecalculateBasket(BasketViewModel basket, (string ProductId, decimal Quantity)[] lines)
         {
             //basketApi.EmptyBasket(basket);
 

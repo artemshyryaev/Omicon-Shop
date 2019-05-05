@@ -1,28 +1,30 @@
-﻿using OmiconShop.Domain.Entities;
-using OmiconShop.Persistence;
-using System;
+﻿using OmiconShop.Application.Repository;
+using OmiconShop.Domain.Entities;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 
 namespace OmiconShop.Application.IRepository
 {
     public class ProductRepository : IProductRepository
     {
-        ShopDBContext context;
+        private readonly ContextHelper helper;
 
-        public ProductRepository(ShopDBContext context)
+        public ProductRepository(ContextHelper helper)
         {
-            this.context = context;
+            this.helper = helper;
         }
 
-        public IEnumerable<Product> GetAllProducts() => context.Products.ToList();
-
-        public async void AddProductAsync(Product product)
+        public IList<Product> GetAllProducts()
         {
-            using (context)
+            using (var context = helper.Create())
+                return context.Products.ToList();
+        }
+
+        public async Task AddProductAsync(Product product)
+        {
+            using (var context = helper.Create())
             {
                 context.Entry(product).State = EntityState.Added;
                 await context.SaveChangesAsync();
@@ -31,28 +33,29 @@ namespace OmiconShop.Application.IRepository
 
         public Product GetProductById(int orderId)
         {
-            using (context)
-            {
-                return context.Products.FirstOrDefault(x => x.ProductId == orderId);
-            }
+            using (var context = helper.Create())
+                return context.Products
+                    .FirstOrDefault(x => x.ProductId == orderId);
         }
 
-        public async void DeleteProductAsync(int productId)
+        public async Task DeleteProductAsync(int productId)
         {
-            using (context)
+            using (var context = helper.Create())
             {
-                Product product = context.Products.FirstOrDefault(x => x.ProductId == productId);
+                Product product = context.Products
+                    .FirstOrDefault(x => x.ProductId == productId);
 
                 context.Entry(product).State = EntityState.Deleted;
                 await context.SaveChangesAsync();
             }
         }
 
-        public async void EditProductAsync(Product product)
+        public async Task EditProductAsync(Product product)
         {
-            using (context)
+            using (var context = helper.Create())
             {
-                Product dbEntry = context.Products.FirstOrDefault(x => x.ProductId == product.ProductId);
+                Product dbEntry = context.Products
+                    .FirstOrDefault(x => x.ProductId == product.ProductId);
 
                 dbEntry.Name = product.Name;
                 dbEntry.Price = product.Price;

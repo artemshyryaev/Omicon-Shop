@@ -16,7 +16,7 @@ namespace OmiconShop.Domain.Entities
 
         public PaymentMethods Payment { get; set; }
 
-        public int? OrderId { get; set; }
+        //public int? OrderId { get; set; }
 
         public virtual Order Order { get; set; }
     }

@@ -1,55 +1,53 @@
 ﻿using OmiconShop.Application.IRepository;
 using OmiconShop.Domain.Entities;
 using OmiconShop.Domain.Enumerations;
-using OmiconShop.Persistence;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 
 namespace OmiconShop.Application.Repository
 {
     public class OrderRepository : IOrderRepository
     {
-        ShopDBContext context;
+        private readonly ContextHelper helper;
 
-        public OrderRepository(ShopDBContext context)
+        public OrderRepository(ContextHelper helper)
         {
-            this.context = context;
+            this.helper = helper;
         }
 
-        public IEnumerable<Order> GetAllOrders() =>  context.Orders
+        public IList<Order> GetAllOrders()
+        {
+            using (var context = helper.Create())
+                return context.Orders
                     .Include(e => e.OrderInformation)
                     .Include(e => e.BasketLine)
                     .Include(e => e.User).ToList();
+        }
 
         public Order GetOrderById(int orderId)
         {
-            using (context)
-            {
-                 return context.Orders.Include(e => e.OrderInformation)
-                            .Include(e => e.BasketLine)
-                            .Include(e => e.User)
-                            .FirstOrDefault(e => e.OrderId == orderId);
-            }
+            using (var context = helper.Create())
+                return context.Orders.Include(e => e.OrderInformation)
+                           .Include(e => e.BasketLine)
+                           .Include(e => e.User)
+                           .FirstOrDefault(e => e.OrderId == orderId);
         }
 
         public Order GetOrderByIdAndCustomerEmail(int orderId, string email)
         {
-            using (context)
-            {
+            using (var context = helper.Create())
                 return context.Orders.Include(e => e.OrderInformation)
                             .Include(e => e.BasketLine)
                             .Include(e => e.User)
                             .FirstOrDefault(e => e.OrderId == orderId && e.User.Email == email);
-            }
         }
 
-        public async void DeclineOrderByAdminAsync(int orderId)
+        public async Task DeclineOrderByAdminAsync(int orderId)
         {
-            using (context)
+            using (var context = helper.Create())
             {
                 Order order = context.Orders.First(e => e.OrderId == orderId);
                 order.Status = OrderStatuses.Declined;
@@ -58,9 +56,9 @@ namespace OmiconShop.Application.Repository
             }
         }
 
-        public async void ApproveOrderByAdminAsync(int orderId)
+        public async Task ApproveOrderByAdminAsync(int orderId)
         {
-            using (context)
+            using (var context = helper.Create())
             {
                 Order order = context.Orders.First(e => e.OrderId == orderId);
                 order.Status = OrderStatuses.Approved;
@@ -69,9 +67,9 @@ namespace OmiconShop.Application.Repository
             }
         }
 
-        public async void DeleteOrderAsync(int orderId)
+        public async Task DeleteOrderAsync(int orderId)
         {
-            using (context)
+            using (var context = helper.Create())
             {
                 Order order = context.Orders.FirstOrDefault(e => e.OrderId == orderId);
 
@@ -80,9 +78,9 @@ namespace OmiconShop.Application.Repository
             }
         }
 
-        public async void ChangeUserEmailInOrdersAsync(int id, string newEmail)
+        public async Task ChangeUserEmailInOrdersAsync(int id, string newEmail)
         {
-            using (context)
+            using (var context = helper.Create())
             {
                 var dbEntry = context.Orders.Where(e => e.User.UserId == id)
                         .Include(e => e.BasketLine)
@@ -99,13 +97,17 @@ namespace OmiconShop.Application.Repository
             }
         }
 
-        public async void AddOrderAsync(Order order, Action addOrderData)
+        public Task<Order> AddOrderAsync(Action<Order> addOrderData)
         {
-            using (context)
+            using (var context = helper.Create())
             {
-                addOrderData();
-                context.Entry(order).State = EntityState.Added;
-                await context.SaveChangesAsync();
+                Order order = new Order();
+
+                addOrderData(order);
+                var addedOrder = context.Orders.Add(order);
+                //context.Entry(order).State = EntityState.Added;
+                context.SaveChanges();
+                return Task.FromResult(addedOrder);
             }
         }
     }

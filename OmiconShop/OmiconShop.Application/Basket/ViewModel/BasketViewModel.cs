@@ -10,7 +10,7 @@ namespace OmiconShop.Application.Basket.ViewModel
     public class BasketViewModel
     {
         public List<BasketLineModel> lineCollection;
-        public double BasketTotal { get => lineCollection.Sum(p => p.Product.Price * p.Quantity);} 
+        public double BasketTotal { get => lineCollection.Sum(p => (double)p.Product.Price * p.Quantity);} 
 
         public BasketViewModel()
         {

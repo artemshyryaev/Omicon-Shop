@@ -24,7 +24,7 @@ namespace OmiconShop.Application.Admin.ViewModel
         [Display(Name = "Price", ResourceType = typeof(ProductResources))]
         [Range(0.01, double.MaxValue, ErrorMessageResourceName = "PriceValidation",
             ErrorMessageResourceType = typeof(ProductResources))]
-        public int Price { get; set; }
+        public decimal Price { get; set; }
 
         [Display(Name = "Type", ResourceType = typeof(ProductResources))]
         [Required(ErrorMessageResourceName = "TypeValidation",

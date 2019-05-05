@@ -19,27 +19,27 @@ namespace OmiconShop.Application.Admin.Operations
             this.orderRepository = orderRepository;
         }
 
-        public IEnumerable<Order> GetOrders(int page, int pagesize, OrderStatuses? orderStatus,
+        public IList<Order> GetOrders(int page, int pagesize, OrderStatuses? orderStatus,
             string userEmail, string orderId = null)
         {
             var allOrders = orderRepository.GetAllOrders();
 
             if (userEmail != "admin@gmail.com")
-                allOrders = allOrders.Where(x => x.User.Email == userEmail).OrderBy(x => x.OrderId);
+                allOrders = allOrders.Where(x => x.User.Email == userEmail).OrderBy(x => x.OrderId).ToList();
             else
-                allOrders = allOrders.OrderBy(x => x.OrderId);
+                allOrders = allOrders.OrderBy(x => x.OrderId).ToList();
 
-            allOrders = allOrders.OrderBy(x => x.OrderId);
+            allOrders = allOrders.OrderBy(x => x.OrderId).ToList();
             if (!string.IsNullOrEmpty(orderId))
             {
                 int orderID = Convert.ToInt32(orderId);
-                allOrders = allOrders.Where(e => e.OrderId == orderID);
+                allOrders = allOrders.Where(e => e.OrderId == orderID).ToList();
             }
 
             if (orderStatus != null)
-                allOrders = allOrders.Where(x => x.Status == orderStatus);
+                allOrders = allOrders.Where(x => x.Status == orderStatus).ToList();
 
-            allOrders = allOrders.Skip((page - 1) * pagesize).Take(pagesize);
+            allOrders = allOrders.Skip((page - 1) * pagesize).Take(pagesize).ToList();
 
             return allOrders.ToList();
         }

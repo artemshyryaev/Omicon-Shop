@@ -21,6 +21,7 @@ namespace OmiconShop.WebUI.Controllers
             this.adminApi = adminApi;
         }
 
+        [HttpGet]
         public ActionResult PersonalInfo()
         {
             var userName = User.Identity.Name;
@@ -43,6 +44,7 @@ namespace OmiconShop.WebUI.Controllers
             return View(changedUser);
         }
 
+        [HttpGet]
         public ActionResult ProductList(string productName, int page = 1)
         {
             var productListViewModel = adminApi.GetProductsListViewModel(productName, page, PageSize);
@@ -50,6 +52,7 @@ namespace OmiconShop.WebUI.Controllers
             return View(productListViewModel);
         }
 
+        [HttpGet]
         public ActionResult AddProduct()
         {
             return View();
@@ -74,6 +77,7 @@ namespace OmiconShop.WebUI.Controllers
             }
         }
 
+        [HttpGet]
         public ActionResult EditProduct(int productId)
         {
             var productViewModel = adminApi.CreateProductViewModelByProductId(productId);
@@ -101,6 +105,7 @@ namespace OmiconShop.WebUI.Controllers
             }
         }
 
+        [HttpGet]
         public ActionResult DeleteProduct(int productId)
         {
             if (ModelState.IsValid)
@@ -116,6 +121,7 @@ namespace OmiconShop.WebUI.Controllers
             return RedirectToAction("ProductList", "Admin");
         }
 
+        [HttpGet]
         public ActionResult OrderList(string orderId, OrderStatuses? selectedStatus = null, int page = 1)
         {
             var userEmail = User.Identity.Name;
@@ -125,6 +131,7 @@ namespace OmiconShop.WebUI.Controllers
         }
 
         [AllowAnonymous]
+        [HttpGet]
         public ActionResult OrderDetails(int orderId)
         {
             if (!User.Identity.IsAuthenticated)
@@ -144,6 +151,7 @@ namespace OmiconShop.WebUI.Controllers
             return View(order);
         }
 
+        [HttpGet]
         public ActionResult Approve(int orderId)
         {
             var order = adminApi.ApproveOrder(orderId);
@@ -151,6 +159,7 @@ namespace OmiconShop.WebUI.Controllers
             return View("OrderDetails", order);
         }
 
+        [HttpGet]
         public ActionResult Decline(int orderId)
         {
             var order = adminApi.DeclineOrder(orderId);

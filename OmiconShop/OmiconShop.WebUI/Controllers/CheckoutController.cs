@@ -16,6 +16,7 @@ namespace OmiconShop.WebUI.Controllers
             this.checkoutApi = checkoutApi;
         }
 
+        [HttpGet]
         public ActionResult OrderInformation(BasketViewModel basket)
         {
             if (basket.Lines.Count() == 0)
@@ -27,6 +28,7 @@ namespace OmiconShop.WebUI.Controllers
             return View(new OrderInformationViewModel());
         }
 
+        [HttpPost]
         public ActionResult OrderOverview(BasketViewModel basket, OrderInformationViewModel orderInformation)
         {
             Order order;
@@ -48,6 +50,7 @@ namespace OmiconShop.WebUI.Controllers
             return View(basket);
         }
 
+        [HttpGet]
         public ActionResult DeclineOrder(int orderId)
         {
             checkoutApi.DeclineOrder(orderId);
@@ -55,6 +58,7 @@ namespace OmiconShop.WebUI.Controllers
             return View();
         }
 
+        [HttpPost]
         public ActionResult SubmitOrder(BasketViewModel basket, int orderId)
         {
             var order = checkoutApi.SubmitOrder(basket, orderId);

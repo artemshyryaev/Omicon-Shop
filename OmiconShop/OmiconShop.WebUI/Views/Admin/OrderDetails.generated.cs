@@ -283,7 +283,7 @@ WriteLiteral("</td>\r\n                    <td>");
 
             
             #line 78 "..\..\Views\Admin\OrderDetails.cshtml"
-                    Write(line.Qty * line.Product.Price);
+                    Write(line.Qty * (double)line.Product.Price);
 
             
             #line default

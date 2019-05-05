@@ -21,7 +21,7 @@
                     type = ViewData["Type"], page = ViewData["Page"]})
             </td>
             <td>@Model.Description</td>
-            <td>@Model.Price</td>
+            <td>@((double)Model.Price)</td>
 
             @using (Html.BeginForm("AddToCart", "Basket"))
             {

@@ -16,7 +16,7 @@ namespace OmiconShop.Domain.Entities
 
         public virtual User User { get; set; }
 
-        public int? OrderInformationId { get; set; }
+        //public int? OrderInformationId { get; set; }
 
         public virtual OrderInformation OrderInformation { get; set; }
 

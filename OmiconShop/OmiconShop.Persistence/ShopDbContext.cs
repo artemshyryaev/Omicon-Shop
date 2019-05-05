@@ -38,12 +38,12 @@ namespace OmiconShop.Persistence
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.AddFromAssembly(GetType().Assembly);
-            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
-            modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
+            modelBuilder.Conventions.Add<OneToManyCascadeDeleteConvention>();
+            modelBuilder.Conventions.Add<OneToOneConstraintIntroductionConvention>();
 
             modelBuilder.Entity<Order>()
-                .HasOptional(s => s.OrderInformation)
-                .WithRequired(s => s.Order);
+                .HasRequired(s => s.OrderInformation)
+                .WithRequiredPrincipal(s => s.Order);
 
             modelBuilder.Entity<Order>()
                 .HasOptional(s => s.User)
@@ -51,7 +51,7 @@ namespace OmiconShop.Persistence
                 .HasForeignKey(s => s.UserId);
 
             modelBuilder.Entity<BasketLine>()
-                .HasOptional(s => s.Order)
+                .HasOptional(s => s.Order)  
                 .WithMany(s => s.BasketLine)
                 .HasForeignKey(s => s.OrderId);
 

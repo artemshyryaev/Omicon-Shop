@@ -21,10 +21,10 @@ namespace Startersite
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             ModelBinders.Binders.Add(typeof(BasketViewModel), new BasketModelBinder());
 
-            NinjectModule registrations = new NinjectRegistrations();
+            var registrations = new NinjectRegistrations();
             var kernel = new StandardKernel(registrations);
             DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));
-            new SimpleMembershipInitializer();
+            new SimpleMembershipInitializer().Initialize();
         }
     }
 }

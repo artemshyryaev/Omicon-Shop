@@ -75,7 +75,7 @@
                     <td>@line.Product.Price</td>
                     <td>@line.Qty</td>
                     <td>@line.Uom</td>
-                    <td>@(line.Qty * line.Product.Price)</td>
+                    <td>@(line.Qty * (double)line.Product.Price)</td>
                 </tr>
             }
         </tbody>

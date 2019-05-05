@@ -1,15 +1,10 @@
 ﻿using Ninject.Modules;
 using OmiconShop.Application.Admin;
-using OmiconShop.Application.Admin.Operations;
 using OmiconShop.Application.Basket;
 using OmiconShop.Application.Checkout.Operations;
 using OmiconShop.Application.IRepository;
 using OmiconShop.Application.Repository;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
 using System.Net.Mail;
-using System.Web.Mvc;
 using AdminOrderOperations = OmiconShop.Application.Admin.Operations.OrderOperations;
 using CheckoutOrderOperations = OmiconShop.Application.Checkout.Operations.OrderOperations;
 using AdminProductOperations = OmiconShop.Application.Admin.Operations.ProductOperations;
@@ -24,6 +19,7 @@ namespace OmiconShop.WebUI.Infrastructure
     {
         public override void Load()
         {
+            Bind<ContextHelper>().To<ContextHelper>();
             Bind<IOrderRepository>().To<OrderRepository>();
             Bind<IProductRepository>().To<ProductRepository>();
             Bind<IUserRepository>().To<UserRepository>();

@@ -9,7 +9,7 @@ namespace OmiconShop.WebUI.Filters
 {
     public class SimpleMembershipInitializer
     {
-        public SimpleMembershipInitializer()
+        public void Initialize()
         {
             Database.SetInitializer<ShopDBContext>(null);
 
