@@ -109,96 +109,18 @@ WriteLiteral(">\r\n");
             
             #line default
             #line hidden
-WriteLiteral("        <fieldset>\r\n            <legend>Log in Form</legend>\r\n            <ol>\r\n " +
-"               <li>\r\n");
+WriteLiteral("        <fieldset>\r\n            <legend>Log in Form</legend>\r\n");
 
-WriteLiteral("                    ");
-
-            
-            #line 20 "..\..\Views\Account\Login.cshtml"
-               Write(Html.LabelFor(m => m.Email));
+WriteLiteral("            ");
 
             
-            #line default
-            #line hidden
-WriteLiteral("\r\n");
-
-WriteLiteral("                    ");
-
-            
-            #line 21 "..\..\Views\Account\Login.cshtml"
-               Write(Html.TextBoxFor(m => m.Email));
+            #line 18 "..\..\Views\Account\Login.cshtml"
+       Write(Html.EditorForModel());
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n");
-
-WriteLiteral("                    ");
-
-            
-            #line 22 "..\..\Views\Account\Login.cshtml"
-               Write(Html.ValidationMessageFor(m => m.Email));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n                </li>\r\n                <li>\r\n");
-
-WriteLiteral("                    ");
-
-            
-            #line 25 "..\..\Views\Account\Login.cshtml"
-               Write(Html.LabelFor(m => m.Password));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n");
-
-WriteLiteral("                    ");
-
-            
-            #line 26 "..\..\Views\Account\Login.cshtml"
-               Write(Html.TextBoxFor(m => m.Password));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n");
-
-WriteLiteral("                    ");
-
-            
-            #line 27 "..\..\Views\Account\Login.cshtml"
-               Write(Html.ValidationMessageFor(m => m.Password));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n                </li>\r\n                <li>\r\n");
-
-WriteLiteral("                    ");
-
-            
-            #line 30 "..\..\Views\Account\Login.cshtml"
-               Write(Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" }));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n");
-
-WriteLiteral("                    ");
-
-            
-            #line 31 "..\..\Views\Account\Login.cshtml"
-               Write(Html.CheckBoxFor(m => m.RememberMe));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n                </li>\r\n            </ol>\r\n            <input");
+WriteLiteral("\r\n            <input");
 
 WriteLiteral(" type=\"submit\"");
 
@@ -207,7 +129,7 @@ WriteLiteral(" value=\"Log in\"");
 WriteLiteral(">\r\n        </fieldset>\r\n");
 
             
-            #line 36 "..\..\Views\Account\Login.cshtml"
+            #line 21 "..\..\Views\Account\Login.cshtml"
     }
 
             
@@ -218,8 +140,8 @@ WriteLiteral("\r\n    <p>\r\n");
 WriteLiteral("        ");
 
             
-            #line 39 "..\..\Views\Account\Login.cshtml"
-   Write(Html.RouteLink("Register", new { controller = "Action", action = "Register"}));
+            #line 24 "..\..\Views\Account\Login.cshtml"
+   Write(Html.RouteLink("Register", new { controller = "Account", action = "Register" }));
 
             
             #line default
@@ -233,7 +155,7 @@ WriteLiteral("\r\n");
 WriteLiteral("    ");
 
             
-            #line 44 "..\..\Views\Account\Login.cshtml"
+            #line 29 "..\..\Views\Account\Login.cshtml"
 Write(Scripts.Render("~/bundles/jqueryval"));
 
             
