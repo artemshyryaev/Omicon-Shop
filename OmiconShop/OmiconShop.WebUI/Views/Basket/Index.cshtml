@@ -31,7 +31,7 @@
                         <td>@el.Product.Name</td>
                         <td>@((double)el.Product.Price)</td>
                         <td class="uom" width="80">
-                            @*<input type="hidden" name="lines[0].ProductId" value="id"*@ />
+                            @*<input type="hidden" name="lines[0].ProductId" value="id" />*@
                             @Html.TextBox(@*"lines[0].Quantity"*@"Quantity", el.Quantity, new { @class = "form-control", type = "number", step = "1", min = "1" })
                         </td>
                         <td>@(el.Uom)</td>

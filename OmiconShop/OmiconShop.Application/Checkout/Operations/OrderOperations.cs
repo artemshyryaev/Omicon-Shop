@@ -87,6 +87,7 @@ namespace OmiconShop.Application.Checkout.Operations
                 line.Uom = el.Uom;
                 line.Qty = el.Quantity;
                 line.Product = el.Product;
+                line.Order = order;
 
                 order.BasketLine.Add(line);
             }

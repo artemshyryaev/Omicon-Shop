@@ -105,7 +105,7 @@ namespace OmiconShop.WebUI.Controllers
             }
         }
 
-        [HttpGet]
+        [HttpPost]
         public ActionResult DeleteProduct(int productId)
         {
             if (ModelState.IsValid)

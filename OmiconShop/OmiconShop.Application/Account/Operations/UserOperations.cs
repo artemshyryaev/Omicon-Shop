@@ -19,7 +19,6 @@ namespace OmiconShop.Application.Account.Operations
                 Address = model.Address,
                 Address2 = model.Address2,
                 ZipCode = model.ZipCode,
-                UserId = user.UserAddressId
             };
 
             user.UserAddress = userAddress;
@@ -29,7 +28,6 @@ namespace OmiconShop.Application.Account.Operations
         {
             UserPersonalInformation userPersonalInformation = new UserPersonalInformation()
             {
-                UserId = user.UserId,
                 Name = model.Name,
                 Surname = model.Surname,
                 PhoneNumber = model.PhoneNumber

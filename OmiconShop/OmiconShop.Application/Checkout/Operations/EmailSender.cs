@@ -26,7 +26,7 @@ namespace OmiconShop.Application.Checkout.Operations
             this.replacementTagsProcessor = replacementTagsProcessor;
         }
 
-        public async void SendOrderConfirmationEmail(Order order)
+        public async Task SendOrderConfirmationEmail(Order order)
         {
             try
             {

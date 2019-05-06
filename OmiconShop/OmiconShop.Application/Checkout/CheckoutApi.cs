@@ -31,26 +31,26 @@ namespace OmiconShop.Application.Checkout
             Task.Run(() => orderRepository.DeleteOrderAsync(orderId));
         }
 
-        public Order SubmitOrder(BasketViewModel basket, int orderId)
+        public async Task<Order> SubmitOrder(BasketViewModel basket, int orderId)
         {
             if (basket != null)
                 basket.ClearBasket();
 
             var order = orderRepository.GetOrderById(orderId);
-            emailSender.SendOrderConfirmationEmail(order);
+            await emailSender.SendOrderConfirmationEmail(order);
 
             return order;
         }
         public Order ProcessOrder(BasketViewModel basket, OrderInformationViewModel orderInformation)
         {
-
-            var t= orderRepository.AddOrderAsync((order) =>
-            {
-                orderOperations.AddUserInformationToOrder(ref order, orderInformation);
-                orderOperations.AddOrderInformationToOrder(ref order, basket, orderInformation);
-                orderOperations.AddBasketLinesToOrder(basket, ref order);
-            });
+            var t = orderRepository.AddOrderAsync((order) =>
+             {
+                 orderOperations.AddUserInformationToOrder(ref order, orderInformation);
+                 orderOperations.AddOrderInformationToOrder(ref order, basket, orderInformation);
+                 orderOperations.AddBasketLinesToOrder(basket, ref order);
+             });
             t.Wait();
+
             return t.Result;
         }
     }

@@ -4,6 +4,7 @@ using OmiconShop.Domain.Entities;
 using OmiconShop.Application.Basket.ViewModel;
 using OmiconShop.Application.Checkout;
 using OmiconShop.Application.Checkout.ViewModel;
+using System.Threading.Tasks;
 
 namespace OmiconShop.WebUI.Controllers
 {
@@ -58,10 +59,10 @@ namespace OmiconShop.WebUI.Controllers
             return View();
         }
 
-        [HttpPost]
-        public ActionResult SubmitOrder(BasketViewModel basket, int orderId)
+        [HttpGet]
+        public async Task<ActionResult> SubmitOrder(BasketViewModel basket, int orderId)
         {
-            var order = checkoutApi.SubmitOrder(basket, orderId);
+            var order = await checkoutApi.SubmitOrder(basket, orderId);
 
             return View("OrderSucessfullyCreated", order);
         }

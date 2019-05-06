@@ -20,9 +20,5 @@ namespace OmiconShop.Domain.Entities
         public string Address2 { get; set; }
 
         public string ZipCode { get; set; }
-
-        public int? UserId { get; set; }
-        
-        public User User { get; set; }
     }
 }

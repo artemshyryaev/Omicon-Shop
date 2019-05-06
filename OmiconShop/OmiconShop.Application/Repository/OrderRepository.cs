@@ -102,12 +102,10 @@ namespace OmiconShop.Application.Repository
             using (var context = helper.Create())
             {
                 Order order = new Order();
-
                 addOrderData(order);
-                var addedOrder = context.Orders.Add(order);
-                //context.Entry(order).State = EntityState.Added;
+                context.Entry(order).State = EntityState.Added;
                 context.SaveChanges();
-                return Task.FromResult(addedOrder);
+                return Task.FromResult(order);
             }
         }
     }
