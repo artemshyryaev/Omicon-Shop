@@ -257,11 +257,10 @@
     <Compile Include="Filters\SimpleMembershipInitializer.cs" />
     <Compile Include="HtmlHelpers\DropDownHelpers.cs" />
     <Compile Include="HtmlHelpers\PagingHelpers.cs" />
-    <Compile Include="Infrastructure\BasketModelBinder.cs" />
-    <Compile Include="Infrastructure\NinjectRegistrations.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\NinjectRegistrations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\Account\ChangePassword.generated.cs">
       <AutoGen>True</AutoGen>

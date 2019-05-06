@@ -12,6 +12,7 @@ using HomeProductOperations = OmiconShop.Application.Home.Operations.ProductOper
 using OmiconShop.Application.ReplacementTags;
 using OmiconShop.Persistence;
 using OmiconShop.Application.Account;
+using OmiconShop.Application.Basket.Operations;
 
 namespace OmiconShop.WebUI.Infrastructure
 {
@@ -35,6 +36,7 @@ namespace OmiconShop.WebUI.Infrastructure
             Bind<BasketApi>().To<BasketApi>();
             Bind<ShopDBContext>().To<ShopDBContext>();
             Bind<AccountApi>().To<AccountApi>();
+            Bind<BasketOperations>().To<BasketOperations>();
         }
     }
 }

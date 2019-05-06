@@ -1,4 +1,5 @@
 ﻿using OmiconShop.Application.Admin.Operations;
+using OmiconShop.Application.Basket.Operations;
 using OmiconShop.Application.Basket.ViewModel;
 using OmiconShop.Application.Checkout.Operations;
 using OmiconShop.Application.Checkout.ViewModel;
@@ -18,12 +19,15 @@ namespace OmiconShop.Application.Checkout
         IOrderRepository orderRepository;
         OrderOperations orderOperations;
         EmailSender emailSender;
+        BasketOperations basketOperations;
 
-        public CheckoutApi(IOrderRepository orderRepository, EmailSender emailSender, OrderOperations orderOperations)
+        public CheckoutApi(IOrderRepository orderRepository, EmailSender emailSender,
+            OrderOperations orderOperations, BasketOperations basketOperations)
         {
             this.orderRepository = orderRepository;
             this.emailSender = emailSender;
             this.orderOperations = orderOperations;
+            this.basketOperations = basketOperations;
         }
 
         public void DeclineOrder(int orderId)
@@ -52,6 +56,11 @@ namespace OmiconShop.Application.Checkout
             t.Wait();
 
             return t.Result;
+        }
+
+        public BasketViewModel GetCurrentBasket()
+        {
+            return basketOperations.GetBasket();
         }
     }
 }

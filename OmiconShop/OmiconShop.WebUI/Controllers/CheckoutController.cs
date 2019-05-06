@@ -18,8 +18,10 @@ namespace OmiconShop.WebUI.Controllers
         }
 
         [HttpGet]
-        public ActionResult OrderInformation(BasketViewModel basket)
+        public ActionResult OrderInformation()
         {
+            var basket = checkoutApi.GetCurrentBasket();
+
             if (basket.Lines.Count() == 0)
             {
                 TempData["message"] = string.Format("Your basket is empty");
@@ -30,9 +32,11 @@ namespace OmiconShop.WebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult OrderOverview(BasketViewModel basket, OrderInformationViewModel orderInformation)
+        public ActionResult OrderOverview(OrderInformationViewModel orderInformation)
         {
             Order order;
+            var basket = checkoutApi.GetCurrentBasket();
+
             if (basket.Lines.Count() == 0)
             {
                 ModelState.AddModelError("", "Your basket is empty");
@@ -60,8 +64,9 @@ namespace OmiconShop.WebUI.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> SubmitOrder(BasketViewModel basket, int orderId)
+        public async Task<ActionResult> SubmitOrder(int orderId)
         {
+            var basket = checkoutApi.GetCurrentBasket();
             var order = await checkoutApi.SubmitOrder(basket, orderId);
 
             return View("OrderSucessfullyCreated", order);

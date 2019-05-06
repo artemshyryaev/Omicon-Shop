@@ -1,4 +1,5 @@
-﻿using OmiconShop.Application.Basket.ViewModel;
+﻿using OmiconShop.Application.Basket.Operations;
+using OmiconShop.Application.Basket.ViewModel;
 using OmiconShop.Application.Checkout.Operations;
 using OmiconShop.Application.IRepository;
 using OmiconShop.Domain.Enumerations;
@@ -7,16 +8,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace OmiconShop.Application.Basket
 {
     public class BasketApi
     {
         IProductRepository productRepository;
+        BasketOperations basketOperations;
 
-        public BasketApi(IProductRepository productRepository)
+        public BasketApi(IProductRepository productRepository, BasketOperations basketOperations)
         {
             this.productRepository = productRepository;
+            this.basketOperations = basketOperations;
         }
 
         public void AddToCart(BasketViewModel basket, int productId, double quantity, UOM uom)
@@ -41,6 +45,11 @@ namespace OmiconShop.Application.Basket
 
             if (product >= 1)
                 basket.ClearBasket();
+        }
+
+        public BasketViewModel GetCurrentBasket()
+        {
+            return basketOperations.GetBasket();
         }
     }
 }

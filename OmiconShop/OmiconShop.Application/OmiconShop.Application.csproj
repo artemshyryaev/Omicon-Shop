@@ -83,6 +83,7 @@
     <Compile Include="Admin\ViewModels\ProductsListViewModel.cs" />
     <Compile Include="Admin\ViewModels\ProductViewModel.cs" />
     <Compile Include="Basket\BasketApi.cs" />
+    <Compile Include="Basket\Operations\BasketOperations.cs" />
     <Compile Include="Basket\ViewModel\BasketIndexViewModel.cs" />
     <Compile Include="Basket\ViewModel\BasketViewModel.cs" />
     <Compile Include="Checkout\CheckoutApi.cs" />

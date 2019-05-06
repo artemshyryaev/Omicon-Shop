@@ -19,7 +19,6 @@ namespace Startersite
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            ModelBinders.Binders.Add(typeof(BasketViewModel), new BasketModelBinder());
 
             var registrations = new NinjectRegistrations();
             var kernel = new StandardKernel(registrations);

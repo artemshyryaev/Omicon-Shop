@@ -17,22 +17,26 @@ namespace OmiconShop.WebUI.Controllers
         }
 
         [HttpGet]
-        public ActionResult Index(BasketViewModel basket, string returnUrl)
+        public ActionResult Index(string returnUrl)
         {
+            var basket = basketApi.GetCurrentBasket();
+
             return View(new BasketIndexViewModel { Basket = basket, RetunrUrl = returnUrl });
         }
 
         [HttpPost]
-        public RedirectToRouteResult AddToCart(BasketViewModel basket, int productId, string returnUrl, double quantity, UOM uom)
+        public RedirectToRouteResult AddToCart(int productId, string returnUrl, double quantity, UOM uom)
         {
+            var basket = basketApi.GetCurrentBasket();
             basketApi.AddToCart(basket, productId, quantity, uom);
 
             return RedirectToAction("Index", new { returnUrl });
         }
 
         [HttpPost]
-        public ActionResult RemoveFromBasket(BasketViewModel basket, string productInfo)
+        public ActionResult RemoveFromBasket(string productInfo)
         {
+            var basket = basketApi.GetCurrentBasket();
             var productId = Convert.ToInt32(productInfo.Split('-')[0]);
             Enum.TryParse((productInfo.Split('-')[1]), out UOM productUOM);
 
@@ -42,16 +46,18 @@ namespace OmiconShop.WebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult EmptyBasket(BasketViewModel basket)
+        public ActionResult EmptyBasket()
         {
+            var basket = basketApi.GetCurrentBasket();
             basketApi.EmptyBasket(basket);
 
             return Json(basket);
         }
 
         [HttpPost]
-        public ActionResult RecalculateBasket(BasketViewModel basket, (string ProductId, decimal Quantity)[] lines)
+        public ActionResult RecalculateBasket((string ProductId, decimal Quantity)[] lines)
         {
+            var basket = basketApi.GetCurrentBasket();
             //basketApi.EmptyBasket(basket);
 
             return Json(basket);
