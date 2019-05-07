@@ -37,10 +37,10 @@ namespace OmiconShop.Application.Admin
             return userRepository.GetUserByEmail(userEmail);
         }
 
-        public User ChangeUserData(int userId, string userEmail)
+        public async Task<User> ChangeUserDataAsync(int userId, string userEmail)
         {
-            var changedUser = Task.Run(() => userRepository.ChangeUserEmail(userId, userEmail)).Result;
-            Task.Run(() => orderRepository.ChangeUserEmailInOrdersAsync(userId, changedUser.Email));
+            var changedUser = await userRepository.ChangeUserEmailAsync(userId, userEmail);
+            await orderRepository.ChangeUserEmailInOrdersAsync(userId, changedUser.Email);
 
             return changedUser;
         }
@@ -69,29 +69,29 @@ namespace OmiconShop.Application.Admin
                 return orderRepository.GetOrderByIdAndCustomerEmail(orderId, userEmail);
         }
 
-        public Order DeclineOrder(int orderId)
+        public async Task<Order> DeclineOrderAsync(int orderId)
         {
-            Task.Run(() => orderRepository.DeclineOrderByAdminAsync(orderId));
+            await orderRepository.DeclineOrderByAdminAsync(orderId);
 
             return orderRepository.GetOrderById(orderId);
         }
 
-        public Order ApproveOrder(int orderId)
+        public async Task<Order> ApproveOrderAsync(int orderId)
         {
-            Task.Run(() => orderRepository.ApproveOrderByAdminAsync(orderId));
+            await orderRepository.ApproveOrderByAdminAsync(orderId);
 
             return orderRepository.GetOrderById(orderId);
         }
 
-        public void DeleteProduct(int productId)
+        public async Task DeleteProductAsync(int productId)
         {
-            Task.Run(() => productRepository.DeleteProductAsync(productId));
+            await productRepository.DeleteProductAsync(productId);
         }
 
-        public Product CreateProduct(ProductViewModel productViewModel)
+        public async Task<Product> CreateProductAsync(ProductViewModel productViewModel)
         {
             var product = productOperations.CreateProductModelFromProductViewModel(productViewModel);
-            Task.Run(() => productRepository.AddProductAsync(product));
+            await productRepository.AddProductAsync(product);
 
             return product;
         }
@@ -136,10 +136,10 @@ namespace OmiconShop.Application.Admin
             return fullPath;
         }
 
-        public Product EditProduct(int productId, ProductViewModel productViewModel)
+        public async Task<Product> EditProductAsync(int productId, ProductViewModel productViewModel)
         {
             var productModel = productOperations.CreateProductModelFromProductViewModel(productViewModel, productId);
-            Task.Run(() => productRepository.EditProductAsync(productModel));
+            await productRepository.EditProductAsync(productModel);
 
             return productModel;
         }

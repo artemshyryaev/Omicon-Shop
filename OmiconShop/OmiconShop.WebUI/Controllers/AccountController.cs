@@ -4,6 +4,7 @@ using WebMatrix.WebData;
 using System.Web.Security;
 using OmiconShop.Application.Account.ViewModel;
 using OmiconShop.Application.Account;
+using System.Threading.Tasks;
 
 namespace OmiconShop.WebUI.Controllers
 {
@@ -60,14 +61,14 @@ namespace OmiconShop.WebUI.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [AllowAnonymous]
-        public ActionResult Register(RegisterViewModel model, string returnUrl)
+        public async Task<ActionResult> Register(RegisterViewModel model, string returnUrl)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
                     WebSecurity.CreateUserAndAccount(model.Login, model.Password);
-                    accountApi.UpdateUser(model);
+                    await accountApi.UpdateUserAsync(model);
 
                     WebSecurity.Login(model.Login, model.Password);
                     return RedirectToLocal(returnUrl);

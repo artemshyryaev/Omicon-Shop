@@ -30,9 +30,9 @@ namespace OmiconShop.Application.Checkout
             this.basketOperations = basketOperations;
         }
 
-        public void DeclineOrder(int orderId)
+        public async Task DeclineOrderAsync(int orderId)
         {
-            Task.Run(() => orderRepository.DeleteOrderAsync(orderId));
+            await orderRepository.DeleteOrderAsync(orderId);
         }
 
         public async Task<Order> SubmitOrder(BasketViewModel basket, int orderId)
@@ -45,17 +45,14 @@ namespace OmiconShop.Application.Checkout
 
             return order;
         }
-        public Order ProcessOrder(BasketViewModel basket, OrderInformationViewModel orderInformation)
+        public async Task<Order> ProcessOrderAsync(BasketViewModel basket, OrderInformationViewModel orderInformation)
         {
-            var t = orderRepository.AddOrderAsync((order) =>
-             {
-                 orderOperations.AddUserInformationToOrder(ref order, orderInformation);
-                 orderOperations.AddOrderInformationToOrder(ref order, basket, orderInformation);
-                 orderOperations.AddBasketLinesToOrder(basket, ref order);
-             });
-            t.Wait();
-
-            return t.Result;
+            return await orderRepository.AddOrderAsync((order) =>
+            {
+                orderOperations.AddUserInformationToOrder(ref order, orderInformation);
+                orderOperations.AddOrderInformationToOrder(ref order, basket, orderInformation);
+                orderOperations.AddBasketLinesToOrder(basket, ref order);
+            });
         }
 
         public BasketViewModel GetCurrentBasket()

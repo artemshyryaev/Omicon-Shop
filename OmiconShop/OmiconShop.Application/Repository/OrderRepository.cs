@@ -24,7 +24,10 @@ namespace OmiconShop.Application.Repository
                 return context.Orders
                     .Include(e => e.OrderInformation)
                     .Include(e => e.BasketLine)
-                    .Include(e => e.User).ToList();
+                    .Include(e => e.User)
+                    .Include(e => e.User.UserPersonalInformation)
+                    .Include(e => e.User.UserAddress)
+                    .ToList();
         }
 
         public Order GetOrderById(int orderId)
@@ -33,6 +36,8 @@ namespace OmiconShop.Application.Repository
                 return context.Orders.Include(e => e.OrderInformation)
                            .Include(e => e.BasketLine)
                            .Include(e => e.User)
+                           .Include(e => e.User.UserAddress)
+                           .Include(e => e.User.UserPersonalInformation)
                            .FirstOrDefault(e => e.OrderId == orderId);
         }
 
@@ -42,6 +47,8 @@ namespace OmiconShop.Application.Repository
                 return context.Orders.Include(e => e.OrderInformation)
                             .Include(e => e.BasketLine)
                             .Include(e => e.User)
+                            .Include(e => e.User.UserAddress)
+                            .Include(e => e.User.UserPersonalInformation)
                             .FirstOrDefault(e => e.OrderId == orderId && e.User.Email == email);
         }
 
@@ -85,7 +92,10 @@ namespace OmiconShop.Application.Repository
                 var dbEntry = context.Orders.Where(e => e.User.UserId == id)
                         .Include(e => e.BasketLine)
                         .Include(e => e.OrderInformation)
-                        .Include(e => e.User).ToList();
+                        .Include(e => e.User)
+                        .Include(e => e.User.UserAddress)
+                        .Include(e => e.User.UserPersonalInformation)
+                        .ToList();
 
                 foreach (var el in dbEntry)
                 {
@@ -97,15 +107,15 @@ namespace OmiconShop.Application.Repository
             }
         }
 
-        public Task<Order> AddOrderAsync(Action<Order> addOrderData)
+        public async Task<Order> AddOrderAsync(Action<Order> addOrderData)
         {
             using (var context = helper.Create())
             {
                 Order order = new Order();
                 addOrderData(order);
                 context.Entry(order).State = EntityState.Added;
-                context.SaveChanges();
-                return Task.FromResult(order);
+                await context.SaveChangesAsync();
+                return order;
             }
         }
     }

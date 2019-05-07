@@ -10,7 +10,7 @@ namespace OmiconShop.Application.IRepository
 
         User GetUserById(int id);
 
-        User ChangeUserEmail(int id, string email);
+        Task<User> ChangeUserEmailAsync(int id, string email);
 
         Task UpdateUserAsync(string email, Action<User> user);
     }

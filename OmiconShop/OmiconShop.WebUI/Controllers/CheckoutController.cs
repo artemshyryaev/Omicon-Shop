@@ -32,7 +32,7 @@ namespace OmiconShop.WebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult OrderOverview(OrderInformationViewModel orderInformation)
+        public async Task<ActionResult> OrderOverview(OrderInformationViewModel orderInformation)
         {
             Order order;
             var basket = checkoutApi.GetCurrentBasket();
@@ -44,7 +44,7 @@ namespace OmiconShop.WebUI.Controllers
 
             if (ModelState.IsValid)
             {
-                order = checkoutApi.ProcessOrder(basket, orderInformation);
+                order = await checkoutApi.ProcessOrderAsync(basket, orderInformation);
                 ViewBag.OrderId = order.OrderId;
             }
             else
@@ -56,9 +56,9 @@ namespace OmiconShop.WebUI.Controllers
         }
 
         [HttpGet]
-        public ActionResult DeclineOrder(int orderId)
+        public async Task<ActionResult> DeclineOrder(int orderId)
         {
-            checkoutApi.DeclineOrder(orderId);
+            await checkoutApi.DeclineOrderAsync(orderId);
 
             return View();
         }

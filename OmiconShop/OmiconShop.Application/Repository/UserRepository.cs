@@ -34,11 +34,11 @@ namespace OmiconShop.Application.IRepository
                     .FirstOrDefault(x => x.UserId == id);
         }
 
-        public User ChangeUserEmail(int id, string newEmail)
+        public async Task<User> ChangeUserEmailAsync(int id, string newEmail)
         {
             var user = GetUserById(id);
             user.Email = newEmail;
-            Task.Run(() => ModifyUserEmailAsync(user));
+            await ModifyUserEmailAsync(user);
 
             return user;
         }

@@ -7,6 +7,7 @@ using WebMatrix.WebData;
 using System.Web.Security;
 using OmiconShop.Application.Admin;
 using OmiconShop.Application.Admin.ViewModel;
+using System.Threading.Tasks;
 
 namespace OmiconShop.WebUI.Controllers
 {
@@ -31,10 +32,10 @@ namespace OmiconShop.WebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult PersonalInfo(int userId, string email)
+        public async Task<ActionResult> PersonalInfo(int userId, string email)
         {
             var userEmail = User.Identity.Name;
-            var changedUser = adminApi.ChangeUserData(userId, email);
+            var changedUser = await adminApi.ChangeUserDataAsync(userId, email);
 
             WebSecurity.Logout();
             FormsAuthentication.SetAuthCookie(changedUser.Email, false);
@@ -59,14 +60,14 @@ namespace OmiconShop.WebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddProduct(ProductViewModel product, HttpPostedFileBase image = null)
+        public async Task<ActionResult> AddProduct(ProductViewModel product, HttpPostedFileBase image = null)
         {
             if (ModelState.IsValid)
             {
                 if (image != null)
-                    image.SaveAs(adminApi.CreateProductFullPath(ref product));
+                     image.SaveAs(adminApi.CreateProductFullPath(ref product));
 
-                var productModel = adminApi.CreateProduct(product);
+                var productModel = await adminApi.CreateProductAsync(product);
                 TempData["message"] = string.Format($"{productModel.Name} was successfully added!");
 
                 return RedirectToAction("ProductList", "Admin");
@@ -87,14 +88,14 @@ namespace OmiconShop.WebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult EditProduct(ProductViewModel product, int productId, HttpPostedFileBase image = null)
+        public async Task<ActionResult> EditProduct(ProductViewModel product, int productId, HttpPostedFileBase image = null)
         {
             if (ModelState.IsValid)
             {
                 if (image != null)
                     image.SaveAs(adminApi.CreateProductFullPath(ref product));
 
-                var productModel = adminApi.EditProduct(productId, product);
+                var productModel = await adminApi.EditProductAsync(productId, product);
                 TempData["message"] = string.Format($"Data in {productModel.ProductId}/{productModel.Name} was successfully changed!");
 
                 return RedirectToAction("ProductList", "Admin");
@@ -106,11 +107,11 @@ namespace OmiconShop.WebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult DeleteProduct(int productId)
+        public async Task<ActionResult> DeleteProduct(int productId)
         {
             if (ModelState.IsValid)
             {
-                adminApi.DeleteProduct(productId);
+                await adminApi.DeleteProductAsync(productId);
                 TempData["message"] = string.Format($"{productId} was successfully deleted!");
             }
             else
@@ -152,17 +153,17 @@ namespace OmiconShop.WebUI.Controllers
         }
 
         [HttpGet]
-        public ActionResult Approve(int orderId)
+        public async Task<ActionResult> Approve(int orderId)
         {
-            var order = adminApi.ApproveOrder(orderId);
+            var order = await adminApi.ApproveOrderAsync(orderId);
 
             return View("OrderDetails", order);
         }
 
         [HttpGet]
-        public ActionResult Decline(int orderId)
+        public async Task<ActionResult> Decline(int orderId)
         {
-            var order = adminApi.DeclineOrder(orderId);
+            var order = await adminApi.DeclineOrderAsync(orderId);
 
             return View("OrderDetails", order);
         }
