@@ -5,7 +5,7 @@ using WebMatrix.WebData;
 using System.Web.Security;
 using OmiconShop.Persistence;
 
-namespace OmiconShop.WebUI.Filters
+namespace OmiconShop.WebUI.Initializer
 {
     public class SimpleMembershipInitializer
     {

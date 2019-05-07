@@ -254,7 +254,7 @@
     <Compile Include="Controllers\FacetController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
-    <Compile Include="Filters\SimpleMembershipInitializer.cs" />
+    <Compile Include="Initializer\SimpleMembershipInitializer.cs" />
     <Compile Include="HtmlHelpers\DropDownHelpers.cs" />
     <Compile Include="HtmlHelpers\PagingHelpers.cs" />
     <Compile Include="Global.asax.cs">

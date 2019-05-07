@@ -6,7 +6,7 @@ using Ninject.Modules;
 using Ninject.Web.Mvc;
 using OmiconShop.Application.Basket.ViewModel;
 using OmiconShop.WebUI;
-using OmiconShop.WebUI.Filters;
+using OmiconShop.WebUI.Initializer;
 using OmiconShop.WebUI.Infrastructure;
 
 namespace Startersite

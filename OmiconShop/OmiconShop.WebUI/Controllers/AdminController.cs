@@ -131,8 +131,8 @@ namespace OmiconShop.WebUI.Controllers
             return View(model);
         }
 
-        [AllowAnonymous]
         [HttpGet]
+        [AllowAnonymous]
         public ActionResult OrderDetails(int orderId)
         {
             if (!User.Identity.IsAuthenticated)
