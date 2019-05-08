@@ -23,6 +23,6 @@ textarea {
     max-width: 280px;
 }
 
-#recalculate {
+.btn-recalculate {
     display: none;
 }

@@ -19,6 +19,8 @@ namespace OmiconShop.Application.Basket.ViewModel
 
         public IEnumerable<BasketLineModel> Lines { get { return lineCollection; } }
 
+        public int Count { get { return Lines.Count(); } }
+
         public void Add(Product product, double quantity, UOM uom)
         {
             var isProductInBasket = lineCollection.Where(p => p.Product.ProductId == product.ProductId && p.Uom == uom).FirstOrDefault();

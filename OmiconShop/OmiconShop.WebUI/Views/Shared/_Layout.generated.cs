@@ -58,68 +58,13 @@ WriteLiteral(">\r\n    <title>");
             
             #line default
             #line hidden
-WriteLiteral("</title>\r\n    <link");
-
-WriteAttribute("href", Tuple.Create(" href=\"", 183), Tuple.Create("\"", 208)
-, Tuple.Create(Tuple.Create("", 190), Tuple.Create<System.Object, System.Int32>(Href("~/Content/Site.css")
-, 190), false)
-);
-
-WriteLiteral(" rel=\"stylesheet\"");
-
-WriteLiteral(">\r\n    <link");
-
-WriteAttribute("href", Tuple.Create(" href=\"", 238), Tuple.Create("\"", 270)
-, Tuple.Create(Tuple.Create("", 245), Tuple.Create<System.Object, System.Int32>(Href("~/Content/ErrorStyles.css")
-, 245), false)
-);
-
-WriteLiteral(" rel=\"stylesheet\"");
-
-WriteLiteral(" />\r\n    <link");
-
-WriteLiteral(" href=\"//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css\"");
-
-WriteLiteral(" rel=\"stylesheet\"");
-
-WriteLiteral(" id=\"bootstrap-css\"");
-
-WriteLiteral(">\r\n    <script");
-
-WriteLiteral(" src=\"//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js\"");
-
-WriteLiteral("></script>\r\n    <script");
-
-WriteLiteral(" src=\"//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js\"");
-
-WriteLiteral("></script>\r\n    <script");
-
-WriteAttribute("src", Tuple.Create(" src=\"", 603), Tuple.Create("\"", 634)
-, Tuple.Create(Tuple.Create("", 609), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/jquery-1.9.1.js")
-, 609), false)
-);
-
-WriteLiteral("></script>\r\n    <script");
-
-WriteAttribute("src", Tuple.Create(" src=\"", 658), Tuple.Create("\"", 692)
-, Tuple.Create(Tuple.Create("", 664), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/jquery.validate.js")
-, 664), false)
-);
-
-WriteLiteral("></script>\r\n    <script");
-
-WriteAttribute("src", Tuple.Create(" src=\"", 716), Tuple.Create("\"", 762)
-, Tuple.Create(Tuple.Create("", 722), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/jquery.validate.unobtrusive.js")
-, 722), false)
-);
-
-WriteLiteral("></script>\r\n");
+WriteLiteral("</title>\r\n");
 
 WriteLiteral("    ");
 
             
-            #line 15 "..\..\Views\Shared\_Layout.cshtml"
-Write(Styles.Render("~/Content/css"));
+            #line 7 "..\..\Views\Shared\_Layout.cshtml"
+Write(Styles.Render("~/wwwroot/css"));
 
             
             #line default
@@ -129,8 +74,41 @@ WriteLiteral("\r\n");
 WriteLiteral("    ");
 
             
-            #line 16 "..\..\Views\Shared\_Layout.cshtml"
+            #line 8 "..\..\Views\Shared\_Layout.cshtml"
 Write(Scripts.Render("~/bundles/modernizr"));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n");
+
+WriteLiteral("    ");
+
+            
+            #line 9 "..\..\Views\Shared\_Layout.cshtml"
+Write(Scripts.Render("~/bundles/jquery"));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n");
+
+WriteLiteral("    ");
+
+            
+            #line 10 "..\..\Views\Shared\_Layout.cshtml"
+Write(Scripts.Render("~/bundles/bootstrap"));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n");
+
+WriteLiteral("    ");
+
+            
+            #line 11 "..\..\Views\Shared\_Layout.cshtml"
+Write(Scripts.Render("~/bundles/sitejs"));
 
             
             #line default
@@ -140,7 +118,7 @@ WriteLiteral("\r\n</head>\r\n<body>\r\n    <header>\r\n");
 WriteLiteral("        ");
 
             
-            #line 20 "..\..\Views\Shared\_Layout.cshtml"
+            #line 15 "..\..\Views\Shared\_Layout.cshtml"
    Write(Html.Partial("_NavBar"));
 
             
@@ -149,13 +127,13 @@ WriteLiteral("        ");
 WriteLiteral("\r\n    </header>\r\n    <div>\r\n");
 
             
-            #line 23 "..\..\Views\Shared\_Layout.cshtml"
+            #line 18 "..\..\Views\Shared\_Layout.cshtml"
         
             
             #line default
             #line hidden
             
-            #line 23 "..\..\Views\Shared\_Layout.cshtml"
+            #line 18 "..\..\Views\Shared\_Layout.cshtml"
          if (TempData["message"] != null)
         {
 
@@ -169,7 +147,7 @@ WriteLiteral(" class=\"alert alert-success\"");
 WriteLiteral(">");
 
             
-            #line 25 "..\..\Views\Shared\_Layout.cshtml"
+            #line 20 "..\..\Views\Shared\_Layout.cshtml"
                                         Write(TempData["message"]);
 
             
@@ -178,7 +156,7 @@ WriteLiteral(">");
 WriteLiteral("</div>\r\n");
 
             
-            #line 26 "..\..\Views\Shared\_Layout.cshtml"
+            #line 21 "..\..\Views\Shared\_Layout.cshtml"
         }
 
             
@@ -187,7 +165,7 @@ WriteLiteral("</div>\r\n");
 WriteLiteral("        ");
 
             
-            #line 27 "..\..\Views\Shared\_Layout.cshtml"
+            #line 22 "..\..\Views\Shared\_Layout.cshtml"
    Write(RenderBody());
 
             
@@ -198,7 +176,7 @@ WriteLiteral("\r\n    </div>\r\n    <footer>\r\n");
 WriteLiteral("        ");
 
             
-            #line 30 "..\..\Views\Shared\_Layout.cshtml"
+            #line 25 "..\..\Views\Shared\_Layout.cshtml"
    Write(Html.Partial("_Footer"));
 
             
@@ -209,29 +187,7 @@ WriteLiteral("\r\n    </footer>\r\n\r\n");
 WriteLiteral("    ");
 
             
-            #line 33 "..\..\Views\Shared\_Layout.cshtml"
-Write(Scripts.Render("~/bundles/jquery"));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n");
-
-WriteLiteral("    ");
-
-            
-            #line 34 "..\..\Views\Shared\_Layout.cshtml"
-Write(Scripts.Render("~/bundles/bootstrap"));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n");
-
-WriteLiteral("    ");
-
-            
-            #line 35 "..\..\Views\Shared\_Layout.cshtml"
+            #line 28 "..\..\Views\Shared\_Layout.cshtml"
 Write(RenderSection("scripts", required: false));
 
             
