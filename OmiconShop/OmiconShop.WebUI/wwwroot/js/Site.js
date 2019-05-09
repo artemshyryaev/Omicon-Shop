@@ -4,7 +4,7 @@
         if (product !== null) {
             $.post("Basket/RemoveFromBasket", { "productInfo": product },
                 function (data) {
-                    $('.row-' + product).fadeOut('slow');
+                    $('.row-' + product).remove();
                     $('.cart-status').text("Summary: " + data.BasketTotal + " $");
                     if (data.Count <= 0) {
                         $(".btn-procceedToCheckout").addClass('disabled');
