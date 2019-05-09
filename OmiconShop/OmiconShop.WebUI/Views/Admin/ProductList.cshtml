@@ -28,7 +28,7 @@
             </tr>
             @foreach (var el in Model.Products)
             {
-                <tr>
+                <tr class="row-@el.ProductId">
                     @Html.HiddenFor(x => el.ProductId)
                     <td>@Html.RouteLink(el.Name, new { controller = "Admin", action = "EditProduct", productId = el.ProductId })</td>
                     <td class="text-right">@el.Description</td>
@@ -42,11 +42,7 @@
                     <td class="text-right">@((double)el.Price)</td>
                     <td class="text-right">@el.Type</td>
                     <td class="text-center">
-                        @using (Html.BeginForm("DeleteProduct", "Admin"))
-                        {
-                            @Html.Hidden("productId", el.ProductId)
-                            <input type="submit" class="btn btn-default btn-xs" value="Remove">
-                        }
+                        <a href="#" class="link-delete" data-id="@el.ProductId">Delete</a>
                     </td>
                 </tr>
             }

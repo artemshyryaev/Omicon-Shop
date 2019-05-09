@@ -68,3 +68,16 @@ $(function () {
         $(".btn-returnUrl").addClass('disabled');
     }
 });
+
+$(function () {
+    $(".link-delete").click(function () {
+        var productId = $(".link-delete").attr("data-id");
+        debugger
+        if (productId !== null) {
+            $.post("Admin/DeleteProduct", { "productId": productId },
+                function () {
+                    $('.row-' + productId).remove();
+                });
+        }
+    });
+});
