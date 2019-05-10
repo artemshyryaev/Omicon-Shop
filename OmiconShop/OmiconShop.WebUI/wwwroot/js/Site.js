@@ -1,6 +1,7 @@
 ﻿$(function () {
-    $(".link-remove").click(function () {
-        var product = $(".link-remove").attr("data-id");
+    $(".link-remove").click(function (e) {
+        var $element = e.target;
+        var product = $element.attr("data-id");
         if (product !== null) {
             $.post("Basket/RemoveFromBasket", { "productInfo": product },
                 function (data) {
@@ -70,11 +71,11 @@ $(function () {
 });
 
 $(function () {
-    $(".link-delete").click(function () {
-        var productId = $(".link-delete").attr("data-id");
-        debugger
+    $(".link-delete").click(function (e) {
+        var $element = $(e.target);
+        var productId = $element.attr("data-id");
         if (productId !== null) {
-            $.post("Admin/DeleteProduct", { "productId": productId },
+            $.post("DeleteProduct", { "productId": productId },
                 function () {
                     $('.row-' + productId).remove();
                 });

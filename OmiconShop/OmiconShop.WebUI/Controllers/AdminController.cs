@@ -119,7 +119,7 @@ namespace OmiconShop.WebUI.Controllers
                 TempData["message"] = string.Format($"Something went wrong, please try again later");
             }
 
-            return Json("");
+            return Json(new EmptyResult(), JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
