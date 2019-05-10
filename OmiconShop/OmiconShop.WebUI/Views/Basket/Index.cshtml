@@ -21,6 +21,7 @@
             <tbody>
                 @foreach (var el in Model.Basket.Lines)
                 {
+                    <input type="hidden" class="productId" value="@el.Product.ProductId-@el.Uom" />
                     <tr class="row-@el.Product.ProductId-@el.Uom">
                         <td>
                             @if (el.Product.ImageUrl != null)
@@ -33,7 +34,8 @@
                         <td>@((double)el.Product.Price)</td>
                         <td class="uom" width="80">
                             @*<input type="hidden" name="lines[0].ProductId" value="id" />*@
-                            @Html.TextBox(@*"lines[0].Quantity"*@"Quantity", el.Quantity, new { @class = "form-control", type = "number", step = "1", min = "1" })
+                            @Html.TextBox(@*"lines[0].Quantity"*@"Quantity", el.Quantity, new { data_product_id = el.Product.ProductId,
+                                                                     data_product_uom = el.Uom, @class = "form-control qty", type = "number", step = "1", min = "1" })
                         </td>
                         <td>@(el.Uom)</td>
                         <td>@(el.Quantity * (double)el.Product.Price)$</td>
@@ -56,7 +58,7 @@
 </div>
 
 <div>
-    <input class="btn btn-primary btn-emptyBasket" type="button" value="Empty basket"/>
+    <input class="btn btn-primary btn-emptyBasket" type="button" value="Empty basket" />
 </div>
 <div>
     <a class="btn btn-primary btn-returnUrl" href="@Model.RetunrUrl">Continue shopping</a>

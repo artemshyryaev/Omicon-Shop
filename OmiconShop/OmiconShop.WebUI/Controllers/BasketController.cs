@@ -55,10 +55,12 @@ namespace OmiconShop.WebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult RecalculateBasket((string ProductId, decimal Quantity)[] lines)
+        public ActionResult RecalculateBasket(/*(string ProductId, decimal Quantity)[]*/ string productInfo, string qty)
         {
             var basket = basketApi.GetCurrentBasket();
-            //basketApi.EmptyBasket(basket);
+            var productId = Convert.ToInt32(productInfo.Split('-')[1]);
+            Enum.TryParse((productInfo.Split('-')[2]), out UOM productUOM);
+            basketApi.EmptyBasket(basket);
 
             return Json(basket);
         }

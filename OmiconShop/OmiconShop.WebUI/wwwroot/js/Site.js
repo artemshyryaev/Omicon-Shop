@@ -55,6 +55,24 @@ $(function () {
 });
 
 $(function () {
+    $(".qty").change(function (e) {
+        debugger
+        var $element = $(e.target);
+        var productId = $element.attr("data_product_id");
+        var productUOM = $element.attr("data_product_uom");
+        var qty = $element.attr(".qty");
+        $.post("Basket/RecalculateBasket", { "productInfo": product, "qty": qty },
+            function (data) {
+                $(".btn-recalculate").hide();
+                $(".btn-emptyBasket").removeClass('disabled');
+                $(".btn-returnUrl").removeClass('disabled');
+                $(".btn-procceedToCheckout").removeClass('disabled');
+                $('.cart-status').text("Summary: " + data.BasketTotal + " $");
+            });
+    });
+});
+
+$(function () {
     var lines = $(".lines-count").attr("value");
     if (lines <= 0) {
         $(".btn-recalculate").hide();
