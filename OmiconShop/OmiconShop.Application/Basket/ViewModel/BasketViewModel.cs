@@ -10,7 +10,7 @@ namespace OmiconShop.Application.Basket.ViewModel
     public class BasketViewModel
     {
         public List<BasketLineModel> lineCollection;
-        public double BasketTotal { get => lineCollection.Sum(p => (double)p.Product.Price * p.Quantity);} 
+        public double BasketTotal { get => lineCollection.Sum(p => (double)p.Product.Price * p.Quantity); }
 
         public BasketViewModel()
         {
@@ -29,6 +29,12 @@ namespace OmiconShop.Application.Basket.ViewModel
                 lineCollection.Add(new BasketLineModel { Product = product, Quantity = quantity, Uom = uom });
             else
                 isProductInBasket.Quantity += quantity;
+        }
+
+        public void ModifyLineQty(int id, UOM uom, double qty)
+        {
+            lineCollection.Where(p => p.Product.ProductId == id && p.Uom == uom)
+                .FirstOrDefault().Quantity = qty;
         }
 
         public void RemoveLine(Product product, UOM uom)

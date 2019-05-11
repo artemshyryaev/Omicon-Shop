@@ -51,5 +51,16 @@ namespace OmiconShop.Application.Basket
         {
             return basketOperations.GetBasket();
         }
+
+        public BasketViewModel GetModifiedBasket(BasketViewModel basket, string id, string uom, string qty)
+        {
+            var productId = int.Parse(id);
+            Enum.TryParse(uom, out UOM productUOM);
+            var productQty = double.Parse(qty);
+
+            basket.ModifyLineQty(productId, productUOM, productQty);
+
+            return basket;
+        }
     }
 }

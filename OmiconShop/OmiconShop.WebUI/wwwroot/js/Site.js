@@ -10,7 +10,6 @@
                     if (data.Count <= 0) {
                         $(".btn-procceedToCheckout").addClass('disabled');
                         $(".btn-emptyBasket").hide();
-                        $(".btn-recalculate").hide();
                     }
                 });
         }
@@ -31,39 +30,21 @@ $(function () {
 });
 
 $(function () {
-    $(".uom").change(function () {
-        $(".btn-recalculate").show();
+    $(".qty").change(function (e) {
         $(".btn-emptyBasket").addClass('disabled');
         $(".btn-returnUrl").addClass('disabled');
         $(".btn-procceedToCheckout").addClass('disabled');
-    });
-});
 
-$(function () {
-    $(".btn-recalculate").click(function () {
-        var data = [];
-        data.push({ productId: '', quantity: +1 });
-        $.post("Basket/RecalculateBasket", { lines: data },
-            function (data) {
-                $(".btn-recalculate").hide();
-                $(".btn-emptyBasket").removeClass('disabled');
-                $(".btn-returnUrl").removeClass('disabled');
-                $(".btn-procceedToCheckout").removeClass('disabled');
-                $('.cart-status').text("Summary: " + data.BasketTotal + " $");
-            });
-    });
-});
-
-$(function () {
-    $(".qty").change(function (e) {
-        debugger
         var $element = $(e.target);
-        var productId = $element.attr("data_product_id");
-        var productUOM = $element.attr("data_product_uom");
-        var qty = $element.attr(".qty");
-        $.post("Basket/RecalculateBasket", { "productInfo": product, "qty": qty },
+        var productId = $element.attr("data-product-id");
+        var productUOM = $element.attr("data-product-uom");
+        var sQty = $element.val();
+        var fQty = parseFloat(sQty);
+        var sPrice = $element.attr("data-product-price");
+        var fPrice = parseFloat(sPrice).toFixed(2);
+        $.post("Basket/RecalculateBasket", { "productId": productId, "productUOM": productUOM, "qty": sQty },
             function (data) {
-                $(".btn-recalculate").hide();
+                $(".total-" + productId + "-" + productUOM).text((fQty * fPrice) + " $");
                 $(".btn-emptyBasket").removeClass('disabled');
                 $(".btn-returnUrl").removeClass('disabled');
                 $(".btn-procceedToCheckout").removeClass('disabled');
@@ -75,7 +56,6 @@ $(function () {
 $(function () {
     var lines = $(".lines-count").attr("value");
     if (lines <= 0) {
-        $(".btn-recalculate").hide();
         $(".btn-emptyBasket").hide();
         $(".btn-procceedToCheckout").addClass('disabled');
     }
