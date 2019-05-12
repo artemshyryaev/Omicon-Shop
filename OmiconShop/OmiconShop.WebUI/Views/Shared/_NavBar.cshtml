@@ -1,41 +1,96 @@
 ﻿@using Microsoft.AspNet.Identity
 
-<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-    <div class="container">
-        <div class="nav-heading">
-            <a class="brand" href="#">Omicon-shop</a>
-        </div>
-        <div class="menu" id="open-navbar1">
-            <div>@Html.RouteLink("All products", new { controller = "Home", action = "ProductsList" })</div>
-
-            @if (Request.IsAuthenticated)
-            {
-                <text>
-                    Hello, @Html.RouteLink(User.Identity.Name, new { controller = "Admin", action = "PersonalInfo" })!
-                    @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
-                    {
-                        @Html.AntiForgeryToken()
-                        <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
-                    }
-                </text>
-                <div>
-                    @Html.ActionLink("My Account", "PersonalInfo", "Admin")
-                </div>
-            }
+<nav class="navbar fixed-top navbar-light">
+    <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+            <li>
+                <span class="navbar-brand mb-0 h1">Omicon-shop</span>
+            </li>
+            <li>
+                @Html.RouteLink("All products", new { controller = "Home", action = "ProductsList" }, new { @class = "nav-link" })
+            </li>
+        </ul>
+        <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+        <ul class="nav navbar-nav navbar-right">
+            @if (Request.IsAuthenticated) { }
             else
             {
-                <div class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Login
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item">@Html.RouteLink("Login", new { controller = "Account", action = "Login" })</a>
-                        <a class="dropdown-item">@Html.RouteLink("Register", new { controller = "Account", action = "Register" })</a>
-                        <div class="dropdown-divider"></div>
-                    </div>
-                </div>
+                <li><p class="navbar-text">Already have an account?</p></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b><span class="caret"></span></a>
+                    <ul id="login-dp" class="dropdown-menu">
+                        <li>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+                                        <div class="form-group">
+                                            <label class="sr-only" for="exampleInputEmail2">Email address</label>
+                                            <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="sr-only" for="exampleInputPassword2">Password</label>
+                                            <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
+                                            <div class="help-block text-right"><a href="">Forget the password ?</a></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox"> keep me logged-in
+                                            </label>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="bottom text-center">
+                                    New here ? <a href="#"><b>Join Us</b></a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
             }
-            <div>@Html.RouteLink("Basket", new { controller = "Basket", action = "Index", returnUrl = "Home/ProductsList" })</div>
-        </div>
+
+
+            <li class="nav-item">
+                @if (Request.IsAuthenticated)
+                {
+                    <text>
+                        Hello, @Html.RouteLink(User.Identity.Name, new { controller = "Admin", action = "PersonalInfo" }, new { @class = "nav-link" })
+                        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "nav-link" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+                        }
+                    </text>
+                    <div>
+                        @Html.ActionLink("My Account", "PersonalInfo", "Admin", new { @class = "nav-link" })
+                    </div>
+                }
+                else
+                {
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Login
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item">@Html.RouteLink("Login", new { controller = "Account", action = "Login" }, new { @class = "nav-link" })</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item">@Html.RouteLink("Register", new { controller = "Account", action = "Register" }, new { @class = "nav-link" })</a>
+                        </div>
+                    </div>
+                }
+            </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="nav-item">
+                @Html.RouteLink("Basket", new { controller = "Basket", action = "Index", returnUrl = "Home/ProductsList" }, new { @class = "nav-link" })
+            </li>
+        </ul>
     </div>
 </nav>
