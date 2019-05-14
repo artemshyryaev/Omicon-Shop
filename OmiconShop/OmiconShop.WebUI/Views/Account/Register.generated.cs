@@ -135,18 +135,9 @@ WriteLiteral(">\r\n        </fieldset>\r\n");
             
             #line default
             #line hidden
-WriteLiteral("\r\n    <p>\r\n");
+WriteLiteral("\r\n    ");
 
-WriteLiteral("        ");
-
-            
-            #line 25 "..\..\Views\Account\Register.cshtml"
-   Write(Html.RouteLink("Log in", new { controller = "Action", action = "Login" }));
-
-            
-            #line default
-            #line hidden
-WriteLiteral(" if you have an account!\r\n    </p>\r\n</section>\r\n\r\n");
+WriteLiteral("\r\n</section>\r\n\r\n");
 
 DefineSection("Scripts", () => {
 

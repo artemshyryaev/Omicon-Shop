@@ -60,7 +60,7 @@ WriteLiteral(">\r\n    <h1>");
             
             #line default
             #line hidden
-WriteLiteral(".</h1>\r\n</hgroup>\r\n\r\n<section");
+WriteLiteral("</h1>\r\n</hgroup>\r\n\r\n<section");
 
 WriteLiteral(" id=\"loginForm\"");
 

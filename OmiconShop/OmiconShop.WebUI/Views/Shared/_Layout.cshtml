@@ -11,9 +11,9 @@
     @Scripts.Render("~/bundles/sitejs")
 </head>
 <body>
-    <div>
+    <header>
         @Html.Partial("_NavBar")
-    </div>
+    </header>
     <div>
         @if (TempData["message"] != null)
         {
@@ -21,9 +21,9 @@
         }
         @RenderBody()
     </div>
-    <footer>
+    @*<footer>
         @Html.Partial("_Footer")
-    </footer>
+    </footer>*@
 
     @RenderSection("scripts", required: false)
 </body>

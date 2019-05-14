@@ -30,12 +30,12 @@ namespace ASP
     
     #line 1 "..\..\Views\Shared\_NavBar.cshtml"
     using Microsoft.AspNet.Identity;
-
-#line default
-#line hidden
+    
+    #line default
+    #line hidden
     using OmiconShop.WebUI;
     using OmiconShop.WebUI.HtmlHelpers;
-
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("RazorGenerator", "2.0.0.0")]
     [System.Web.WebPages.PageVirtualPathAttribute("~/Views/Shared/_NavBar.cshtml")]
     public partial class _Views_Shared__NavBar_cshtml : System.Web.Mvc.WebViewPage<dynamic>
@@ -47,211 +47,424 @@ namespace ASP
         {
 WriteLiteral("\r\n<nav");
 
-WriteLiteral(" class=\"navbar navbar-light\"");
+WriteLiteral(" class=\"navbar navbar-default navbar-inverse\"");
 
-WriteLiteral(" style=\"background-color: #e3f2fd;\"");
+WriteLiteral(" role=\"navigation\"");
 
 WriteLiteral(">\r\n    <div");
 
-WriteLiteral(" class=\"container\"");
+WriteLiteral(" class=\"container-fluid\"");
 
 WriteLiteral(">\r\n        <div");
 
-WriteLiteral(" class=\"nav-heading\"");
+WriteLiteral(" class=\"navbar-header\"");
 
-WriteLiteral(">\r\n            <a");
+WriteLiteral(">\r\n            <button");
 
-WriteLiteral(" class=\"brand\"");
+WriteLiteral(" type=\"button\"");
 
-WriteLiteral(" href=\"#\"");
+WriteLiteral(" class=\"navbar-toggle\"");
 
-WriteLiteral(">Omicon-shop</a>\r\n        </div>\r\n        <div");
+WriteLiteral(" data-toggle=\"collapse\"");
 
-WriteLiteral(" class=\"menu\"");
+WriteLiteral(" data-target=\".navbar-collapse\"");
 
-WriteLiteral(" id=\"open-navbar1\"");
+WriteLiteral(">\r\n                <span");
 
-WriteLiteral(">\r\n            <div>");
+WriteLiteral(" class=\"sr-only\"");
 
-            
-            #line 9 "..\..\Views\Shared\_NavBar.cshtml"
-            Write(Html.RouteLink("All products", new { controller = "Home", action = "ProductsList" }));
+WriteLiteral(">Toggle navigation</span>\r\n                <span");
 
-            
-            #line default
-            #line hidden
-WriteLiteral("</div>\r\n\r\n");
+WriteLiteral(" class=\"icon-bar\"");
 
-            
-            #line 11 "..\..\Views\Shared\_NavBar.cshtml"
-            
-            
-            #line default
-            #line hidden
-            
-            #line 11 "..\..\Views\Shared\_NavBar.cshtml"
-             if (Request.IsAuthenticated)
-            {
+WriteLiteral("></span>\r\n                <span");
 
-            
-            #line default
-            #line hidden
-WriteLiteral("                ");
+WriteLiteral(" class=\"icon-bar\"");
 
-WriteLiteral("\r\n                    Hello, ");
+WriteLiteral("></span>\r\n                <span");
 
-            
-            #line 14 "..\..\Views\Shared\_NavBar.cshtml"
-                      Write(Html.RouteLink(User.Identity.Name, new { controller = "Admin", action = "PersonalInfo" }));
+WriteLiteral(" class=\"icon-bar\"");
+
+WriteLiteral("></span>\r\n            </button>\r\n            <span");
+
+WriteLiteral(" class=\"navbar-brand\"");
+
+WriteLiteral(">Omicon-shop</span>\r\n        </div>\r\n        <div");
+
+WriteLiteral(" class=\"navbar-collapse collapse\"");
+
+WriteLiteral(">\r\n            <div");
+
+WriteLiteral(" class=\"d-inline-block\"");
+
+WriteLiteral(">\r\n                <a>");
 
             
-            #line default
-            #line hidden
-WriteLiteral("!\r\n");
-
-            
-            #line 15 "..\..\Views\Shared\_NavBar.cshtml"
-                    
-            
-            #line default
-            #line hidden
-            
-            #line 15 "..\..\Views\Shared\_NavBar.cshtml"
-                     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
-                    {
-                        
-            
-            #line default
-            #line hidden
-            
-            #line 17 "..\..\Views\Shared\_NavBar.cshtml"
-                   Write(Html.AntiForgeryToken());
+            #line 16 "..\..\Views\Shared\_NavBar.cshtml"
+              Write(Html.RouteLink("All products", new { controller = "Home", action = "ProductsList" }, new { @class = "nav-link" }));
 
             
             #line default
             #line hidden
-            
-            #line 17 "..\..\Views\Shared\_NavBar.cshtml"
-                                                
+WriteLiteral("</a>\r\n            </div>\r\n            <div");
 
-            
-            #line default
-            #line hidden
-WriteLiteral("                        <a");
+WriteLiteral(" class=\"navbar-form navbar-left d-inline-block\"");
 
-WriteLiteral(" href=\"javascript:document.getElementById(\'logoutForm\').submit()\"");
-
-WriteLiteral(">Log off</a>\r\n");
+WriteLiteral(">\r\n");
 
             
             #line 19 "..\..\Views\Shared\_NavBar.cshtml"
-                    }
+                
+            
+            #line default
+            #line hidden
+            
+            #line 19 "..\..\Views\Shared\_NavBar.cshtml"
+                 using (Html.BeginForm("ProductsList", "Home", FormMethod.Post, new { role = "search" }))
+                {
 
             
             #line default
             #line hidden
+WriteLiteral("                    <div");
+
+WriteLiteral(" class=\"form-group\"");
+
+WriteLiteral(">\r\n                        <input");
+
+WriteLiteral(" type=\"text\"");
+
+WriteLiteral(" class=\"form-control\"");
+
+WriteLiteral(" placeholder=\"Search\"");
+
+WriteLiteral(" name=\"productName\"");
+
+WriteLiteral(" />\r\n                        <button");
+
+WriteLiteral(" type=\"submit\"");
+
+WriteLiteral(" class=\"btn btn-default\"");
+
+WriteLiteral(">Submit</button>\r\n                    </div>\r\n");
+
+            
+            #line 25 "..\..\Views\Shared\_NavBar.cshtml"
+                }
+
+            
+            #line default
+            #line hidden
+WriteLiteral("            </div>\r\n            <div");
+
+WriteLiteral(" class=\"nav navbar-nav navbar-right d-inline-block\"");
+
+WriteLiteral(">\r\n");
+
 WriteLiteral("                ");
 
-WriteLiteral("\r\n");
-
-WriteLiteral("                <div>\r\n");
-
-WriteLiteral("                    ");
-
             
-            #line 22 "..\..\Views\Shared\_NavBar.cshtml"
-               Write(Html.ActionLink("My Account", "PersonalInfo", "Admin"));
+            #line 28 "..\..\Views\Shared\_NavBar.cshtml"
+           Write(Html.RouteLink("Basket", new { controller = "Basket", action = "Index", returnUrl = "Home/ProductsList" }, new { @class = "nav-link" }));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n                </div>\r\n");
+WriteLiteral("\r\n            </div>\r\n            <div");
+
+WriteLiteral(" class=\"nav navbar-nav navbar-right d-inline-block\"");
+
+WriteLiteral(">\r\n");
 
             
-            #line 24 "..\..\Views\Shared\_NavBar.cshtml"
-            }
-            else
-            {
+            #line 31 "..\..\Views\Shared\_NavBar.cshtml"
+                
+            
+            #line default
+            #line hidden
+            
+            #line 31 "..\..\Views\Shared\_NavBar.cshtml"
+                 if (Request.IsAuthenticated)
+                {
 
             
             #line default
             #line hidden
-WriteLiteral("                <div");
+WriteLiteral("                    <div");
 
-WriteLiteral(" class=\"nav-item dropdown\"");
-
-WriteLiteral(">\r\n                    <a");
-
-WriteLiteral(" class=\"nav-link dropdown-toggle\"");
-
-WriteLiteral(" href=\"#\"");
-
-WriteLiteral(" id=\"navbarDropdown\"");
-
-WriteLiteral(" role=\"button\"");
-
-WriteLiteral(" data-toggle=\"dropdown\"");
-
-WriteLiteral(" aria-haspopup=\"true\"");
-
-WriteLiteral(" aria-expanded=\"false\"");
-
-WriteLiteral(">\r\n                        Login\r\n                    </a>\r\n                    <" +
-"div");
-
-WriteLiteral(" class=\"dropdown-menu\"");
-
-WriteLiteral(" aria-labelledby=\"navbarDropdown\"");
+WriteLiteral(" class=\"dropdown\"");
 
 WriteLiteral(">\r\n                        <a");
 
-WriteLiteral(" class=\"dropdown-item\"");
+WriteLiteral(" href=\"#\"");
 
-WriteLiteral(">");
+WriteLiteral(" class=\"dropdown-toggle\"");
 
-            
-            #line 32 "..\..\Views\Shared\_NavBar.cshtml"
-                                            Write(Html.RouteLink("Login", new { controller = "Account", action = "Login" }));
+WriteLiteral(" data-toggle=\"dropdown\"");
 
-            
-            #line default
-            #line hidden
-WriteLiteral("</a>\r\n                        <a");
+WriteLiteral("><img");
 
-WriteLiteral(" class=\"dropdown-item\"");
+WriteAttribute("src", Tuple.Create(" src=\"", 1856), Tuple.Create("\"", 1893)
+, Tuple.Create(Tuple.Create("", 1862), Tuple.Create<System.Object, System.Int32>(Href("~/Content/images/login-blue.png")
+, 1862), false)
+);
 
-WriteLiteral(">");
+WriteLiteral("><span");
 
-            
-            #line 33 "..\..\Views\Shared\_NavBar.cshtml"
-                                            Write(Html.RouteLink("Register", new { controller = "Account", action = "Register" }));
+WriteLiteral(" class=\"caret\"");
 
-            
-            #line default
-            #line hidden
-WriteLiteral("</a>\r\n                        <div");
+WriteLiteral("></span></a>\r\n                        <div");
+
+WriteLiteral(" id=\"login-dp\"");
+
+WriteLiteral(" class=\"dropdown-menu\"");
+
+WriteLiteral(">\r\n                            <div");
+
+WriteLiteral(" class=\"row\"");
+
+WriteLiteral(">\r\n                                <div");
+
+WriteLiteral(" class=\"bottom text-center\"");
+
+WriteLiteral(">\r\n                                </div>\r\n                                <div");
 
 WriteLiteral(" class=\"dropdown-divider\"");
 
-WriteLiteral("></div>\r\n                    </div>\r\n                </div>\r\n");
+WriteLiteral("></div>\r\n                                <div");
+
+WriteLiteral(" class=\"bottom text-center\"");
+
+WriteLiteral(">\r\n                                    <a><b>");
 
             
-            #line 37 "..\..\Views\Shared\_NavBar.cshtml"
-            }
-
-            
-            #line default
-            #line hidden
-WriteLiteral("            <div>");
-
-            
-            #line 38 "..\..\Views\Shared\_NavBar.cshtml"
-            Write(Html.RouteLink("Basket", new { controller = "Basket", action = "Index", returnUrl = "Home/ProductsList" }));
+            #line 41 "..\..\Views\Shared\_NavBar.cshtml"
+                                     Write(Html.ActionLink("My Account", "PersonalInfo", "Admin"));
 
             
             #line default
             #line hidden
-WriteLiteral("</div>\r\n        </div>\r\n    </div>\r\n</nav>\r\n");
+WriteLiteral("</b></a>\r\n                                </div>\r\n                               " +
+" <div");
+
+WriteLiteral(" class=\"dropdown-divider\"");
+
+WriteLiteral("></div>\r\n                                <div");
+
+WriteLiteral(" class=\"bottom text-center\"");
+
+WriteLiteral(">\r\n");
+
+            
+            #line 45 "..\..\Views\Shared\_NavBar.cshtml"
+                                    
+            
+            #line default
+            #line hidden
+            
+            #line 45 "..\..\Views\Shared\_NavBar.cshtml"
+                                     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                                    {
+                                        
+            
+            #line default
+            #line hidden
+            
+            #line 47 "..\..\Views\Shared\_NavBar.cshtml"
+                                   Write(Html.AntiForgeryToken());
+
+            
+            #line default
+            #line hidden
+            
+            #line 47 "..\..\Views\Shared\_NavBar.cshtml"
+                                                                
+
+            
+            #line default
+            #line hidden
+WriteLiteral("                                        <a");
+
+WriteLiteral(" href=\"javascript:document.getElementById(\'logoutForm\').submit()\"");
+
+WriteLiteral("><b>Log off</b></a>\r\n");
+
+            
+            #line 49 "..\..\Views\Shared\_NavBar.cshtml"
+                                    }
+
+            
+            #line default
+            #line hidden
+WriteLiteral("                                </div>\r\n                            </div>\r\n     " +
+"                   </div>\r\n                    </div>\r\n");
+
+            
+            #line 54 "..\..\Views\Shared\_NavBar.cshtml"
+                }
+                else
+                {
+
+            
+            #line default
+            #line hidden
+WriteLiteral("                    <div");
+
+WriteLiteral(" class=\"d-inline-block\"");
+
+WriteLiteral("><p");
+
+WriteLiteral(" class=\"navbar-text\"");
+
+WriteLiteral(">Already have an account?</p></div>\r\n");
+
+WriteLiteral("                    <div");
+
+WriteLiteral(" class=\"dropdown d-inline-block\"");
+
+WriteLiteral(">\r\n                        <a");
+
+WriteLiteral(" href=\"#\"");
+
+WriteLiteral(" class=\"dropdown-toggle\"");
+
+WriteLiteral(" data-toggle=\"dropdown\"");
+
+WriteLiteral("><b>Login</b><span");
+
+WriteLiteral(" class=\"caret\"");
+
+WriteLiteral("></span></a>\r\n                        <div");
+
+WriteLiteral(" id=\"login-dp\"");
+
+WriteLiteral(" class=\"dropdown-menu\"");
+
+WriteLiteral(">\r\n                            <div");
+
+WriteLiteral(" class=\"row\"");
+
+WriteLiteral(">\r\n                                <div");
+
+WriteLiteral(" class=\"col-md-12\"");
+
+WriteLiteral(">\r\n");
+
+            
+            #line 63 "..\..\Views\Shared\_NavBar.cshtml"
+                                    
+            
+            #line default
+            #line hidden
+            
+            #line 63 "..\..\Views\Shared\_NavBar.cshtml"
+                                     using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post,
+                                        new { @class = "form", accept_charset = "UTF-8", id = "login-nav" }))
+                                    {
+                                        
+            
+            #line default
+            #line hidden
+            
+            #line 66 "..\..\Views\Shared\_NavBar.cshtml"
+                                   Write(Html.AntiForgeryToken());
+
+            
+            #line default
+            #line hidden
+            
+            #line 66 "..\..\Views\Shared\_NavBar.cshtml"
+                                                                
+                                        
+            
+            #line default
+            #line hidden
+            
+            #line 67 "..\..\Views\Shared\_NavBar.cshtml"
+                                   Write(Html.ValidationSummary(true));
+
+            
+            #line default
+            #line hidden
+            
+            #line 67 "..\..\Views\Shared\_NavBar.cshtml"
+                                                                     
+                                        
+            
+            #line default
+            #line hidden
+            
+            #line 68 "..\..\Views\Shared\_NavBar.cshtml"
+                                   Write(Html.EditorForModel());
+
+            
+            #line default
+            #line hidden
+            
+            #line 68 "..\..\Views\Shared\_NavBar.cshtml"
+                                                              
+
+            
+            #line default
+            #line hidden
+WriteLiteral("                                        <div");
+
+WriteLiteral(" class=\"help-block text-right\"");
+
+WriteLiteral("><a>");
+
+            
+            #line 69 "..\..\Views\Shared\_NavBar.cshtml"
+                                                                         Write(Html.ActionLink("Forget the password ?", "ChangePassword", "Admin"));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</a></div>\r\n");
+
+WriteLiteral("                                        <input");
+
+WriteLiteral(" type=\"submit\"");
+
+WriteLiteral(" value=\"Log in\"");
+
+WriteLiteral(">\r\n");
+
+            
+            #line 71 "..\..\Views\Shared\_NavBar.cshtml"
+                                    }
+
+            
+            #line default
+            #line hidden
+WriteLiteral("                                </div>\r\n                                <div");
+
+WriteLiteral(" class=\"dropdown-divider\"");
+
+WriteLiteral("></div>\r\n                                <div");
+
+WriteLiteral(" class=\"bottom text-center\"");
+
+WriteLiteral(">\r\n                                    New here ? <a><b>");
+
+            
+            #line 75 "..\..\Views\Shared\_NavBar.cshtml"
+                                                Write(Html.RouteLink("Register", new { controller = "Account", action = "Register" }));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</b></a>\r\n                                </div>\r\n                            </d" +
+"iv>\r\n                        </div>\r\n                    </div>\r\n");
+
+            
+            #line 80 "..\..\Views\Shared\_NavBar.cshtml"
+                }
+
+            
+            #line default
+            #line hidden
+WriteLiteral("            </div>\r\n        </div>\r\n    </div>\r\n</nav>");
 
         }
     }

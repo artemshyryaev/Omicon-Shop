@@ -10,20 +10,12 @@
 </hgroup>
 
 <body>
-    <div>
-        <form class="form-inline my-2 my-lg-0">
-            Find by name: @Html.TextBox("ProductName")
-            <input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Search">
-        </form>
-    </div>
-
     @Html.Action("Types", "Facet")
 
     @foreach (var el in Model.Products)
     {
         @Html.Partial("_RenderProducts", el, ViewData)
     }
-
 
     <div class="btn-group pull-right">
         @Html.PageLinks(Model.PagingInfo, x => Url.Action("ProductsList", new { page = x, type = Model.Type }))
