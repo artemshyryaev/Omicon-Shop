@@ -45,9 +45,19 @@ textarea {
     margin-top: 0.125rem;
 }
 
+.text-box {
+    margin-bottom: 1rem;
+}
+
+.check-box {
+    position: relative;
+    top: -1.4rem;
+    left: 8rem;
+}
+
 .editor-label {
     display: inline-block;
-    margin-bottom: .5rem;
+    margin-bottom: -.5rem;
 }
 
 .text-box.single-line {
@@ -63,12 +73,3 @@ textarea {
     border-radius: .40rem;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
-
-/*.navbar.fixed-top.navbar-dark {
-    background-color: #738bf8;
-}
-
-.navbar-brand.mb-0.h1,
-.nav-link {
-    color: white;
-}*/
