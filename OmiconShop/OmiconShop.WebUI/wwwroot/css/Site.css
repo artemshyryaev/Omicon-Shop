@@ -1,6 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    margin: 16px;
 }
 
 .body-content {
@@ -16,6 +17,51 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+.fa-shopping-basket {
+    font-size: 25px;
+    margin-left: 2rem;
+}
+
+.dropdown {
+    margin-left: 1rem;
+}
+
+.fa-user {
+    margin-top: 0.125rem;
+    font-size: 22px;
+}
+
+.login-link {
+    margin-top: 0.125rem;
+}
+
+.products-link {
+    margin-top: 0.3rem;
+}
+
+.navbar-brand {
+    margin-top: 0.125rem;
+}
+
+.editor-label {
+    display: inline-block;
+    margin-bottom: .5rem;
+}
+
+.text-box.single-line {
+    display: block;
+    width: 100%;
+    padding: .300rem .50rem;
+    font-size: 1rem;
+    line-height: 0.7;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .40rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
 /*.navbar.fixed-top.navbar-dark {

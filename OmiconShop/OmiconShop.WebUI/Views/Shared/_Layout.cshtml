@@ -9,10 +9,11 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/sitejs")
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 </head>
 <body>
     <header>
-        @Html.Partial("_NavBar")
+        @Html.Partial("_NavBar", new OmiconShop.Application.Account.ViewModel.LoginViewModel())
     </header>
     <div>
         @if (TempData["message"] != null)

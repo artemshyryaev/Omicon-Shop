@@ -113,13 +113,24 @@ Write(Scripts.Render("~/bundles/sitejs"));
             
             #line default
             #line hidden
-WriteLiteral("\r\n</head>\r\n<body>\r\n    <header>\r\n");
+WriteLiteral("\r\n    <link");
+
+WriteLiteral(" rel=\"stylesheet\"");
+
+WriteLiteral(" href=\"https://use.fontawesome.com/releases/v5.8.2/css/all.css\"");
+
+WriteLiteral(" integrity=\"sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7" +
+"Ay\"");
+
+WriteLiteral(" crossorigin=\"anonymous\"");
+
+WriteLiteral(">\r\n</head>\r\n<body>\r\n    <header>\r\n");
 
 WriteLiteral("        ");
 
             
-            #line 15 "..\..\Views\Shared\_Layout.cshtml"
-   Write(Html.Partial("_NavBar"));
+            #line 16 "..\..\Views\Shared\_Layout.cshtml"
+   Write(Html.Partial("_NavBar", new OmiconShop.Application.Account.ViewModel.LoginViewModel()));
 
             
             #line default
@@ -127,13 +138,13 @@ WriteLiteral("        ");
 WriteLiteral("\r\n    </header>\r\n    <div>\r\n");
 
             
-            #line 18 "..\..\Views\Shared\_Layout.cshtml"
+            #line 19 "..\..\Views\Shared\_Layout.cshtml"
         
             
             #line default
             #line hidden
             
-            #line 18 "..\..\Views\Shared\_Layout.cshtml"
+            #line 19 "..\..\Views\Shared\_Layout.cshtml"
          if (TempData["message"] != null)
         {
 
@@ -147,7 +158,7 @@ WriteLiteral(" class=\"alert alert-success\"");
 WriteLiteral(">");
 
             
-            #line 20 "..\..\Views\Shared\_Layout.cshtml"
+            #line 21 "..\..\Views\Shared\_Layout.cshtml"
                                         Write(TempData["message"]);
 
             
@@ -156,7 +167,7 @@ WriteLiteral(">");
 WriteLiteral("</div>\r\n");
 
             
-            #line 21 "..\..\Views\Shared\_Layout.cshtml"
+            #line 22 "..\..\Views\Shared\_Layout.cshtml"
         }
 
             
@@ -165,7 +176,7 @@ WriteLiteral("</div>\r\n");
 WriteLiteral("        ");
 
             
-            #line 22 "..\..\Views\Shared\_Layout.cshtml"
+            #line 23 "..\..\Views\Shared\_Layout.cshtml"
    Write(RenderBody());
 
             
@@ -178,7 +189,7 @@ WriteLiteral("\r\n\r\n");
 WriteLiteral("    ");
 
             
-            #line 28 "..\..\Views\Shared\_Layout.cshtml"
+            #line 29 "..\..\Views\Shared\_Layout.cshtml"
 Write(RenderSection("scripts", required: false));
 
             

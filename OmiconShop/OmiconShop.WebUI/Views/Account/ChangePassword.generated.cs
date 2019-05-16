@@ -131,107 +131,18 @@ WriteLiteral(">\r\n");
             
             #line default
             #line hidden
-WriteLiteral("        <fieldset>\r\n            <legend>Change Password Form</legend>\r\n          " +
-"  <ol>\r\n                <li>\r\n");
+WriteLiteral("        <fieldset>\r\n            <legend>Change Password Form</legend>\r\n");
 
-WriteLiteral("                    ");
-
-            
-            #line 24 "..\..\Views\Account\ChangePassword.cshtml"
-               Write(Html.LabelFor(m => m.OldPassword));
+WriteLiteral("            ");
 
             
-            #line default
-            #line hidden
-WriteLiteral("\r\n");
-
-WriteLiteral("                    ");
-
-            
-            #line 25 "..\..\Views\Account\ChangePassword.cshtml"
-               Write(Html.TextBoxFor(m => m.OldPassword));
+            #line 22 "..\..\Views\Account\ChangePassword.cshtml"
+       Write(Html.EditorForModel());
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n");
-
-WriteLiteral("                    ");
-
-            
-            #line 26 "..\..\Views\Account\ChangePassword.cshtml"
-               Write(Html.ValidationMessageFor(m => m.OldPassword));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n                </li>\r\n                <li>\r\n");
-
-WriteLiteral("                    ");
-
-            
-            #line 29 "..\..\Views\Account\ChangePassword.cshtml"
-               Write(Html.LabelFor(m => m.NewPassword));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n");
-
-WriteLiteral("                    ");
-
-            
-            #line 30 "..\..\Views\Account\ChangePassword.cshtml"
-               Write(Html.TextBoxFor(m => m.NewPassword));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n");
-
-WriteLiteral("                    ");
-
-            
-            #line 31 "..\..\Views\Account\ChangePassword.cshtml"
-               Write(Html.ValidationMessageFor(m => m.NewPassword));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n                </li>\r\n                <li>\r\n");
-
-WriteLiteral("                    ");
-
-            
-            #line 34 "..\..\Views\Account\ChangePassword.cshtml"
-               Write(Html.LabelFor(m => m.ConfirmNewPassword));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n");
-
-WriteLiteral("                    ");
-
-            
-            #line 35 "..\..\Views\Account\ChangePassword.cshtml"
-               Write(Html.TextBoxFor(m => m.ConfirmNewPassword));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n");
-
-WriteLiteral("                    ");
-
-            
-            #line 36 "..\..\Views\Account\ChangePassword.cshtml"
-               Write(Html.ValidationMessageFor(m => m.ConfirmNewPassword));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n                </li>\r\n            </ol>\r\n            <input");
+WriteLiteral("\r\n            <input");
 
 WriteLiteral(" type=\"submit\"");
 
@@ -240,7 +151,7 @@ WriteLiteral(" value=\"Submit\"");
 WriteLiteral(">\r\n        </fieldset>\r\n");
 
             
-            #line 41 "..\..\Views\Account\ChangePassword.cshtml"
+            #line 25 "..\..\Views\Account\ChangePassword.cshtml"
     }
 
             
@@ -255,7 +166,7 @@ WriteLiteral("\r\n");
 WriteLiteral("    ");
 
             
-            #line 45 "..\..\Views\Account\ChangePassword.cshtml"
+            #line 29 "..\..\Views\Account\ChangePassword.cshtml"
 Write(Scripts.Render("~/bundles/jqueryval"));
 
             

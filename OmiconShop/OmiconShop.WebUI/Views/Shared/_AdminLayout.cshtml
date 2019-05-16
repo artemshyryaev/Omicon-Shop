@@ -17,7 +17,7 @@
 </head>
 <body>
     <header>
-        @Html.Partial("_NavBar")
+        @Html.Partial("_NavBar", new OmiconShop.Application.Account.ViewModel.LoginViewModel())
     </header>
 
     @if (User.Identity.IsAuthenticated)

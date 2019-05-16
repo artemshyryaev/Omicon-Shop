@@ -1,84 +1,73 @@
 ﻿@using Microsoft.AspNet.Identity
+@model OmiconShop.Application.Account.ViewModel.LoginViewModel
 
-<nav class="navbar navbar-default navbar-inverse" role="navigation">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <span class="navbar-brand">Omicon-shop</span>
-        </div>
-        <div class="navbar-collapse collapse">
-            <div class="d-inline-block">
-                <a>@Html.RouteLink("All products", new { controller = "Home", action = "ProductsList" }, new { @class = "nav-link" })</a>
-            </div>
-            <div class="navbar-form navbar-left d-inline-block">
-                @using (Html.BeginForm("ProductsList", "Home", FormMethod.Post, new { role = "search" }))
-                {
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search" name="productName" />
-                        <button type="submit" class="btn btn-default">Submit</button>
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <span class="navbar-brand">Omicon-shop</span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item ">
+                @Html.RouteLink("All products", new { controller = "Home", action = "ProductsList" },
+             new { @class = "nav-link products-link" })<span class="sr-only">(current)</span>
+            </li>
+        </ul>
+        @using (Html.BeginForm("ProductsList", "Home", FormMethod.Get, new { @class = "form-inline my-2 my-lg-0" }))
+        {
+            <input class="form-control mr-sm-2" type="search" placeholder="Search here..." aria-label="Search" name="productName" />
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        }
+
+        <ul class="navbar-nav justify-content-lg-end">
+            <li class="nav-item">
+                <i>
+                    @Html.RouteLink(" ", new { controller = "Basket", action = "Index", returnUrl = "Home/ProductsList" },
+                   new { @class = "nav-link fas fa-shopping-basket" })<span class="sr-only">(current)</span>
+                </i>
+            </li>
+            @if (Request.IsAuthenticated)
+            {
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle fas fa-user" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <b>@Html.ActionLink("My Account", "PersonalInfo", "Admin", new { @class = "dropdown-item" })</b>
+                        <div class="dropdown-divider"></div>
+                        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <a href="javascript:document.getElementById('logoutForm').submit()" class="dropdown-item"><b>Logoff</b></a>
+                        }
                     </div>
-                }
-            </div>
-            <div class="nav navbar-nav navbar-right d-inline-block">
-                @Html.RouteLink("Basket", new { controller = "Basket", action = "Index", returnUrl = "Home/ProductsList" }, new { @class = "nav-link" })
-            </div>
-            <div class="nav navbar-nav navbar-right d-inline-block">
-                @if (Request.IsAuthenticated)
-                {
-                    <div class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="~/Content/images/login-blue.png"><span class="caret"></span></a>
-                        <div id="login-dp" class="dropdown-menu">
-                            <div class="row">
-                                <div class="bottom text-center">
-                                </div>
-                                <div class="dropdown-divider"></div>
-                                <div class="bottom text-center">
-                                    <a><b>@Html.ActionLink("My Account", "PersonalInfo", "Admin")</b></a>
-                                </div>
-                                <div class="dropdown-divider"></div>
-                                <div class="bottom text-center">
-                                    @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
-                                    {
-                                        @Html.AntiForgeryToken()
-                                        <a href="javascript:document.getElementById('logoutForm').submit()"><b>Log off</b></a>
-                                    }
-                                </div>
-                            </div>
-                        </div>
+                </li>
+            }
+            else
+            {
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle login-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Login
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post,
+                            new { @class = "px-4 py-3" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true)
+                            @Html.EditorForModel()
+                            <button type="submit" class="btn btn-primary">Sign in</button>
+                        }
+                        <div class="dropdown-divider"></div>
+                        <b>@Html.RouteLink("Forget the password?", new { controller = "Account", action = "ChangePassword" }, new { @class = "dropdown-item" })</b>
+                        <b>
+                            @Html.RouteLink("Register", new { controller = "Account", action = "Register" }, new { @class = "dropdown-item" })
+                        </b>
                     </div>
-                }
-                else
-                {
-                    <div class="d-inline-block"><p class="navbar-text">Already have an account?</p></div>
-                    <div class="dropdown d-inline-block">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b><span class="caret"></span></a>
-                        <div id="login-dp" class="dropdown-menu">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post,
-                                        new { @class = "form", accept_charset = "UTF-8", id = "login-nav" }))
-                                    {
-                                        @Html.AntiForgeryToken()
-                                        @Html.ValidationSummary(true)
-                                        @Html.EditorForModel()
-                                        <div class="help-block text-right"><a>@Html.ActionLink("Forget the password ?", "ChangePassword", "Admin")</a></div>
-                                        <input type="submit" value="Log in">
-                                    }
-                                </div>
-                                <div class="dropdown-divider"></div>
-                                <div class="bottom text-center">
-                                    New here ? <a><b>@Html.RouteLink("Register", new { controller = "Account", action = "Register" })</b></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                }
-            </div>
-        </div>
+                </li>
+            }
+
+        </ul>
     </div>
 </nav>
