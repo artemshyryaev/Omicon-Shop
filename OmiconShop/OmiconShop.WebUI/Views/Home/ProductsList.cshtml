@@ -9,17 +9,26 @@
     <h1>@ViewBag.Title</h1>
 </hgroup>
 
-<body>
-    @Html.Action("Types", "Facet")
-
-    @foreach (var el in Model.Products)
-    {
-        @Html.Partial("_RenderProducts", el, ViewData)
-    }
-
-    <div class="btn-group pull-right">
-        @Html.PageLinks(Model.PagingInfo, x => Url.Action("ProductsList", new { page = x, type = Model.Type }))
+<div class="container-fluid">
+    <div class="row justify-content-between">
+        <div class="col-sm-1 facets">
+            @Html.Action("Types", "Facet")
+        </div>
+        <div class="col-sm product-list">
+            @foreach (var el in Model.Products)
+            {
+                @Html.Partial("_RenderProducts", el, ViewData)
+            }
+        </div>
     </div>
-</body>
+    <nav>
+        <input class="current-page" type="hidden" value="@Model.PagingInfo.CurrentPage">
+        <input class="total-pages" type="hidden" value="@Model.PagingInfo.TotalPages">
+        <ul class="pagination justify-content-end">
+            @Html.PageLinks(Model.PagingInfo, x => Url.Action("ProductsList", new { page = x, type = Model.Type }))
+        </ul>
+    </nav>
+</div>
+
 
 

@@ -3,10 +3,9 @@
 @{
     Layout = null;
 }
-
 @Html.RouteLink("Back to list", new {controller = "Home", action = "ProductsList"},
-    new { @class = "btn btn-block btn-default btn-lg" })
-
+    new { @class = "col-sm btn btn-light btn-sm facets-item" })
+<div class="dropdown-divider"></div>
 @foreach (var el in Model)
 {
     @Html.RouteLink(
@@ -17,7 +16,6 @@
         type = el,
         page = 1
     }, new {
-        @class = "btn btn-block bt-default btn-lg"
-            +(el == ViewBag.SeLectedType ? "btn-primaty": "")
+        @class = "col-sm btn btn-light btn-sm facets-item"
     })
 }

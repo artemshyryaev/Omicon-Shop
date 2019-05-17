@@ -29,7 +29,7 @@ namespace ASP
     using System.Web.WebPages;
     using OmiconShop.WebUI;
     using OmiconShop.WebUI.HtmlHelpers;
-
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("RazorGenerator", "2.0.0.0")]
     [System.Web.WebPages.PageVirtualPathAttribute("~/Views/Facet/Types.cshtml")]
     public partial class _Views_Facet_Types_cshtml : System.Web.Mvc.WebViewPage<IEnumerable<string>>
@@ -47,20 +47,24 @@ namespace ASP
             
             #line default
             #line hidden
-WriteLiteral("\r\n\r\n");
+WriteLiteral("\r\n");
 
             
-            #line 7 "..\..\Views\Facet\Types.cshtml"
+            #line 6 "..\..\Views\Facet\Types.cshtml"
 Write(Html.RouteLink("Back to list", new {controller = "Home", action = "ProductsList"},
-    new { @class = "btn btn-block btn-default btn-lg" }));
+    new { @class = "col-sm btn btn-light btn-sm facets-item" }));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n\r\n");
+WriteLiteral("\r\n<div");
+
+WriteLiteral(" class=\"dropdown-divider\"");
+
+WriteLiteral("></div>\r\n");
 
             
-            #line 10 "..\..\Views\Facet\Types.cshtml"
+            #line 9 "..\..\Views\Facet\Types.cshtml"
  foreach (var el in Model)
 {
     
@@ -68,7 +72,7 @@ WriteLiteral("\r\n\r\n");
             #line default
             #line hidden
             
-            #line 12 "..\..\Views\Facet\Types.cshtml"
+            #line 11 "..\..\Views\Facet\Types.cshtml"
 Write(Html.RouteLink(
     el, new
     {
@@ -77,15 +81,14 @@ Write(Html.RouteLink(
         type = el,
         page = 1
     }, new {
-        @class = "btn btn-block bt-default btn-lg"
-            +(el == ViewBag.SeLectedType ? "btn-primaty": "")
+        @class = "col-sm btn btn-light btn-sm facets-item"
     }));
 
             
             #line default
             #line hidden
             
-            #line 22 "..\..\Views\Facet\Types.cshtml"
+            #line 20 "..\..\Views\Facet\Types.cshtml"
       
 }
 

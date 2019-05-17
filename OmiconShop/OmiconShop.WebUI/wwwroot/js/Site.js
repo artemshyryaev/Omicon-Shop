@@ -80,3 +80,16 @@ $(function () {
         }
     });
 });
+
+$(function () {
+    var currentPageValue = $(".current-page").attr("value");
+    var totalPagesValue = $(".total-pages").attr("value");
+
+    if (currentPageValue === "1") {
+        $(".link-pr").attr("disabled", "disabled");
+    }
+
+    if (currentPageValue === totalPagesValue) {
+        $(".link-nt").attr("disabled", "disabled");
+    }
+});

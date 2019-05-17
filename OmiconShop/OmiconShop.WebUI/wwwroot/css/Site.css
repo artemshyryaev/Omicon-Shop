@@ -4,6 +4,11 @@
     margin: 16px;
 }
 
+.footer {
+    position: relative;
+    margin-top: 5rem;
+}
+
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
@@ -105,4 +110,60 @@ textarea {
 
 a:hover {
     color: rgba(0, 0, 0, 0.7);
+}
+
+.facets {
+    margin-right: 0.75rem;
+    background-color: #f8f9fa;
+    border-radius: 20px;
+}
+
+.facets-item {
+    border-radius: 20px;
+}
+
+.product-list {
+    position: relative;
+    padding: -4rem;
+    background-color: #f8f9fa;
+    border-radius: 20px;
+}
+
+    .product-list .container {
+        height: 3rem;
+        margin: 0.5rem;
+    }
+
+.pagination {
+    font-size: 0.9rem;
+}
+
+.link-pr {
+    border-radius: 10px 0 0 10px;
+}
+
+    .link-pr[disabled="disabled"] {
+        pointer-events: none;
+    }
+
+.link-nt {
+    border-radius: 0 20px 20px 0;
+}
+
+    .link-nt[disabled="disabled"] {
+        pointer-events: none;
+    }
+
+.page-item.active .page-link {
+    background-color: #f8f9fa;
+    border-color: aqua;
+    color: black;
+}
+
+.page-link {
+    color: black;
+}
+
+.pagination {
+    margin: 1rem;
 }

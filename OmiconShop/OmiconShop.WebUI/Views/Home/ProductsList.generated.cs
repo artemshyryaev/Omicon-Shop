@@ -67,64 +67,112 @@ WriteLiteral(">\r\n    <h1>");
             
             #line default
             #line hidden
-WriteLiteral("</h1>\r\n</hgroup>\r\n\r\n<body>\r\n");
+WriteLiteral("</h1>\r\n</hgroup>\r\n\r\n<div");
 
-WriteLiteral("    ");
+WriteLiteral(" class=\"container-fluid\"");
 
-            
-            #line 13 "..\..\Views\Home\ProductsList.cshtml"
-Write(Html.Action("Types", "Facet"));
+WriteLiteral(">\r\n    <div");
 
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n\r\n");
+WriteLiteral(" class=\"row justify-content-between\"");
 
-            
-            #line 15 "..\..\Views\Home\ProductsList.cshtml"
-    
-            
-            #line default
-            #line hidden
-            
-            #line 15 "..\..\Views\Home\ProductsList.cshtml"
-     foreach (var el in Model.Products)
-    {
-        
-            
-            #line default
-            #line hidden
-            
-            #line 17 "..\..\Views\Home\ProductsList.cshtml"
-   Write(Html.Partial("_RenderProducts", el, ViewData));
+WriteLiteral(">\r\n        <div");
 
-            
-            #line default
-            #line hidden
-            
-            #line 17 "..\..\Views\Home\ProductsList.cshtml"
-                                                      
-    }
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n    <div");
-
-WriteLiteral(" class=\"btn-group pull-right\"");
+WriteLiteral(" class=\"col-sm-1 facets\"");
 
 WriteLiteral(">\r\n");
 
-WriteLiteral("        ");
+WriteLiteral("            ");
 
             
-            #line 21 "..\..\Views\Home\ProductsList.cshtml"
-   Write(Html.PageLinks(Model.PagingInfo, x => Url.Action("ProductsList", new { page = x, type = Model.Type })));
+            #line 15 "..\..\Views\Home\ProductsList.cshtml"
+       Write(Html.Action("Types", "Facet"));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n    </div>\r\n</body>\r\n\r\n\r\n");
+WriteLiteral("\r\n        </div>\r\n        <div");
+
+WriteLiteral(" class=\"col-sm product-list\"");
+
+WriteLiteral(">\r\n");
+
+            
+            #line 18 "..\..\Views\Home\ProductsList.cshtml"
+            
+            
+            #line default
+            #line hidden
+            
+            #line 18 "..\..\Views\Home\ProductsList.cshtml"
+             foreach (var el in Model.Products)
+            {
+                
+            
+            #line default
+            #line hidden
+            
+            #line 20 "..\..\Views\Home\ProductsList.cshtml"
+           Write(Html.Partial("_RenderProducts", el, ViewData));
+
+            
+            #line default
+            #line hidden
+            
+            #line 20 "..\..\Views\Home\ProductsList.cshtml"
+                                                              
+            }
+
+            
+            #line default
+            #line hidden
+WriteLiteral("        </div>\r\n    </div>\r\n    <nav>\r\n        <input");
+
+WriteLiteral(" class=\"current-page\"");
+
+WriteLiteral(" type=\"hidden\"");
+
+WriteAttribute("value", Tuple.Create(" value=\"", 672), Tuple.Create("\"", 709)
+            
+            #line 25 "..\..\Views\Home\ProductsList.cshtml"
+, Tuple.Create(Tuple.Create("", 680), Tuple.Create<System.Object, System.Int32>(Model.PagingInfo.CurrentPage
+            
+            #line default
+            #line hidden
+, 680), false)
+);
+
+WriteLiteral(">\r\n        <input");
+
+WriteLiteral(" class=\"total-pages\"");
+
+WriteLiteral(" type=\"hidden\"");
+
+WriteAttribute("value", Tuple.Create(" value=\"", 761), Tuple.Create("\"", 797)
+            
+            #line 26 "..\..\Views\Home\ProductsList.cshtml"
+, Tuple.Create(Tuple.Create("", 769), Tuple.Create<System.Object, System.Int32>(Model.PagingInfo.TotalPages
+            
+            #line default
+            #line hidden
+, 769), false)
+);
+
+WriteLiteral(">\r\n        <ul");
+
+WriteLiteral(" class=\"pagination justify-content-end\"");
+
+WriteLiteral(">\r\n");
+
+WriteLiteral("            ");
+
+            
+            #line 28 "..\..\Views\Home\ProductsList.cshtml"
+       Write(Html.PageLinks(Model.PagingInfo, x => Url.Action("ProductsList", new { page = x, type = Model.Type })));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n        </ul>\r\n    </nav>\r\n</div>\r\n\r\n\r\n\r\n");
 
         }
     }

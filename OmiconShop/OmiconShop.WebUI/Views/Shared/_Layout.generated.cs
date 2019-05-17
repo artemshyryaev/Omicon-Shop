@@ -182,7 +182,11 @@ WriteLiteral("        ");
             
             #line default
             #line hidden
-WriteLiteral("\r\n    </div>\r\n    <footer>\r\n");
+WriteLiteral("\r\n    </div>\r\n    <footer");
+
+WriteLiteral(" class=\"footer\"");
+
+WriteLiteral(">\r\n");
 
 WriteLiteral("        ");
 
