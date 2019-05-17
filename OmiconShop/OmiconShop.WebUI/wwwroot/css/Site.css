@@ -45,9 +45,19 @@ textarea {
     margin-top: 0.125rem;
 }
 
+.text-box {
+    margin-bottom: 1rem;
+}
+
+.check-box {
+    position: relative;
+    top: -1.4rem;
+    left: 8rem;
+}
+
 .editor-label {
     display: inline-block;
-    margin-bottom: .5rem;
+    margin-bottom: -.5rem;
 }
 
 .text-box.single-line {
