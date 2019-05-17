@@ -182,9 +182,18 @@ WriteLiteral("        ");
             
             #line default
             #line hidden
-WriteLiteral("\r\n    </div>\r\n    ");
+WriteLiteral("\r\n    </div>\r\n    <footer>\r\n");
 
-WriteLiteral("\r\n\r\n");
+WriteLiteral("        ");
+
+            
+            #line 26 "..\..\Views\Shared\_Layout.cshtml"
+   Write(Html.Partial("_Footer"));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n    </footer>\r\n\r\n");
 
 WriteLiteral("    ");
 

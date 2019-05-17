@@ -1,5 +1,17 @@
-﻿<div>
-    <p>&copy; @DateTime.Now.Year - Omicon-Shop</p>
-    <div>@Html.RouteLink("Contact us", new { controller = "Home", action = "Contact" })</div>
-    <div>@Html.RouteLink("About us", new { controller = "Home", action = "About" })</div>
-</div>
+﻿<footer class="page-footer font-small pt-4 bg-light fixed-bottom">
+    <div class="row">
+        <div class="col-sm text-center justify-content-lg-start">
+            <a href="#" class="ft-link">Contact us</a>
+            <a href="#" class="ft-link">About us</a>
+        </div>
+        <div class="col-sm text-center justify-content-lg-center copyright">
+            <span>© 2019 Copyright: Omicon-shop</span>
+        </div>
+        <div class="col-sm text-center justify-content-lg-end">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-google"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+        </div>
+    </div>
+</footer>

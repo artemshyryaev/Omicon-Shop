@@ -64,11 +64,35 @@ textarea {
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
-/*.navbar.fixed-top.navbar-dark {
-    background-color: #738bf8;
+.copyright {
+    margin-bottom: 1rem;
 }
 
-.navbar-brand.mb-0.h1,
-.nav-link {
-    color: white;
-}*/
+.fa-facebook-f {
+    font-size: 1.2rem;
+    margin-left: 0.7rem;
+}
+
+.fa-google {
+    font-size: 1.2rem;
+    margin-left: 0.7rem;
+}
+
+.fa-twitter {
+    font-size: 1.2rem;
+    margin-left: 0.7rem;
+}
+
+.fa-instagram {
+    font-size: 1.2rem;
+    margin-left: 0.7rem;
+}
+
+.ft-link {
+    color: rgba(0, 0, 0, 0.5);
+    margin-left: 0.7rem;
+}
+
+a:hover {
+    color: rgba(0, 0, 0, 0.7);
+}

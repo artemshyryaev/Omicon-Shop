@@ -29,7 +29,7 @@ namespace ASP
     using System.Web.WebPages;
     using OmiconShop.WebUI;
     using OmiconShop.WebUI.HtmlHelpers;
-
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("RazorGenerator", "2.0.0.0")]
     [System.Web.WebPages.PageVirtualPathAttribute("~/Views/Shared/_Footer.cshtml")]
     public partial class _Views_Shared__Footer_cshtml : System.Web.Mvc.WebViewPage<dynamic>
@@ -39,34 +39,56 @@ namespace ASP
         }
         public override void Execute()
         {
-WriteLiteral("<div>\r\n    <p>&copy; ");
+WriteLiteral("<footer");
 
-            
-            #line 2 "..\..\Views\Shared\_Footer.cshtml"
-         Write(DateTime.Now.Year);
+WriteLiteral(" class=\"page-footer font-small pt-4 bg-light fixed-bottom\"");
 
-            
-            #line default
-            #line hidden
-WriteLiteral(" - Omicon-Shop</p>\r\n    <div>");
+WriteLiteral(">\r\n    <div");
 
-            
-            #line 3 "..\..\Views\Shared\_Footer.cshtml"
-    Write(Html.RouteLink("Contact us", new { controller = "Home", action = "Contact" }));
+WriteLiteral(" class=\"row\"");
 
-            
-            #line default
-            #line hidden
-WriteLiteral("</div>\r\n    <div>");
+WriteLiteral(">\r\n        <div");
 
-            
-            #line 4 "..\..\Views\Shared\_Footer.cshtml"
-    Write(Html.RouteLink("About us", new { controller = "Home", action = "About" }));
+WriteLiteral(" class=\"col-sm text-center justify-content-lg-start\"");
 
-            
-            #line default
-            #line hidden
-WriteLiteral("</div>\r\n</div>\r\n");
+WriteLiteral(">\r\n            <a");
+
+WriteLiteral(" href=\"#\"");
+
+WriteLiteral(" class=\"ft-link\"");
+
+WriteLiteral(">Contact us</a>\r\n            <a");
+
+WriteLiteral(" href=\"#\"");
+
+WriteLiteral(" class=\"ft-link\"");
+
+WriteLiteral(">About us</a>\r\n        </div>\r\n        <div");
+
+WriteLiteral(" class=\"col-sm text-center justify-content-lg-center copyright\"");
+
+WriteLiteral(">\r\n            <span>© 2019 Copyright: Omicon-shop</span>\r\n        </div>\r\n      " +
+"  <div");
+
+WriteLiteral(" class=\"col-sm text-center justify-content-lg-end\"");
+
+WriteLiteral(">\r\n            <i");
+
+WriteLiteral(" class=\"fab fa-facebook-f\"");
+
+WriteLiteral("></i>\r\n            <i");
+
+WriteLiteral(" class=\"fab fa-google\"");
+
+WriteLiteral("></i>\r\n            <i");
+
+WriteLiteral(" class=\"fab fa-twitter\"");
+
+WriteLiteral("></i>\r\n            <i");
+
+WriteLiteral(" class=\"fab fa-instagram\"");
+
+WriteLiteral("></i>\r\n        </div>\r\n    </div>\r\n</footer>\r\n");
 
         }
     }
