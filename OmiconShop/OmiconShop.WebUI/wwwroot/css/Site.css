@@ -167,3 +167,42 @@ a:hover {
 .pagination {
     margin: 1rem;
 }
+
+.add-to-card {
+    max-width: 30px;
+}
+
+.uoms {
+    max-width: 20px;
+}
+
+.form-control {
+    padding: 0.3rem;
+}
+
+.qty {
+    width: 75px;
+}
+
+.price {
+    width: 120px;
+    text-align: center;
+}
+
+.description {
+    width: 300px;
+    text-align: center;
+}
+
+.product-name {
+    text-align: center; 
+}
+
+.image {
+    width: 60px;
+}
+
+.image-thumbnail {
+    width: 40px;
+    height: 40px;
+}
