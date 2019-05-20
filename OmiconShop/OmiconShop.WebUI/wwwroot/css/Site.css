@@ -285,3 +285,56 @@ a:hover {
     margin-top: 27rem;
     margin-left: 32rem;
 }
+
+.basket-buttons {
+    width: 12rem;
+    position: absolute;
+    margin-left: 70rem;
+    margin-top: 11rem;
+    background-color: #f8f9fa;
+    padding: 0.5rem;
+    border-radius: 20px;
+}
+
+.basket-summary {
+    width: 12rem;
+    position: center;
+    margin-left: 70rem;
+    margin-top: 1rem;
+    background-color: #f8f9fa;
+    padding: 0.5rem;
+    border-radius: 20px;
+}
+
+.basket-summary__value {
+    font-family: 'Pathway Gothic One', sans-serif;
+    color: #000;
+    font-size: 1.5em;
+    margin-left: 1rem;
+}
+
+.empty-basket {
+    width: 12rem;
+    position: absolute;
+    margin-left: 70rem;
+    margin-top: 5rem;
+    background-color: #f8f9fa;
+    padding: 0.5rem;
+    border-radius: 20px;
+}
+
+.btn-returnUrl {
+    font-size: 0.8rem;
+}
+
+.btn-procceedToCheckout {
+    font-size: 0.8rem;
+}
+
+.btn-emptyBasket {
+    font-size: 0.8rem;
+}
+
+.shopping-cart-list {
+width: 30px;
+}

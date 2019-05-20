@@ -9,7 +9,7 @@
                     $('.cart-status').text("Summary: " + data.BasketTotal + " $");
                     if (data.Count <= 0) {
                         $(".btn-procceedToCheckout").addClass('disabled');
-                        $(".btn-emptyBasket").hide();
+                        $(".empty-basket").hide();
                     }
                 });
         }
@@ -23,7 +23,7 @@ $(function () {
             function (data) {
                 $('.basketItems').empty();
                 $('.cart-status').text("Summary: " + data.BasketTotal + " $");
-                $(".btn-emptyBasket").hide();
+                $(".empty-basket").hide();
                 $(".btn-procceedToCheckout").addClass('disabled');
             });
     });
@@ -56,7 +56,7 @@ $(function () {
 $(function () {
     var lines = $(".lines-count").attr("value");
     if (lines <= 0) {
-        $(".btn-emptyBasket").hide();
+        $(".empty-basket").hide();
         $(".btn-procceedToCheckout").addClass('disabled');
     }
 });

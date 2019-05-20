@@ -1,63 +1,63 @@
 ﻿@model OmiconShop.Application.Basket.ViewModel.BasketIndexViewModel
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Shopping cart";
 }
 
-<h2>Your basket</h2>
+<hgroup class="title">
+    <h1>@ViewBag.Title</h1>
+</hgroup>
+
 <input class="lines-count" type="hidden" value="@Model.Basket.Lines.Count()">
-<div>
-    <form>
-        <table class="basketItems">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>Product</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>UOM</th>
-                    <th>Total</th>
-                </tr>
-            </thead>
-            <tbody>
+<div class="shopping-cart-list">
+        <div class="basketItems">
+            <div>
+                <div>
+                    <div></div>
+                    <div>Product</div>
+                    <div>Price</div>
+                    <div>Quantity</div>
+                    <div>UOM</div>
+                    <div>Total</div>
+                </div>
+            </div>
+            <div>
                 @foreach (var el in Model.Basket.Lines)
                 {
-                    <tr class="row-@el.Product.ProductId-@el.Uom">
-                        <td>
+                    <div class="row-@el.Product.ProductId-@el.Uom">
+                        <div>
                             @if (el.Product.ImageUrl != null)
                             {
                                 <img class="img-thumbnail" width="30" height="30"
                                      src="@el.Product.ImageUrl">
                             }
-                        </td>
-                        <td>@el.Product.Name</td>
-                        <td>@((double)el.Product.Price)$</td>
-                        <td>
+                        </div>
+                        <div>@el.Product.Name</div>
+                        <div>@((double)el.Product.Price)$</div>
+                        <div>
                             @Html.TextBox("Quantity", el.Quantity, new { @data_product_id = el.Product.ProductId,
                            @data_product_uom = el.Uom, @data_product_price = el.Product.Price,
                            @class = "form-control qty", type = "number", step = "1", min = "1" })
-                        </td>
-                        <td>@(el.Uom)</td>
-                        <td class="total-@el.Product.ProductId-@el.Uom">@(el.Quantity * (double)el.Product.Price)$</td>
-                        <td>
+                        </div>
+                        <div>@(el.Uom)</div>
+                        <div class="total-@el.Product.ProductId-@el.Uom">@(el.Quantity * (double)el.Product.Price)$</div>
+                        <div>
                             <a href="#" class="link-remove" data-id="@el.Product.ProductId-@el.Uom">Delete</a>
-                        </td>
-                    </tr>
+                        </div>
+                    </div>
                 }
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td class="cart-status" colspan="4">Summary: @Model.Basket.BasketTotal $</td>
-                </tr>
-            </tfoot>
-        </table>
-    </form>
-</div>
-<div>
-    <input class="btn btn-primary btn-emptyBasket" type="button" value="Empty basket" />
-</div>
-<div>
-    <a class="btn btn-primary btn-returnUrl" href="@Model.RetunrUrl">Continue shopping</a>
-    @Html.RouteLink("Procceed to checkout", new { action = "OrderInformation", controller = "Checkout" },
-        new {@class = "btn btn-primary btn-procceedToCheckout" })
+            </div>
+        </div>
 </div>
 
+<div class="basket-summary justify-content-end">
+    <b>Summary:</b> <span class="basket-summary__value">@Model.Basket.BasketTotal $</span>
+</div>
+
+<div class="empty-basket">
+    <a class="badge badge-light btn-emptyBasket" href="#">Empty basket</a>
+</div>
+<div class="basket-buttons">
+    <a class="badge badge-light btn-returnUrl" href="@Model.RetunrUrl">Continue shopping</a>
+    @Html.RouteLink("Procceed to checkout", new { action = "OrderInformation", controller = "Checkout" },
+        new {@class = "badge badge-light btn-procceedToCheckout" })
+</div>
