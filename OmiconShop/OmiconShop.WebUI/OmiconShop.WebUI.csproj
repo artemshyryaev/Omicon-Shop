@@ -420,6 +420,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="wwwroot\lib\jquery\jquery-3.4.1.intellisense.js" />
+    <Content Include="Content\files\188de31a-6fd2-4e70-8e2c-68f47bcdad8f.png" />
+    <Content Include="Content\files\261a3ced-1ad4-4759-8053-38b303c08a3e.png" />
+    <Content Include="Content\files\be2d4b90-7e60-4736-8378-aa6112c3c9c6.png" />
+    <Content Include="Content\images\login-blue.png" />
+    <Content Include="Content\images\no-image-big.png" />
+    <Content Include="Content\images\no-image-medium.png" />
     <Content Include="wwwroot\lib\jquery\jquery-3.4.1.js" />
     <Content Include="wwwroot\lib\jquery\jquery-3.4.1.min.js" />
     <Content Include="wwwroot\lib\jquery\jquery-3.4.1.slim.js" />

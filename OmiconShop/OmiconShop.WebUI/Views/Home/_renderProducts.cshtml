@@ -13,12 +13,12 @@
                 <td class="image">
                     @if (Model.ImageUrl != null)
                     {
-                        <img class="img-thumbnail" src="@Model.ImageUrl">
+                        <img class="img-thumbnail product-list" src="@Model.ImageUrl">
                     }
                 </td>
                 <td class="product-name">
                     @Html.RouteLink(Model.Name, new { controller = "Home", action = "ProductDetails", productId = Model.ProductId,
-                        type = ViewData["Type"], page = ViewData["Page"]})
+                   type = ViewData["Type"], page = ViewData["Page"]}, new { @class = "badge badge-light" })
                 </td>
                 <td class="description">@Model.Description</td>
                 <td class="price">@((double)Model.Price) $</td>

@@ -33,14 +33,14 @@ namespace ASP
     
     #line default
     #line hidden
+    using OmiconShop.WebUI;
     
     #line 2 "..\..\Views\Home\ProductDetails.cshtml"
     using OmiconShop.WebUI.HtmlHelpers;
-
-#line default
-#line hidden
-    using OmiconShop.WebUI;
-
+    
+    #line default
+    #line hidden
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("RazorGenerator", "2.0.0.0")]
     [System.Web.WebPages.PageVirtualPathAttribute("~/Views/Home/ProductDetails.cshtml")]
     public partial class _Views_Home_ProductDetails_cshtml : System.Web.Mvc.WebViewPage<OmiconShop.Domain.Entities.Product>
@@ -55,179 +55,282 @@ WriteLiteral("\r\n");
             
             #line 5 "..\..\Views\Home\ProductDetails.cshtml"
   
-    ViewBag.Title = "ProductDetails";
+    ViewBag.Title = "Product Details";
     var selectedUom = UOM.PCS;
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n\r\n<h2>Product Details</h2>\r\n\r\n<div>\r\n");
+WriteLiteral("\r\n\r\n<hgroup");
 
-WriteLiteral("    ");
+WriteLiteral(" class=\"title\"");
 
-            
-            #line 13 "..\..\Views\Home\ProductDetails.cshtml"
-Write(Html.RouteLink("Back to overview", new { action = "ProductsList", controller = "Home", type = ViewData["Type"],
-        page = ViewData["Page"]}));
+WriteLiteral(">\r\n    <h1>");
 
             
-            #line default
-            #line hidden
-WriteLiteral("\r\n</div>\r\n\r\n");
-
-            
-            #line 17 "..\..\Views\Home\ProductDetails.cshtml"
- if (Model.ImageUrl != null)
-{
+            #line 11 "..\..\Views\Home\ProductDetails.cshtml"
+   Write(ViewBag.Title);
 
             
             #line default
             #line hidden
-WriteLiteral("    <div>\r\n        <img");
+WriteLiteral("</h1>\r\n</hgroup>\r\n\r\n<div");
 
-WriteLiteral(" class=\"img-thumbnail\"");
+WriteLiteral(" class=\"container-fluid\"");
 
-WriteLiteral(" width=\"75\"");
+WriteLiteral(">\r\n    <div>\r\n");
 
-WriteLiteral(" height=\"75\"");
+WriteLiteral("        ");
 
-WriteAttribute("src", Tuple.Create("\r\n             src=\"", 500), Tuple.Create("\"", 535)
+            
+            #line 16 "..\..\Views\Home\ProductDetails.cshtml"
+   Write(Html.RouteLink("Back to overview", new { action = "ProductsList", controller = "Home", type = ViewData["Type"],
+        page = ViewData["Page"]}, new { @class = "badge badge-light" }));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n    </div>\r\n\r\n    <div");
+
+WriteLiteral(" class=\"pdp-image\"");
+
+WriteLiteral(">\r\n");
+
             
             #line 21 "..\..\Views\Home\ProductDetails.cshtml"
-, Tuple.Create(Tuple.Create("", 520), Tuple.Create<System.Object, System.Int32>(Model.ImageUrl
+        
             
             #line default
             #line hidden
-, 520), false)
-);
+            
+            #line 21 "..\..\Views\Home\ProductDetails.cshtml"
+         if (Model.ImageUrl != null)
+        {
 
-WriteLiteral(">\r\n    </div>\r\n");
+            
+            #line default
+            #line hidden
+WriteLiteral("            <img");
 
+WriteLiteral(" class=\"pdp-img-thumbnail\"");
+
+WriteAttribute("src", Tuple.Create(" src=\"", 639), Tuple.Create("\"", 660)
             
             #line 23 "..\..\Views\Home\ProductDetails.cshtml"
-}
+, Tuple.Create(Tuple.Create("", 645), Tuple.Create<System.Object, System.Int32>(Model.ImageUrl
+            
+            #line default
+            #line hidden
+, 645), false)
+);
+
+WriteLiteral(">\r\n");
+
+            
+            #line 24 "..\..\Views\Home\ProductDetails.cshtml"
+        }
+        else
+        {
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n<div>\r\n    <div>");
+WriteLiteral("            <img");
 
-            
-            #line 26 "..\..\Views\Home\ProductDetails.cshtml"
-    Write(Model.Name);
+WriteLiteral(" class=\"pdp-img-thumbnail\"");
 
-            
-            #line default
-            #line hidden
-WriteLiteral("</div>\r\n    <div>Item no.  ");
+WriteAttribute("src", Tuple.Create(" src=\"", 742), Tuple.Create("\"", 781)
+, Tuple.Create(Tuple.Create("", 748), Tuple.Create<System.Object, System.Int32>(Href("~/Content/images/no-image-big.png")
+, 748), false)
+);
 
-            
-            #line 27 "..\..\Views\Home\ProductDetails.cshtml"
-              Write(Model.ProductId);
-
-            
-            #line default
-            #line hidden
-WriteLiteral("</div>\r\n    <div>Price: ");
+WriteLiteral(">\r\n");
 
             
             #line 28 "..\..\Views\Home\ProductDetails.cshtml"
-           Write(Model.Price);
+        }
 
             
             #line default
             #line hidden
-WriteLiteral("</div>\r\n    <div>Description: ");
+WriteLiteral("    </div>\r\n\r\n    <div");
+
+WriteLiteral(" class=\"pdp-description\"");
+
+WriteLiteral(">\r\n        <div");
+
+WriteLiteral(" class=\"pdp-description__name\"");
+
+WriteLiteral("><b>");
 
             
-            #line 29 "..\..\Views\Home\ProductDetails.cshtml"
-                 Write(Model.Description);
+            #line 32 "..\..\Views\Home\ProductDetails.cshtml"
+                                         Write(Model.Name);
 
             
             #line default
             #line hidden
-WriteLiteral("</div>\r\n</div>\r\n\r\n<div>\r\n");
+WriteLiteral("</b></div>\r\n        <div");
+
+WriteLiteral(" class=\"pdp-description__itemNo\"");
+
+WriteLiteral("><b>Item no.:</b> ");
 
             
             #line 33 "..\..\Views\Home\ProductDetails.cshtml"
-    
-            
-            #line default
-            #line hidden
-            
-            #line 33 "..\..\Views\Home\ProductDetails.cshtml"
-     using (Html.BeginForm("AddToCart", "Basket"))
-    {
+                                                         Write(Model.ProductId);
 
             
             #line default
             #line hidden
-WriteLiteral("        <div>\r\n");
+WriteLiteral("</div>\r\n        <div");
 
-WriteLiteral("            ");
+WriteLiteral(" class=\"pdp-description__price\"");
 
-            
-            #line 36 "..\..\Views\Home\ProductDetails.cshtml"
-       Write(Html.TextBox("Quantity", 1, new { @class = "form-control", type = "number", step = "1", min = "1" }));
+WriteLiteral("><b>Price:</b> <span");
 
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n        </div>\r\n");
+WriteLiteral(" class=\"pdp-description__price-value\"");
 
-WriteLiteral("        <div>\r\n");
-
-WriteLiteral("            ");
+WriteLiteral(">");
 
             
-            #line 39 "..\..\Views\Home\ProductDetails.cshtml"
-       Write(Html.UomEnumDropdownList("uom", selectedUom, new { @class = "form-control" }));
+            #line 34 "..\..\Views\Home\ProductDetails.cshtml"
+                                                                                                 Write((double)Model.Price);
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n        </div>\r\n");
+WriteLiteral(" $</span></div>\r\n        <div");
 
-WriteLiteral("        <div>\r\n");
+WriteLiteral(" class=\"pdp-description__description\"");
 
-WriteLiteral("            ");
+WriteLiteral("><b>Description:</b> ");
 
             
-            #line 42 "..\..\Views\Home\ProductDetails.cshtml"
-       Write(Html.Hidden("productId", Model.ProductId));
+            #line 35 "..\..\Views\Home\ProductDetails.cshtml"
+                                                                 Write(Model.Description);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</div>\r\n    </div>\r\n\r\n    <div");
+
+WriteLiteral(" class=\"pdp-add-to-card-control\"");
+
+WriteLiteral(">\r\n        <div");
+
+WriteLiteral(" class=\"pdp-add-to-card-control__qty-label\"");
+
+WriteLiteral("><span><b>Quantity:</b></span></div>\r\n");
+
+            
+            #line 40 "..\..\Views\Home\ProductDetails.cshtml"
+        
+            
+            #line default
+            #line hidden
+            
+            #line 40 "..\..\Views\Home\ProductDetails.cshtml"
+         using (Html.BeginForm("AddToCart", "Basket"))
+        {
+
+            
+            #line default
+            #line hidden
+WriteLiteral("            <div");
+
+WriteLiteral(" class=\"pdp-add-to-card-control__qty\"");
+
+WriteLiteral(">\r\n");
+
+WriteLiteral("                ");
+
+            
+            #line 43 "..\..\Views\Home\ProductDetails.cshtml"
+           Write(Html.TextBox("Quantity", 1, new { @class = "form-control", type = "number", step = "1", min = "1" }));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n            </div>\r\n");
+
+WriteLiteral("            <div");
+
+WriteLiteral(" class=\"pdp-add-to-card-control__uom\"");
+
+WriteLiteral(">\r\n");
+
+WriteLiteral("                ");
+
+            
+            #line 46 "..\..\Views\Home\ProductDetails.cshtml"
+           Write(Html.UomEnumDropdownList("uom", selectedUom, new { @class = "form-control" }));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n            </div>\r\n");
+
+WriteLiteral("            <div>\r\n");
+
+WriteLiteral("                ");
+
+            
+            #line 49 "..\..\Views\Home\ProductDetails.cshtml"
+           Write(Html.Hidden("productId", Model.ProductId));
 
             
             #line default
             #line hidden
 WriteLiteral("\r\n");
 
-WriteLiteral("            ");
+WriteLiteral("                ");
 
             
-            #line 43 "..\..\Views\Home\ProductDetails.cshtml"
-       Write(Html.Hidden("returnUrl", Request.Url.PathAndQuery));
+            #line 50 "..\..\Views\Home\ProductDetails.cshtml"
+           Write(Html.Hidden("returnUrl", Request.Url.PathAndQuery));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n            <input");
+WriteLiteral("\r\n                <input");
 
 WriteLiteral(" type=\"submit\"");
 
-WriteLiteral(" class=\"btn btn-success\"");
+WriteLiteral(" class=\"btn btn-success btn-lg pdp-add-to-card-control__add-to-card\"");
 
 WriteLiteral(" value=\"Add to cart\"");
 
-WriteLiteral(">\r\n        </div>\r\n");
+WriteLiteral(">\r\n            </div>\r\n");
 
             
-            #line 46 "..\..\Views\Home\ProductDetails.cshtml"
-    }
+            #line 53 "..\..\Views\Home\ProductDetails.cshtml"
+        }
 
             
             #line default
             #line hidden
-WriteLiteral("</div>\r\n");
+WriteLiteral("    </div>\r\n\r\n    <div");
+
+WriteLiteral(" class=\"add-this\"");
+
+WriteLiteral(">\r\n        <i");
+
+WriteLiteral(" class=\"fab fa-facebook-f\"");
+
+WriteLiteral("></i>\r\n        <i");
+
+WriteLiteral(" class=\"fab fa-google\"");
+
+WriteLiteral("></i>\r\n        <i");
+
+WriteLiteral(" class=\"fab fa-twitter\"");
+
+WriteLiteral("></i>\r\n        <i");
+
+WriteLiteral(" class=\"fab fa-instagram\"");
+
+WriteLiteral("></i>\r\n    </div>\r\n</div>");
 
         }
     }

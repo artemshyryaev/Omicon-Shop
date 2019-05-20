@@ -195,14 +195,93 @@ a:hover {
 }
 
 .product-name {
-    text-align: center; 
+    text-align: center;
 }
 
 .image {
     width: 60px;
 }
 
-.image-thumbnail {
+.image-thumbnail.product-list {
     width: 40px;
     height: 40px;
+}
+
+.pdp-img-thumbnail {
+    width: 25rem;
+    height: 25rem;
+}
+
+.pdp-image {
+    position: absolute;
+    left: 25rem;
+    top: 10rem;
+}
+
+.pdp-description {
+    position: absolute;
+    left: 53rem;
+    top: 10rem;
+}
+
+.pdp-add-to-card-control {
+    position: absolute;
+    left: 53rem;
+    top: 23rem;
+}
+
+.pdp-description__name {
+    font-size: 2rem;
+}
+
+.pdp-description__itemNo {
+    margin-top: 0.5rem;
+}
+
+.pdp-description__price {
+    margin-top: 0.5rem;
+}
+
+.pdp-description__description {
+    margin-top: 0.5rem;
+    max-width: 25rem;
+}
+
+.pdp-add-to-card-control__qty {
+    margin-top: 2rem;
+    width: 50px;
+    position: relative;
+    left: 6rem;
+    top: -4rem;
+}
+
+.pdp-add-to-card-control__uom {
+    margin-top: 1rem;
+    width: 80px;
+    position: relative;
+    left: 11rem;
+    top: -7.4rem;
+}
+
+.pdp-add-to-card-control__add-to-card {
+    margin-top: 1rem;
+    position: fixed;
+    top: 31rem;
+}
+
+.pdp-add-to-card-control__qty-label {
+    padding-top: 2rem;
+}
+
+.pdp-description__price-value {
+    font-family: 'Pathway Gothic One', sans-serif;
+    color: #000;
+    font-size: 1.5em;
+    margin-left: 1rem;
+}
+
+.add-this {
+    position: absolute;
+    margin-top: 27rem;
+    margin-left: 32rem;
 }
