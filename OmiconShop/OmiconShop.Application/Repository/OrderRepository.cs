@@ -78,7 +78,10 @@ namespace OmiconShop.Application.Repository
         {
             using (var context = helper.Create())
             {
-                Order order = context.Orders.FirstOrDefault(e => e.OrderId == orderId);
+                Order order = context.Orders
+                    .Include(e => e.BasketLine)
+                    .Include(e=> e.OrderInformation)
+                    .FirstOrDefault(e => e.OrderId == orderId);
 
                 context.Entry(order).State = EntityState.Deleted;
                 await context.SaveChangesAsync();
