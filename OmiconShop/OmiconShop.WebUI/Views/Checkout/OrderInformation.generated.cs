@@ -29,7 +29,7 @@ namespace ASP
     using System.Web.WebPages;
     using OmiconShop.WebUI;
     using OmiconShop.WebUI.HtmlHelpers;
-
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("RazorGenerator", "2.0.0.0")]
     [System.Web.WebPages.PageVirtualPathAttribute("~/Views/Checkout/OrderInformation.cshtml")]
     public partial class _Views_Checkout_OrderInformation_cshtml : System.Web.Mvc.WebViewPage<OmiconShop.Application.Checkout.ViewModel.OrderInformationViewModel>
@@ -43,15 +43,28 @@ namespace ASP
             #line 2 "..\..\Views\Checkout\OrderInformation.cshtml"
   
 
-    ViewBag.Title = "OrderInformation";
+    ViewBag.Title = "Checkout";
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n\r\n<h1>Checkout</h1>\r\n<h3>Shipping information</h3>\r\n\r\n");
+WriteLiteral("\r\n\r\n<hgroup");
+
+WriteLiteral(" class=\"title\"");
+
+WriteLiteral(">\r\n    <h1>");
 
             
-            #line 10 "..\..\Views\Checkout\OrderInformation.cshtml"
+            #line 8 "..\..\Views\Checkout\OrderInformation.cshtml"
+   Write(ViewBag.Title);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</h1>\r\n</hgroup>\r\n\r\n");
+
+            
+            #line 11 "..\..\Views\Checkout\OrderInformation.cshtml"
  using (Html.BeginForm("OrderOverview", "Checkout"))
 {
     
@@ -59,42 +72,42 @@ WriteLiteral("\r\n\r\n<h1>Checkout</h1>\r\n<h3>Shipping information</h3>\r\n\r\n
             #line default
             #line hidden
             
-            #line 12 "..\..\Views\Checkout\OrderInformation.cshtml"
-Write(Html.ValidationSummary());
+            #line 13 "..\..\Views\Checkout\OrderInformation.cshtml"
+Write(Html.ValidationSummary(true));
 
             
             #line default
             #line hidden
             
-            #line 12 "..\..\Views\Checkout\OrderInformation.cshtml"
-                             
+            #line 13 "..\..\Views\Checkout\OrderInformation.cshtml"
+                                 
     
             
             #line default
             #line hidden
             
-            #line 13 "..\..\Views\Checkout\OrderInformation.cshtml"
+            #line 14 "..\..\Views\Checkout\OrderInformation.cshtml"
 Write(Html.AntiForgeryToken());
 
             
             #line default
             #line hidden
             
-            #line 13 "..\..\Views\Checkout\OrderInformation.cshtml"
+            #line 14 "..\..\Views\Checkout\OrderInformation.cshtml"
                             
     
             
             #line default
             #line hidden
             
-            #line 14 "..\..\Views\Checkout\OrderInformation.cshtml"
+            #line 15 "..\..\Views\Checkout\OrderInformation.cshtml"
 Write(Html.EditorForModel(Model));
 
             
             #line default
             #line hidden
             
-            #line 14 "..\..\Views\Checkout\OrderInformation.cshtml"
+            #line 15 "..\..\Views\Checkout\OrderInformation.cshtml"
                                ;
 
 
@@ -116,7 +129,7 @@ WriteLiteral(" value=\"Next\"");
 WriteLiteral(">\r\n    </div>\r\n");
 
             
-            #line 19 "..\..\Views\Checkout\OrderInformation.cshtml"
+            #line 20 "..\..\Views\Checkout\OrderInformation.cshtml"
 }
 
             

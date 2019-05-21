@@ -42,116 +42,109 @@ namespace ASP
             
             #line 2 "..\..\Views\Basket\Index.cshtml"
   
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Shopping cart";
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n\r\n<h2>Your basket</h2>\r\n<input");
+WriteLiteral("\r\n\r\n<hgroup");
+
+WriteLiteral(" class=\"title\"");
+
+WriteLiteral(">\r\n    <h1>");
+
+            
+            #line 7 "..\..\Views\Basket\Index.cshtml"
+   Write(ViewBag.Title);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</h1>\r\n</hgroup>\r\n\r\n<input");
 
 WriteLiteral(" class=\"lines-count\"");
 
 WriteLiteral(" type=\"hidden\"");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 170), Tuple.Create("\"", 205)
+WriteAttribute("value", Tuple.Create(" value=\"", 222), Tuple.Create("\"", 257)
             
-            #line 7 "..\..\Views\Basket\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 178), Tuple.Create<System.Object, System.Int32>(Model.Basket.Lines.Count()
+            #line 10 "..\..\Views\Basket\Index.cshtml"
+, Tuple.Create(Tuple.Create("", 230), Tuple.Create<System.Object, System.Int32>(Model.Basket.Lines.Count()
             
             #line default
             #line hidden
-, 178), false)
+, 230), false)
 );
 
-WriteLiteral(">\r\n<div>\r\n    <form>\r\n        <table");
+WriteLiteral(">\r\n<div");
+
+WriteLiteral(" class=\"shopping-cart-list\"");
+
+WriteLiteral(">\r\n        <div");
 
 WriteLiteral(" class=\"basketItems\"");
 
+WriteLiteral(">\r\n            <div>\r\n                <div");
+
+WriteLiteral(" class=\"\"");
+
 WriteLiteral(@">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>Product</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>UOM</th>
-                    <th>Total</th>
-                </tr>
-            </thead>
-            <tbody>
+                    <div></div>
+                    <span><b>Product</b></span>
+                    <span><b>Price</b></span>
+                    <span><b>Quantity</b></span>
+                    <span><b>UOM</b></span>
+                    <span><b>Total</b></span>
+                </div>
+            </div>
+            <div>
 ");
 
             
-            #line 22 "..\..\Views\Basket\Index.cshtml"
+            #line 24 "..\..\Views\Basket\Index.cshtml"
                 
             
             #line default
             #line hidden
             
-            #line 22 "..\..\Views\Basket\Index.cshtml"
+            #line 24 "..\..\Views\Basket\Index.cshtml"
                  foreach (var el in Model.Basket.Lines)
                 {
 
             
             #line default
             #line hidden
-WriteLiteral("                    <input");
+WriteLiteral("                    <div");
 
-WriteLiteral(" type=\"hidden\"");
-
-WriteLiteral(" class=\"productId\"");
-
-WriteAttribute("value", Tuple.Create(" value=\"", 722), Tuple.Create("\"", 759)
+WriteAttribute("class", Tuple.Create(" class=\"", 815), Tuple.Create("\"", 856)
+, Tuple.Create(Tuple.Create("", 823), Tuple.Create("row-", 823), true)
             
-            #line 24 "..\..\Views\Basket\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 730), Tuple.Create<System.Object, System.Int32>(el.Product.ProductId
+            #line 26 "..\..\Views\Basket\Index.cshtml"
+, Tuple.Create(Tuple.Create("", 827), Tuple.Create<System.Object, System.Int32>(el.Product.ProductId
             
             #line default
             #line hidden
-, 730), false)
-, Tuple.Create(Tuple.Create("", 751), Tuple.Create("-", 751), true)
+, 827), false)
+, Tuple.Create(Tuple.Create("", 848), Tuple.Create("-", 848), true)
             
-            #line 24 "..\..\Views\Basket\Index.cshtml"
-         , Tuple.Create(Tuple.Create("", 752), Tuple.Create<System.Object, System.Int32>(el.Uom
+            #line 26 "..\..\Views\Basket\Index.cshtml"
+, Tuple.Create(Tuple.Create("", 849), Tuple.Create<System.Object, System.Int32>(el.Uom
             
             #line default
             #line hidden
-, 752), false)
+, 849), false)
 );
 
-WriteLiteral(" />\r\n");
-
-WriteLiteral("                    <tr");
-
-WriteAttribute("class", Tuple.Create(" class=\"", 788), Tuple.Create("\"", 829)
-, Tuple.Create(Tuple.Create("", 796), Tuple.Create("row-", 796), true)
-            
-            #line 25 "..\..\Views\Basket\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 800), Tuple.Create<System.Object, System.Int32>(el.Product.ProductId
-            
-            #line default
-            #line hidden
-, 800), false)
-, Tuple.Create(Tuple.Create("", 821), Tuple.Create("-", 821), true)
-            
-            #line 25 "..\..\Views\Basket\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 822), Tuple.Create<System.Object, System.Int32>(el.Uom
-            
-            #line default
-            #line hidden
-, 822), false)
-);
-
-WriteLiteral(">\r\n                        <td>\r\n");
+WriteLiteral(">\r\n                        <div>\r\n");
 
             
-            #line 27 "..\..\Views\Basket\Index.cshtml"
+            #line 28 "..\..\Views\Basket\Index.cshtml"
                             
             
             #line default
             #line hidden
             
-            #line 27 "..\..\Views\Basket\Index.cshtml"
+            #line 28 "..\..\Views\Basket\Index.cshtml"
                              if (el.Product.ImageUrl != null)
                             {
 
@@ -166,88 +159,96 @@ WriteLiteral(" width=\"30\"");
 
 WriteLiteral(" height=\"30\"");
 
-WriteAttribute("src", Tuple.Create("\r\n                                     src=\"", 1038), Tuple.Create("\"", 1102)
+WriteAttribute("src", Tuple.Create("\r\n                                     src=\"", 1066), Tuple.Create("\"", 1130)
             
-            #line 30 "..\..\Views\Basket\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 1082), Tuple.Create<System.Object, System.Int32>(el.Product.ImageUrl
+            #line 31 "..\..\Views\Basket\Index.cshtml"
+, Tuple.Create(Tuple.Create("", 1110), Tuple.Create<System.Object, System.Int32>(el.Product.ImageUrl
             
             #line default
             #line hidden
-, 1082), false)
+, 1110), false)
 );
 
 WriteLiteral(">\r\n");
 
             
-            #line 31 "..\..\Views\Basket\Index.cshtml"
+            #line 32 "..\..\Views\Basket\Index.cshtml"
                             }
 
             
             #line default
             #line hidden
-WriteLiteral("                        </td>\r\n                        <td>");
-
-            
-            #line 33 "..\..\Views\Basket\Index.cshtml"
-                       Write(el.Product.Name);
-
-            
-            #line default
-            #line hidden
-WriteLiteral("</td>\r\n                        <td>");
+WriteLiteral("                        </div>\r\n                        <div>");
 
             
             #line 34 "..\..\Views\Basket\Index.cshtml"
-                        Write((double)el.Product.Price);
+                        Write(el.Product.Name);
 
             
             #line default
             #line hidden
-WriteLiteral("</td>\r\n                        <td");
+WriteLiteral("</div>\r\n                        <div>");
 
-WriteLiteral(" class=\"uom\"");
+            
+            #line 35 "..\..\Views\Basket\Index.cshtml"
+                         Write((double)el.Product.Price);
 
-WriteLiteral(" width=\"80\"");
-
-WriteLiteral(">\r\n                            ");
-
-WriteLiteral("\r\n");
+            
+            #line default
+            #line hidden
+WriteLiteral("$</div>\r\n                        <div>\r\n");
 
 WriteLiteral("                            ");
 
             
             #line 37 "..\..\Views\Basket\Index.cshtml"
-                       Write(Html.TextBox(
-            
-            #line default
-            #line hidden
-            
-            #line 37 "..\..\Views\Basket\Index.cshtml"
-                                                                 "Quantity", el.Quantity, new { data_product_id = el.Product.ProductId,
-                                                                     data_product_uom = el.Uom, @class = "form-control qty", type = "number", step = "1", min = "1" }));
+                       Write(Html.TextBox("Quantity", el.Quantity, new { @data_product_id = el.Product.ProductId,
+                           @data_product_uom = el.Uom, @data_product_price = el.Product.Price,
+                           @class = "form-control qty", type = "number", step = "1", min = "1" }));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n                        </td>\r\n                        <td>");
-
-            
-            #line 40 "..\..\Views\Basket\Index.cshtml"
-                        Write(el.Uom);
-
-            
-            #line default
-            #line hidden
-WriteLiteral("</td>\r\n                        <td>");
+WriteLiteral("\r\n                        </div>\r\n                        <div>");
 
             
             #line 41 "..\..\Views\Basket\Index.cshtml"
-                        Write(el.Quantity * (double)el.Product.Price);
+                         Write(el.Uom);
 
             
             #line default
             #line hidden
-WriteLiteral("$</td>\r\n                        <td>\r\n                            <a");
+WriteLiteral("</div>\r\n                        <div");
+
+WriteAttribute("class", Tuple.Create(" class=\"", 1762), Tuple.Create("\"", 1805)
+, Tuple.Create(Tuple.Create("", 1770), Tuple.Create("total-", 1770), true)
+            
+            #line 42 "..\..\Views\Basket\Index.cshtml"
+, Tuple.Create(Tuple.Create("", 1776), Tuple.Create<System.Object, System.Int32>(el.Product.ProductId
+            
+            #line default
+            #line hidden
+, 1776), false)
+, Tuple.Create(Tuple.Create("", 1797), Tuple.Create("-", 1797), true)
+            
+            #line 42 "..\..\Views\Basket\Index.cshtml"
+, Tuple.Create(Tuple.Create("", 1798), Tuple.Create<System.Object, System.Int32>(el.Uom
+            
+            #line default
+            #line hidden
+, 1798), false)
+);
+
+WriteLiteral(">");
+
+            
+            #line 42 "..\..\Views\Basket\Index.cshtml"
+                                                                     Write(el.Quantity * (double)el.Product.Price);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("$</div>\r\n                        <div>\r\n                            <a");
 
 WriteLiteral(" href=\"#\"");
 
@@ -256,7 +257,7 @@ WriteLiteral(" class=\"link-remove\"");
 WriteLiteral(" data-id=\"");
 
             
-            #line 43 "..\..\Views\Basket\Index.cshtml"
+            #line 44 "..\..\Views\Basket\Index.cshtml"
                                                                 Write(el.Product.ProductId);
 
             
@@ -265,7 +266,7 @@ WriteLiteral(" data-id=\"");
 WriteLiteral("-");
 
             
-            #line 43 "..\..\Views\Basket\Index.cshtml"
+            #line 44 "..\..\Views\Basket\Index.cshtml"
                                                                                       Write(el.Uom);
 
             
@@ -273,60 +274,58 @@ WriteLiteral("-");
             #line hidden
 WriteLiteral("\"");
 
-WriteLiteral(">Delete</a>\r\n                        </td>\r\n                    </tr>\r\n");
+WriteLiteral(">Delete</a>\r\n                        </div>\r\n                    </div>\r\n");
 
             
-            #line 46 "..\..\Views\Basket\Index.cshtml"
+            #line 47 "..\..\Views\Basket\Index.cshtml"
                 }
 
             
             #line default
             #line hidden
-WriteLiteral("            </tbody>\r\n            <tfoot>\r\n                <tr>\r\n                " +
-"    <td");
+WriteLiteral("            </div>\r\n        </div>\r\n</div>\r\n\r\n<div");
 
-WriteLiteral(" class=\"cart-status\"");
+WriteLiteral(" class=\"basket-summary\"");
 
-WriteLiteral(" colspan=\"4\"");
+WriteLiteral(">\r\n    <b>Summary:</b><span");
 
-WriteLiteral(">Summary: ");
+WriteLiteral(" class=\"basket-summary__value\"");
 
-            
-            #line 50 "..\..\Views\Basket\Index.cshtml"
-                                                            Write(Model.Basket.BasketTotal);
+WriteLiteral(">");
 
             
-            #line default
-            #line hidden
-WriteLiteral(" $</td>\r\n                </tr>\r\n            </tfoot>\r\n        </table>\r\n    </for" +
-"m>\r\n</div>\r\n<div>\r\n    <input");
+            #line 53 "..\..\Views\Basket\Index.cshtml"
+                                                  Write(Model.Basket.BasketTotal);
 
-WriteLiteral(" class=\"btn btn-primary btn-recalculate\"");
-
-WriteLiteral(" type=\"submit\"");
-
-WriteLiteral(" value=\"Recalculate shopping cart\"");
-
-WriteLiteral(" />\r\n</div>\r\n\r\n<div>\r\n    <input");
-
-WriteLiteral(" class=\"btn btn-primary btn-emptyBasket\"");
-
-WriteLiteral(" type=\"button\"");
-
-WriteLiteral(" value=\"Empty basket\"");
-
-WriteLiteral(" />\r\n</div>\r\n<div>\r\n    <a");
-
-WriteLiteral(" class=\"btn btn-primary btn-returnUrl\"");
-
-WriteAttribute("href", Tuple.Create(" href=\"", 2628), Tuple.Create("\"", 2651)
-            
-            #line 64 "..\..\Views\Basket\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 2635), Tuple.Create<System.Object, System.Int32>(Model.RetunrUrl
             
             #line default
             #line hidden
-, 2635), false)
+WriteLiteral(" $</span>\r\n</div>\r\n\r\n<div");
+
+WriteLiteral(" class=\"empty-basket\"");
+
+WriteLiteral(">\r\n    <a");
+
+WriteLiteral(" class=\"badge badge-light btn-emptyBasket\"");
+
+WriteLiteral(" href=\"#\"");
+
+WriteLiteral(">Empty basket</a>\r\n</div>\r\n<div");
+
+WriteLiteral(" class=\"basket-buttons\"");
+
+WriteLiteral(">\r\n    <a");
+
+WriteLiteral(" class=\"badge badge-light btn-returnUrl\"");
+
+WriteAttribute("href", Tuple.Create(" href=\"", 2444), Tuple.Create("\"", 2467)
+            
+            #line 60 "..\..\Views\Basket\Index.cshtml"
+, Tuple.Create(Tuple.Create("", 2451), Tuple.Create<System.Object, System.Int32>(Model.RetunrUrl
+            
+            #line default
+            #line hidden
+, 2451), false)
 );
 
 WriteLiteral(">Continue shopping</a>\r\n");
@@ -334,14 +333,14 @@ WriteLiteral(">Continue shopping</a>\r\n");
 WriteLiteral("    ");
 
             
-            #line 65 "..\..\Views\Basket\Index.cshtml"
+            #line 61 "..\..\Views\Basket\Index.cshtml"
 Write(Html.RouteLink("Procceed to checkout", new { action = "OrderInformation", controller = "Checkout" },
-        new {@class = "btn btn-primary btn-procceedToCheckout" }));
+        new {@class = "badge badge-light btn-procceedToCheckout" }));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n</div>\r\n\r\n");
+WriteLiteral("\r\n</div>");
 
         }
     }

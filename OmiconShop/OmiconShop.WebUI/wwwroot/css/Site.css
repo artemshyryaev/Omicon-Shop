@@ -65,7 +65,8 @@ textarea {
     margin-bottom: -.5rem;
 }
 
-.text-box.single-line {
+.text-box.single-line,
+.text-box.multi-line {
     display: block;
     width: 100%;
     padding: .300rem .50rem;
@@ -287,20 +288,20 @@ a:hover {
 }
 
 .basket-buttons {
-    width: 12rem;
+    width: 13rem;
     position: absolute;
-    margin-left: 70rem;
-    margin-top: 11rem;
+    right: 4rem;
+    top: 30rem;
     background-color: #f8f9fa;
     padding: 0.5rem;
     border-radius: 20px;
 }
 
 .basket-summary {
-    width: 12rem;
-    position: center;
-    margin-left: 70rem;
-    margin-top: 1rem;
+    width: 13rem;
+    position: absolute;
+    right: 4rem;
+    top: 13rem;
     background-color: #f8f9fa;
     padding: 0.5rem;
     border-radius: 20px;
@@ -314,10 +315,10 @@ a:hover {
 }
 
 .empty-basket {
-    width: 12rem;
+    width: 13rem;
     position: absolute;
-    margin-left: 70rem;
-    margin-top: 5rem;
+    right: 4rem;
+    top: 27rem;
     background-color: #f8f9fa;
     padding: 0.5rem;
     border-radius: 20px;
@@ -336,5 +337,15 @@ a:hover {
 }
 
 .shopping-cart-list {
-width: 30px;
+    width: 30px;
+}
+
+.field-validation-error {
+    line-height: 12px;
+    display: block;
+    margin-top: -1rem;
+    margin-bottom: 1rem;
+    padding: 4px 0px 4px 12px;
+    font-size: 0.8rem;
+    color: red;
 }

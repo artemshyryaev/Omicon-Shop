@@ -11,13 +11,13 @@
 <div class="shopping-cart-list">
         <div class="basketItems">
             <div>
-                <div>
+                <div class="">
                     <div></div>
-                    <div>Product</div>
-                    <div>Price</div>
-                    <div>Quantity</div>
-                    <div>UOM</div>
-                    <div>Total</div>
+                    <span><b>Product</b></span>
+                    <span><b>Price</b></span>
+                    <span><b>Quantity</b></span>
+                    <span><b>UOM</b></span>
+                    <span><b>Total</b></span>
                 </div>
             </div>
             <div>
@@ -49,8 +49,8 @@
         </div>
 </div>
 
-<div class="basket-summary justify-content-end">
-    <b>Summary:</b> <span class="basket-summary__value">@Model.Basket.BasketTotal $</span>
+<div class="basket-summary">
+    <b>Summary:</b><span class="basket-summary__value">@Model.Basket.BasketTotal $</span>
 </div>
 
 <div class="empty-basket">

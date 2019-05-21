@@ -1,15 +1,16 @@
 ﻿@model OmiconShop.Application.Checkout.ViewModel.OrderInformationViewModel
 @{
 
-    ViewBag.Title = "OrderInformation";
+    ViewBag.Title = "Checkout";
 }
 
-<h1>Checkout</h1>
-<h3>Shipping information</h3>
+<hgroup class="title">
+    <h1>@ViewBag.Title</h1>
+</hgroup>
 
 @using (Html.BeginForm("OrderOverview", "Checkout"))
 {
-    @Html.ValidationSummary()
+    @Html.ValidationSummary(true)
     @Html.AntiForgeryToken()
     @Html.EditorForModel(Model);
 

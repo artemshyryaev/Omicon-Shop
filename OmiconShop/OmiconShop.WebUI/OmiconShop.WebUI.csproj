@@ -437,7 +437,6 @@
     <Content Include="wwwroot\lib\bootstrap\css\bootstrap-reboot.min.css" />
     <Content Include="wwwroot\lib\bootstrap\css\bootstrap.css" />
     <Content Include="wwwroot\lib\bootstrap\css\bootstrap.min.css" />
-    <Content Include="wwwroot\css\ErrorStyles.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="wwwroot\css\Site.css" />
