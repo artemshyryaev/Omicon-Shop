@@ -349,3 +349,39 @@ a:hover {
     font-size: 0.8rem;
     color: red;
 }
+
+.declined-order {
+    font-size: 2rem;
+}
+
+.admin-nav-menu {
+    width: 11rem;
+    height: 13rem;
+    position: absolute;
+    left: 1rem;
+    top: 8rem;
+    background-color: #f8f9fa;
+    padding: 0.5rem;
+    border-radius: 20px;
+}
+
+.admin-nav-menu__personal-info {
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.admin-nav-menu__order-list {
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.admin-nav-menu__product-list {
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.change-password {
+    position: absolute;
+    left: 15rem;
+    top: 8rem
+}

@@ -1,14 +1,18 @@
 ﻿@model OmiconShop.Domain.Entities.User
 @{
-    ViewBag.Title = "Your details";
+    ViewBag.Title = "Your personal details";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Your details</h2>
+<hgroup class="title">
+    <h1>@ViewBag.Title</h1>
+</hgroup>
 
 @using (Html.BeginForm("PersonalInfo", "Admin"))
 {
-    <div>
+    <div class="change-password">
+        @Html.ValidationSummary(true)
+        @Html.AntiForgeryToken()
         @Html.HiddenFor(x => x.UserId)
         @Html.LabelFor(x => x.Email)
         @Html.TextBoxFor(x => x.Email)
