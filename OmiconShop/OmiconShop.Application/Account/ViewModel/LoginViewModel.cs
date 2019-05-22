@@ -9,12 +9,12 @@ namespace OmiconShop.Application.Account.ViewModel
 {
     public class LoginViewModel
     {
-        [Required]
+        [Required(ErrorMessage ="Enter valid email.")]
         [Display(Name = "Email", ResourceType = typeof(LoginResources))]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Enter valid password.")]
         [Display(Name = "Password", ResourceType = typeof(LoginResources))]
         [DataType(DataType.Password)]
         public string Password { get; set; }

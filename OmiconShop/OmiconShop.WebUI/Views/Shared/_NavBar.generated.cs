@@ -216,7 +216,7 @@ WriteLiteral(">\r\n                        <b>");
 
             
             #line 37 "..\..\Views\Shared\_NavBar.cshtml"
-                      Write(Html.ActionLink("My Account", "PersonalInfo", "Admin", new { @class = "dropdown-item" }));
+                      Write(Html.RouteLink("My Account", new { controller = "Admin", action = "PersonalInfo" }, new { @class = "dropdown-item" }));
 
             
             #line default
@@ -306,88 +306,27 @@ WriteLiteral(">\r\n                        Login\r\n                    </a>\r\n
 
 WriteLiteral(" class=\"dropdown-menu dropdown-menu-right\"");
 
-WriteLiteral(">\r\n");
+WriteLiteral(">\r\n                        <div");
+
+WriteLiteral(" id=\"target\"");
+
+WriteLiteral(">");
 
             
             #line 54 "..\..\Views\Shared\_NavBar.cshtml"
-                        
-            
-            #line default
-            #line hidden
-            
-            #line 54 "..\..\Views\Shared\_NavBar.cshtml"
-                         using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post,
-                            new { @class = "px-4 py-3" }))
-                        {
-                            
-            
-            #line default
-            #line hidden
-            
-            #line 57 "..\..\Views\Shared\_NavBar.cshtml"
-                       Write(Html.AntiForgeryToken());
+                                    Write(Html.Partial("_LoginForm"));
 
             
             #line default
             #line hidden
-            
-            #line 57 "..\..\Views\Shared\_NavBar.cshtml"
-                                                    
-                            
-            
-            #line default
-            #line hidden
-            
-            #line 58 "..\..\Views\Shared\_NavBar.cshtml"
-                       Write(Html.ValidationSummary(true));
-
-            
-            #line default
-            #line hidden
-            
-            #line 58 "..\..\Views\Shared\_NavBar.cshtml"
-                                                         
-                            
-            
-            #line default
-            #line hidden
-            
-            #line 59 "..\..\Views\Shared\_NavBar.cshtml"
-                       Write(Html.EditorForModel());
-
-            
-            #line default
-            #line hidden
-            
-            #line 59 "..\..\Views\Shared\_NavBar.cshtml"
-                                                  
-
-            
-            #line default
-            #line hidden
-WriteLiteral("                            <button");
-
-WriteLiteral(" type=\"submit\"");
-
-WriteLiteral(" class=\"btn btn-primary\"");
-
-WriteLiteral(">Sign in</button>\r\n");
-
-            
-            #line 61 "..\..\Views\Shared\_NavBar.cshtml"
-                        }
-
-            
-            #line default
-            #line hidden
-WriteLiteral("                        <div");
+WriteLiteral("</div>\r\n                        <div");
 
 WriteLiteral(" class=\"dropdown-divider\"");
 
 WriteLiteral("></div>\r\n                        <b>");
 
             
-            #line 63 "..\..\Views\Shared\_NavBar.cshtml"
+            #line 56 "..\..\Views\Shared\_NavBar.cshtml"
                       Write(Html.RouteLink("Forget the password?", new { controller = "Account", action = "ChangePassword" }, new { @class = "dropdown-item" }));
 
             
@@ -398,7 +337,7 @@ WriteLiteral("</b>\r\n                        <b>\r\n");
 WriteLiteral("                            ");
 
             
-            #line 65 "..\..\Views\Shared\_NavBar.cshtml"
+            #line 58 "..\..\Views\Shared\_NavBar.cshtml"
                        Write(Html.RouteLink("Register", new { controller = "Account", action = "Register" }, new { @class = "dropdown-item" }));
 
             
@@ -408,7 +347,7 @@ WriteLiteral("\r\n                        </b>\r\n                    </div>\r\n
 "\r\n");
 
             
-            #line 69 "..\..\Views\Shared\_NavBar.cshtml"
+            #line 62 "..\..\Views\Shared\_NavBar.cshtml"
             }
 
             

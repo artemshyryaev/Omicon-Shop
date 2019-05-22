@@ -19,25 +19,15 @@ namespace OmiconShop.WebUI.Controllers
         }    
 
         [AllowAnonymous]
-        [HttpGet]
-        public ActionResult Login(string returnUrl)
-        {
-            ViewBag.ReturnUrl = returnUrl;
-            return View();
-        }
-
-        [AllowAnonymous]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginViewModel model, string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
             if (ModelState.IsValid && WebSecurity.Login(model.Email, model.Password, persistCookie: model.RememberMe))
-            {
                 return RedirectToLocal(returnUrl);
-            }
-            ModelState.AddModelError("", "The user name or password provided is incorrect.");
-            return View();
+
+            return PartialView("_LoginForm");
         }
 
         [HttpPost]

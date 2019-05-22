@@ -34,7 +34,7 @@
 
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
-                        <b>@Html.RouteLink("My Account",new { controller = "Admin" , action = "PersonalInfo" }, new { @class = "dropdown-item" })</b>
+                        <b>@Html.RouteLink("My Account", new { controller = "Admin", action = "PersonalInfo" }, new { @class = "dropdown-item" })</b>
                         <div class="dropdown-divider"></div>
                         @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
                         {
@@ -51,14 +51,7 @@
                         Login
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
-                        @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post,
-                            new { @class = "px-4 py-3" }))
-                        {
-                            @Html.AntiForgeryToken()
-                            @Html.ValidationSummary(true)
-                            @Html.EditorForModel()
-                            <button type="submit" class="btn btn-primary">Sign in</button>
-                        }
+                        <div id="target">@Html.Partial("_LoginForm")</div>
                         <div class="dropdown-divider"></div>
                         <b>@Html.RouteLink("Forget the password?", new { controller = "Account", action = "ChangePassword" }, new { @class = "dropdown-item" })</b>
                         <b>

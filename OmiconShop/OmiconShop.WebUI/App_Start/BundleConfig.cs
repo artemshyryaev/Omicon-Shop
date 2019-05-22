@@ -9,7 +9,8 @@ namespace OmiconShop.WebUI
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/wwwroot/lib/jquery/jquery-{version}.js"));
+                        "~/wwwroot/lib/jquery/jquery-{version}.js",
+                        "~/wwwroot/lib/jquery-unobtrusive/jquery.unobtrusive-ajax*"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/wwwroot/lib/jquery-validate/jquery.validate*",

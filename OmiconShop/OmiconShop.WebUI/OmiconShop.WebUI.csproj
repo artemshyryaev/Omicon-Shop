@@ -267,11 +267,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ChangePassword.cshtml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Account\Login.generated.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Login.cshtml</DependentUpon>
-    </Compile>
     <Compile Include="Views\Account\Register.generated.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -419,6 +414,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="wwwroot\lib\jquery-unobtrusive\jquery.unobtrusive-ajax.js" />
+    <Content Include="wwwroot\lib\jquery-unobtrusive\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Views\Shared\_LoginForm.cshtml" />
     <None Include="wwwroot\lib\jquery\jquery-3.4.1.intellisense.js" />
     <Content Include="Content\files\188de31a-6fd2-4e70-8e2c-68f47bcdad8f.png" />
     <Content Include="Content\files\261a3ced-1ad4-4759-8053-38b303c08a3e.png" />
@@ -498,10 +496,6 @@
     <Content Include="Views\Home\Contact.cshtml">
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>Contact.generated.cs</LastGenOutput>
-    </Content>
-    <Content Include="Views\Account\Login.cshtml">
-      <Generator>RazorGenerator</Generator>
-      <LastGenOutput>Login.generated.cs</LastGenOutput>
     </Content>
     <Content Include="Views\Account\Register.cshtml">
       <Generator>RazorGenerator</Generator>

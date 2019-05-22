@@ -1,0 +1,14 @@
+﻿@model OmiconShop.Application.Account.ViewModel.LoginViewModel
+
+@using (Ajax.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, new AjaxOptions
+{
+    HttpMethod = "Post",
+    UpdateTargetId = "target"
+},
+     new { @class = "px-4 py-3" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.EditorForModel()
+    <button type="submit" class="btn btn-primary">Sign in</button>
+}
