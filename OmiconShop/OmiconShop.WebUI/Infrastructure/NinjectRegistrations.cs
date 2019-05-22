@@ -5,14 +5,15 @@ using OmiconShop.Application.Checkout.Operations;
 using OmiconShop.Application.IRepository;
 using OmiconShop.Application.Repository;
 using System.Net.Mail;
-using AdminOrderOperations = OmiconShop.Application.Admin.Operations.OrderOperations;
-using CheckoutOrderOperations = OmiconShop.Application.Checkout.Operations.OrderOperations;
-using AdminProductOperations = OmiconShop.Application.Admin.Operations.ProductOperations;
-using HomeProductOperations = OmiconShop.Application.Home.Operations.ProductOperations;
 using OmiconShop.Application.ReplacementTags;
 using OmiconShop.Persistence;
 using OmiconShop.Application.Account;
 using OmiconShop.Application.Basket.Operations;
+using AdminOrderOperations = OmiconShop.Application.Admin.Operations.OrderOperations;
+using CheckoutOrderOperations = OmiconShop.Application.Checkout.Operations.OrderOperations;
+using AdminProductOperations = OmiconShop.Application.Admin.Operations.ProductOperations;
+using HomeProductOperations = OmiconShop.Application.Home.Operations.ProductOperations;
+using AdminUserOperations =  OmiconShop.Application.Admin.Operations.UserOperations;
 
 namespace OmiconShop.WebUI.Infrastructure
 {
@@ -37,6 +38,7 @@ namespace OmiconShop.WebUI.Infrastructure
             Bind<ShopDBContext>().To<ShopDBContext>();
             Bind<AccountApi>().To<AccountApi>();
             Bind<BasketOperations>().To<BasketOperations>();
+            Bind<AdminUserOperations>().To<AdminUserOperations>();
         }
     }
 }

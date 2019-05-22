@@ -20,21 +20,25 @@ namespace OmiconShop.Application.Admin
         IProductRepository productRepository;
         ProductOperations productOperations;
         OrderOperations orderOperations;
+        UserOperations userOperations;
 
         public AdminApi(IOrderRepository orderRepository,
             IUserRepository userRepository, IProductRepository productRepository,
-            ProductOperations productOperations, OrderOperations orderOperations)
+            ProductOperations productOperations, OrderOperations orderOperations,
+            UserOperations userOperations)
         {
             this.orderRepository = orderRepository;
             this.userRepository = userRepository;
             this.productRepository = productRepository;
             this.productOperations = productOperations;
             this.orderOperations = orderOperations;
+            this.userOperations = userOperations;
         }
 
-        public User GetCurrentUserData(string userEmail)
+        public UserViewModel GetCurrentUserData(string userEmail)
         {
-            return userRepository.GetUserByEmail(userEmail);
+            var currentUser =  userRepository.GetUserByEmail(userEmail);
+            return userOperations.CreateUserViewModel(currentUser);
         }
 
         public async Task<User> ChangeUserDataAsync(int userId, string userEmail)

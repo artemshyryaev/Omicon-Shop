@@ -43,6 +43,12 @@ namespace OmiconShop.Application.Checkout.ViewModel
             ErrorMessageResourceType = typeof(OrderInformationResources))]
         public string Country { get; set; }
 
+        [Display(Name = "City", ResourceType = typeof(OrderInformationResources))]
+        [Required(ErrorMessageResourceName = "CityValidation",
+            ErrorMessageResourceType = typeof(OrderInformationResources))]
+        [DataType(DataType.MultilineText)]
+        public string City { get; set; }
+
         [Display(Name = "Address", ResourceType = typeof(OrderInformationResources))]
         [Required(ErrorMessageResourceName = "AddressValidation",
             ErrorMessageResourceType = typeof(OrderInformationResources))]
@@ -52,12 +58,6 @@ namespace OmiconShop.Application.Checkout.ViewModel
         [Display(Name = "Address2", ResourceType = typeof(OrderInformationResources))]
         [DataType(DataType.MultilineText)]
         public string Address2 { get; set; }
-
-        [Display(Name = "City", ResourceType = typeof(OrderInformationResources))]
-        [Required(ErrorMessageResourceName = "CityValidation",
-            ErrorMessageResourceType = typeof(OrderInformationResources))]
-        [DataType(DataType.MultilineText)]
-        public string City { get; set; }
 
         [Display(Name = "ZipCode", ResourceType = typeof(OrderInformationResources))]
         [Required(ErrorMessageResourceName = "ZipCodeValidation",
