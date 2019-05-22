@@ -171,7 +171,7 @@ WriteLiteral(" $</td>\r\n\r\n");
             #line hidden
 WriteLiteral("                    <td");
 
-WriteLiteral(" class=\"qty\"");
+WriteLiteral(" class=\"product-list-qty\"");
 
 WriteLiteral(">\r\n");
 

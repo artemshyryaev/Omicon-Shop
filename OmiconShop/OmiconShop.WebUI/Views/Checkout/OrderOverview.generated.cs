@@ -78,7 +78,7 @@ WriteLiteral("</td>\r\n                    <td>");
 
             
             #line 21 "..\..\Views\Checkout\OrderOverview.cshtml"
-                   Write(el.Product.Price);
+                    Write((double)el.Product.Price);
 
             
             #line default
@@ -101,7 +101,7 @@ WriteLiteral("</td>\r\n                    <td>");
             
             #line default
             #line hidden
-WriteLiteral("$</td>\r\n                </tr>\r\n");
+WriteLiteral(" $</td>\r\n                </tr>\r\n");
 
             
             #line 25 "..\..\Views\Checkout\OrderOverview.cshtml"
@@ -123,24 +123,34 @@ WriteLiteral(">Total: ");
             
             #line default
             #line hidden
-WriteLiteral(" $</td>\r\n            </tr>\r\n        </tfoot>\r\n    </table>\r\n</div>\r\n\r\n<div>\r\n");
+WriteLiteral(" $</td>\r\n            </tr>\r\n        </tfoot>\r\n    </table>\r\n</div>\r\n\r\n<div");
+
+WriteLiteral(" class=\"decline-order\"");
+
+WriteLiteral(">\r\n");
 
 WriteLiteral("    ");
 
             
             #line 36 "..\..\Views\Checkout\OrderOverview.cshtml"
-Write(Html.RouteLink("Decline order", new { controller = "Checkout", action = "DeclineOrder", orderId = ViewBag.OrderId }, new { @class = "btn btn-primary"}));
+Write(Html.RouteLink("Decline order", new { controller = "Checkout", action = "DeclineOrder", orderId = ViewBag.OrderId },
+        new { @class = "badge badge-light decline-order__decline" }));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n");
+WriteLiteral("\r\n</div>\r\n\r\n<div");
+
+WriteLiteral(" class=\"submit-order\"");
+
+WriteLiteral(">\r\n");
 
 WriteLiteral("    ");
 
             
-            #line 37 "..\..\Views\Checkout\OrderOverview.cshtml"
-Write(Html.RouteLink("Submit order", new { controller = "Checkout", action = "SubmitOrder", orderId = ViewBag.OrderId }, new { @class = "btn btn-primary" }));
+            #line 41 "..\..\Views\Checkout\OrderOverview.cshtml"
+Write(Html.RouteLink("Submit order", new { controller = "Checkout", action = "SubmitOrder", orderId = ViewBag.OrderId },
+        new { @class = "badge badge-light submit-order__submit" }));
 
             
             #line default

@@ -20,7 +20,7 @@
                     <td>@el.Product.Name</td>
                     <td>@((double)el.Product.Price)</td>
                     <td>@el.Quantity</td>
-                    <td>@(el.Quantity * (double)el.Product.Price)$</td>
+                    <td>@(el.Quantity * (double)el.Product.Price) $</td>
                 </tr>
             }
         </tbody>
@@ -32,8 +32,13 @@
     </table>
 </div>
 
-<div>
-    @Html.RouteLink("Decline order", new { controller = "Checkout", action = "DeclineOrder", orderId = ViewBag.OrderId }, new { @class = "btn btn-primary"})
-    @Html.RouteLink("Submit order", new { controller = "Checkout", action = "SubmitOrder", orderId = ViewBag.OrderId }, new { @class = "btn btn-primary" })
+<div class="decline-order">
+    @Html.RouteLink("Decline order", new { controller = "Checkout", action = "DeclineOrder", orderId = ViewBag.OrderId },
+        new { @class = "badge badge-light decline-order__decline" })
+</div>
+
+<div class="submit-order">
+    @Html.RouteLink("Submit order", new { controller = "Checkout", action = "SubmitOrder", orderId = ViewBag.OrderId },
+        new { @class = "badge badge-light submit-order__submit" })
 </div>
 

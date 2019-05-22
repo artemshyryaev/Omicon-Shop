@@ -185,6 +185,10 @@ a:hover {
     width: 75px;
 }
 
+.product-list-qty {
+    width: 75px;
+}
+
 .price {
     width: 120px;
     text-align: center;
@@ -384,4 +388,36 @@ a:hover {
     position: absolute;
     left: 15rem;
     top: 8rem
+}
+
+.submit-order {
+    width: 10rem;
+    position: absolute;
+    right: 4rem;
+    top: 6rem;
+    background-color: #f8f9fa;
+    padding: 0.5rem;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.decline-order {
+    width: 10rem;
+    position: absolute;
+    right: 4rem;
+    top: 9rem;
+    background-color: #f8f9fa;
+    padding: 0.5rem;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.decline-order__decline {
+    font-size: 1rem;
+    color: red;
+}
+
+.submit-order__submit {
+    font-size: 1rem;
+    color: green;
 }
