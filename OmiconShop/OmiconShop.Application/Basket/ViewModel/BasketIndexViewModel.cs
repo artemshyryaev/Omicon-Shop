@@ -9,6 +9,6 @@ namespace OmiconShop.Application.Basket.ViewModel
     {
         public BasketViewModel Basket { get; set; }
 
-        public string RetunrUrl { get; set; }
+        public string ReturnUrl { get; set; }
     }
 }

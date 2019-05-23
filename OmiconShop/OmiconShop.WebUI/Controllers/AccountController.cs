@@ -36,7 +36,7 @@ namespace OmiconShop.WebUI.Controllers
         {
             WebSecurity.Logout();
 
-            return RedirectToAction("ProductsList", "Home");
+            return RedirectToAction("Index", "Home");
         }
 
         [AllowAnonymous]
@@ -110,14 +110,10 @@ namespace OmiconShop.WebUI.Controllers
         #region HelperMethods
         ActionResult RedirectToLocal(string returnUrl)
         {
-            if (Url.IsLocalUrl(returnUrl))
-            {
-                return Redirect(returnUrl);
-            }
+            if (Url.IsLocalUrl(returnUrl) && returnUrl != null)
+                return JavaScript("window.location = '" + Redirect(returnUrl) + "'");
             else
-            {
-                return RedirectToAction("Index", "Home");
-            }
+                return JavaScript("window.location = '" + Url.Action("Index", "Home") + "'");
         }
 
         static string ErrorCodeToString(MembershipCreateStatus createStatus)

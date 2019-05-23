@@ -47,7 +47,7 @@ namespace ASP
             
             #line default
             #line hidden
-WriteLiteral("\r\n\r\n<!DOCTYPE html>\r\n\r\n<html>\r\n<head>\r\n    <meta");
+WriteLiteral("\r\n<!DOCTYPE html>\r\n<html>\r\n<head>\r\n    <meta");
 
 WriteLiteral(" charset=\"utf-8\"");
 
@@ -60,7 +60,7 @@ WriteLiteral(" content=\"width=device-width, initial-scale=1.0\"");
 WriteLiteral(">\r\n    <title>");
 
             
-            #line 11 "..\..\Views\Shared\_AdminLayout.cshtml"
+            #line 9 "..\..\Views\Shared\_AdminLayout.cshtml"
       Write(ViewBag.Title);
 
             
@@ -71,7 +71,7 @@ WriteLiteral("</title>\r\n");
 WriteLiteral("    ");
 
             
-            #line 12 "..\..\Views\Shared\_AdminLayout.cshtml"
+            #line 10 "..\..\Views\Shared\_AdminLayout.cshtml"
 Write(Styles.Render("~/wwwroot/css"));
 
             
@@ -82,7 +82,7 @@ WriteLiteral("\r\n");
 WriteLiteral("    ");
 
             
-            #line 13 "..\..\Views\Shared\_AdminLayout.cshtml"
+            #line 11 "..\..\Views\Shared\_AdminLayout.cshtml"
 Write(Scripts.Render("~/bundles/modernizr"));
 
             
@@ -93,7 +93,7 @@ WriteLiteral("\r\n");
 WriteLiteral("    ");
 
             
-            #line 14 "..\..\Views\Shared\_AdminLayout.cshtml"
+            #line 12 "..\..\Views\Shared\_AdminLayout.cshtml"
 Write(Scripts.Render("~/bundles/jquery"));
 
             
@@ -104,7 +104,7 @@ WriteLiteral("\r\n");
 WriteLiteral("    ");
 
             
-            #line 15 "..\..\Views\Shared\_AdminLayout.cshtml"
+            #line 13 "..\..\Views\Shared\_AdminLayout.cshtml"
 Write(Scripts.Render("~/bundles/bootstrap"));
 
             
@@ -115,18 +115,29 @@ WriteLiteral("\r\n");
 WriteLiteral("    ");
 
             
-            #line 16 "..\..\Views\Shared\_AdminLayout.cshtml"
+            #line 14 "..\..\Views\Shared\_AdminLayout.cshtml"
 Write(Scripts.Render("~/bundles/sitejs"));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n</head>\r\n<body>\r\n    <header>\r\n");
+WriteLiteral("\r\n    <link");
+
+WriteLiteral(" rel=\"stylesheet\"");
+
+WriteLiteral(" href=\"https://use.fontawesome.com/releases/v5.8.2/css/all.css\"");
+
+WriteLiteral(" integrity=\"sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7" +
+"Ay\"");
+
+WriteLiteral(" crossorigin=\"anonymous\"");
+
+WriteLiteral(">\r\n</head>\r\n<body>\r\n    <header>\r\n");
 
 WriteLiteral("        ");
 
             
-            #line 20 "..\..\Views\Shared\_AdminLayout.cshtml"
+            #line 19 "..\..\Views\Shared\_AdminLayout.cshtml"
    Write(Html.Partial("_NavBar", new OmiconShop.Application.Account.ViewModel.LoginViewModel()));
 
             
@@ -135,26 +146,31 @@ WriteLiteral("        ");
 WriteLiteral("\r\n    </header>\r\n\r\n");
 
             
-            #line 23 "..\..\Views\Shared\_AdminLayout.cshtml"
+            #line 22 "..\..\Views\Shared\_AdminLayout.cshtml"
     
             
             #line default
             #line hidden
             
-            #line 23 "..\..\Views\Shared\_AdminLayout.cshtml"
+            #line 22 "..\..\Views\Shared\_AdminLayout.cshtml"
      if (User.Identity.IsAuthenticated)
     {
 
             
             #line default
             #line hidden
-WriteLiteral("        <div>\r\n");
+WriteLiteral("        <div");
+
+WriteLiteral(" class=\"admin-nav-menu\"");
+
+WriteLiteral(">\r\n");
 
 WriteLiteral("            ");
 
             
-            #line 26 "..\..\Views\Shared\_AdminLayout.cshtml"
-       Write(Html.RouteLink("Personal information", new { controller = "Admin", action = "PersonalInfo" }));
+            #line 25 "..\..\Views\Shared\_AdminLayout.cshtml"
+       Write(Html.RouteLink("Personal information", new { controller = "Admin", action = "PersonalInfo" },
+                 new { @class = "badge badge-light admin-nav-menu__personal-info" }));
 
             
             #line default
@@ -165,7 +181,8 @@ WriteLiteral("            ");
 
             
             #line 27 "..\..\Views\Shared\_AdminLayout.cshtml"
-       Write(Html.RouteLink("Orders", new { controller = "Admin", action = "OrderList" }));
+       Write(Html.RouteLink("My orders", new { controller = "Admin", action = "OrderList" },
+                 new { @class = "badge badge-light admin-nav-menu__order-list" }));
 
             
             #line default
@@ -173,13 +190,13 @@ WriteLiteral("            ");
 WriteLiteral("\r\n\r\n");
 
             
-            #line 29 "..\..\Views\Shared\_AdminLayout.cshtml"
+            #line 30 "..\..\Views\Shared\_AdminLayout.cshtml"
             
             
             #line default
             #line hidden
             
-            #line 29 "..\..\Views\Shared\_AdminLayout.cshtml"
+            #line 30 "..\..\Views\Shared\_AdminLayout.cshtml"
              if (User.Identity.Name == "admin@gmail.com")
             {
                 
@@ -187,15 +204,16 @@ WriteLiteral("\r\n\r\n");
             #line default
             #line hidden
             
-            #line 31 "..\..\Views\Shared\_AdminLayout.cshtml"
-           Write(Html.RouteLink("Products", new { controller = "Admin", action = "ProductList" }));
+            #line 32 "..\..\Views\Shared\_AdminLayout.cshtml"
+           Write(Html.RouteLink("Manage products", new { controller = "Admin", action = "ProductList" },
+                    new { @class = "badge badge-light admin-nav-menu__product-list" }));
 
             
             #line default
             #line hidden
             
-            #line 31 "..\..\Views\Shared\_AdminLayout.cshtml"
-                                                                                                 
+            #line 33 "..\..\Views\Shared\_AdminLayout.cshtml"
+                                                                                      
             }
 
             
@@ -204,7 +222,7 @@ WriteLiteral("\r\n\r\n");
 WriteLiteral("        </div>\r\n");
 
             
-            #line 34 "..\..\Views\Shared\_AdminLayout.cshtml"
+            #line 36 "..\..\Views\Shared\_AdminLayout.cshtml"
     }
 
             
@@ -213,13 +231,13 @@ WriteLiteral("        </div>\r\n");
 WriteLiteral("\r\n    <div>\r\n");
 
             
-            #line 37 "..\..\Views\Shared\_AdminLayout.cshtml"
+            #line 39 "..\..\Views\Shared\_AdminLayout.cshtml"
         
             
             #line default
             #line hidden
             
-            #line 37 "..\..\Views\Shared\_AdminLayout.cshtml"
+            #line 39 "..\..\Views\Shared\_AdminLayout.cshtml"
          if (TempData["message"] != null)
         {
 
@@ -233,7 +251,7 @@ WriteLiteral(" class=\"alert alert-success\"");
 WriteLiteral(">");
 
             
-            #line 39 "..\..\Views\Shared\_AdminLayout.cshtml"
+            #line 41 "..\..\Views\Shared\_AdminLayout.cshtml"
                                         Write(TempData["message"]);
 
             
@@ -242,7 +260,7 @@ WriteLiteral(">");
 WriteLiteral("</div>\r\n");
 
             
-            #line 40 "..\..\Views\Shared\_AdminLayout.cshtml"
+            #line 42 "..\..\Views\Shared\_AdminLayout.cshtml"
         }
 
             
@@ -251,7 +269,7 @@ WriteLiteral("</div>\r\n");
 WriteLiteral("        ");
 
             
-            #line 41 "..\..\Views\Shared\_AdminLayout.cshtml"
+            #line 43 "..\..\Views\Shared\_AdminLayout.cshtml"
    Write(RenderBody());
 
             
@@ -262,7 +280,7 @@ WriteLiteral("\r\n    </div>\r\n\r\n    <footer>\r\n");
 WriteLiteral("        ");
 
             
-            #line 45 "..\..\Views\Shared\_AdminLayout.cshtml"
+            #line 47 "..\..\Views\Shared\_AdminLayout.cshtml"
    Write(Html.Partial("_Footer"));
 
             
@@ -273,7 +291,7 @@ WriteLiteral("\r\n    </footer>\r\n\r\n");
 WriteLiteral("    ");
 
             
-            #line 48 "..\..\Views\Shared\_AdminLayout.cshtml"
+            #line 50 "..\..\Views\Shared\_AdminLayout.cshtml"
 Write(RenderSection("scripts", required: false));
 
             

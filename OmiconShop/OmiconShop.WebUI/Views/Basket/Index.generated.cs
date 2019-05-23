@@ -321,7 +321,7 @@ WriteLiteral(" class=\"badge badge-light btn-returnUrl\"");
 WriteAttribute("href", Tuple.Create(" href=\"", 2444), Tuple.Create("\"", 2467)
             
             #line 60 "..\..\Views\Basket\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 2451), Tuple.Create<System.Object, System.Int32>(Model.RetunrUrl
+, Tuple.Create(Tuple.Create("", 2451), Tuple.Create<System.Object, System.Int32>(Model.ReturnUrl
             
             #line default
             #line hidden

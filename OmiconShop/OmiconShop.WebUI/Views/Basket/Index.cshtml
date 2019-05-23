@@ -57,7 +57,7 @@
     <a class="badge badge-light btn-emptyBasket" href="#">Empty basket</a>
 </div>
 <div class="basket-buttons">
-    <a class="badge badge-light btn-returnUrl" href="@Model.RetunrUrl">Continue shopping</a>
+    <a class="badge badge-light btn-returnUrl" href="@Model.ReturnUrl">Continue shopping</a>
     @Html.RouteLink("Procceed to checkout", new { action = "OrderInformation", controller = "Checkout" },
         new {@class = "badge badge-light btn-procceedToCheckout" })
 </div>

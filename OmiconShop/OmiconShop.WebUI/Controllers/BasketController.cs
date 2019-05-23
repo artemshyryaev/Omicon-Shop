@@ -21,7 +21,7 @@ namespace OmiconShop.WebUI.Controllers
         {
             var basket = basketApi.GetCurrentBasket();
 
-            return View(new BasketIndexViewModel { Basket = basket, RetunrUrl = returnUrl });
+            return View(new BasketIndexViewModel { Basket = basket, ReturnUrl = returnUrl });
         }
 
         [HttpPost]

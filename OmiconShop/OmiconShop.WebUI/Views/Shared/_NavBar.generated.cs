@@ -314,7 +314,7 @@ WriteLiteral(">");
 
             
             #line 54 "..\..\Views\Shared\_NavBar.cshtml"
-                                    Write(Html.Partial("_LoginForm"));
+                                    Write(Html.Partial("_LoginForm", new OmiconShop.Application.Account.ViewModel.LoginViewModel()));
 
             
             #line default
