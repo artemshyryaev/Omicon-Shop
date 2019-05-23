@@ -16,15 +16,15 @@ namespace OmiconShop.Application.Admin.Operations
             var createdUser = new UserViewModel
             {
                 Id = user.UserId,
-                Email = user.Email,
-                Name = user.UserPersonalInformation.Name,
-                Surname = user.UserPersonalInformation.Surname,
-                PhoneNumber = user.UserPersonalInformation.PhoneNumber,
-                Country = user.UserAddress.Country,
-                City = user.UserAddress.City,
-                Address = user.UserAddress.Address,
-                Address2 = user.UserAddress.Address2,
-                ZipCode = user.UserAddress.ZipCode
+                Email = user?.Email,
+                Name = user?.UserPersonalInformation?.Name,
+                Surname = user?.UserPersonalInformation?.Surname,
+                PhoneNumber = user?.UserPersonalInformation?.PhoneNumber,
+                Country = user?.UserAddress?.Country,
+                City = user?.UserAddress?.City,
+                Address = user?.UserAddress?.Address,
+                Address2 = user?.UserAddress?.Address2,
+                ZipCode = user?.UserAddress?.ZipCode
             };
 
             return createdUser;

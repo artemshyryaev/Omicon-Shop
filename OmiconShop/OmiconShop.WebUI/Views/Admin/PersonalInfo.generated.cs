@@ -32,7 +32,7 @@ namespace ASP
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("RazorGenerator", "2.0.0.0")]
     [System.Web.WebPages.PageVirtualPathAttribute("~/Views/Admin/PersonalInfo.cshtml")]
-    public partial class _Views_Admin_PersonalInfo_cshtml : System.Web.Mvc.WebViewPage<OmiconShop.Domain.Entities.User>
+    public partial class _Views_Admin_PersonalInfo_cshtml : System.Web.Mvc.WebViewPage<OmiconShop.Application.Admin.ViewModel.UserViewModel>
     {
         public _Views_Admin_PersonalInfo_cshtml()
         {
@@ -42,51 +42,46 @@ namespace ASP
             
             #line 2 "..\..\Views\Admin\PersonalInfo.cshtml"
   
-    ViewBag.Title = "Your details";
+    ViewBag.Title = "Your personal details";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n\r\n<h2>Your details</h2>\r\n\r\n");
+WriteLiteral("\r\n\r\n<hgroup");
+
+WriteLiteral(" class=\"title\"");
+
+WriteLiteral(">\r\n    <h1>");
 
             
-            #line 9 "..\..\Views\Admin\PersonalInfo.cshtml"
+            #line 8 "..\..\Views\Admin\PersonalInfo.cshtml"
+   Write(ViewBag.Title);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</h1>\r\n</hgroup>\r\n\r\n");
+
+            
+            #line 11 "..\..\Views\Admin\PersonalInfo.cshtml"
  using (Html.BeginForm("PersonalInfo", "Admin"))
 {
 
             
             #line default
             #line hidden
-WriteLiteral("    <div>\r\n");
+WriteLiteral("    <div");
 
-WriteLiteral("        ");
+WriteLiteral(" class=\"change-password\"");
 
-            
-            #line 12 "..\..\Views\Admin\PersonalInfo.cshtml"
-   Write(Html.HiddenFor(x => x.UserId));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n");
-
-WriteLiteral("        ");
-
-            
-            #line 13 "..\..\Views\Admin\PersonalInfo.cshtml"
-   Write(Html.LabelFor(x => x.Email));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n");
+WriteLiteral(">\r\n");
 
 WriteLiteral("        ");
 
             
             #line 14 "..\..\Views\Admin\PersonalInfo.cshtml"
-   Write(Html.TextBoxFor(x => x.Email));
+   Write(Html.ValidationSummary(true));
 
             
             #line default
@@ -97,6 +92,50 @@ WriteLiteral("        ");
 
             
             #line 15 "..\..\Views\Admin\PersonalInfo.cshtml"
+   Write(Html.AntiForgeryToken());
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n");
+
+WriteLiteral("        ");
+
+            
+            #line 16 "..\..\Views\Admin\PersonalInfo.cshtml"
+   Write(Html.HiddenFor(x => x.Id));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n");
+
+WriteLiteral("        ");
+
+            
+            #line 17 "..\..\Views\Admin\PersonalInfo.cshtml"
+   Write(Html.LabelFor(x => x.Email));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n");
+
+WriteLiteral("        ");
+
+            
+            #line 18 "..\..\Views\Admin\PersonalInfo.cshtml"
+   Write(Html.TextBoxFor(x => x.Email));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n");
+
+WriteLiteral("        ");
+
+            
+            #line 19 "..\..\Views\Admin\PersonalInfo.cshtml"
    Write(Html.ValidationMessageFor(x => x.Email));
 
             
@@ -113,7 +152,7 @@ WriteLiteral(" class=\"btn btn-primary\"");
 WriteLiteral(">\r\n    </div>\r\n");
 
             
-            #line 18 "..\..\Views\Admin\PersonalInfo.cshtml"
+            #line 22 "..\..\Views\Admin\PersonalInfo.cshtml"
 }
 
             

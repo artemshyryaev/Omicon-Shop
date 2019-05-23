@@ -41,12 +41,14 @@ namespace OmiconShop.Application.Admin
             return userOperations.CreateUserViewModel(currentUser);
         }
 
-        public async Task<User> ChangeUserDataAsync(int userId, string userEmail)
+        public async Task<UserViewModel> ChangeUserDataAsync(int userId, string userEmail)
         {
-            var changedUser = await userRepository.ChangeUserEmailAsync(userId, userEmail);
-            await orderRepository.ChangeUserEmailInOrdersAsync(userId, changedUser.Email);
+            var modifiedUser = await userRepository.ChangeUserEmailAsync(userId, userEmail);
+            await orderRepository.ChangeUserEmailInOrdersAsync(userId, modifiedUser.Email);
 
-            return changedUser;
+            var createdUser = userOperations.CreateUserViewModel(modifiedUser);
+
+            return createdUser;
         }
 
         public ProductsListViewModel GetProductsListViewModel(string productName, int page, int pageSize)

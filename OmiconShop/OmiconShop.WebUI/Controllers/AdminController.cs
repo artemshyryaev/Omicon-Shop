@@ -32,9 +32,9 @@ namespace OmiconShop.WebUI.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> PersonalInfo(int userId, string email)
+        public async Task<ActionResult> PersonalInfo(int id, string email)
         {
-            var changedUser = await adminApi.ChangeUserDataAsync(userId, email);
+            var changedUser = await adminApi.ChangeUserDataAsync(id, email);
 
             WebSecurity.Logout();
             FormsAuthentication.SetAuthCookie(changedUser.Email, false);
