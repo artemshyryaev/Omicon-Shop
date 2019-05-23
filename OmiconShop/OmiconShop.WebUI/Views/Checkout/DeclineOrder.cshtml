@@ -2,5 +2,14 @@
     ViewBag.Title = "Declined";
 }
 
-<span class="declined-order">Your order was declined! Please @Html.ActionLink("continue shopping", "ProductsList", "Home") or @Html.ActionLink("empty your basket", "Index", "Basket")!</span>
+<span class="declined-order">
+    Your order was declined! Please <b>
+        @Html.RouteLink("continue shopping", new { controller = "Home" , action = "ProductsList" },
+                  new { @class = "declined-order_links" })
+</b>
+    or <b>
+    @Html.RouteLink("empty your basket", new { controller = "Basket", action = "Index" },
+                                                                        new { @class = "declined-order_links" })
+</b>!
+</span>
 

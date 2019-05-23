@@ -4,18 +4,32 @@
     ViewBag.Title = "SucessfullOrder";
 }
 
-<h2>
-    Dear
+<span class="sucessfull-order"><b>ORDER PROCESSED SUCCESSFULLY</b></span>
+<div class="sucessfull-order-nav-items">
+    <div>
+        @Html.RouteLink("Go to your order page.",
+       new { controller = "Admin", action = "OrderDetails", orderId = Model.OrderId },
+       new {@class = "sucessfull-order__links" })
+    </div>
     @if (User.Identity.IsAuthenticated)
-    {@User.Identity.Name}
-    else
     {
-        @:anonymous
+        <div>
+            @Html.RouteLink("Go to your account page.",
+           new { controller = "Admin", action = "PersonalInfo"},
+           new {@class = "sucessfull-order__links" })
+        </div>
     }
-    your order was sucessfully created!!!
-</h2>
-<div>
-    @Html.RouteLink("Go to your order details",
-   new { controller = "Admin", action = "OrderDetails", orderId = Model.OrderId })
+    <div>
+        @Html.RouteLink("Go to homepage",
+       new { controller = "Home", action = "Index"},
+       new {@class = "sucessfull-order__links" })
+    </div>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div>
+            @Html.RouteLink("Logout",
+            new { controller = "Account", action = "LogOff" },
+            new { @class = "sucessfull-order__links" })
+        </div>
+    }
 </div>
-

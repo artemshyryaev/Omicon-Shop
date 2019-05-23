@@ -29,7 +29,7 @@ namespace ASP
     using System.Web.WebPages;
     using OmiconShop.WebUI;
     using OmiconShop.WebUI.HtmlHelpers;
-
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("RazorGenerator", "2.0.0.0")]
     [System.Web.WebPages.PageVirtualPathAttribute("~/Views/Checkout/OrderSucessfullyCreated.cshtml")]
     public partial class _Views_Checkout_OrderSucessfullyCreated_cshtml : System.Web.Mvc.WebViewPage<OmiconShop.Domain.Entities.Order>
@@ -47,61 +47,117 @@ namespace ASP
             
             #line default
             #line hidden
-WriteLiteral("\r\n\r\n<h2>\r\n    Dear\r\n");
+WriteLiteral("\r\n\r\n<span");
+
+WriteLiteral(" class=\"sucessfull-order\"");
+
+WriteLiteral("><b>ORDER PROCESSED SUCCESSFULLY</b></span>\r\n<div");
+
+WriteLiteral(" class=\"sucessfull-order-nav-items\"");
+
+WriteLiteral(">\r\n    <div>\r\n");
+
+WriteLiteral("        ");
 
             
-            #line 9 "..\..\Views\Checkout\OrderSucessfullyCreated.cshtml"
+            #line 10 "..\..\Views\Checkout\OrderSucessfullyCreated.cshtml"
+   Write(Html.RouteLink("Go to your order page.",
+       new { controller = "Admin", action = "OrderDetails", orderId = Model.OrderId },
+       new {@class = "sucessfull-order__links" }));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n    </div>\r\n");
+
+            
+            #line 14 "..\..\Views\Checkout\OrderSucessfullyCreated.cshtml"
     
             
             #line default
             #line hidden
             
-            #line 9 "..\..\Views\Checkout\OrderSucessfullyCreated.cshtml"
+            #line 14 "..\..\Views\Checkout\OrderSucessfullyCreated.cshtml"
      if (User.Identity.IsAuthenticated)
     {
-            
-            #line default
-            #line hidden
-            
-            #line 10 "..\..\Views\Checkout\OrderSucessfullyCreated.cshtml"
-Write(User.Identity.Name);
 
             
             #line default
             #line hidden
+WriteLiteral("        <div>\r\n");
+
+WriteLiteral("            ");
+
             
-            #line 10 "..\..\Views\Checkout\OrderSucessfullyCreated.cshtml"
-                        }
-    else
-    {
+            #line 17 "..\..\Views\Checkout\OrderSucessfullyCreated.cshtml"
+       Write(Html.RouteLink("Go to your account page.",
+           new { controller = "Admin", action = "PersonalInfo"},
+           new {@class = "sucessfull-order__links" }));
 
             
             #line default
             #line hidden
-WriteLiteral("        ");
-
-WriteLiteral("anonymous\r\n");
+WriteLiteral("\r\n        </div>\r\n");
 
             
-            #line 14 "..\..\Views\Checkout\OrderSucessfullyCreated.cshtml"
+            #line 21 "..\..\Views\Checkout\OrderSucessfullyCreated.cshtml"
     }
 
             
             #line default
             #line hidden
-WriteLiteral("    your order was sucessfully created!!!\r\n</h2>\r\n<div>\r\n");
+WriteLiteral("    <div>\r\n");
 
-WriteLiteral("    ");
+WriteLiteral("        ");
 
             
-            #line 18 "..\..\Views\Checkout\OrderSucessfullyCreated.cshtml"
-Write(Html.RouteLink("Go to your order details",
-   new { controller = "Admin", action = "OrderDetails", orderId = Model.OrderId }));
+            #line 23 "..\..\Views\Checkout\OrderSucessfullyCreated.cshtml"
+   Write(Html.RouteLink("Go to homepage",
+       new { controller = "Home", action = "Index"},
+       new {@class = "sucessfull-order__links" }));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n</div>\r\n\r\n");
+WriteLiteral("\r\n    </div>\r\n");
+
+            
+            #line 27 "..\..\Views\Checkout\OrderSucessfullyCreated.cshtml"
+    
+            
+            #line default
+            #line hidden
+            
+            #line 27 "..\..\Views\Checkout\OrderSucessfullyCreated.cshtml"
+     if (User.Identity.IsAuthenticated)
+    {
+
+            
+            #line default
+            #line hidden
+WriteLiteral("        <div>\r\n");
+
+WriteLiteral("            ");
+
+            
+            #line 30 "..\..\Views\Checkout\OrderSucessfullyCreated.cshtml"
+       Write(Html.RouteLink("Logout",
+            new { controller = "Account", action = "LogOff" },
+            new { @class = "sucessfull-order__links" }));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n        </div>\r\n");
+
+            
+            #line 34 "..\..\Views\Checkout\OrderSucessfullyCreated.cshtml"
+    }
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</div>");
 
         }
     }

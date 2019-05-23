@@ -355,7 +355,34 @@ a:hover {
 }
 
 .declined-order {
-    font-size: 2rem;
+    font-size: 1.2rem;
+}
+
+.declined-order_links {
+    color: black;
+}
+
+.sucessfull-order {
+    font-size: 1.2rem;
+}
+
+.order-details {
+    font-size: 1rem;
+    color: black;
+}
+
+.sucessfull-order {
+    margin-left: 5rem;
+    font-size: 1.5rem;
+}
+
+.sucessfull-order-nav-items {
+    margin-left: 5rem;
+    font-size: 1rem;
+}
+
+.sucessfull-order__links {
+    color: black;
 }
 
 .admin-nav-menu {
