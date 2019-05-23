@@ -50,11 +50,9 @@
                     <a class="nav-link dropdown-toggle login-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Login
                     </a>
-                    <div class="dropdown-menu dropdown-menu-right">
+                    <div class="dropdown-menu dropdown-menu-right login-dropdown-menu">
                         <div id="target">@Html.Partial("_LoginForm", new OmiconShop.Application.Account.ViewModel.LoginViewModel())</div>
-                        <div class="dropdown-divider"></div>
-                        <b>@Html.RouteLink("Forget the password?", new { controller = "Account", action = "ChangePassword" }, new { @class = "dropdown-item" })</b>
-                        <b>
+                        <div class="dropdown-divider"></div><b>
                             @Html.RouteLink("Register", new { controller = "Account", action = "Register" }, new { @class = "dropdown-item" })
                         </b>
                     </div>

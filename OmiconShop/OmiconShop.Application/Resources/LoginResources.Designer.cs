@@ -70,6 +70,15 @@ namespace OmiconShop.Application.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enter valid new password..
+        /// </summary>
+        public static string ConfirmNewPasswordValidation {
+            get {
+                return ResourceManager.GetString("ConfirmNewPasswordValidation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ConfirmPassword.
         /// </summary>
         public static string ConfirmPassword {
@@ -142,11 +151,29 @@ namespace OmiconShop.Application.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enter valid new password..
+        /// </summary>
+        public static string NewPasswordValidation {
+            get {
+                return ResourceManager.GetString("NewPasswordValidation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Old password.
         /// </summary>
         public static string OldPassword {
             get {
                 return ResourceManager.GetString("OldPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter valid password..
+        /// </summary>
+        public static string OldPasswordValidation {
+            get {
+                return ResourceManager.GetString("OldPasswordValidation", resourceCulture);
             }
         }
         

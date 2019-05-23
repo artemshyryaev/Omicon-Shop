@@ -120,6 +120,9 @@
   <data name="ConfirmNewPassword" xml:space="preserve">
     <value>Confirm new password</value>
   </data>
+  <data name="ConfirmNewPasswordValidation" xml:space="preserve">
+    <value>Enter valid new password.</value>
+  </data>
   <data name="ConfirmPassword" xml:space="preserve">
     <value>ConfirmPassword</value>
   </data>
@@ -144,8 +147,14 @@
   <data name="NewPassword" xml:space="preserve">
     <value>Enter new password</value>
   </data>
+  <data name="NewPasswordValidation" xml:space="preserve">
+    <value>Enter valid new password.</value>
+  </data>
   <data name="OldPassword" xml:space="preserve">
     <value>Old password</value>
+  </data>
+  <data name="OldPasswordValidation" xml:space="preserve">
+    <value>Enter valid password.</value>
   </data>
   <data name="Password" xml:space="preserve">
     <value>Password</value>

@@ -33,6 +33,10 @@ textarea {
     margin-left: 1rem;
 }
 
+.login-dropdown-menu {
+    width: 13rem;
+}
+
 .fa-user {
     margin-top: 0.125rem;
     font-size: 22px;
