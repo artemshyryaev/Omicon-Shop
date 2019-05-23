@@ -9,8 +9,9 @@ namespace OmiconShop.Application.Account.ViewModel
 {
     public class RegisterViewModel
     {
-        [Required]
         [Display(Name = "Login", ResourceType = typeof(LoginResources))]
+        [Required(ErrorMessageResourceName = "LoginValidation",
+            ErrorMessageResourceType = typeof(LoginResources))]
         public string Login { get; set; }
 
         [Display(Name = "Name", ResourceType = typeof(OrderInformationResources))]
@@ -56,14 +57,16 @@ namespace OmiconShop.Application.Account.ViewModel
         [DataType(DataType.PostalCode)]
         public string ZipCode { get; set; }
 
-        [Required]
+        [Required(ErrorMessageResourceName = "PasswordValidation",
+            ErrorMessageResourceType = typeof(LoginResources))]
         [Display(Name = "Password", ResourceType = typeof(LoginResources))]
         [DataType(DataType.Password)]
         [StringLength(30, MinimumLength = 3, ErrorMessageResourceName = "LengthValidation",
             ErrorMessageResourceType = typeof(LoginResources))]
         public string Password { get; set; }
 
-        [Required]
+        [Required(ErrorMessageResourceName = "ConfirmPasswordValidation",
+            ErrorMessageResourceType = typeof(LoginResources))]
         [Display(Name = "ConfirmPassword", ResourceType = typeof(LoginResources))]
         [DataType(DataType.Password)]
         [Compare("Password", ErrorMessageResourceName = "PasswordComparisonValidation",

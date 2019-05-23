@@ -79,7 +79,7 @@ namespace OmiconShop.Application.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enter address..
+        ///   Looks up a localized string similar to Enter valid address..
         /// </summary>
         public static string AddressValidation {
             get {
@@ -97,7 +97,7 @@ namespace OmiconShop.Application.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enter city..
+        ///   Looks up a localized string similar to Enter valid city..
         /// </summary>
         public static string CityValidation {
             get {
@@ -115,7 +115,7 @@ namespace OmiconShop.Application.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enter country..
+        ///   Looks up a localized string similar to Enter valid country..
         /// </summary>
         public static string CountryValidation {
             get {
@@ -142,7 +142,7 @@ namespace OmiconShop.Application.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enter email..
+        ///   Looks up a localized string similar to Enter valid email..
         /// </summary>
         public static string EmailValidation {
             get {
@@ -160,7 +160,7 @@ namespace OmiconShop.Application.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enter name..
+        ///   Looks up a localized string similar to Enter valid name..
         /// </summary>
         public static string NameValidation {
             get {
@@ -205,7 +205,7 @@ namespace OmiconShop.Application.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enter surname..
+        ///   Looks up a localized string similar to Enter valid surname..
         /// </summary>
         public static string SurnameValidation {
             get {
@@ -223,7 +223,7 @@ namespace OmiconShop.Application.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enter zip code..
+        ///   Looks up a localized string similar to Enter valid zip code..
         /// </summary>
         public static string ZipCodeValidation {
             get {

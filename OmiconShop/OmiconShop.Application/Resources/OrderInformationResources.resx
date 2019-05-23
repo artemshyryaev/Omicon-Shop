@@ -124,19 +124,19 @@
     <value>Address2</value>
   </data>
   <data name="AddressValidation" xml:space="preserve">
-    <value>Enter address.</value>
+    <value>Enter valid address.</value>
   </data>
   <data name="City" xml:space="preserve">
     <value>City</value>
   </data>
   <data name="CityValidation" xml:space="preserve">
-    <value>Enter city.</value>
+    <value>Enter valid city.</value>
   </data>
   <data name="Country" xml:space="preserve">
     <value>Country</value>
   </data>
   <data name="CountryValidation" xml:space="preserve">
-    <value>Enter country.</value>
+    <value>Enter valid country.</value>
   </data>
   <data name="Delivery" xml:space="preserve">
     <value>Delivery</value>
@@ -145,13 +145,13 @@
     <value>Email</value>
   </data>
   <data name="EmailValidation" xml:space="preserve">
-    <value>Enter email.</value>
+    <value>Enter valid email.</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Name</value>
   </data>
   <data name="NameValidation" xml:space="preserve">
-    <value>Enter name.</value>
+    <value>Enter valid name.</value>
   </data>
   <data name="Payment" xml:space="preserve">
     <value>Payment</value>
@@ -166,12 +166,12 @@
     <value>Surname</value>
   </data>
   <data name="SurnameValidation" xml:space="preserve">
-    <value>Enter surname.</value>
+    <value>Enter valid surname.</value>
   </data>
   <data name="ZipCode" xml:space="preserve">
     <value>ZipCode</value>
   </data>
   <data name="ZipCodeValidation" xml:space="preserve">
-    <value>Enter zip code.</value>
+    <value>Enter valid zip code.</value>
   </data>
 </root>

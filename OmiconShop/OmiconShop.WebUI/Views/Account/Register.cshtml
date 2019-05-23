@@ -5,26 +5,17 @@
 }
 
 <hgroup class="title">
-    <h1>@ViewBag.Title.</h1>
+    <h1>@ViewBag.Title</h1>
 </hgroup>
 
-<section id="registerForm">
-    @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
-    {
-        @Html.AntiForgeryToken()
-        @Html.ValidationSummary(true)
+@using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.EditorForModel()
+    <input type="submit" value="Register" class="btn btn-primary">
+}
 
-        <fieldset>
-            <legend>Log in Form</legend>
-            @Html.EditorForModel()
-            <input type="submit" value="Register">
-        </fieldset>
-    }
-
-    @*<p>
-        @Html.RouteLink("Log in", new { controller = "Action", action = "Login" }) if you have an account!
-    </p>*@
-</section>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
