@@ -96,7 +96,7 @@ namespace OmiconShop.WebUI.Controllers
 
                 if (changePasswordSucceed)
                 {
-                    RedirectToAction("ChangePassword", new { Message = "Your password has been successfully changed" });
+                    TempData["message"] = string.Format("The user email was successfully changed!");
                 }
                 else
                 {

@@ -68,7 +68,7 @@ WriteLiteral(">");
 
             
             #line 11 "..\..\Views\Account\ChangePassword.cshtml"
-                      Write(ViewBag.StatusMessage);
+                      Write(ViewBag.Message);
 
             
             #line default
@@ -126,32 +126,36 @@ WriteLiteral(">\r\n");
             
             #line 18 "..\..\Views\Account\ChangePassword.cshtml"
                                      
-
+        
+            
+            #line default
+            #line hidden
+            
+            #line 19 "..\..\Views\Account\ChangePassword.cshtml"
+   Write(Html.EditorForModel());
 
             
             #line default
             #line hidden
-WriteLiteral("        <fieldset>\r\n            <legend>Change Password Form</legend>\r\n");
-
-WriteLiteral("            ");
-
             
-            #line 22 "..\..\Views\Account\ChangePassword.cshtml"
-       Write(Html.EditorForModel());
+            #line 19 "..\..\Views\Account\ChangePassword.cshtml"
+                              
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n            <input");
+WriteLiteral("        <input");
 
 WriteLiteral(" type=\"submit\"");
 
 WriteLiteral(" value=\"Submit\"");
 
-WriteLiteral(">\r\n        </fieldset>\r\n");
+WriteLiteral(" class=\"btn btn-primary\"");
+
+WriteLiteral(">\r\n");
 
             
-            #line 25 "..\..\Views\Account\ChangePassword.cshtml"
+            #line 21 "..\..\Views\Account\ChangePassword.cshtml"
     }
 
             
@@ -166,7 +170,7 @@ WriteLiteral("\r\n");
 WriteLiteral("    ");
 
             
-            #line 29 "..\..\Views\Account\ChangePassword.cshtml"
+            #line 25 "..\..\Views\Account\ChangePassword.cshtml"
 Write(Scripts.Render("~/bundles/jqueryval"));
 
             

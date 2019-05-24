@@ -221,6 +221,15 @@ WriteLiteral(">\r\n                        <b>");
             
             #line default
             #line hidden
+WriteLiteral("</b>\r\n                        <b>");
+
+            
+            #line 38 "..\..\Views\Shared\_NavBar.cshtml"
+                      Write(Html.RouteLink("Change password", new { controller = "Account", action = "ChangePassword" }, new { @class = "dropdown-item" }));
+
+            
+            #line default
+            #line hidden
 WriteLiteral("</b>\r\n                        <div");
 
 WriteLiteral(" class=\"dropdown-divider\"");
@@ -228,13 +237,13 @@ WriteLiteral(" class=\"dropdown-divider\"");
 WriteLiteral("></div>\r\n");
 
             
-            #line 39 "..\..\Views\Shared\_NavBar.cshtml"
+            #line 40 "..\..\Views\Shared\_NavBar.cshtml"
                         
             
             #line default
             #line hidden
             
-            #line 39 "..\..\Views\Shared\_NavBar.cshtml"
+            #line 40 "..\..\Views\Shared\_NavBar.cshtml"
                          using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
                         {
                             
@@ -242,14 +251,14 @@ WriteLiteral("></div>\r\n");
             #line default
             #line hidden
             
-            #line 41 "..\..\Views\Shared\_NavBar.cshtml"
+            #line 42 "..\..\Views\Shared\_NavBar.cshtml"
                        Write(Html.AntiForgeryToken());
 
             
             #line default
             #line hidden
             
-            #line 41 "..\..\Views\Shared\_NavBar.cshtml"
+            #line 42 "..\..\Views\Shared\_NavBar.cshtml"
                                                     
 
             
@@ -264,7 +273,7 @@ WriteLiteral(" class=\"dropdown-item\"");
 WriteLiteral("><b>Logoff</b></a>\r\n");
 
             
-            #line 43 "..\..\Views\Shared\_NavBar.cshtml"
+            #line 44 "..\..\Views\Shared\_NavBar.cshtml"
                         }
 
             
@@ -273,7 +282,7 @@ WriteLiteral("><b>Logoff</b></a>\r\n");
 WriteLiteral("                    </div>\r\n                </li>\r\n");
 
             
-            #line 46 "..\..\Views\Shared\_NavBar.cshtml"
+            #line 47 "..\..\Views\Shared\_NavBar.cshtml"
             }
             else
             {
@@ -304,7 +313,7 @@ WriteLiteral(" aria-expanded=\"false\"");
 WriteLiteral(">\r\n                        Login\r\n                    </a>\r\n                    <" +
 "div");
 
-WriteLiteral(" class=\"dropdown-menu dropdown-menu-right\"");
+WriteLiteral(" class=\"dropdown-menu dropdown-menu-right login-dropdown-menu\"");
 
 WriteLiteral(">\r\n                        <div");
 
@@ -313,7 +322,7 @@ WriteLiteral(" id=\"target\"");
 WriteLiteral(">");
 
             
-            #line 54 "..\..\Views\Shared\_NavBar.cshtml"
+            #line 55 "..\..\Views\Shared\_NavBar.cshtml"
                                     Write(Html.Partial("_LoginForm", new OmiconShop.Application.Account.ViewModel.LoginViewModel()));
 
             
@@ -323,21 +332,12 @@ WriteLiteral("</div>\r\n                        <div");
 
 WriteLiteral(" class=\"dropdown-divider\"");
 
-WriteLiteral("></div>\r\n                        <b>");
-
-            
-            #line 56 "..\..\Views\Shared\_NavBar.cshtml"
-                      Write(Html.RouteLink("Forget the password?", new { controller = "Account", action = "ChangePassword" }, new { @class = "dropdown-item" }));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("</b>\r\n                        <b>\r\n");
+WriteLiteral("></div><b>\r\n");
 
 WriteLiteral("                            ");
 
             
-            #line 58 "..\..\Views\Shared\_NavBar.cshtml"
+            #line 57 "..\..\Views\Shared\_NavBar.cshtml"
                        Write(Html.RouteLink("Register", new { controller = "Account", action = "Register" }, new { @class = "dropdown-item" }));
 
             
@@ -347,7 +347,7 @@ WriteLiteral("\r\n                        </b>\r\n                    </div>\r\n
 "\r\n");
 
             
-            #line 62 "..\..\Views\Shared\_NavBar.cshtml"
+            #line 61 "..\..\Views\Shared\_NavBar.cshtml"
             }
 
             
