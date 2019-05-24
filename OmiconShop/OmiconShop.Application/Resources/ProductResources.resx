@@ -118,25 +118,25 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Description" xml:space="preserve">
-    <value>Description</value>
+    <value>Description*</value>
   </data>
   <data name="DescriptionValidation" xml:space="preserve">
     <value>Enter valid description.</value>
   </data>
   <data name="Name" xml:space="preserve">
-    <value>Name</value>
+    <value>Name*</value>
   </data>
   <data name="NameValidation" xml:space="preserve">
     <value>Enter valid name.</value>
   </data>
   <data name="Price" xml:space="preserve">
-    <value>Price</value>
+    <value>Price*</value>
   </data>
   <data name="PriceValidation" xml:space="preserve">
     <value>Enter valid price.</value>
   </data>
   <data name="Type" xml:space="preserve">
-    <value>Type</value>
+    <value>Type*</value>
   </data>
   <data name="TypeValidation" xml:space="preserve">
     <value>Enter valid type.</value>

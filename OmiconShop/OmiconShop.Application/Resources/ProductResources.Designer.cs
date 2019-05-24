@@ -61,7 +61,7 @@ namespace OmiconShop.Application.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Description.
+        ///   Looks up a localized string similar to Description*.
         /// </summary>
         public static string Description {
             get {
@@ -79,7 +79,7 @@ namespace OmiconShop.Application.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Name.
+        ///   Looks up a localized string similar to Name*.
         /// </summary>
         public static string Name {
             get {
@@ -97,7 +97,7 @@ namespace OmiconShop.Application.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Price.
+        ///   Looks up a localized string similar to Price*.
         /// </summary>
         public static string Price {
             get {
@@ -115,7 +115,7 @@ namespace OmiconShop.Application.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Type.
+        ///   Looks up a localized string similar to Type*.
         /// </summary>
         public static string Type {
             get {

@@ -61,7 +61,7 @@ namespace OmiconShop.Application.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Address.
+        ///   Looks up a localized string similar to Address*.
         /// </summary>
         public static string Address {
             get {
@@ -97,7 +97,7 @@ namespace OmiconShop.Application.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to City.
+        ///   Looks up a localized string similar to City*.
         /// </summary>
         public static string City {
             get {
@@ -115,7 +115,7 @@ namespace OmiconShop.Application.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Country.
+        ///   Looks up a localized string similar to Country*.
         /// </summary>
         public static string Country {
             get {
@@ -133,7 +133,7 @@ namespace OmiconShop.Application.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Email.
+        ///   Looks up a localized string similar to Email*.
         /// </summary>
         public static string Email {
             get {
@@ -151,7 +151,7 @@ namespace OmiconShop.Application.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Name.
+        ///   Looks up a localized string similar to Name*.
         /// </summary>
         public static string Name {
             get {
@@ -169,7 +169,7 @@ namespace OmiconShop.Application.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Phone number.
+        ///   Looks up a localized string similar to Phone number*.
         /// </summary>
         public static string PhoneNumber {
             get {
@@ -187,7 +187,7 @@ namespace OmiconShop.Application.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Surname.
+        ///   Looks up a localized string similar to Surname*.
         /// </summary>
         public static string Surname {
             get {
@@ -205,7 +205,7 @@ namespace OmiconShop.Application.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ZipCode.
+        ///   Looks up a localized string similar to ZipCode*.
         /// </summary>
         public static string ZipCode {
             get {

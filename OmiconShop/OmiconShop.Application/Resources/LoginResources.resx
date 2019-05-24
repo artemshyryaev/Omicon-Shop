@@ -118,19 +118,19 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ConfirmNewPassword" xml:space="preserve">
-    <value>Confirm new password</value>
+    <value>Confirm new password*</value>
   </data>
   <data name="ConfirmNewPasswordValidation" xml:space="preserve">
     <value>Enter valid new password.</value>
   </data>
   <data name="ConfirmPassword" xml:space="preserve">
-    <value>ConfirmPassword</value>
+    <value>ConfirmPassword*</value>
   </data>
   <data name="ConfirmPasswordValidation" xml:space="preserve">
     <value>Enter valid password.</value>
   </data>
   <data name="Email" xml:space="preserve">
-    <value>Email</value>
+    <value>Email*</value>
   </data>
   <data name="EmailValidation" xml:space="preserve">
     <value>Enter valid email.</value>
@@ -139,7 +139,7 @@
     <value>The minimum length should be 3 digits.</value>
   </data>
   <data name="Login" xml:space="preserve">
-    <value>Login</value>
+    <value>Login*</value>
   </data>
   <data name="LoginValidation" xml:space="preserve">
     <value>Enter valid login.</value>
@@ -151,13 +151,13 @@
     <value>Enter valid new password.</value>
   </data>
   <data name="OldPassword" xml:space="preserve">
-    <value>Old password</value>
+    <value>Old password*</value>
   </data>
   <data name="OldPasswordValidation" xml:space="preserve">
     <value>Enter valid password.</value>
   </data>
   <data name="Password" xml:space="preserve">
-    <value>Password</value>
+    <value>Password*</value>
   </data>
   <data name="PasswordComparisonValidation" xml:space="preserve">
     <value>The passwords do not match.</value>
