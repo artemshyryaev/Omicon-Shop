@@ -29,7 +29,7 @@ namespace ASP
     using System.Web.WebPages;
     using OmiconShop.WebUI;
     using OmiconShop.WebUI.HtmlHelpers;
-
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("RazorGenerator", "2.0.0.0")]
     [System.Web.WebPages.PageVirtualPathAttribute("~/Views/Admin/EditProduct.cshtml")]
     public partial class _Views_Admin_EditProduct_cshtml : System.Web.Mvc.WebViewPage<OmiconShop.Application.Admin.ViewModel.ProductViewModel>
@@ -49,18 +49,23 @@ namespace ASP
             
             #line default
             #line hidden
-WriteLiteral("\r\n\r\n<div");
+WriteLiteral("\r\n\r\n<hgroup");
 
-WriteLiteral(" class=\"panel\"");
+WriteLiteral(" class=\"title\"");
 
-WriteLiteral(">\r\n    <div");
-
-WriteLiteral(" class=\"panel-heading\"");
-
-WriteLiteral(">\r\n        <h3>Product editing</h3>\r\n    </div>\r\n</div>\r\n\r\n");
+WriteLiteral(">\r\n    <h1>");
 
             
-            #line 14 "..\..\Views\Admin\EditProduct.cshtml"
+            #line 9 "..\..\Views\Admin\EditProduct.cshtml"
+   Write(ViewBag.Title);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</h1>\r\n</hgroup>\r\n\r\n");
+
+            
+            #line 12 "..\..\Views\Admin\EditProduct.cshtml"
  using (Html.BeginForm("EditProduct", "Admin", FormMethod.Post, new { enctype = "multipart/form-data"}))
 {
     
@@ -68,14 +73,14 @@ WriteLiteral(">\r\n        <h3>Product editing</h3>\r\n    </div>\r\n</div>\r\n\
             #line default
             #line hidden
             
-            #line 16 "..\..\Views\Admin\EditProduct.cshtml"
+            #line 14 "..\..\Views\Admin\EditProduct.cshtml"
 Write(Html.Partial("_ProductDetails", ViewData));
 
             
             #line default
             #line hidden
             
-            #line 16 "..\..\Views\Admin\EditProduct.cshtml"
+            #line 14 "..\..\Views\Admin\EditProduct.cshtml"
                                               
 
 
@@ -84,14 +89,14 @@ Write(Html.Partial("_ProductDetails", ViewData));
             #line hidden
 WriteLiteral("    <div");
 
-WriteLiteral(" class=\"panel-footer\"");
+WriteLiteral(" class=\"submit-product\"");
 
 WriteLiteral(">\r\n");
 
 WriteLiteral("        ");
 
             
-            #line 19 "..\..\Views\Admin\EditProduct.cshtml"
+            #line 17 "..\..\Views\Admin\EditProduct.cshtml"
    Write(Html.Hidden("productId", id));
 
             
@@ -110,7 +115,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("        ");
 
             
-            #line 21 "..\..\Views\Admin\EditProduct.cshtml"
+            #line 19 "..\..\Views\Admin\EditProduct.cshtml"
    Write(Html.RouteLink("Discard changes and go to list", new { controller = "Admin", action = "ProductList" }, new { @class = "btn btn-default" }));
 
             
@@ -119,7 +124,7 @@ WriteLiteral("        ");
 WriteLiteral("\r\n    </div>\r\n");
 
             
-            #line 23 "..\..\Views\Admin\EditProduct.cshtml"
+            #line 21 "..\..\Views\Admin\EditProduct.cshtml"
 }
             
             #line default

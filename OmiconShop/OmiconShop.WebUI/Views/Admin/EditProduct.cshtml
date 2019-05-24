@@ -5,17 +5,15 @@
     var id = (int)ViewData["Id"];
 }
 
-<div class="panel">
-    <div class="panel-heading">
-        <h3>Product editing</h3>
-    </div>
-</div>
+<hgroup class="title">
+    <h1>@ViewBag.Title</h1>
+</hgroup>
 
 @using (Html.BeginForm("EditProduct", "Admin", FormMethod.Post, new { enctype = "multipart/form-data"}))
 {
     @Html.Partial("_ProductDetails", ViewData)
 
-    <div class="panel-footer">
+    <div class="submit-product">
         @Html.Hidden("productId", id)
         <input type="submit" value="Save" class="btn btn-primary">
         @Html.RouteLink("Discard changes and go to list", new { controller = "Admin", action = "ProductList" }, new { @class = "btn btn-default" })

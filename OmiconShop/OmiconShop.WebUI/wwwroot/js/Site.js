@@ -93,3 +93,20 @@ $(function () {
         $(".link-nt").attr("disabled", "disabled");
     }
 });
+
+$(document).on('change', '.pdp-img', function () {
+    readURL(this);
+});
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('.admin-pdp-image').attr('src', e.target.result);
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+$(".pdp-img").change(function () {
+    readURL(input);
+});

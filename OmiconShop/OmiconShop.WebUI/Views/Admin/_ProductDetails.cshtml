@@ -1,31 +1,27 @@
 ﻿@model OmiconShop.Application.Admin.ViewModel.ProductViewModel
 
-<div class="panel-body">
-
-    @Html.EditorForModel(Model)
-
-    <div class="form-group">
-        <div style="position:relative;">
-            <label>Image</label>
-            <a class='btn' href='javascript:;'>
-                Select file...
-                <input type="file" name="Image" size="40"
-                       style="position:absolute;z-index:2;top:0;
-                                left:0;filter: alpha(opacity=0); opacity:0;
-                                background-color:transparent;color:transparent;"
-                       onchange='$("#upload-file-info").html($(this).val());'>
-            </a>
-            <span class='label label-info' id="upload-file-info"></span>
-        </div>
-        @if (Model != null && Model.ImageUrl != null)
-        {
-            <img class="img-thumbnail" width="150" height="150"
-                 src="@Model.ImageUrl" />
-        }
-        else
-        {
-            <div class="form-control-static">Нет картинки</div>
-        }
+<div class="panel-body justify-content-center">
+    <div class="admin-pdp">
+        @Html.EditorForModel(Model)
     </div>
-
-</div>
+    <div class="input-group admin-pdp-image-form">
+        <div class="input-group-prepend">
+            <a class="input-group-text" href='javascript:;'>Upload</a>
+        </div>
+        <div class="custom-file">
+            <input type="file" class="custom-file-input pdp-img" name="Image"
+                   aria-describedby="inputGroupFileAddon01" onchange='$("#upload-file-info").html($(this).val());'>
+            <label class="custom-file-label" id="upload-file-info">Choose file</label>
+        </div>
+    </div>
+        <div>
+            @if (Model != null && Model.ImageUrl != null)
+            {
+                <img class="img-thumbnail admin-pdp-image" src="@Model.ImageUrl" />
+            }
+            else
+            {
+                <img class="img-thumbnail admin-pdp-image" src="~/Content/images/no-image-big.png">
+            }
+        </div>
+    </div>

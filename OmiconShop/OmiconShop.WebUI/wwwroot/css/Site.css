@@ -452,3 +452,26 @@ a:hover {
     font-size: 1rem;
     color: green;
 }
+
+.admin-pdp {
+    position: absolute;
+    right: 50rem;
+    top: 7rem;
+}
+.admin-pdp-image-form {
+    position: absolute;
+    left: 30rem;
+    top: 7rem;
+    width: 20rem;
+}
+
+.admin-pdp-image {
+    width: 25rem;
+    height: 25rem;
+}
+
+.submit-product {
+    position: absolute;
+    right: 43rem;
+    top: 28rem;
+}

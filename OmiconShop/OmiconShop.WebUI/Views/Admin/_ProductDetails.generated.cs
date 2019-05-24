@@ -41,112 +41,119 @@ namespace ASP
         {
 WriteLiteral("<div");
 
-WriteLiteral(" class=\"panel-body\"");
+WriteLiteral(" class=\"panel-body justify-content-center\"");
 
-WriteLiteral(">\r\n\r\n");
+WriteLiteral(">\r\n    <div");
 
-WriteLiteral("    ");
+WriteLiteral(" class=\"admin-pdp\"");
+
+WriteLiteral(">\r\n");
+
+WriteLiteral("        ");
 
             
             #line 5 "..\..\Views\Admin\_ProductDetails.cshtml"
-Write(Html.EditorForModel(Model));
+   Write(Html.EditorForModel(Model));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n\r\n    <div");
+WriteLiteral("\r\n    </div>\r\n    <div");
 
-WriteLiteral(" class=\"form-group\"");
+WriteLiteral(" class=\"input-group admin-pdp-image-form\"");
 
 WriteLiteral(">\r\n        <div");
 
-WriteLiteral(" style=\"position:relative;\"");
+WriteLiteral(" class=\"input-group-prepend\"");
 
-WriteLiteral(">\r\n            <label>Image</label>\r\n            <a");
+WriteLiteral(">\r\n            <a");
 
-WriteLiteral(" class=\'btn\'");
+WriteLiteral(" class=\"input-group-text\"");
 
 WriteLiteral(" href=\'javascript:;\'");
 
-WriteLiteral(">\r\n                Select file...\r\n                <input");
+WriteLiteral(">Upload</a>\r\n        </div>\r\n        <div");
+
+WriteLiteral(" class=\"custom-file\"");
+
+WriteLiteral(">\r\n            <input");
 
 WriteLiteral(" type=\"file\"");
 
+WriteLiteral(" class=\"custom-file-input pdp-img\"");
+
 WriteLiteral(" name=\"Image\"");
 
-WriteLiteral(" size=\"40\"");
+WriteLiteral("\r\n                   aria-describedby=\"inputGroupFileAddon01\"");
 
-WriteLiteral("\r\n                       style=\"position:absolute;z-index:2;top:0;\r\n             " +
-"                   left:0;filter: alpha(opacity=0); opacity:0;\r\n                " +
-"                background-color:transparent;color:transparent;\"");
+WriteLiteral(" onchange=\'$(\"#upload-file-info\").html($(this).val());\'");
 
-WriteLiteral("\r\n                       onchange=\'$(\"#upload-file-info\").html($(this).val());\'");
+WriteLiteral(">\r\n            <label");
 
-WriteLiteral(">\r\n            </a>\r\n            <span");
-
-WriteLiteral(" class=\'label label-info\'");
+WriteLiteral(" class=\"custom-file-label\"");
 
 WriteLiteral(" id=\"upload-file-info\"");
 
-WriteLiteral("></span>\r\n        </div>\r\n");
+WriteLiteral(">Choose file</label>\r\n        </div>\r\n    </div>\r\n        <div>\r\n");
 
+            
+            #line 18 "..\..\Views\Admin\_ProductDetails.cshtml"
+            
+            
+            #line default
+            #line hidden
+            
+            #line 18 "..\..\Views\Admin\_ProductDetails.cshtml"
+             if (Model != null && Model.ImageUrl != null)
+            {
+
+            
+            #line default
+            #line hidden
+WriteLiteral("                <img");
+
+WriteLiteral(" class=\"img-thumbnail admin-pdp-image\"");
+
+WriteAttribute("src", Tuple.Create(" src=\"", 870), Tuple.Create("\"", 891)
             
             #line 20 "..\..\Views\Admin\_ProductDetails.cshtml"
-        
+, Tuple.Create(Tuple.Create("", 876), Tuple.Create<System.Object, System.Int32>(Model.ImageUrl
             
             #line default
             #line hidden
-            
-            #line 20 "..\..\Views\Admin\_ProductDetails.cshtml"
-         if (Model != null && Model.ImageUrl != null)
-        {
-
-            
-            #line default
-            #line hidden
-WriteLiteral("            <img");
-
-WriteLiteral(" class=\"img-thumbnail\"");
-
-WriteLiteral(" width=\"150\"");
-
-WriteLiteral(" height=\"150\"");
-
-WriteAttribute("src", Tuple.Create("\r\n                 src=\"", 917), Tuple.Create("\"", 956)
-            
-            #line 23 "..\..\Views\Admin\_ProductDetails.cshtml"
-, Tuple.Create(Tuple.Create("", 941), Tuple.Create<System.Object, System.Int32>(Model.ImageUrl
-            
-            #line default
-            #line hidden
-, 941), false)
+, 876), false)
 );
 
 WriteLiteral(" />\r\n");
 
             
-            #line 24 "..\..\Views\Admin\_ProductDetails.cshtml"
-        }
-        else
-        {
+            #line 21 "..\..\Views\Admin\_ProductDetails.cshtml"
+            }
+            else
+            {
 
             
             #line default
             #line hidden
-WriteLiteral("            <div");
+WriteLiteral("                <img");
 
-WriteLiteral(" class=\"form-control-static\"");
+WriteLiteral(" class=\"img-thumbnail admin-pdp-image\"");
 
-WriteLiteral(">Нет картинки</div>\r\n");
+WriteAttribute("src", Tuple.Create(" src=\"", 1003), Tuple.Create("\"", 1042)
+, Tuple.Create(Tuple.Create("", 1009), Tuple.Create<System.Object, System.Int32>(Href("~/Content/images/no-image-big.png")
+, 1009), false)
+);
+
+WriteLiteral(">\r\n");
 
             
-            #line 28 "..\..\Views\Admin\_ProductDetails.cshtml"
-        }
+            #line 25 "..\..\Views\Admin\_ProductDetails.cshtml"
+            }
 
             
             #line default
             #line hidden
-WriteLiteral("    </div>\r\n\r\n</div>\r\n");
+WriteLiteral("        </div>\r\n    </div>");
 
         }
     }
