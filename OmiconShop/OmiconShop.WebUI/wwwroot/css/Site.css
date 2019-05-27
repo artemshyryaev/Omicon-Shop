@@ -393,7 +393,6 @@ a:hover {
     width: 11rem;
     height: 13rem;
     background-color: #f8f9fa;
-    padding: 0.5rem;
     border-radius: 20px;
     float: left;
 }
@@ -457,7 +456,6 @@ a:hover {
 
 .admin-pdp-image-form {
     margin-top: 0.8rem;
-    width: 25rem;
 }
 
 .admin-pdp-image {
@@ -466,9 +464,9 @@ a:hover {
 }
 
 .submit-product {
-    position: absolute;
-    right: 46.5rem;
-    top: 25.8rem;
+    position: relative;
+    right: 10.5rem;
+    top: 22.5rem;
 }
 
 .product-info {
