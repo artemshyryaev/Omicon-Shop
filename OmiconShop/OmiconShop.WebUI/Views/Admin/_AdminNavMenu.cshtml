@@ -1,0 +1,15 @@
+﻿@if (User.Identity.IsAuthenticated)
+{
+    <div class="admin-nav-menu">
+        @Html.RouteLink("Personal information", new { controller = "Admin", action = "PersonalInfo" },
+             new { @class = "badge badge-light admin-nav-menu__personal-info" })
+        @Html.RouteLink("My orders", new { controller = "Admin", action = "OrderList" },
+             new { @class = "badge badge-light admin-nav-menu__order-list" })
+
+        @if (User.Identity.Name == "admin@gmail.com")
+        {
+            @Html.RouteLink("Manage products", new { controller = "Admin", action = "ProductList" },
+                new { @class = "badge badge-light admin-nav-menu__product-list" })
+        }
+    </div>
+}
