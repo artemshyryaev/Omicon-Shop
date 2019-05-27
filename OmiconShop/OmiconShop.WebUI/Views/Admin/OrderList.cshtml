@@ -3,9 +3,11 @@
 
 @{
     ViewBag.Title = "OrdersList";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 <body>
+    <div class="admin-nav-menu">
+        @Html.Partial("_AdminNavMenu")
+    </div>
     <div>
         @using (Html.BeginForm("OrderList", "Admin"))
         {

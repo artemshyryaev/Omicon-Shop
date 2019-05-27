@@ -43,7 +43,6 @@ namespace ASP
             #line 2 "..\..\Views\Admin\AddProduct.cshtml"
   
     ViewBag.Title = "Add Product";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 
             
             #line default
@@ -55,31 +54,46 @@ WriteLiteral(" class=\"title\"");
 WriteLiteral(">\r\n    <h1>");
 
             
-            #line 8 "..\..\Views\Admin\AddProduct.cshtml"
+            #line 7 "..\..\Views\Admin\AddProduct.cshtml"
    Write(ViewBag.Title);
 
             
             #line default
             #line hidden
-WriteLiteral("</h1>\r\n</hgroup>\r\n\r\n");
+WriteLiteral("</h1>\r\n</hgroup>\r\n\r\n<div");
+
+WriteLiteral(" class=\"admin-nav-menu\"");
+
+WriteLiteral(">\r\n");
+
+WriteLiteral("    ");
 
             
             #line 11 "..\..\Views\Admin\AddProduct.cshtml"
- using (Html.BeginForm("AddProduct", "Admin", FormMethod.Post, new { enctype = "multipart/form-data"}))
+Write(Html.Partial("_AdminNavMenu"));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n</div>\r\n");
+
+            
+            #line 13 "..\..\Views\Admin\AddProduct.cshtml"
+ using (Html.BeginForm("AddProduct", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     
             
             #line default
             #line hidden
             
-            #line 13 "..\..\Views\Admin\AddProduct.cshtml"
+            #line 15 "..\..\Views\Admin\AddProduct.cshtml"
 Write(Html.Partial("_ProductDetails"));
 
             
             #line default
             #line hidden
             
-            #line 13 "..\..\Views\Admin\AddProduct.cshtml"
+            #line 15 "..\..\Views\Admin\AddProduct.cshtml"
                                     
 
 
@@ -103,7 +117,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("        ");
 
             
-            #line 17 "..\..\Views\Admin\AddProduct.cshtml"
+            #line 19 "..\..\Views\Admin\AddProduct.cshtml"
    Write(Html.RouteLink("Discard changes and go to list", new { controller = "Admin", action = "ProductList" }, new { @class = "btn btn-default" }));
 
             
@@ -112,7 +126,7 @@ WriteLiteral("        ");
 WriteLiteral("\r\n    </div>\r\n");
 
             
-            #line 19 "..\..\Views\Admin\AddProduct.cshtml"
+            #line 21 "..\..\Views\Admin\AddProduct.cshtml"
 }
 
             

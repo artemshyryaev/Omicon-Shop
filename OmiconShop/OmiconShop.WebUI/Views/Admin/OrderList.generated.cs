@@ -27,15 +27,14 @@ namespace ASP
     using System.Web.Security;
     using System.Web.UI;
     using System.Web.WebPages;
+    using OmiconShop.WebUI;
     
     #line 2 "..\..\Views\Admin\OrderList.cshtml"
     using OmiconShop.WebUI.HtmlHelpers;
-
-#line default
-#line hidden
-    using OmiconShop.WebUI;
-
-
+    
+    #line default
+    #line hidden
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("RazorGenerator", "2.0.0.0")]
     [System.Web.WebPages.PageVirtualPathAttribute("~/Views/Admin/OrderList.cshtml")]
     public partial class _Views_Admin_OrderList_cshtml : System.Web.Mvc.WebViewPage<OmiconShop.Application.Admin.ViewModel.OrdersViewModel>
@@ -51,21 +50,35 @@ WriteLiteral("\r\n");
             #line 4 "..\..\Views\Admin\OrderList.cshtml"
   
     ViewBag.Title = "OrdersList";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n<body>\r\n    <div>\r\n");
+WriteLiteral("\r\n<body>\r\n    <div");
+
+WriteLiteral(" class=\"admin-nav-menu\"");
+
+WriteLiteral(">\r\n");
+
+WriteLiteral("        ");
 
             
-            #line 10 "..\..\Views\Admin\OrderList.cshtml"
+            #line 9 "..\..\Views\Admin\OrderList.cshtml"
+   Write(Html.Partial("_AdminNavMenu"));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n    </div>\r\n    <div>\r\n");
+
+            
+            #line 12 "..\..\Views\Admin\OrderList.cshtml"
         
             
             #line default
             #line hidden
             
-            #line 10 "..\..\Views\Admin\OrderList.cshtml"
+            #line 12 "..\..\Views\Admin\OrderList.cshtml"
          using (Html.BeginForm("OrderList", "Admin"))
         {
             
@@ -73,14 +86,14 @@ WriteLiteral("\r\n<body>\r\n    <div>\r\n");
             #line default
             #line hidden
             
-            #line 12 "..\..\Views\Admin\OrderList.cshtml"
+            #line 14 "..\..\Views\Admin\OrderList.cshtml"
        Write(Html.EnumDropdownListFor(x => x.SelectedStatus, Model.SelectedStatus));
 
             
             #line default
             #line hidden
             
-            #line 12 "..\..\Views\Admin\OrderList.cshtml"
+            #line 14 "..\..\Views\Admin\OrderList.cshtml"
                                                                                   
 
             
@@ -95,7 +108,7 @@ WriteLiteral(" value=\"Ok\"");
 WriteLiteral(">\r\n");
 
             
-            #line 14 "..\..\Views\Admin\OrderList.cshtml"
+            #line 16 "..\..\Views\Admin\OrderList.cshtml"
         }
 
             
@@ -108,7 +121,7 @@ WriteLiteral(" class=\"form-inline my-2 my-lg-0\"");
 WriteLiteral(">\r\n            Find by Id: ");
 
             
-            #line 18 "..\..\Views\Admin\OrderList.cshtml"
+            #line 20 "..\..\Views\Admin\OrderList.cshtml"
                    Write(Html.TextBox("OrderId"));
 
             
@@ -158,13 +171,13 @@ WriteLiteral(" class=\"text-center\"");
 WriteLiteral(">Order Satus</th>\r\n                    <th></th>\r\n                </tr>\r\n");
 
             
-            #line 36 "..\..\Views\Admin\OrderList.cshtml"
+            #line 38 "..\..\Views\Admin\OrderList.cshtml"
                 
             
             #line default
             #line hidden
             
-            #line 36 "..\..\Views\Admin\OrderList.cshtml"
+            #line 38 "..\..\Views\Admin\OrderList.cshtml"
                  foreach (var el in Model.Orders)
                 {
 
@@ -174,7 +187,7 @@ WriteLiteral(">Order Satus</th>\r\n                    <th></th>\r\n            
 WriteLiteral("                    <tr>\r\n                        <td>");
 
             
-            #line 39 "..\..\Views\Admin\OrderList.cshtml"
+            #line 41 "..\..\Views\Admin\OrderList.cshtml"
                        Write(el.OrderId);
 
             
@@ -187,7 +200,7 @@ WriteLiteral(" class=\"text-right\"");
 WriteLiteral(">");
 
             
-            #line 40 "..\..\Views\Admin\OrderList.cshtml"
+            #line 42 "..\..\Views\Admin\OrderList.cshtml"
                                           Write(el.OrderInformation.Date);
 
             
@@ -200,7 +213,7 @@ WriteLiteral(" class=\"text-right\"");
 WriteLiteral(">");
 
             
-            #line 41 "..\..\Views\Admin\OrderList.cshtml"
+            #line 43 "..\..\Views\Admin\OrderList.cshtml"
                                            Write(el.User.UserPersonalInformation.Name + " " + el.User.UserPersonalInformation.Surname);
 
             
@@ -213,7 +226,7 @@ WriteLiteral(" class=\"text-right\"");
 WriteLiteral(">");
 
             
-            #line 42 "..\..\Views\Admin\OrderList.cshtml"
+            #line 44 "..\..\Views\Admin\OrderList.cshtml"
                                           Write(el.OrderInformation.Total);
 
             
@@ -226,7 +239,7 @@ WriteLiteral(" class=\"text-right\"");
 WriteLiteral(">");
 
             
-            #line 43 "..\..\Views\Admin\OrderList.cshtml"
+            #line 45 "..\..\Views\Admin\OrderList.cshtml"
                                           Write(el.Status);
 
             
@@ -239,7 +252,7 @@ WriteLiteral(" class=\"text-right\"");
 WriteLiteral(">");
 
             
-            #line 44 "..\..\Views\Admin\OrderList.cshtml"
+            #line 46 "..\..\Views\Admin\OrderList.cshtml"
                                           Write(Html.RouteLink("View details", new { controller = "Admin", action = "OrderDetails", orderId = el.OrderId }));
 
             
@@ -248,7 +261,7 @@ WriteLiteral(">");
 WriteLiteral("</td>\r\n                    </tr>\r\n");
 
             
-            #line 46 "..\..\Views\Admin\OrderList.cshtml"
+            #line 48 "..\..\Views\Admin\OrderList.cshtml"
                 }
 
             
@@ -263,7 +276,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("            ");
 
             
-            #line 50 "..\..\Views\Admin\OrderList.cshtml"
+            #line 52 "..\..\Views\Admin\OrderList.cshtml"
        Write(Html.PageLinks(Model.PagingInfo, x => Url.Action("ProductList", new { page = x })));
 
             

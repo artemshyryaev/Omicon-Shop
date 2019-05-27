@@ -43,7 +43,6 @@ namespace ASP
             #line 2 "..\..\Views\Admin\EditProduct.cshtml"
   
     ViewBag.Title = "Edit Product";
-    //Layout = "~/Views/Shared/_AdminLayout.cshtml";
     var id = (int)ViewData["Id"];
 
             
@@ -56,7 +55,7 @@ WriteLiteral(" class=\"title\"");
 WriteLiteral(">\r\n    <h1>");
 
             
-            #line 9 "..\..\Views\Admin\EditProduct.cshtml"
+            #line 8 "..\..\Views\Admin\EditProduct.cshtml"
    Write(ViewBag.Title);
 
             
@@ -75,7 +74,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("        ");
 
             
-            #line 14 "..\..\Views\Admin\EditProduct.cshtml"
+            #line 13 "..\..\Views\Admin\EditProduct.cshtml"
    Write(Html.Partial("_AdminNavMenu"));
 
             
@@ -88,13 +87,13 @@ WriteLiteral(" class=\"product-info col-11\"");
 WriteLiteral(">\r\n");
 
             
-            #line 17 "..\..\Views\Admin\EditProduct.cshtml"
+            #line 16 "..\..\Views\Admin\EditProduct.cshtml"
         
             
             #line default
             #line hidden
             
-            #line 17 "..\..\Views\Admin\EditProduct.cshtml"
+            #line 16 "..\..\Views\Admin\EditProduct.cshtml"
          using (Html.BeginForm("EditProduct", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
 
@@ -110,7 +109,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("                ");
 
             
-            #line 20 "..\..\Views\Admin\EditProduct.cshtml"
+            #line 19 "..\..\Views\Admin\EditProduct.cshtml"
            Write(Html.Partial("_ProductDetails", ViewData));
 
             
@@ -119,7 +118,7 @@ WriteLiteral("                ");
 WriteLiteral("\r\n            </div>\r\n");
 
             
-            #line 22 "..\..\Views\Admin\EditProduct.cshtml"
+            #line 21 "..\..\Views\Admin\EditProduct.cshtml"
 
 
             
@@ -134,7 +133,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("                    ");
 
             
-            #line 24 "..\..\Views\Admin\EditProduct.cshtml"
+            #line 23 "..\..\Views\Admin\EditProduct.cshtml"
                Write(Html.Hidden("productId", id));
 
             
@@ -153,7 +152,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("                    ");
 
             
-            #line 26 "..\..\Views\Admin\EditProduct.cshtml"
+            #line 25 "..\..\Views\Admin\EditProduct.cshtml"
                Write(Html.RouteLink("Discard changes and go to list", new { controller = "Admin", action = "ProductList" }, new { @class = "btn btn-default" }));
 
             
@@ -162,7 +161,7 @@ WriteLiteral("                    ");
 WriteLiteral("\r\n                </div>\r\n");
 
             
-            #line 28 "..\..\Views\Admin\EditProduct.cshtml"
+            #line 27 "..\..\Views\Admin\EditProduct.cshtml"
         }
 
             

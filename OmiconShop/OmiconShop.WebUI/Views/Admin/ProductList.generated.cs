@@ -27,14 +27,14 @@ namespace ASP
     using System.Web.Security;
     using System.Web.UI;
     using System.Web.WebPages;
+    using OmiconShop.WebUI;
     
     #line 2 "..\..\Views\Admin\ProductList.cshtml"
     using OmiconShop.WebUI.HtmlHelpers;
-
-#line default
-#line hidden
-    using OmiconShop.WebUI;
-
+    
+    #line default
+    #line hidden
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("RazorGenerator", "2.0.0.0")]
     [System.Web.WebPages.PageVirtualPathAttribute("~/Views/Admin/ProductList.cshtml")]
     public partial class _Views_Admin_ProductList_cshtml : System.Web.Mvc.WebViewPage<OmiconShop.Application.Admin.ViewModel.ProductsListViewModel>
@@ -50,7 +50,6 @@ WriteLiteral("\r\n");
             #line 4 "..\..\Views\Admin\ProductList.cshtml"
   
     ViewBag.Title = "Admin productList";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 
             
             #line default
@@ -70,7 +69,7 @@ WriteLiteral(" class=\"form-inline my-2 my-lg-0\"");
 WriteLiteral(">\r\n            Find by name: ");
 
             
-            #line 15 "..\..\Views\Admin\ProductList.cshtml"
+            #line 14 "..\..\Views\Admin\ProductList.cshtml"
                      Write(Html.TextBox("ProductName"));
 
             
@@ -85,6 +84,21 @@ WriteLiteral(" type=\"submit\"");
 WriteLiteral(" value=\"Search\"");
 
 WriteLiteral(">\r\n        </form>\r\n    </div>\r\n    <div");
+
+WriteLiteral(" class=\"admin-nav-menu\"");
+
+WriteLiteral(">\r\n");
+
+WriteLiteral("        ");
+
+            
+            #line 19 "..\..\Views\Admin\ProductList.cshtml"
+   Write(Html.Partial("_AdminNavMenu"));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n    </div>\r\n    <div");
 
 WriteLiteral(" class=\"panel-body\"");
 
@@ -115,25 +129,38 @@ WriteLiteral(" class=\"text-center\"");
 WriteLiteral(">Actions</th>\r\n            </tr>\r\n");
 
             
-            #line 29 "..\..\Views\Admin\ProductList.cshtml"
+            #line 31 "..\..\Views\Admin\ProductList.cshtml"
             
             
             #line default
             #line hidden
             
-            #line 29 "..\..\Views\Admin\ProductList.cshtml"
+            #line 31 "..\..\Views\Admin\ProductList.cshtml"
              foreach (var el in Model.Products)
             {
 
             
             #line default
             #line hidden
-WriteLiteral("                <tr>\r\n");
+WriteLiteral("                <tr");
+
+WriteAttribute("class", Tuple.Create(" class=\"", 1116), Tuple.Create("\"", 1141)
+, Tuple.Create(Tuple.Create("", 1124), Tuple.Create("row-", 1124), true)
+            
+            #line 33 "..\..\Views\Admin\ProductList.cshtml"
+, Tuple.Create(Tuple.Create("", 1128), Tuple.Create<System.Object, System.Int32>(el.ProductId
+            
+            #line default
+            #line hidden
+, 1128), false)
+);
+
+WriteLiteral(">\r\n");
 
 WriteLiteral("                    ");
 
             
-            #line 32 "..\..\Views\Admin\ProductList.cshtml"
+            #line 34 "..\..\Views\Admin\ProductList.cshtml"
                Write(Html.HiddenFor(x => el.ProductId));
 
             
@@ -142,7 +169,7 @@ WriteLiteral("                    ");
 WriteLiteral("\r\n                    <td>");
 
             
-            #line 33 "..\..\Views\Admin\ProductList.cshtml"
+            #line 35 "..\..\Views\Admin\ProductList.cshtml"
                    Write(Html.RouteLink(el.Name, new { controller = "Admin", action = "EditProduct", productId = el.ProductId }));
 
             
@@ -155,7 +182,7 @@ WriteLiteral(" class=\"text-right\"");
 WriteLiteral(">");
 
             
-            #line 34 "..\..\Views\Admin\ProductList.cshtml"
+            #line 36 "..\..\Views\Admin\ProductList.cshtml"
                                       Write(el.Description);
 
             
@@ -168,13 +195,13 @@ WriteLiteral(" class=\"text-right\"");
 WriteLiteral(">\r\n");
 
             
-            #line 36 "..\..\Views\Admin\ProductList.cshtml"
+            #line 38 "..\..\Views\Admin\ProductList.cshtml"
                         
             
             #line default
             #line hidden
             
-            #line 36 "..\..\Views\Admin\ProductList.cshtml"
+            #line 38 "..\..\Views\Admin\ProductList.cshtml"
                          if (el.ImageUrl != null)
                         {
 
@@ -189,20 +216,20 @@ WriteLiteral(" width=\"75\"");
 
 WriteLiteral(" height=\"75\"");
 
-WriteAttribute("src", Tuple.Create("\r\n                                 src=\"", 1527), Tuple.Create("\"", 1579)
+WriteAttribute("src", Tuple.Create("\r\n                                 src=\"", 1601), Tuple.Create("\"", 1653)
             
-            #line 39 "..\..\Views\Admin\ProductList.cshtml"
-, Tuple.Create(Tuple.Create("", 1567), Tuple.Create<System.Object, System.Int32>(el.ImageUrl
+            #line 41 "..\..\Views\Admin\ProductList.cshtml"
+, Tuple.Create(Tuple.Create("", 1641), Tuple.Create<System.Object, System.Int32>(el.ImageUrl
             
             #line default
             #line hidden
-, 1567), false)
+, 1641), false)
 );
 
 WriteLiteral(">\r\n");
 
             
-            #line 40 "..\..\Views\Admin\ProductList.cshtml"
+            #line 42 "..\..\Views\Admin\ProductList.cshtml"
                         }
 
             
@@ -215,8 +242,8 @@ WriteLiteral(" class=\"text-right\"");
 WriteLiteral(">");
 
             
-            #line 42 "..\..\Views\Admin\ProductList.cshtml"
-                                      Write(el.Price);
+            #line 44 "..\..\Views\Admin\ProductList.cshtml"
+                                       Write((double)el.Price);
 
             
             #line default
@@ -228,7 +255,7 @@ WriteLiteral(" class=\"text-right\"");
 WriteLiteral(">");
 
             
-            #line 43 "..\..\Views\Admin\ProductList.cshtml"
+            #line 45 "..\..\Views\Admin\ProductList.cshtml"
                                       Write(el.Type);
 
             
@@ -238,57 +265,27 @@ WriteLiteral("</td>\r\n                    <td");
 
 WriteLiteral(" class=\"text-center\"");
 
-WriteLiteral(">\r\n");
+WriteLiteral(">\r\n                        <a");
 
-            
-            #line 45 "..\..\Views\Admin\ProductList.cshtml"
-                        
-            
-            #line default
-            #line hidden
-            
-            #line 45 "..\..\Views\Admin\ProductList.cshtml"
-                         using (Html.BeginForm("DeleteProduct", "Admin"))
-                        {
-                            
-            
-            #line default
-            #line hidden
+WriteLiteral(" href=\"#\"");
+
+WriteLiteral(" class=\"link-delete\"");
+
+WriteLiteral(" data-id=\"");
+
             
             #line 47 "..\..\Views\Admin\ProductList.cshtml"
-                       Write(Html.Hidden("productId", el.ProductId));
+                                                            Write(el.ProductId);
 
             
             #line default
             #line hidden
-            
-            #line 47 "..\..\Views\Admin\ProductList.cshtml"
-                                                            
+WriteLiteral("\"");
+
+WriteLiteral(">Delete</a>\r\n                    </td>\r\n                </tr>\r\n");
 
             
-            #line default
-            #line hidden
-WriteLiteral("                            <input");
-
-WriteLiteral(" type=\"submit\"");
-
-WriteLiteral(" class=\"btn btn-default btn-xs\"");
-
-WriteLiteral(" value=\"Remove\"");
-
-WriteLiteral(">\r\n");
-
-            
-            #line 49 "..\..\Views\Admin\ProductList.cshtml"
-                        }
-
-            
-            #line default
-            #line hidden
-WriteLiteral("                    </td>\r\n                </tr>\r\n");
-
-            
-            #line 52 "..\..\Views\Admin\ProductList.cshtml"
+            #line 50 "..\..\Views\Admin\ProductList.cshtml"
             }
 
             
@@ -303,7 +300,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("        ");
 
             
-            #line 56 "..\..\Views\Admin\ProductList.cshtml"
+            #line 54 "..\..\Views\Admin\ProductList.cshtml"
    Write(Html.ActionLink("Add product", "AddProduct", "Admin", new { @class = "btn btn-default" }));
 
             
@@ -314,7 +311,7 @@ WriteLiteral("\r\n");
 WriteLiteral("        ");
 
             
-            #line 57 "..\..\Views\Admin\ProductList.cshtml"
+            #line 55 "..\..\Views\Admin\ProductList.cshtml"
    Write(Html.PageLinks(Model.PagingInfo, x => Url.Action("ProductList", new { page = x })));
 
             

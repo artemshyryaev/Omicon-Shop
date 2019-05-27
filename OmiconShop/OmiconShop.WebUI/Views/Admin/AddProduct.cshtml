@@ -1,14 +1,16 @@
 ﻿@model OmiconShop.Application.Admin.ViewModel.ProductViewModel
 @{
     ViewBag.Title = "Add Product";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <hgroup class="title">
     <h1>@ViewBag.Title</h1>
 </hgroup>
 
-@using (Html.BeginForm("AddProduct", "Admin", FormMethod.Post, new { enctype = "multipart/form-data"}))
+<div class="admin-nav-menu">
+    @Html.Partial("_AdminNavMenu")
+</div>
+@using (Html.BeginForm("AddProduct", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.Partial("_ProductDetails")
 

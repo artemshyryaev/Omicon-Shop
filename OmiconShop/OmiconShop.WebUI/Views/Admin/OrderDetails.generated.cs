@@ -30,12 +30,12 @@ namespace ASP
     
     #line 2 "..\..\Views\Admin\OrderDetails.cshtml"
     using Microsoft.AspNet.Identity;
-
-#line default
-#line hidden
+    
+    #line default
+    #line hidden
     using OmiconShop.WebUI;
     using OmiconShop.WebUI.HtmlHelpers;
-
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("RazorGenerator", "2.0.0.0")]
     [System.Web.WebPages.PageVirtualPathAttribute("~/Views/Admin/OrderDetails.cshtml")]
     public partial class _Views_Admin_OrderDetails_cshtml : System.Web.Mvc.WebViewPage<OmiconShop.Domain.Entities.Order>
@@ -94,7 +94,24 @@ WriteLiteral("\r\n    </div>\r\n");
             
             #line default
             #line hidden
+WriteLiteral("\r\n<div");
+
+WriteLiteral(" class=\"admin-nav-menu\"");
+
+WriteLiteral(">\r\n");
+
+WriteLiteral("    ");
+
+            
+            #line 18 "..\..\Views\Admin\OrderDetails.cshtml"
+Write(Html.Partial("_AdminNavMenu"));
+
+            
+            #line default
+            #line hidden
 WriteLiteral(@"
+</div>
+
 <div>
     <table>
         <thead>
@@ -111,7 +128,7 @@ WriteLiteral(@"
                 <td>");
 
             
-            #line 30 "..\..\Views\Admin\OrderDetails.cshtml"
+            #line 34 "..\..\Views\Admin\OrderDetails.cshtml"
                Write(Model.OrderId);
 
             
@@ -120,7 +137,7 @@ WriteLiteral(@"
 WriteLiteral("</td>\r\n                <td>");
 
             
-            #line 31 "..\..\Views\Admin\OrderDetails.cshtml"
+            #line 35 "..\..\Views\Admin\OrderDetails.cshtml"
                Write(Model.Status);
 
             
@@ -129,7 +146,7 @@ WriteLiteral("</td>\r\n                <td>");
 WriteLiteral("</td>\r\n                <td>");
 
             
-            #line 32 "..\..\Views\Admin\OrderDetails.cshtml"
+            #line 36 "..\..\Views\Admin\OrderDetails.cshtml"
                Write(Model.OrderInformation.Delivery);
 
             
@@ -138,7 +155,7 @@ WriteLiteral("</td>\r\n                <td>");
 WriteLiteral("</td>\r\n                <td>");
 
             
-            #line 33 "..\..\Views\Admin\OrderDetails.cshtml"
+            #line 37 "..\..\Views\Admin\OrderDetails.cshtml"
                Write(Model.OrderInformation.Payment);
 
             
@@ -147,7 +164,7 @@ WriteLiteral("</td>\r\n                <td>");
 WriteLiteral("</td>\r\n                <td>");
 
             
-            #line 34 "..\..\Views\Admin\OrderDetails.cshtml"
+            #line 38 "..\..\Views\Admin\OrderDetails.cshtml"
                Write(Model.OrderInformation.Date);
 
             
@@ -158,7 +175,7 @@ WriteLiteral("</td>\r\n            </tr>\r\n        </tbody>\r\n    </table>\r\n
 "h>\r\n            </tr>\r\n        </thead>\r\n        <tbody>\r\n            <tr>");
 
             
-            #line 48 "..\..\Views\Admin\OrderDetails.cshtml"
+            #line 52 "..\..\Views\Admin\OrderDetails.cshtml"
            Write(Model.User.UserAddress.Address);
 
             
@@ -167,7 +184,7 @@ WriteLiteral("</td>\r\n            </tr>\r\n        </tbody>\r\n    </table>\r\n
 WriteLiteral("</tr>\r\n            <tr>");
 
             
-            #line 49 "..\..\Views\Admin\OrderDetails.cshtml"
+            #line 53 "..\..\Views\Admin\OrderDetails.cshtml"
            Write(Model.User.UserAddress.Address2);
 
             
@@ -176,7 +193,7 @@ WriteLiteral("</tr>\r\n            <tr>");
 WriteLiteral("</tr>\r\n            <tr>");
 
             
-            #line 50 "..\..\Views\Admin\OrderDetails.cshtml"
+            #line 54 "..\..\Views\Admin\OrderDetails.cshtml"
            Write(Model.User.UserAddress.City);
 
             
@@ -185,7 +202,7 @@ WriteLiteral("</tr>\r\n            <tr>");
 WriteLiteral("</tr>\r\n            <tr>");
 
             
-            #line 51 "..\..\Views\Admin\OrderDetails.cshtml"
+            #line 55 "..\..\Views\Admin\OrderDetails.cshtml"
            Write(Model.User.UserAddress.Country);
 
             
@@ -194,7 +211,7 @@ WriteLiteral("</tr>\r\n            <tr>");
 WriteLiteral("</tr>\r\n            <tr>");
 
             
-            #line 52 "..\..\Views\Admin\OrderDetails.cshtml"
+            #line 56 "..\..\Views\Admin\OrderDetails.cshtml"
            Write(Model.User.UserAddress.ZipCode);
 
             
@@ -221,13 +238,13 @@ WriteLiteral(@"</tr>
 ");
 
             
-            #line 70 "..\..\Views\Admin\OrderDetails.cshtml"
+            #line 74 "..\..\Views\Admin\OrderDetails.cshtml"
             
             
             #line default
             #line hidden
             
-            #line 70 "..\..\Views\Admin\OrderDetails.cshtml"
+            #line 74 "..\..\Views\Admin\OrderDetails.cshtml"
              foreach (var line in Model.BasketLine)
             {
 
@@ -237,7 +254,7 @@ WriteLiteral(@"</tr>
 WriteLiteral("                <tr>\r\n                    <td>");
 
             
-            #line 73 "..\..\Views\Admin\OrderDetails.cshtml"
+            #line 77 "..\..\Views\Admin\OrderDetails.cshtml"
                    Write(line.ProductId);
 
             
@@ -246,7 +263,7 @@ WriteLiteral("                <tr>\r\n                    <td>");
 WriteLiteral("</td>\r\n                    <td>");
 
             
-            #line 74 "..\..\Views\Admin\OrderDetails.cshtml"
+            #line 78 "..\..\Views\Admin\OrderDetails.cshtml"
                    Write(line.Product.Name);
 
             
@@ -255,7 +272,7 @@ WriteLiteral("</td>\r\n                    <td>");
 WriteLiteral("</td>\r\n                    <td>");
 
             
-            #line 75 "..\..\Views\Admin\OrderDetails.cshtml"
+            #line 79 "..\..\Views\Admin\OrderDetails.cshtml"
                    Write(line.Product.Price);
 
             
@@ -264,7 +281,7 @@ WriteLiteral("</td>\r\n                    <td>");
 WriteLiteral("</td>\r\n                    <td>");
 
             
-            #line 76 "..\..\Views\Admin\OrderDetails.cshtml"
+            #line 80 "..\..\Views\Admin\OrderDetails.cshtml"
                    Write(line.Qty);
 
             
@@ -273,7 +290,7 @@ WriteLiteral("</td>\r\n                    <td>");
 WriteLiteral("</td>\r\n                    <td>");
 
             
-            #line 77 "..\..\Views\Admin\OrderDetails.cshtml"
+            #line 81 "..\..\Views\Admin\OrderDetails.cshtml"
                    Write(line.Uom);
 
             
@@ -282,7 +299,7 @@ WriteLiteral("</td>\r\n                    <td>");
 WriteLiteral("</td>\r\n                    <td>");
 
             
-            #line 78 "..\..\Views\Admin\OrderDetails.cshtml"
+            #line 82 "..\..\Views\Admin\OrderDetails.cshtml"
                     Write(line.Qty * (double)line.Product.Price);
 
             
@@ -291,7 +308,7 @@ WriteLiteral("</td>\r\n                    <td>");
 WriteLiteral("</td>\r\n                </tr>\r\n");
 
             
-            #line 80 "..\..\Views\Admin\OrderDetails.cshtml"
+            #line 84 "..\..\Views\Admin\OrderDetails.cshtml"
             }
 
             
@@ -304,7 +321,7 @@ WriteLiteral(" colspan=\"5\"");
 WriteLiteral(">Total $ ");
 
             
-            #line 84 "..\..\Views\Admin\OrderDetails.cshtml"
+            #line 88 "..\..\Views\Admin\OrderDetails.cshtml"
                                    Write(Model.OrderInformation.Total);
 
             
@@ -313,13 +330,13 @@ WriteLiteral(">Total $ ");
 WriteLiteral("</td>\r\n    </table>\r\n</div>\r\n\r\n<div>\r\n");
 
             
-            #line 89 "..\..\Views\Admin\OrderDetails.cshtml"
+            #line 93 "..\..\Views\Admin\OrderDetails.cshtml"
     
             
             #line default
             #line hidden
             
-            #line 89 "..\..\Views\Admin\OrderDetails.cshtml"
+            #line 93 "..\..\Views\Admin\OrderDetails.cshtml"
      if (User.Identity.Name == "admin" && Model.Status == OmiconShop.Domain.Enumerations.OrderStatuses.Pending)
     {
         
@@ -327,7 +344,7 @@ WriteLiteral("</td>\r\n    </table>\r\n</div>\r\n\r\n<div>\r\n");
             #line default
             #line hidden
             
-            #line 91 "..\..\Views\Admin\OrderDetails.cshtml"
+            #line 95 "..\..\Views\Admin\OrderDetails.cshtml"
    Write(Html.RouteLink("Approve order", new { action = "Approve", controller = "Admin", orderId = Model.OrderId },
             new { @class = "btn btn-primary" }));
 
@@ -335,14 +352,14 @@ WriteLiteral("</td>\r\n    </table>\r\n</div>\r\n\r\n<div>\r\n");
             #line default
             #line hidden
             
-            #line 92 "..\..\Views\Admin\OrderDetails.cshtml"
+            #line 96 "..\..\Views\Admin\OrderDetails.cshtml"
                                                
         
             
             #line default
             #line hidden
             
-            #line 93 "..\..\Views\Admin\OrderDetails.cshtml"
+            #line 97 "..\..\Views\Admin\OrderDetails.cshtml"
    Write(Html.RouteLink("Decline order", new { action = "Decline", controller = "Admin", orderId = Model.OrderId },
             new { @class = "btn btn-primary" }));
 
@@ -350,7 +367,7 @@ WriteLiteral("</td>\r\n    </table>\r\n</div>\r\n\r\n<div>\r\n");
             #line default
             #line hidden
             
-            #line 94 "..\..\Views\Admin\OrderDetails.cshtml"
+            #line 98 "..\..\Views\Admin\OrderDetails.cshtml"
                                                
     }
 

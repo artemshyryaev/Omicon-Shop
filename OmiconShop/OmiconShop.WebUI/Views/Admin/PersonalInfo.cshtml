@@ -8,6 +8,10 @@
     <h1>@ViewBag.Title</h1>
 </hgroup>
 
+<div class="admin-nav-menu">
+    @Html.Partial("_AdminNavMenu")
+</div>
+
 @using (Html.BeginForm("PersonalInfo", "Admin"))
 {
     <div class="change-password">

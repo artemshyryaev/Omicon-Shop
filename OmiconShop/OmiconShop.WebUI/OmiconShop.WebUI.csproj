@@ -387,11 +387,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PageNotFound.cshtml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Shared\_AdminLayout.generated.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>_AdminLayout.cshtml</DependentUpon>
-    </Compile>
     <Compile Include="Views\Shared\_Footer.generated.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -557,10 +552,6 @@
     <Content Include="Views\Admin\OrderDetails.cshtml">
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>OrderDetails.generated.cs</LastGenOutput>
-    </Content>
-    <Content Include="Views\Shared\_AdminLayout.cshtml">
-      <Generator>RazorGenerator</Generator>
-      <LastGenOutput>_AdminLayout.generated.cs</LastGenOutput>
     </Content>
     <Content Include="Views\Admin\ProductList.cshtml">
       <Generator>RazorGenerator</Generator>

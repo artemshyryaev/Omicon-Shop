@@ -27,14 +27,14 @@ namespace ASP
     using System.Web.Security;
     using System.Web.UI;
     using System.Web.WebPages;
+    using OmiconShop.WebUI;
     
     #line 2 "..\..\Views\Admin\ManageProducts.cshtml"
     using OmiconShop.WebUI.HtmlHelpers;
-
-#line default
-#line hidden
-    using OmiconShop.WebUI;
-
+    
+    #line default
+    #line hidden
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("RazorGenerator", "2.0.0.0")]
     [System.Web.WebPages.PageVirtualPathAttribute("~/Views/Admin/ManageProducts.cshtml")]
     public partial class _Views_Admin_ManageProducts_cshtml : System.Web.Mvc.WebViewPage<OmiconShop.Application.Admin.ViewModel.ProductsListViewModel>
@@ -65,10 +65,25 @@ WriteLiteral("        ");
             
             #line default
             #line hidden
-WriteLiteral(";\r\n    </div>\r\n</body>\r\n\r\n");
+WriteLiteral(";\r\n    </div>\r\n</body>\r\n\r\n<div");
+
+WriteLiteral(" class=\"admin-nav-menu\"");
+
+WriteLiteral(">\r\n");
+
+WriteLiteral("    ");
 
             
-            #line 14 "..\..\Views\Admin\ManageProducts.cshtml"
+            #line 15 "..\..\Views\Admin\ManageProducts.cshtml"
+Write(Html.Partial("_AdminNavMenu"));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n</div>\r\n\r\n");
+
+            
+            #line 18 "..\..\Views\Admin\ManageProducts.cshtml"
  foreach (var el in Model.Products)
 {
 
@@ -86,7 +101,7 @@ WriteLiteral(" class=\"table table-hover\"");
 WriteLiteral(">\r\n            <tr>\r\n                <td>");
 
             
-            #line 19 "..\..\Views\Admin\ManageProducts.cshtml"
+            #line 23 "..\..\Views\Admin\ManageProducts.cshtml"
                Write(el.ProductId);
 
             
@@ -95,7 +110,7 @@ WriteLiteral(">\r\n            <tr>\r\n                <td>");
 WriteLiteral("</td>\r\n                <td>");
 
             
-            #line 20 "..\..\Views\Admin\ManageProducts.cshtml"
+            #line 24 "..\..\Views\Admin\ManageProducts.cshtml"
                Write(el.Name);
 
             
@@ -104,7 +119,7 @@ WriteLiteral("</td>\r\n                <td>");
 WriteLiteral("</td>\r\n                <td>");
 
             
-            #line 21 "..\..\Views\Admin\ManageProducts.cshtml"
+            #line 25 "..\..\Views\Admin\ManageProducts.cshtml"
                Write(el.Description);
 
             
@@ -113,7 +128,7 @@ WriteLiteral("</td>\r\n                <td>");
 WriteLiteral("</td>\r\n                <td>");
 
             
-            #line 22 "..\..\Views\Admin\ManageProducts.cshtml"
+            #line 26 "..\..\Views\Admin\ManageProducts.cshtml"
                Write(el.Price);
 
             
@@ -123,7 +138,7 @@ WriteLiteral("</td>\r\n                <td><button>Edit</button></td>\r\n       
 " </table>\r\n    </div>\r\n");
 
             
-            #line 27 "..\..\Views\Admin\ManageProducts.cshtml"
+            #line 31 "..\..\Views\Admin\ManageProducts.cshtml"
 }
 
             
@@ -138,7 +153,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("    ");
 
             
-            #line 30 "..\..\Views\Admin\ManageProducts.cshtml"
+            #line 34 "..\..\Views\Admin\ManageProducts.cshtml"
 Write(Html.PageLinks(Model.PagingInfo, x => Url.Action("ManageProducts", new { page = x })));
 
             
