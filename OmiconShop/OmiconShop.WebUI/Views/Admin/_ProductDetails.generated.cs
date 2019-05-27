@@ -41,69 +41,26 @@ namespace ASP
         {
 WriteLiteral("<div");
 
-WriteLiteral(" class=\"panel-body justify-content-center\"");
+WriteLiteral(" class=\"image-control row\"");
 
 WriteLiteral(">\r\n    <div");
 
-WriteLiteral(" class=\"admin-pdp\"");
-
-WriteLiteral(">\r\n");
-
-WriteLiteral("        ");
-
-            
-            #line 5 "..\..\Views\Admin\_ProductDetails.cshtml"
-   Write(Html.EditorForModel(Model));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n    </div>\r\n    <div");
-
-WriteLiteral(" class=\"input-group admin-pdp-image-form\"");
+WriteLiteral(" class=\"col-7\"");
 
 WriteLiteral(">\r\n        <div");
 
-WriteLiteral(" class=\"input-group-prepend\"");
+WriteLiteral(" class=\"admin-card-img\"");
 
-WriteLiteral(">\r\n            <a");
-
-WriteLiteral(" class=\"input-group-text\"");
-
-WriteLiteral(" href=\'javascript:;\'");
-
-WriteLiteral(">Upload</a>\r\n        </div>\r\n        <div");
-
-WriteLiteral(" class=\"custom-file\"");
-
-WriteLiteral(">\r\n            <input");
-
-WriteLiteral(" type=\"file\"");
-
-WriteLiteral(" class=\"custom-file-input pdp-img\"");
-
-WriteLiteral(" name=\"Image\"");
-
-WriteLiteral("\r\n                   aria-describedby=\"inputGroupFileAddon01\"");
-
-WriteLiteral(" onchange=\'$(\"#upload-file-info\").html($(this).val());\'");
-
-WriteLiteral(">\r\n            <label");
-
-WriteLiteral(" class=\"custom-file-label\"");
-
-WriteLiteral(" id=\"upload-file-info\"");
-
-WriteLiteral(">Choose file</label>\r\n        </div>\r\n    </div>\r\n        <div>\r\n");
+WriteLiteral(">\r\n");
 
             
-            #line 18 "..\..\Views\Admin\_ProductDetails.cshtml"
+            #line 6 "..\..\Views\Admin\_ProductDetails.cshtml"
             
             
             #line default
             #line hidden
             
-            #line 18 "..\..\Views\Admin\_ProductDetails.cshtml"
+            #line 6 "..\..\Views\Admin\_ProductDetails.cshtml"
              if (Model != null && Model.ImageUrl != null)
             {
 
@@ -114,20 +71,20 @@ WriteLiteral("                <img");
 
 WriteLiteral(" class=\"img-thumbnail admin-pdp-image\"");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 870), Tuple.Create("\"", 891)
+WriteAttribute("src", Tuple.Create(" src=\"", 294), Tuple.Create("\"", 315)
             
-            #line 20 "..\..\Views\Admin\_ProductDetails.cshtml"
-, Tuple.Create(Tuple.Create("", 876), Tuple.Create<System.Object, System.Int32>(Model.ImageUrl
+            #line 8 "..\..\Views\Admin\_ProductDetails.cshtml"
+, Tuple.Create(Tuple.Create("", 300), Tuple.Create<System.Object, System.Int32>(Model.ImageUrl
             
             #line default
             #line hidden
-, 876), false)
+, 300), false)
 );
 
 WriteLiteral(" />\r\n");
 
             
-            #line 21 "..\..\Views\Admin\_ProductDetails.cshtml"
+            #line 9 "..\..\Views\Admin\_ProductDetails.cshtml"
             }
             else
             {
@@ -139,21 +96,76 @@ WriteLiteral("                <img");
 
 WriteLiteral(" class=\"img-thumbnail admin-pdp-image\"");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 1003), Tuple.Create("\"", 1042)
-, Tuple.Create(Tuple.Create("", 1009), Tuple.Create<System.Object, System.Int32>(Href("~/Content/images/no-image-big.png")
-, 1009), false)
+WriteAttribute("src", Tuple.Create(" src=\"", 427), Tuple.Create("\"", 466)
+, Tuple.Create(Tuple.Create("", 433), Tuple.Create<System.Object, System.Int32>(Href("~/Content/images/no-image-big.png")
+, 433), false)
 );
 
 WriteLiteral(">\r\n");
 
             
-            #line 25 "..\..\Views\Admin\_ProductDetails.cshtml"
+            #line 13 "..\..\Views\Admin\_ProductDetails.cshtml"
             }
 
             
             #line default
             #line hidden
-WriteLiteral("        </div>\r\n    </div>");
+WriteLiteral("        </div>\r\n        <div");
+
+WriteLiteral(" class=\"input-group admin-pdp-image-form\"");
+
+WriteLiteral(">\r\n            <div");
+
+WriteLiteral(" class=\"input-group-prepend\"");
+
+WriteLiteral(">\r\n                <a");
+
+WriteLiteral(" class=\"input-group-text\"");
+
+WriteLiteral(" href=\'javascript:;\'");
+
+WriteLiteral(">Upload</a>\r\n            </div>\r\n            <div");
+
+WriteLiteral(" class=\"custom-file\"");
+
+WriteLiteral(">\r\n                <input");
+
+WriteLiteral(" type=\"file\"");
+
+WriteLiteral(" class=\"custom-file-input pdp-img\"");
+
+WriteLiteral(" name=\"Image\"");
+
+WriteLiteral("\r\n                       aria-describedby=\"inputGroupFileAddon01\"");
+
+WriteLiteral(" onchange=\'$(\"#upload-file-info\").html($(this).val());\'");
+
+WriteLiteral(">\r\n                <label");
+
+WriteLiteral(" class=\"custom-file-label\"");
+
+WriteLiteral(" id=\"upload-file-info\"");
+
+WriteLiteral(">Choose file</label>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div");
+
+WriteLiteral(" class=\"col-5\"");
+
+WriteLiteral(">\r\n        <div");
+
+WriteLiteral(" class=\"admin-pdp\"");
+
+WriteLiteral(">\r\n");
+
+WriteLiteral("            ");
+
+            
+            #line 28 "..\..\Views\Admin\_ProductDetails.cshtml"
+       Write(Html.EditorForModel(Model));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n        </div>\r\n    </div>\r\n</div>\r\n");
 
         }
     }

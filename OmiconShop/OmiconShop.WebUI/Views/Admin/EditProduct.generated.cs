@@ -43,7 +43,7 @@ namespace ASP
             #line 2 "..\..\Views\Admin\EditProduct.cshtml"
   
     ViewBag.Title = "Edit Product";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    //Layout = "~/Views/Shared/_AdminLayout.cshtml";
     var id = (int)ViewData["Id"];
 
             
@@ -62,47 +62,85 @@ WriteLiteral(">\r\n    <h1>");
             
             #line default
             #line hidden
-WriteLiteral("</h1>\r\n</hgroup>\r\n\r\n");
+WriteLiteral("</h1>\r\n</hgroup>\r\n\r\n<div");
 
-            
-            #line 12 "..\..\Views\Admin\EditProduct.cshtml"
- using (Html.BeginForm("EditProduct", "Admin", FormMethod.Post, new { enctype = "multipart/form-data"}))
-{
-    
-            
-            #line default
-            #line hidden
-            
-            #line 14 "..\..\Views\Admin\EditProduct.cshtml"
-Write(Html.Partial("_ProductDetails", ViewData));
+WriteLiteral(" class=\"row\"");
 
-            
-            #line default
-            #line hidden
-            
-            #line 14 "..\..\Views\Admin\EditProduct.cshtml"
-                                              
+WriteLiteral(">\r\n    <div");
 
-
-            
-            #line default
-            #line hidden
-WriteLiteral("    <div");
-
-WriteLiteral(" class=\"submit-product\"");
+WriteLiteral(" class=\"admin-nav-menu col-1\"");
 
 WriteLiteral(">\r\n");
 
 WriteLiteral("        ");
 
             
-            #line 17 "..\..\Views\Admin\EditProduct.cshtml"
-   Write(Html.Hidden("productId", id));
+            #line 14 "..\..\Views\Admin\EditProduct.cshtml"
+   Write(Html.Partial("_AdminNavMenu"));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n        <input");
+WriteLiteral("\r\n    </div>\r\n    <div");
+
+WriteLiteral(" class=\"product-info col-11\"");
+
+WriteLiteral(">\r\n");
+
+            
+            #line 17 "..\..\Views\Admin\EditProduct.cshtml"
+        
+            
+            #line default
+            #line hidden
+            
+            #line 17 "..\..\Views\Admin\EditProduct.cshtml"
+         using (Html.BeginForm("EditProduct", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+
+            
+            #line default
+            #line hidden
+WriteLiteral("            <div");
+
+WriteLiteral(" class=\"panel-body admin-product-info\"");
+
+WriteLiteral(">\r\n");
+
+WriteLiteral("                ");
+
+            
+            #line 20 "..\..\Views\Admin\EditProduct.cshtml"
+           Write(Html.Partial("_ProductDetails", ViewData));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n            </div>\r\n");
+
+            
+            #line 22 "..\..\Views\Admin\EditProduct.cshtml"
+
+
+            
+            #line default
+            #line hidden
+WriteLiteral("            <div");
+
+WriteLiteral(" class=\"submit-product\"");
+
+WriteLiteral(">\r\n");
+
+WriteLiteral("                    ");
+
+            
+            #line 24 "..\..\Views\Admin\EditProduct.cshtml"
+               Write(Html.Hidden("productId", id));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n                    <input");
 
 WriteLiteral(" type=\"submit\"");
 
@@ -112,23 +150,26 @@ WriteLiteral(" class=\"btn btn-primary\"");
 
 WriteLiteral(">\r\n");
 
-WriteLiteral("        ");
+WriteLiteral("                    ");
 
             
-            #line 19 "..\..\Views\Admin\EditProduct.cshtml"
-   Write(Html.RouteLink("Discard changes and go to list", new { controller = "Admin", action = "ProductList" }, new { @class = "btn btn-default" }));
+            #line 26 "..\..\Views\Admin\EditProduct.cshtml"
+               Write(Html.RouteLink("Discard changes and go to list", new { controller = "Admin", action = "ProductList" }, new { @class = "btn btn-default" }));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n    </div>\r\n");
+WriteLiteral("\r\n                </div>\r\n");
 
             
-            #line 21 "..\..\Views\Admin\EditProduct.cshtml"
-}
+            #line 28 "..\..\Views\Admin\EditProduct.cshtml"
+        }
+
             
             #line default
             #line hidden
+WriteLiteral("    </div>\r\n</div>");
+
         }
     }
 }

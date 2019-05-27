@@ -452,30 +452,28 @@ a:hover {
 }
 
 .admin-pdp {
-    float: left;
+    margin: 1rem;
 }
 
-/*.admin-pdp-image-form {
-    position: absolute;
-    left: 30rem;
-    top: 7rem;
-    width: 20rem;
-}*/
+.admin-pdp-image-form {
+    margin-top: 0.8rem;
+    width: 25rem;
+}
 
 .admin-pdp-image {
     width: 25rem;
     height: 25rem;
 }
 
-/*.submit-product {
+.submit-product {
     position: absolute;
-    right: 43rem;
-    top: 28rem;
-}*/
+    right: 46.5rem;
+    top: 25.8rem;
+}
 
 .product-info {
-    float: left;
-    justify-content: center;
+    width: 60%;
+    margin: 0 auto;
 }
 
 .image-control {
@@ -484,6 +482,6 @@ a:hover {
 }
 
 .admin-product-info {
-    display: flex;
-    justify-content: center;
+    width: 71%;
+    margin: 0 auto;
 }
