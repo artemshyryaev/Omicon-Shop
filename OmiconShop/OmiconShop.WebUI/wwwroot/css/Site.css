@@ -395,6 +395,7 @@ a:hover {
     background-color: #f8f9fa;
     border-radius: 20px;
     float: left;
+    margin-right: 2.5rem;
 }
 
 .admin-nav-menu__personal-info {
@@ -482,4 +483,35 @@ a:hover {
 .admin-product-info {
     width: 71%;
     margin: 0 auto;
+}
+
+.admin-product-table {
+    position: relative;
+    padding: -4rem;
+}
+
+.admin-product-table__table {
+    margin-top: 1rem;
+}
+
+.admin-product-search-control {
+    display: inline;
+}
+
+.admin-product-search {
+    display: inline-block;
+}
+
+.add-admin-product {
+    display: inline-block;
+    margin-left: 1rem;
+}
+
+.fa-pen-square {
+    margin-right: 0.7rem;
+    color: black;
+}
+
+.fa-trash {
+    color: black;
 }
