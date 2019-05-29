@@ -2,10 +2,12 @@
 @using Microsoft.AspNet.Identity
 
 @{
-    ViewBag.Title = "OrderDetails";
+    ViewBag.Title = "Order Details";
 }
 
-<h2>@Model.OrderId Order</h2>
+<hgroup class="title">
+    <h1>@Model.OrderId/@ViewBag.Title</h1>
+</hgroup>
 
 @if (User.Identity.IsAuthenticated)
 {

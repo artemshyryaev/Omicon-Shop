@@ -4,52 +4,58 @@
 @{
     ViewBag.Title = "OrdersList";
 }
-<body>
-    <div class="admin-nav-menu">
+
+<hgroup class="title">
+    <h1>@ViewBag.Title</h1>
+</hgroup>
+
+<div class="panel panel-default row justify-content-between">
+    <div class="admin-nav-menu col-1">
         @Html.Partial("_AdminNavMenu")
     </div>
-    <div>
-        @using (Html.BeginForm("OrderList", "Admin"))
-        {
-            @Html.EnumDropdownListFor(x => x.SelectedStatus, Model.SelectedStatus)
-            <input type="submit" value="Ok">
-        }
-    </div>
-    <div>
-        <form class="form-inline my-2 my-lg-0">
-            Find by Id: @Html.TextBox("OrderId")
-            <input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Search">
-        </form>
-    </div>
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3>Order list</h3>
+    <div class="admin-product-table col">
+        <div class="admin-orders-search-control">
+            @using (Html.BeginForm("OrderList", "Admin", FormMethod.Get, new { @class = "form-inline my-2 my-lg-0 admin-orders-filter" }))
+            {
+                @Html.EnumDropdownListFor(x => x.SelectedStatus, Model.SelectedStatus, new { @class = "form-control" })
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            }
+
+            @using (Html.BeginForm("OrderList", "Admin", FormMethod.Get, new { @class = "form-inline my-2 my-lg-0 admin-orders-search" }))
+            {
+                <input class="form-control mr-sm-2" type="search" placeholder="Find by order no..." aria-label="Search" name="productName" />
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            }
         </div>
-        <div class="panel-body">
-            <table class="table table-striped table-condensed table-bordered">
-                <tr>
-                    <th>Order no.</th>
-                    <th class="text-right">Order date</th>
-                    <th class="text-right">Bill-to name</th>
-                    <th class="text-right">Total</th>
-                    <th class="text-center">Order Satus</th>
-                    <th></th>
-                </tr>
-                @foreach (var el in Model.Orders)
-                {
+        <div class="panel panel-default">
+                <table class="table table-striped admin-orders-table">
                     <tr>
-                        <td>@el.OrderId</td>
-                        <td class="text-right">@el.OrderInformation.Date</td>
-                        <td class="text-right">@(el.User.UserPersonalInformation.Name + " " + el.User.UserPersonalInformation.Surname)</td>
-                        <td class="text-right">@el.OrderInformation.Total</td>
-                        <td class="text-right">@el.Status</td>
-                        <td class="text-right">@Html.RouteLink("View details", new { controller = "Admin", action = "OrderDetails", orderId = el.OrderId })</td>
+                        <th>Order no.</th>
+                        <th class="text-center">Order date</th>
+                        <th class="text-center">Bill-to name</th>
+                        <th class="text-center">Total</th>
+                        <th class="text-center">Order Status</th>
+                        <th class="text-center">Actions</th>
                     </tr>
-                }
-            </table>
-        </div>
-        <div class="panel-footer">
-            @Html.PageLinks(Model.PagingInfo, x => Url.Action("ProductList", new { page = x }))
+                    @foreach (var el in Model.Orders)
+                    {
+                        <tr>
+                            <td>@el.OrderId</td>
+                            <td class="text-center">@el.OrderInformation.Date</td>
+                            <td class="text-center">@(el.User.UserPersonalInformation.Name + " " + el.User.UserPersonalInformation.Surname)</td>
+                            <td class="text-center">@el.OrderInformation.Total $</td>
+                            <td class="text-center">@el.Status</td>
+                            <td class="text-center">@Html.RouteLink("View details", new { controller = "Admin", action = "OrderDetails", orderId = el.OrderId })</td>
+                        </tr>
+                    }
+                </table>
+            </div>
         </div>
     </div>
-</body>
+<nav>
+    <input class="current-page" type="hidden" value="@Model.PagingInfo.CurrentPage">
+    <input class="total-pages" type="hidden" value="@Model.PagingInfo.TotalPages">
+    <ul class="pagination justify-content-end">
+        @Html.PageLinks(Model.PagingInfo, x => Url.Action("ProductsList", new { page = x }))
+    </ul>
+</nav>

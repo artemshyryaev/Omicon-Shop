@@ -43,7 +43,6 @@ namespace ASP
             #line 2 "..\..\Views\Admin\PersonalInfo.cshtml"
   
     ViewBag.Title = "Your personal details";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 
             
             #line default
@@ -55,7 +54,7 @@ WriteLiteral(" class=\"title\"");
 WriteLiteral(">\r\n    <h1>");
 
             
-            #line 8 "..\..\Views\Admin\PersonalInfo.cshtml"
+            #line 7 "..\..\Views\Admin\PersonalInfo.cshtml"
    Write(ViewBag.Title);
 
             
@@ -70,7 +69,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("    ");
 
             
-            #line 12 "..\..\Views\Admin\PersonalInfo.cshtml"
+            #line 11 "..\..\Views\Admin\PersonalInfo.cshtml"
 Write(Html.Partial("_AdminNavMenu"));
 
             
@@ -79,7 +78,7 @@ Write(Html.Partial("_AdminNavMenu"));
 WriteLiteral("\r\n</div>\r\n\r\n");
 
             
-            #line 15 "..\..\Views\Admin\PersonalInfo.cshtml"
+            #line 14 "..\..\Views\Admin\PersonalInfo.cshtml"
  using (Html.BeginForm("PersonalInfo", "Admin"))
 {
 
@@ -95,7 +94,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("        ");
 
             
-            #line 18 "..\..\Views\Admin\PersonalInfo.cshtml"
+            #line 17 "..\..\Views\Admin\PersonalInfo.cshtml"
    Write(Html.ValidationSummary(true));
 
             
@@ -106,7 +105,7 @@ WriteLiteral("\r\n");
 WriteLiteral("        ");
 
             
-            #line 19 "..\..\Views\Admin\PersonalInfo.cshtml"
+            #line 18 "..\..\Views\Admin\PersonalInfo.cshtml"
    Write(Html.AntiForgeryToken());
 
             
@@ -117,7 +116,7 @@ WriteLiteral("\r\n");
 WriteLiteral("        ");
 
             
-            #line 20 "..\..\Views\Admin\PersonalInfo.cshtml"
+            #line 19 "..\..\Views\Admin\PersonalInfo.cshtml"
    Write(Html.HiddenFor(x => x.Id));
 
             
@@ -128,7 +127,7 @@ WriteLiteral("\r\n");
 WriteLiteral("        ");
 
             
-            #line 21 "..\..\Views\Admin\PersonalInfo.cshtml"
+            #line 20 "..\..\Views\Admin\PersonalInfo.cshtml"
    Write(Html.LabelFor(x => x.Email));
 
             
@@ -139,7 +138,7 @@ WriteLiteral("\r\n");
 WriteLiteral("        ");
 
             
-            #line 22 "..\..\Views\Admin\PersonalInfo.cshtml"
+            #line 21 "..\..\Views\Admin\PersonalInfo.cshtml"
    Write(Html.TextBoxFor(x => x.Email));
 
             
@@ -150,7 +149,7 @@ WriteLiteral("\r\n");
 WriteLiteral("        ");
 
             
-            #line 23 "..\..\Views\Admin\PersonalInfo.cshtml"
+            #line 22 "..\..\Views\Admin\PersonalInfo.cshtml"
    Write(Html.ValidationMessageFor(x => x.Email));
 
             
@@ -167,7 +166,7 @@ WriteLiteral(" class=\"btn btn-primary\"");
 WriteLiteral(">\r\n    </div>\r\n");
 
             
-            #line 26 "..\..\Views\Admin\PersonalInfo.cshtml"
+            #line 25 "..\..\Views\Admin\PersonalInfo.cshtml"
 }
 
             

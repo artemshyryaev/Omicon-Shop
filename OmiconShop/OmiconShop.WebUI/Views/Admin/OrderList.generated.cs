@@ -54,235 +54,313 @@ WriteLiteral("\r\n");
             
             #line default
             #line hidden
-WriteLiteral("\r\n<body>\r\n    <div");
+WriteLiteral("\r\n\r\n<hgroup");
 
-WriteLiteral(" class=\"admin-nav-menu\"");
+WriteLiteral(" class=\"title\"");
+
+WriteLiteral(">\r\n    <h1>");
+
+            
+            #line 9 "..\..\Views\Admin\OrderList.cshtml"
+   Write(ViewBag.Title);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</h1>\r\n</hgroup>\r\n\r\n<div");
+
+WriteLiteral(" class=\"panel panel-default row justify-content-between\"");
+
+WriteLiteral(">\r\n    <div");
+
+WriteLiteral(" class=\"admin-nav-menu col-1\"");
 
 WriteLiteral(">\r\n");
 
 WriteLiteral("        ");
 
             
-            #line 9 "..\..\Views\Admin\OrderList.cshtml"
+            #line 14 "..\..\Views\Admin\OrderList.cshtml"
    Write(Html.Partial("_AdminNavMenu"));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n    </div>\r\n    <div>\r\n");
+WriteLiteral("\r\n    </div>\r\n    <div");
 
-            
-            #line 12 "..\..\Views\Admin\OrderList.cshtml"
-        
-            
-            #line default
-            #line hidden
-            
-            #line 12 "..\..\Views\Admin\OrderList.cshtml"
-         using (Html.BeginForm("OrderList", "Admin"))
-        {
-            
-            
-            #line default
-            #line hidden
-            
-            #line 14 "..\..\Views\Admin\OrderList.cshtml"
-       Write(Html.EnumDropdownListFor(x => x.SelectedStatus, Model.SelectedStatus));
+WriteLiteral(" class=\"admin-product-table col\"");
 
-            
-            #line default
-            #line hidden
-            
-            #line 14 "..\..\Views\Admin\OrderList.cshtml"
-                                                                                  
+WriteLiteral(">\r\n        <div");
 
-            
-            #line default
-            #line hidden
-WriteLiteral("            <input");
-
-WriteLiteral(" type=\"submit\"");
-
-WriteLiteral(" value=\"Ok\"");
+WriteLiteral(" class=\"admin-orders-search-control\"");
 
 WriteLiteral(">\r\n");
 
             
-            #line 16 "..\..\Views\Admin\OrderList.cshtml"
-        }
-
+            #line 18 "..\..\Views\Admin\OrderList.cshtml"
+            
             
             #line default
             #line hidden
-WriteLiteral("    </div>\r\n    <div>\r\n        <form");
-
-WriteLiteral(" class=\"form-inline my-2 my-lg-0\"");
-
-WriteLiteral(">\r\n            Find by Id: ");
-
             
-            #line 20 "..\..\Views\Admin\OrderList.cshtml"
-                   Write(Html.TextBox("OrderId"));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n            <input");
-
-WriteLiteral(" class=\"btn btn-outline-success my-2 my-sm-0\"");
-
-WriteLiteral(" type=\"submit\"");
-
-WriteLiteral(" value=\"Search\"");
-
-WriteLiteral(">\r\n        </form>\r\n    </div>\r\n    <div");
-
-WriteLiteral(" class=\"panel panel-default\"");
-
-WriteLiteral(">\r\n        <div");
-
-WriteLiteral(" class=\"panel-heading\"");
-
-WriteLiteral(">\r\n            <h3>Order list</h3>\r\n        </div>\r\n        <div");
-
-WriteLiteral(" class=\"panel-body\"");
-
-WriteLiteral(">\r\n            <table");
-
-WriteLiteral(" class=\"table table-striped table-condensed table-bordered\"");
-
-WriteLiteral(">\r\n                <tr>\r\n                    <th>Order no.</th>\r\n                " +
-"    <th");
-
-WriteLiteral(" class=\"text-right\"");
-
-WriteLiteral(">Order date</th>\r\n                    <th");
-
-WriteLiteral(" class=\"text-right\"");
-
-WriteLiteral(">Bill-to name</th>\r\n                    <th");
-
-WriteLiteral(" class=\"text-right\"");
-
-WriteLiteral(">Total</th>\r\n                    <th");
-
-WriteLiteral(" class=\"text-center\"");
-
-WriteLiteral(">Order Satus</th>\r\n                    <th></th>\r\n                </tr>\r\n");
-
-            
-            #line 38 "..\..\Views\Admin\OrderList.cshtml"
+            #line 18 "..\..\Views\Admin\OrderList.cshtml"
+             using (Html.BeginForm("OrderList", "Admin", FormMethod.Get, new { @class = "form-inline my-2 my-lg-0 admin-orders-filter" }))
+            {
                 
             
             #line default
             #line hidden
             
-            #line 38 "..\..\Views\Admin\OrderList.cshtml"
-                 foreach (var el in Model.Orders)
-                {
+            #line 20 "..\..\Views\Admin\OrderList.cshtml"
+           Write(Html.EnumDropdownListFor(x => x.SelectedStatus, Model.SelectedStatus, new { @class = "form-control" }));
 
             
             #line default
             #line hidden
-WriteLiteral("                    <tr>\r\n                        <td>");
-
             
-            #line 41 "..\..\Views\Admin\OrderList.cshtml"
-                       Write(el.OrderId);
+            #line 20 "..\..\Views\Admin\OrderList.cshtml"
+                                                                                                                       
 
             
             #line default
             #line hidden
-WriteLiteral("</td>\r\n                        <td");
+WriteLiteral("                <button");
 
-WriteLiteral(" class=\"text-right\"");
+WriteLiteral(" class=\"btn btn-outline-success my-2 my-sm-0\"");
 
-WriteLiteral(">");
+WriteLiteral(" type=\"submit\"");
+
+WriteLiteral(">Search</button>\r\n");
 
             
-            #line 42 "..\..\Views\Admin\OrderList.cshtml"
-                                          Write(el.OrderInformation.Date);
+            #line 22 "..\..\Views\Admin\OrderList.cshtml"
+            }
 
             
             #line default
             #line hidden
-WriteLiteral("</td>\r\n                        <td");
+WriteLiteral("\r\n");
 
-WriteLiteral(" class=\"text-right\"");
+            
+            #line 24 "..\..\Views\Admin\OrderList.cshtml"
+            
+            
+            #line default
+            #line hidden
+            
+            #line 24 "..\..\Views\Admin\OrderList.cshtml"
+             using (Html.BeginForm("OrderList", "Admin", FormMethod.Get, new { @class = "form-inline my-2 my-lg-0 admin-orders-search" }))
+            {
 
-WriteLiteral(">");
+            
+            #line default
+            #line hidden
+WriteLiteral("                <input");
+
+WriteLiteral(" class=\"form-control mr-sm-2\"");
+
+WriteLiteral(" type=\"search\"");
+
+WriteLiteral(" placeholder=\"Find by order no...\"");
+
+WriteLiteral(" aria-label=\"Search\"");
+
+WriteLiteral(" name=\"productName\"");
+
+WriteLiteral(" />\r\n");
+
+WriteLiteral("                <button");
+
+WriteLiteral(" class=\"btn btn-outline-success my-2 my-sm-0\"");
+
+WriteLiteral(" type=\"submit\"");
+
+WriteLiteral(">Search</button>\r\n");
+
+            
+            #line 28 "..\..\Views\Admin\OrderList.cshtml"
+            }
+
+            
+            #line default
+            #line hidden
+WriteLiteral("        </div>\r\n        <div");
+
+WriteLiteral(" class=\"panel panel-default\"");
+
+WriteLiteral(">\r\n                <table");
+
+WriteLiteral(" class=\"table table-striped admin-orders-table\"");
+
+WriteLiteral(">\r\n                    <tr>\r\n                        <th>Order no.</th>\r\n        " +
+"                <th");
+
+WriteLiteral(" class=\"text-center\"");
+
+WriteLiteral(">Order date</th>\r\n                        <th");
+
+WriteLiteral(" class=\"text-center\"");
+
+WriteLiteral(">Bill-to name</th>\r\n                        <th");
+
+WriteLiteral(" class=\"text-center\"");
+
+WriteLiteral(">Total</th>\r\n                        <th");
+
+WriteLiteral(" class=\"text-center\"");
+
+WriteLiteral(">Order Status</th>\r\n                        <th");
+
+WriteLiteral(" class=\"text-center\"");
+
+WriteLiteral(">Actions</th>\r\n                    </tr>\r\n");
+
+            
+            #line 40 "..\..\Views\Admin\OrderList.cshtml"
+                    
+            
+            #line default
+            #line hidden
+            
+            #line 40 "..\..\Views\Admin\OrderList.cshtml"
+                     foreach (var el in Model.Orders)
+                    {
+
+            
+            #line default
+            #line hidden
+WriteLiteral("                        <tr>\r\n                            <td>");
 
             
             #line 43 "..\..\Views\Admin\OrderList.cshtml"
-                                           Write(el.User.UserPersonalInformation.Name + " " + el.User.UserPersonalInformation.Surname);
+                           Write(el.OrderId);
 
             
             #line default
             #line hidden
-WriteLiteral("</td>\r\n                        <td");
+WriteLiteral("</td>\r\n                            <td");
 
-WriteLiteral(" class=\"text-right\"");
+WriteLiteral(" class=\"text-center\"");
 
 WriteLiteral(">");
 
             
             #line 44 "..\..\Views\Admin\OrderList.cshtml"
-                                          Write(el.OrderInformation.Total);
+                                               Write(el.OrderInformation.Date);
 
             
             #line default
             #line hidden
-WriteLiteral("</td>\r\n                        <td");
+WriteLiteral("</td>\r\n                            <td");
 
-WriteLiteral(" class=\"text-right\"");
+WriteLiteral(" class=\"text-center\"");
 
 WriteLiteral(">");
 
             
             #line 45 "..\..\Views\Admin\OrderList.cshtml"
-                                          Write(el.Status);
+                                                Write(el.User.UserPersonalInformation.Name + " " + el.User.UserPersonalInformation.Surname);
 
             
             #line default
             #line hidden
-WriteLiteral("</td>\r\n                        <td");
+WriteLiteral("</td>\r\n                            <td");
 
-WriteLiteral(" class=\"text-right\"");
+WriteLiteral(" class=\"text-center\"");
 
 WriteLiteral(">");
 
             
             #line 46 "..\..\Views\Admin\OrderList.cshtml"
-                                          Write(Html.RouteLink("View details", new { controller = "Admin", action = "OrderDetails", orderId = el.OrderId }));
+                                               Write(el.OrderInformation.Total);
 
             
             #line default
             #line hidden
-WriteLiteral("</td>\r\n                    </tr>\r\n");
+WriteLiteral(" $</td>\r\n                            <td");
+
+WriteLiteral(" class=\"text-center\"");
+
+WriteLiteral(">");
+
+            
+            #line 47 "..\..\Views\Admin\OrderList.cshtml"
+                                               Write(el.Status);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</td>\r\n                            <td");
+
+WriteLiteral(" class=\"text-center\"");
+
+WriteLiteral(">");
 
             
             #line 48 "..\..\Views\Admin\OrderList.cshtml"
-                }
+                                               Write(Html.RouteLink("View details", new { controller = "Admin", action = "OrderDetails", orderId = el.OrderId }));
 
             
             #line default
             #line hidden
-WriteLiteral("            </table>\r\n        </div>\r\n        <div");
+WriteLiteral("</td>\r\n                        </tr>\r\n");
 
-WriteLiteral(" class=\"panel-footer\"");
+            
+            #line 50 "..\..\Views\Admin\OrderList.cshtml"
+                    }
+
+            
+            #line default
+            #line hidden
+WriteLiteral("                </table>\r\n            </div>\r\n        </div>\r\n    </div>\r\n<nav>\r\n" +
+"    <input");
+
+WriteLiteral(" class=\"current-page\"");
+
+WriteLiteral(" type=\"hidden\"");
+
+WriteAttribute("value", Tuple.Create(" value=\"", 2707), Tuple.Create("\"", 2744)
+            
+            #line 56 "..\..\Views\Admin\OrderList.cshtml"
+, Tuple.Create(Tuple.Create("", 2715), Tuple.Create<System.Object, System.Int32>(Model.PagingInfo.CurrentPage
+            
+            #line default
+            #line hidden
+, 2715), false)
+);
+
+WriteLiteral(">\r\n    <input");
+
+WriteLiteral(" class=\"total-pages\"");
+
+WriteLiteral(" type=\"hidden\"");
+
+WriteAttribute("value", Tuple.Create(" value=\"", 2792), Tuple.Create("\"", 2828)
+            
+            #line 57 "..\..\Views\Admin\OrderList.cshtml"
+, Tuple.Create(Tuple.Create("", 2800), Tuple.Create<System.Object, System.Int32>(Model.PagingInfo.TotalPages
+            
+            #line default
+            #line hidden
+, 2800), false)
+);
+
+WriteLiteral(">\r\n    <ul");
+
+WriteLiteral(" class=\"pagination justify-content-end\"");
 
 WriteLiteral(">\r\n");
 
-WriteLiteral("            ");
+WriteLiteral("        ");
 
             
-            #line 52 "..\..\Views\Admin\OrderList.cshtml"
-       Write(Html.PageLinks(Model.PagingInfo, x => Url.Action("ProductList", new { page = x })));
+            #line 59 "..\..\Views\Admin\OrderList.cshtml"
+   Write(Html.PageLinks(Model.PagingInfo, x => Url.Action("ProductsList", new { page = x })));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n        </div>\r\n    </div>\r\n</body>\r\n");
+WriteLiteral("\r\n    </ul>\r\n</nav>");
 
         }
     }

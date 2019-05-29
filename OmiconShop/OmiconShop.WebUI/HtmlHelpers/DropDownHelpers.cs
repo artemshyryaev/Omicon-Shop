@@ -20,6 +20,16 @@ namespace OmiconShop.WebUI.HtmlHelpers
             return SelectExtensions.DropDownListFor(htmlHelper, expression, items);
         }
 
+        public static MvcHtmlString EnumDropdownListFor<TModel, TProperty, TEnum>(
+            this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TProperty>> expression, TEnum? selectedValue, object htmlAttributes) where TEnum : struct
+        {
+            var stringified = selectedValue != null ? selectedValue.Value.ToString() : null;
+            var values = new[] { "All" }.Concat(Enum.GetValues(typeof(TEnum)).Cast<TEnum>().Select(v => v.ToString()));
+            IEnumerable<SelectListItem> items = ValueToListItems(stringified, values);
+
+            return SelectExtensions.DropDownListFor(htmlHelper, expression, items, htmlAttributes);
+        }
+
         public static MvcHtmlString UomEnumDropdownList<TModel, TEnum>(
             this HtmlHelper<TModel> htmlHelper, string name, TEnum selectedValue, object htmlAttributes) where TEnum : struct
         {

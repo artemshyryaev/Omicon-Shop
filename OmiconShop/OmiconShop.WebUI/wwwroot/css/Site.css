@@ -515,3 +515,20 @@ a:hover {
 .fa-trash {
     color: black;
 }
+
+.admin-orders-search-control {
+    display: inline;
+}
+
+.admin-orders-search {
+    display: inline-block;
+    margin-left: 2rem;
+}
+
+.admin-orders-filter {
+    display: inline-block;
+}
+
+.admin-orders-table {
+    margin-top: 1rem;
+}
