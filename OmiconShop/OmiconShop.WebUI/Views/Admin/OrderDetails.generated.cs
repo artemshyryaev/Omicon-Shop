@@ -77,37 +77,7 @@ WriteLiteral("/");
             
             #line default
             #line hidden
-WriteLiteral("</h1>\r\n</hgroup>\r\n\r\n");
-
-            
-            #line 12 "..\..\Views\Admin\OrderDetails.cshtml"
- if (User.Identity.IsAuthenticated)
-{
-
-            
-            #line default
-            #line hidden
-WriteLiteral("    <div>\r\n");
-
-WriteLiteral("        ");
-
-            
-            #line 15 "..\..\Views\Admin\OrderDetails.cshtml"
-   Write(Html.RouteLink("Go to order list page", new { controller = "Admin", action = "OrderList" }));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n    </div>\r\n");
-
-            
-            #line 17 "..\..\Views\Admin\OrderDetails.cshtml"
-}
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n<div");
+WriteLiteral("</h1>\r\n</hgroup>\r\n\r\n\r\n<div");
 
 WriteLiteral(" class=\"admin-nav-menu\"");
 
@@ -116,204 +86,348 @@ WriteLiteral(">\r\n");
 WriteLiteral("    ");
 
             
-            #line 20 "..\..\Views\Admin\OrderDetails.cshtml"
+            #line 14 "..\..\Views\Admin\OrderDetails.cshtml"
 Write(Html.Partial("_AdminNavMenu"));
 
             
             #line default
             #line hidden
-WriteLiteral(@"
-</div>
+WriteLiteral("\r\n</div>\r\n\r\n<div");
 
-<div>
-    <table>
-        <thead>
-            <tr>
-                <th>Order no.</th>
-                <th>Order status</th>
-                <th>Shipping method</th>
-                <th>Payment method</th>
-                <th>OrderDate</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>");
+WriteLiteral(" class=\"order-info\"");
+
+WriteLiteral(">\r\n");
 
             
-            #line 36 "..\..\Views\Admin\OrderDetails.cshtml"
-               Write(Model.OrderId);
+            #line 18 "..\..\Views\Admin\OrderDetails.cshtml"
+    
+            
+            #line default
+            #line hidden
+            
+            #line 18 "..\..\Views\Admin\OrderDetails.cshtml"
+     if (User.Identity.IsAuthenticated)
+    {
 
             
             #line default
             #line hidden
-WriteLiteral("</td>\r\n                <td>");
+WriteLiteral("        <div>\r\n");
+
+WriteLiteral("            ");
+
+            
+            #line 21 "..\..\Views\Admin\OrderDetails.cshtml"
+       Write(Html.RouteLink("Go to order list page", new { controller = "Admin", action = "OrderList" }, new { @class = "badge badge-light" }));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n        </div>\r\n");
+
+            
+            #line 23 "..\..\Views\Admin\OrderDetails.cshtml"
+    }
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n    <table");
+
+WriteLiteral(" class=\"table table-sm order-general-info\"");
+
+WriteLiteral(">\r\n        <tbody>\r\n            <tr>\r\n                <td");
+
+WriteLiteral(" class=\"text-left\"");
+
+WriteLiteral("><b>Order no.</b></td>\r\n                <td");
+
+WriteLiteral(" class=\"text-left\"");
+
+WriteLiteral(">");
+
+            
+            #line 29 "..\..\Views\Admin\OrderDetails.cshtml"
+                                 Write(Model.OrderId);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</td>\r\n            </tr>\r\n            <tr>\r\n                <td");
+
+WriteLiteral(" class=\"text-left\"");
+
+WriteLiteral("><b>Order status</b></td>\r\n                <td");
+
+WriteLiteral(" class=\"text-left\"");
+
+WriteLiteral(">");
+
+            
+            #line 33 "..\..\Views\Admin\OrderDetails.cshtml"
+                                 Write(Model.Status);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</td>\r\n            </tr>\r\n            <tr>\r\n                <td");
+
+WriteLiteral(" class=\"text-left\"");
+
+WriteLiteral("><b>Shipping method</b></td>\r\n                <td");
+
+WriteLiteral(" class=\"text-left\"");
+
+WriteLiteral(">");
 
             
             #line 37 "..\..\Views\Admin\OrderDetails.cshtml"
-               Write(Model.Status);
+                                 Write(Model.OrderInformation.Delivery);
 
             
             #line default
             #line hidden
-WriteLiteral("</td>\r\n                <td>");
+WriteLiteral("</td>\r\n            </tr>\r\n            <tr>\r\n                <td");
+
+WriteLiteral(" class=\"text-left\"");
+
+WriteLiteral("><b>Payment method</b></td>\r\n                <td");
+
+WriteLiteral(" class=\"text-left\"");
+
+WriteLiteral(">");
 
             
-            #line 38 "..\..\Views\Admin\OrderDetails.cshtml"
-               Write(Model.OrderInformation.Delivery);
-
-            
-            #line default
-            #line hidden
-WriteLiteral("</td>\r\n                <td>");
-
-            
-            #line 39 "..\..\Views\Admin\OrderDetails.cshtml"
-               Write(Model.OrderInformation.Payment);
-
-            
-            #line default
-            #line hidden
-WriteLiteral("</td>\r\n                <td>");
-
-            
-            #line 40 "..\..\Views\Admin\OrderDetails.cshtml"
-               Write(Model.OrderInformation.Date);
+            #line 41 "..\..\Views\Admin\OrderDetails.cshtml"
+                                 Write(Model.OrderInformation.Payment);
 
             
             #line default
             #line hidden
-WriteLiteral("</td>\r\n            </tr>\r\n        </tbody>\r\n    </table>\r\n</div>\r\n\r\n<div>\r\n    <t" +
-"able>\r\n        <thead>\r\n            <tr>\r\n                <th>SHIP-TO ADDRESS</t" +
-"h>\r\n            </tr>\r\n        </thead>\r\n        <tbody>\r\n            <tr>");
+WriteLiteral("</td>\r\n            </tr>\r\n            <tr>\r\n                <td");
+
+WriteLiteral(" class=\"text-left\"");
+
+WriteLiteral("><b>OrderDate</b></td>\r\n                <td");
+
+WriteLiteral(" class=\"text-left\"");
+
+WriteLiteral(">");
+
+            
+            #line 45 "..\..\Views\Admin\OrderDetails.cshtml"
+                                 Write(Model.OrderInformation.Date);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</td>\r\n            </tr>\r\n        </tbody>\r\n    </table>\r\n\r\n    <table");
+
+WriteLiteral(" class=\"table table-sm order-shipping-info\"");
+
+WriteLiteral(">\r\n        <tbody>\r\n            <tr>\r\n                <td");
+
+WriteLiteral(" class=\"text-left\"");
+
+WriteLiteral("><b>Country</b></td>\r\n                <td");
+
+WriteLiteral(" class=\"text-left\"");
+
+WriteLiteral(">");
 
             
             #line 54 "..\..\Views\Admin\OrderDetails.cshtml"
-           Write(Model.User.UserAddress.Address);
+                                  Write(Model.User?.UserAddress?.Country);
 
             
             #line default
             #line hidden
-WriteLiteral("</tr>\r\n            <tr>");
+WriteLiteral("</td>\r\n            </tr>\r\n            <tr>\r\n                <td");
 
-            
-            #line 55 "..\..\Views\Admin\OrderDetails.cshtml"
-           Write(Model.User.UserAddress.Address2);
+WriteLiteral(" class=\"text-left\"");
 
-            
-            #line default
-            #line hidden
-WriteLiteral("</tr>\r\n            <tr>");
+WriteLiteral("><b>City</b></td>\r\n                <td");
 
-            
-            #line 56 "..\..\Views\Admin\OrderDetails.cshtml"
-           Write(Model.User.UserAddress.City);
+WriteLiteral(" class=\"text-left\"");
 
-            
-            #line default
-            #line hidden
-WriteLiteral("</tr>\r\n            <tr>");
-
-            
-            #line 57 "..\..\Views\Admin\OrderDetails.cshtml"
-           Write(Model.User.UserAddress.Country);
-
-            
-            #line default
-            #line hidden
-WriteLiteral("</tr>\r\n            <tr>");
+WriteLiteral(">");
 
             
             #line 58 "..\..\Views\Admin\OrderDetails.cshtml"
-           Write(Model.User.UserAddress.ZipCode);
+                                  Write(Model.User?.UserAddress?.City);
 
             
             #line default
             #line hidden
-WriteLiteral(@"</tr>
-        </tbody>
-    </table>
-</div>
+WriteLiteral("</td>\r\n            </tr>\r\n            <tr>\r\n                <td");
 
-<div>
-    <table>
-        <thead>
-            <tr>
-                <th>Item no.</th>
-                <th>Title</th>
-                <th>Price</th>
-                <th>Qty</th>
-                <th>UOM</th>
-                <th>Total</th>
-            </tr>
-        </thead>
-        <tbody>
-");
+WriteLiteral(" class=\"text-left\"");
+
+WriteLiteral("><b>Address</b></td>\r\n                <td");
+
+WriteLiteral(" class=\"text-left\"");
+
+WriteLiteral(">");
 
             
-            #line 76 "..\..\Views\Admin\OrderDetails.cshtml"
+            #line 62 "..\..\Views\Admin\OrderDetails.cshtml"
+                                  Write(Model.User?.UserAddress?.Address);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</td>\r\n            </tr>\r\n            <tr>\r\n                <td");
+
+WriteLiteral(" class=\"text-left\"");
+
+WriteLiteral("><b>Address2</b></td>\r\n                <td");
+
+WriteLiteral(" class=\"text-left\"");
+
+WriteLiteral(">");
+
+            
+            #line 66 "..\..\Views\Admin\OrderDetails.cshtml"
+                                  Write(Model.User?.UserAddress?.Address2);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</td>\r\n            </tr>\r\n            <tr>\r\n                <td");
+
+WriteLiteral(" class=\"text-left\"");
+
+WriteLiteral("><b>Zip code</b></td>\r\n                <td");
+
+WriteLiteral(" class=\"text-left\"");
+
+WriteLiteral(">");
+
+            
+            #line 70 "..\..\Views\Admin\OrderDetails.cshtml"
+                                  Write(Model.User?.UserAddress?.ZipCode);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</td>\r\n            </tr>\r\n        </tbody>\r\n    </table>\r\n\r\n    <table");
+
+WriteLiteral(" class=\"table table-sm order-products-info\"");
+
+WriteLiteral(">\r\n        <thead>\r\n            <tr>\r\n                <th");
+
+WriteLiteral(" class=\"text-left\"");
+
+WriteLiteral(">Item no.</th>\r\n                <th");
+
+WriteLiteral(" class=\"text-left\"");
+
+WriteLiteral(">Title</th>\r\n                <th");
+
+WriteLiteral(" class=\"text-left\"");
+
+WriteLiteral(">Price</th>\r\n                <th");
+
+WriteLiteral(" class=\"text-left\"");
+
+WriteLiteral(">Qty</th>\r\n                <th");
+
+WriteLiteral(" class=\"text-left\"");
+
+WriteLiteral(">UOM</th>\r\n                <th");
+
+WriteLiteral(" class=\"text-left\"");
+
+WriteLiteral(">Total</th>\r\n            </tr>\r\n        </thead>\r\n        <tbody>\r\n");
+
+            
+            #line 87 "..\..\Views\Admin\OrderDetails.cshtml"
             
             
             #line default
             #line hidden
             
-            #line 76 "..\..\Views\Admin\OrderDetails.cshtml"
+            #line 87 "..\..\Views\Admin\OrderDetails.cshtml"
              foreach (var line in Model.BasketLine)
             {
 
             
             #line default
             #line hidden
-WriteLiteral("                <tr>\r\n                    <td>");
+WriteLiteral("                <tr>\r\n                    <td");
+
+WriteLiteral(" class=\"text-left\"");
+
+WriteLiteral(">");
 
             
-            #line 79 "..\..\Views\Admin\OrderDetails.cshtml"
-                   Write(line.ProductId);
-
-            
-            #line default
-            #line hidden
-WriteLiteral("</td>\r\n                    <td>");
-
-            
-            #line 80 "..\..\Views\Admin\OrderDetails.cshtml"
-                   Write(line.Product.Name);
+            #line 90 "..\..\Views\Admin\OrderDetails.cshtml"
+                                     Write(line.ProductId);
 
             
             #line default
             #line hidden
-WriteLiteral("</td>\r\n                    <td>");
+WriteLiteral("</td>\r\n                    <td");
+
+WriteLiteral(" class=\"text-left\"");
+
+WriteLiteral(">");
 
             
-            #line 81 "..\..\Views\Admin\OrderDetails.cshtml"
-                   Write(line.Product.Price);
-
-            
-            #line default
-            #line hidden
-WriteLiteral("</td>\r\n                    <td>");
-
-            
-            #line 82 "..\..\Views\Admin\OrderDetails.cshtml"
-                   Write(line.Qty);
+            #line 91 "..\..\Views\Admin\OrderDetails.cshtml"
+                                     Write(line.Product.Name);
 
             
             #line default
             #line hidden
-WriteLiteral("</td>\r\n                    <td>");
+WriteLiteral("</td>\r\n                    <td");
+
+WriteLiteral(" class=\"text-left\"");
+
+WriteLiteral(">");
 
             
-            #line 83 "..\..\Views\Admin\OrderDetails.cshtml"
-                   Write(line.Uom);
+            #line 92 "..\..\Views\Admin\OrderDetails.cshtml"
+                                      Write((double)line.Product.Price);
 
             
             #line default
             #line hidden
-WriteLiteral("</td>\r\n                    <td>");
+WriteLiteral("$</td>\r\n                    <td");
+
+WriteLiteral(" class=\"text-left\"");
+
+WriteLiteral(">");
 
             
-            #line 84 "..\..\Views\Admin\OrderDetails.cshtml"
-                    Write(line.Qty * (double)line.Product.Price);
+            #line 93 "..\..\Views\Admin\OrderDetails.cshtml"
+                                     Write(line.Qty);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</td>\r\n                    <td");
+
+WriteLiteral(" class=\"text-left\"");
+
+WriteLiteral(">");
+
+            
+            #line 94 "..\..\Views\Admin\OrderDetails.cshtml"
+                                     Write(line.Uom);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</td>\r\n                    <td");
+
+WriteLiteral(" class=\"text-left\"");
+
+WriteLiteral(">");
+
+            
+            #line 95 "..\..\Views\Admin\OrderDetails.cshtml"
+                                      Write(line.Qty * (double)line.Product.Price);
 
             
             #line default
@@ -321,7 +435,7 @@ WriteLiteral("</td>\r\n                    <td>");
 WriteLiteral("</td>\r\n                </tr>\r\n");
 
             
-            #line 86 "..\..\Views\Admin\OrderDetails.cshtml"
+            #line 97 "..\..\Views\Admin\OrderDetails.cshtml"
             }
 
             
@@ -331,33 +445,39 @@ WriteLiteral("        </tbody>\r\n        <tfoot>\r\n            <tr>\r\n       
 
 WriteLiteral(" colspan=\"5\"");
 
-WriteLiteral(">Total $ ");
+WriteLiteral(" class=\"order-total\"");
+
+WriteLiteral("><b>Total:</b> ");
 
             
-            #line 90 "..\..\Views\Admin\OrderDetails.cshtml"
-                                   Write(Model.OrderInformation.Total);
+            #line 101 "..\..\Views\Admin\OrderDetails.cshtml"
+                                                             Write(Model.OrderInformation.Total);
 
             
             #line default
             #line hidden
-WriteLiteral("</td>\r\n    </table>\r\n</div>\r\n\r\n<div>\r\n");
+WriteLiteral(" $</td>\r\n    </table>\r\n</div>\r\n\r\n<div");
+
+WriteLiteral(" class=\"order-operations\"");
+
+WriteLiteral(">\r\n");
 
             
-            #line 95 "..\..\Views\Admin\OrderDetails.cshtml"
+            #line 106 "..\..\Views\Admin\OrderDetails.cshtml"
     
             
             #line default
             #line hidden
             
-            #line 95 "..\..\Views\Admin\OrderDetails.cshtml"
-     if (User.Identity.Name == "admin" && Model.Status == OmiconShop.Domain.Enumerations.OrderStatuses.Pending)
+            #line 106 "..\..\Views\Admin\OrderDetails.cshtml"
+     if (User.Identity.Name == "admin@gmail.com" && Model.Status == OmiconShop.Domain.Enumerations.OrderStatuses.Pending)
     {
         
             
             #line default
             #line hidden
             
-            #line 97 "..\..\Views\Admin\OrderDetails.cshtml"
+            #line 108 "..\..\Views\Admin\OrderDetails.cshtml"
    Write(Html.RouteLink("Approve order", new { action = "Approve", controller = "Admin", orderId = Model.OrderId },
             new { @class = "btn btn-primary" }));
 
@@ -365,23 +485,23 @@ WriteLiteral("</td>\r\n    </table>\r\n</div>\r\n\r\n<div>\r\n");
             #line default
             #line hidden
             
-            #line 98 "..\..\Views\Admin\OrderDetails.cshtml"
+            #line 109 "..\..\Views\Admin\OrderDetails.cshtml"
                                                
         
             
             #line default
             #line hidden
             
-            #line 99 "..\..\Views\Admin\OrderDetails.cshtml"
+            #line 110 "..\..\Views\Admin\OrderDetails.cshtml"
    Write(Html.RouteLink("Decline order", new { action = "Decline", controller = "Admin", orderId = Model.OrderId },
-            new { @class = "btn btn-primary" }));
+            new { @class = "btn btn-danger decline-order-btn" }));
 
             
             #line default
             #line hidden
             
-            #line 100 "..\..\Views\Admin\OrderDetails.cshtml"
-                                               
+            #line 111 "..\..\Views\Admin\OrderDetails.cshtml"
+                                                                
     }
 
             

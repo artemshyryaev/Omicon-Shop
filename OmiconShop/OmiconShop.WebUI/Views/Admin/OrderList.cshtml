@@ -42,7 +42,7 @@
                         <tr>
                             <td>@el.OrderId</td>
                             <td class="text-center">@el.OrderInformation.Date</td>
-                            <td class="text-center">@(el.User.UserPersonalInformation.Name + " " + el.User.UserPersonalInformation.Surname)</td>
+                            <td class="text-center">@(el.User?.UserPersonalInformation?.Name + " " + el.User?.UserPersonalInformation?.Surname)</td>
                             <td class="text-center">@el.OrderInformation.Total $</td>
                             <td class="text-center">@el.Status</td>
                             <td class="text-center">@Html.RouteLink("View details", new { controller = "Admin", action = "OrderDetails", orderId = el.OrderId })</td>

@@ -544,8 +544,37 @@ a:hover {
 .email-textbox {
     margin-left: 0.4rem;
 }
+
 .submit-personal-info {
     position: relative;
     top: -0.13rem;
     margin-left: 0.4rem;
+}
+
+.decline-order-btn {
+    margin-left: 1rem;
+}
+
+.order-general-info {
+    margin-top: 1rem;
+    width: 20%;
+    display: inline-block;
+}
+
+.order-shipping-info {
+    margin-top: 1rem;
+    width: 20%;
+    display: inline-block;
+}
+
+.order-products-info {
+    margin-top: 1rem;
+    margin-left: 1rem;
+    width: 40%;
+    display: inline-block;
+}
+
+.order-operations {
+    margin-left: 13.7rem;
+    margin-top: 1rem;
 }

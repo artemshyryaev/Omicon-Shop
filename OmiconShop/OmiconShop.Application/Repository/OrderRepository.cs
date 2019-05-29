@@ -24,6 +24,7 @@ namespace OmiconShop.Application.Repository
                 return context.Orders
                     .Include(e => e.OrderInformation)
                     .Include(e => e.BasketLine)
+                    .Include(e => e.BasketLine.Select(b => b.Product))
                     .Include(e => e.User)
                     .Include(e => e.User.UserPersonalInformation)
                     .Include(e => e.User.UserAddress)
@@ -35,6 +36,7 @@ namespace OmiconShop.Application.Repository
             using (var context = helper.Create())
                 return context.Orders.Include(e => e.OrderInformation)
                            .Include(e => e.BasketLine)
+                           .Include(e => e.BasketLine.Select(b => b.Product))
                            .Include(e => e.User)
                            .Include(e => e.User.UserAddress)
                            .Include(e => e.User.UserPersonalInformation)
@@ -46,6 +48,7 @@ namespace OmiconShop.Application.Repository
             using (var context = helper.Create())
                 return context.Orders.Include(e => e.OrderInformation)
                             .Include(e => e.BasketLine)
+                            .Include(e => e.BasketLine.Select(b => b.Product))
                             .Include(e => e.User)
                             .Include(e => e.User.UserAddress)
                             .Include(e => e.User.UserPersonalInformation)
