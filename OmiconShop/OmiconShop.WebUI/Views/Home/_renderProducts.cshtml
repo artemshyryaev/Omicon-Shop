@@ -7,15 +7,15 @@
 }
 
 <div class="container">
-    <table class="table table-hover">
+    <table class="table table-striped">
         <tbody>
             <tr>
-                <td class="image">
+                @*<td class="image">
                     @if (Model.ImageUrl != null)
                     {
                         <img class="img-thumbnail product-list" src="@Model.ImageUrl">
                     }
-                </td>
+                </td>*@
                 <td class="product-name">
                     @Html.RouteLink(Model.Name, new { controller = "Home", action = "ProductDetails", productId = Model.ProductId,
                    type = ViewData["Type"], page = ViewData["Page"]}, new { @class = "badge badge-light" })

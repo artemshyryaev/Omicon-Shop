@@ -66,52 +66,11 @@ WriteLiteral(" class=\"container\"");
 
 WriteLiteral(">\r\n    <table");
 
-WriteLiteral(" class=\"table table-hover\"");
+WriteLiteral(" class=\"table table-striped\"");
 
-WriteLiteral(">\r\n        <tbody>\r\n            <tr>\r\n                <td");
+WriteLiteral(">\r\n        <tbody>\r\n            <tr>\r\n                ");
 
-WriteLiteral(" class=\"image\"");
-
-WriteLiteral(">\r\n");
-
-            
-            #line 14 "..\..\Views\Home\_RenderProducts.cshtml"
-                    
-            
-            #line default
-            #line hidden
-            
-            #line 14 "..\..\Views\Home\_RenderProducts.cshtml"
-                     if (Model.ImageUrl != null)
-                    {
-
-            
-            #line default
-            #line hidden
-WriteLiteral("                        <img");
-
-WriteLiteral(" class=\"img-thumbnail product-list\"");
-
-WriteAttribute("src", Tuple.Create(" src=\"", 433), Tuple.Create("\"", 454)
-            
-            #line 16 "..\..\Views\Home\_RenderProducts.cshtml"
-, Tuple.Create(Tuple.Create("", 439), Tuple.Create<System.Object, System.Int32>(Model.ImageUrl
-            
-            #line default
-            #line hidden
-, 439), false)
-);
-
-WriteLiteral(">\r\n");
-
-            
-            #line 17 "..\..\Views\Home\_RenderProducts.cshtml"
-                    }
-
-            
-            #line default
-            #line hidden
-WriteLiteral("                </td>\r\n                <td");
+WriteLiteral("\r\n                <td");
 
 WriteLiteral(" class=\"product-name\"");
 
