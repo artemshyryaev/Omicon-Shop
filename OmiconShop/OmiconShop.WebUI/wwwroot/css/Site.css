@@ -414,9 +414,7 @@ a:hover {
 }
 
 .change-password {
-    position: absolute;
-    left: 15rem;
-    top: 8rem
+    display: inline;
 }
 
 .submit-order {
@@ -531,4 +529,23 @@ a:hover {
 
 .admin-orders-table {
     margin-top: 1rem;
+}
+
+.admin-personal-info {
+    display: inline;
+}
+
+.email-label,
+.email-textbox,
+.submit-personal-info {
+    display: inline-block;
+}
+
+.email-textbox {
+    margin-left: 0.4rem;
+}
+.submit-personal-info {
+    position: relative;
+    top: -0.13rem;
+    margin-left: 0.4rem;
 }

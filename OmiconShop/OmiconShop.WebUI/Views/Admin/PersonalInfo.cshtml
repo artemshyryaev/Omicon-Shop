@@ -17,10 +17,10 @@
         @Html.ValidationSummary(true)
         @Html.AntiForgeryToken()
         @Html.HiddenFor(x => x.Id)
-        @Html.LabelFor(x => x.Email)
-        @Html.TextBoxFor(x => x.Email)
+        @Html.LabelFor(x => x.Email, new { @class = "email-label" })
+        @Html.TextBoxFor(x => x.Email, new { @class = "form-control email-textbox" })
         @Html.ValidationMessageFor(x => x.Email)
-        <input type="submit" value="Save changes" class="btn btn-primary">
+        <input type="submit" value="Save changes" class="btn btn-primary submit-personal-info">
     </div>
 }
 

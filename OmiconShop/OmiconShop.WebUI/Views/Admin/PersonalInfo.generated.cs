@@ -128,7 +128,7 @@ WriteLiteral("        ");
 
             
             #line 20 "..\..\Views\Admin\PersonalInfo.cshtml"
-   Write(Html.LabelFor(x => x.Email));
+   Write(Html.LabelFor(x => x.Email, new { @class = "email-label" }));
 
             
             #line default
@@ -139,7 +139,7 @@ WriteLiteral("        ");
 
             
             #line 21 "..\..\Views\Admin\PersonalInfo.cshtml"
-   Write(Html.TextBoxFor(x => x.Email));
+   Write(Html.TextBoxFor(x => x.Email, new { @class = "form-control email-textbox" }));
 
             
             #line default
@@ -161,7 +161,7 @@ WriteLiteral(" type=\"submit\"");
 
 WriteLiteral(" value=\"Save changes\"");
 
-WriteLiteral(" class=\"btn btn-primary\"");
+WriteLiteral(" class=\"btn btn-primary submit-personal-info\"");
 
 WriteLiteral(">\r\n    </div>\r\n");
 
