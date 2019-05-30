@@ -1,36 +1,45 @@
 ﻿@model OmiconShop.Application.Basket.ViewModel.BasketViewModel
 
 @{
-    ViewBag.Title = "OrderOverview";
+    ViewBag.Title = "Order Overview";
 }
 
-<div>
-    <table>
-        <thead>
+<hgroup class="title">
+    <h1>@ViewBag.Title</h1>
+</hgroup>
+
+<table class="table table table-sm col-6 order-overview-list">
+    <thead>
+        <tr>
+            <th class="text-center"><b>Product</b></th>
+            <th class="text-center"><b>Price</b></th>
+            <th class="text-center"><b>Quantity</b></th>
+            <th class="text-center"><b>UOM</b></th>
+            <th class="text-center"><b>Total</b></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var el in Model.Lines)
+        {
             <tr>
-                <td>Product</td>
-                <td>Price</td>
-                <td>Qty</td>
-                <td>Total</td>
-        </thead>
-        <tbody>
-            @foreach (var el in Model.Lines)
-            {
-                <tr>
-                    <td>@el.Product.Name</td>
-                    <td>@((double)el.Product.Price)</td>
-                    <td>@el.Quantity</td>
-                    <td>@(el.Quantity * (double)el.Product.Price) $</td>
-                </tr>
-            }
-        </tbody>
-        <tfoot>
-            <tr>
-                <td colspan="4">Total: @Model.BasketTotal $</td>
+                <td class="text-center">@el.Product.Name</td>
+                <td class="text-center">@((double)el.Product.Price) $</td>
+                <td class="text-center">@el.Quantity</td>
+                <td class="text-center">@(el.Uom)</td>
+                <td class="text-center">@(el.Quantity * (double)el.Product.Price) $</td>
             </tr>
-        </tfoot>
-    </table>
-</div>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td colspan="1" class="text-center"><b>Order total:</b> @Model.BasketTotal $</td>
+        </tr>
+    </tfoot>
+</table>
 
 <div class="decline-order">
     @Html.RouteLink("Decline order", new { controller = "Checkout", action = "DeclineOrder", orderId = ViewBag.OrderId },
