@@ -1,12 +1,12 @@
 ﻿$(function () {
     $(".link-remove").click(function (e) {
         var $element = e.target;
-        var product = $element.attr("data-id");
+        var product = $element.getAttribute("data-id");
         if (product !== null) {
             $.post("Basket/RemoveFromBasket", { "productInfo": product },
                 function (data) {
                     $('.row-' + product).remove();
-                    $('.cart-status').text("Summary: " + data.BasketTotal + " $");
+                    $('.basket-summary__value').text(data.BasketTotal + " $");
                     if (data.Count <= 0) {
                         $(".btn-procceedToCheckout").addClass('disabled');
                         $(".empty-basket").hide();
@@ -21,8 +21,8 @@ $(function () {
         var retunrUrl = $(".btn-returnUrl").attr("href");
         $.post("Basket/EmptyBasket", { "returnUrl": retunrUrl },
             function (data) {
-                $('.basketItems').empty();
-                $('.cart-status').text("Summary: " + data.BasketTotal + " $");
+                $('.basket-items').empty();
+                $('.basket-summary__value').text(data.BasketTotal + " $");
                 $(".empty-basket").hide();
                 $(".btn-procceedToCheckout").addClass('disabled');
             });
@@ -34,7 +34,6 @@ $(function () {
         $(".btn-emptyBasket").addClass('disabled');
         $(".btn-returnUrl").addClass('disabled');
         $(".btn-procceedToCheckout").addClass('disabled');
-
         var $element = $(e.target);
         var productId = $element.attr("data-product-id");
         var productUOM = $element.attr("data-product-uom");
@@ -48,7 +47,7 @@ $(function () {
                 $(".btn-emptyBasket").removeClass('disabled');
                 $(".btn-returnUrl").removeClass('disabled');
                 $(".btn-procceedToCheckout").removeClass('disabled');
-                $('.cart-status').text("Summary: " + data.BasketTotal + " $");
+                $('.basket-summary__value').text(data.BasketTotal + " $");
             });
     });
 });
@@ -70,8 +69,8 @@ $(function () {
 
 $(function () {
     $(".link-delete").click(function (e) {
-        var $element = $(e.target);
-        var productId = $element.attr("data-id");
+        var $element = e.target;
+        var productId = $element.getAttribute("data-id");
         if (productId !== null) {
             $.post("DeleteProduct", { "productId": productId },
                 function () {

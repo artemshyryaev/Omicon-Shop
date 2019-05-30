@@ -186,7 +186,9 @@ a:hover {
 }
 
 .qty {
-    width: 75px;
+    width: 50px;
+    height: 25px;
+    margin: 0 auto;
 }
 
 /*.product-list-qty {
@@ -309,7 +311,7 @@ a:hover {
     width: 13rem;
     position: absolute;
     right: 4rem;
-    top: 13rem;
+    top: 9rem;
     background-color: #f8f9fa;
     padding: 0.5rem;
     border-radius: 20px;
@@ -342,6 +344,10 @@ a:hover {
 
 .btn-emptyBasket {
     font-size: 0.8rem;
+}
+
+.basket-items {
+    margin-top: 1rem;
 }
 
 .basket-table {

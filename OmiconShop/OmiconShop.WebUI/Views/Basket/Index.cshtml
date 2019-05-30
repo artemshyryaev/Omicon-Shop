@@ -8,46 +8,37 @@
 </hgroup>
 
 <input class="lines-count" type="hidden" value="@Model.Basket.Lines.Count()">
-<div class="shopping-cart-list">
-        <div class="basketItems">
-            <div>
-                <div class="">
-                    <div></div>
-                    <span><b>Product</b></span>
-                    <span><b>Price</b></span>
-                    <span><b>Quantity</b></span>
-                    <span><b>UOM</b></span>
-                    <span><b>Total</b></span>
-                </div>
-            </div>
-            <div>
-                @foreach (var el in Model.Basket.Lines)
-                {
-                    <div class="row-@el.Product.ProductId-@el.Uom">
-                        <div>
-                            @if (el.Product.ImageUrl != null)
-                            {
-                                <img class="img-thumbnail" width="30" height="30"
-                                     src="@el.Product.ImageUrl">
-                            }
-                        </div>
-                        <div>@el.Product.Name</div>
-                        <div>@((double)el.Product.Price)$</div>
-                        <div>
-                            @Html.TextBox("Quantity", el.Quantity, new { @data_product_id = el.Product.ProductId,
-                           @data_product_uom = el.Uom, @data_product_price = el.Product.Price,
-                           @class = "form-control qty", type = "number", step = "1", min = "1" })
-                        </div>
-                        <div>@(el.Uom)</div>
-                        <div class="total-@el.Product.ProductId-@el.Uom">@(el.Quantity * (double)el.Product.Price)$</div>
-                        <div>
-                            <a href="#" class="link-remove" data-id="@el.Product.ProductId-@el.Uom">Delete</a>
-                        </div>
-                    </div>
-                }
-            </div>
-        </div>
-</div>
+<table class="table table table-sm basket-items col-6">
+    <thead>
+        <tr>
+            <th class="text-center"><b>Product</b></th>
+            <th class="text-center"><b>Price</b></th>
+            <th class="text-center"><b>Quantity</b></th>
+            <th class="text-center"><b>UOM</b></th>
+            <th class="text-center"><b>Total</b></th>
+            <th class="text-center"><b>Actions</b></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var el in Model.Basket.Lines)
+        {
+            <tr class="row-@el.Product.ProductId-@el.Uom">
+                <td class="text-center">@el.Product.Name</td>
+                <td class="text-center">@((double)el.Product.Price) $</td>
+                <td class="text-center">
+                    @Html.TextBox("Quantity", el.Quantity, new { @data_product_id = el.Product.ProductId,
+               @data_product_uom = el.Uom, @data_product_price = el.Product.Price,
+               @class = "form-control qty", type = "number", step = "1", min = "1" })
+                </td>
+                <td class="text-center">@(el.Uom)</td>
+                <td class="text-center total-@el.Product.ProductId-@el.Uom">@(el.Quantity * (double)el.Product.Price) $</td>
+                <td class="text-center">
+                    <a href="#" class="link-remove" data-id="@el.Product.ProductId-@el.Uom">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
 
 <div class="basket-summary">
     <b>Summary:</b><span class="basket-summary__value">@Model.Basket.BasketTotal $</span>
