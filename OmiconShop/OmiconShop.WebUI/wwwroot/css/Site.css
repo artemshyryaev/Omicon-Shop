@@ -173,14 +173,6 @@ a:hover {
     margin: 1rem;
 }
 
-/*.add-to-card {
-    max-width: 30px;
-}*/
-
-/*.uoms {
-    max-width: 20px;
-}*/
-
 .form-control {
     padding: 0.3rem;
 }
@@ -190,28 +182,6 @@ a:hover {
     height: 25px;
     margin: 0 auto;
 }
-
-/*.product-list-qty {
-    width: 75px;
-}*/
-
-/*.price {
-    width: 120px;
-    text-align: center;
-}*/
-
-/*.description {
-    width: 300px;
-    text-align: center;
-}*/
-
-/*.product-name {
-    text-align: center;
-}*/
-
-/*.image {
-    width: 60px;
-}*/
 
 .image-thumbnail.product-list {
     width: 40px;
@@ -354,9 +324,7 @@ a:hover {
     margin-top: 1rem;
     /*margin-left: 1rem;*/
 }
-/*.shopping-cart-list {
-    width: 30px;
-}*/
+
 .field-validation-error {
     line-height: 12px;
     display: block;
@@ -585,5 +553,9 @@ a:hover {
 
 .order-operations {
     margin-left: 13.7rem;
+    margin-top: 1rem;
+}
+
+.order-overview-list {
     margin-top: 1rem;
 }
