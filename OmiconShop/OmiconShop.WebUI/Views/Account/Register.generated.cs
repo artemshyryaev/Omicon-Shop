@@ -60,102 +60,75 @@ WriteLiteral(">\r\n    <h1>");
             
             #line default
             #line hidden
-WriteLiteral(".</h1>\r\n</hgroup>\r\n\r\n<section");
-
-WriteLiteral(" id=\"registerForm\"");
-
-WriteLiteral(">\r\n");
+WriteLiteral("</h1>\r\n</hgroup>\r\n\r\n");
 
             
-            #line 12 "..\..\Views\Account\Register.cshtml"
+            #line 11 "..\..\Views\Account\Register.cshtml"
+ using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
+{
     
             
             #line default
             #line hidden
             
-            #line 12 "..\..\Views\Account\Register.cshtml"
-     using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
-    {
-        
+            #line 13 "..\..\Views\Account\Register.cshtml"
+Write(Html.AntiForgeryToken());
+
+            
+            #line default
+            #line hidden
+            
+            #line 13 "..\..\Views\Account\Register.cshtml"
+                            
+    
             
             #line default
             #line hidden
             
             #line 14 "..\..\Views\Account\Register.cshtml"
-   Write(Html.AntiForgeryToken());
+Write(Html.ValidationSummary(true));
 
             
             #line default
             #line hidden
             
             #line 14 "..\..\Views\Account\Register.cshtml"
-                                
-        
+                                 
+    
             
             #line default
             #line hidden
             
             #line 15 "..\..\Views\Account\Register.cshtml"
-   Write(Html.ValidationSummary(true));
+Write(Html.EditorForModel());
 
             
             #line default
             #line hidden
             
             #line 15 "..\..\Views\Account\Register.cshtml"
-                                     
-
-
-            
-            #line default
-            #line hidden
-WriteLiteral("        <fieldset>\r\n            <legend>Log in Form</legend>\r\n");
-
-WriteLiteral("            ");
-
-            
-            #line 19 "..\..\Views\Account\Register.cshtml"
-       Write(Html.EditorForModel());
+                          
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n            <input");
+WriteLiteral("    <input");
 
 WriteLiteral(" type=\"submit\"");
 
 WriteLiteral(" value=\"Register\"");
 
-WriteLiteral(">\r\n        </fieldset>\r\n");
+WriteLiteral(" class=\"btn btn-primary\"");
+
+WriteLiteral(">\r\n");
 
             
-            #line 22 "..\..\Views\Account\Register.cshtml"
-    }
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n    ");
-
-WriteLiteral("\r\n</section>\r\n\r\n");
-
-DefineSection("Scripts", () => {
-
-WriteLiteral("\r\n");
-
-WriteLiteral("    ");
-
-            
-            #line 30 "..\..\Views\Account\Register.cshtml"
-Write(Scripts.Render("~/bundles/jqueryval"));
+            #line 17 "..\..\Views\Account\Register.cshtml"
+}
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n");
-
-});
-
         }
     }
 }

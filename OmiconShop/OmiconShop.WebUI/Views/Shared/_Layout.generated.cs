@@ -64,7 +64,7 @@ WriteLiteral("    ");
 
             
             #line 7 "..\..\Views\Shared\_Layout.cshtml"
-Write(Styles.Render("~/wwwroot/css"));
+Write(Scripts.Render("~/bundles/jquery"));
 
             
             #line default
@@ -75,7 +75,7 @@ WriteLiteral("    ");
 
             
             #line 8 "..\..\Views\Shared\_Layout.cshtml"
-Write(Scripts.Render("~/bundles/modernizr"));
+Write(Styles.Render("~/wwwroot/css"));
 
             
             #line default
@@ -86,7 +86,7 @@ WriteLiteral("    ");
 
             
             #line 9 "..\..\Views\Shared\_Layout.cshtml"
-Write(Scripts.Render("~/bundles/jquery"));
+Write(Scripts.Render("~/bundles/modernizr"));
 
             
             #line default
