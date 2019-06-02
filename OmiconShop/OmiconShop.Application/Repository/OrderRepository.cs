@@ -83,7 +83,7 @@ namespace OmiconShop.Application.Repository
             {
                 Order order = context.Orders
                     .Include(e => e.BasketLine)
-                    .Include(e=> e.OrderInformation)
+                    .Include(e => e.OrderInformation)
                     .FirstOrDefault(e => e.OrderId == orderId);
 
                 context.Entry(order).State = EntityState.Deleted;
@@ -96,11 +96,7 @@ namespace OmiconShop.Application.Repository
             using (var context = helper.Create())
             {
                 var dbEntry = context.Orders.Where(e => e.User.UserId == id)
-                        .Include(e => e.BasketLine)
-                        .Include(e => e.OrderInformation)
                         .Include(e => e.User)
-                        .Include(e => e.User.UserAddress)
-                        .Include(e => e.User.UserPersonalInformation)
                         .ToList();
 
                 foreach (var el in dbEntry)
@@ -119,7 +115,7 @@ namespace OmiconShop.Application.Repository
             {
                 Order order = new Order();
                 addOrderData(order);
-                context.Entry(order).State = EntityState.Added;
+                context.Orders.Add(order);
                 await context.SaveChangesAsync();
                 return order;
             }

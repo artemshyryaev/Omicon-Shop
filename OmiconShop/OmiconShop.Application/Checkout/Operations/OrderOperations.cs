@@ -33,9 +33,13 @@ namespace OmiconShop.Application.Checkout.Operations
 
                 FillUserAddressProperties(orderInformation, ref user);
                 FillUserPersonalInformationProperties(orderInformation, ref user);
-            }
 
-            order.User = user;
+                order.User = user;
+            }
+            else
+            {
+                order.UserId = user.UserId;
+            }
         }
 
         public void FillUserAddressProperties(OrderInformationViewModel model, ref User user)
@@ -86,7 +90,7 @@ namespace OmiconShop.Application.Checkout.Operations
                 var line = new BasketLine();
                 line.Uom = el.Uom;
                 line.Qty = el.Quantity;
-                line.Product = el.Product;
+                line.ProductId = el.Product.ProductId;
                 line.Order = order;
 
                 order.BasketLine.Add(line);
