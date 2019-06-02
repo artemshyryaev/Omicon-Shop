@@ -10,10 +10,8 @@ namespace OmiconShop.WebUI
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/wwwroot/lib/jquery/jquery-{version}.js",
-                        "~/wwwroot/lib/jquery-unobtrusive/jquery.unobtrusive-ajax*"));
-
-            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/wwwroot/lib/jquery-validate/jquery.validate*",
+                        "~/wwwroot/lib/jquery-unobtrusive/jquery.unobtrusive-ajax*",
                         "~/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate*"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're

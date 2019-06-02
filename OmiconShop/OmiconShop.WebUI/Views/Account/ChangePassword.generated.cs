@@ -161,24 +161,7 @@ WriteLiteral(">\r\n");
             
             #line default
             #line hidden
-WriteLiteral("</section>\r\n\r\n");
-
-DefineSection("Scripts", () => {
-
-WriteLiteral("\r\n");
-
-WriteLiteral("    ");
-
-            
-            #line 25 "..\..\Views\Account\ChangePassword.cshtml"
-Write(Scripts.Render("~/bundles/jqueryval"));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n");
-
-});
+WriteLiteral("</section>\r\n");
 
         }
     }
