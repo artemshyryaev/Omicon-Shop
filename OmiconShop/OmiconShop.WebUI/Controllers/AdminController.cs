@@ -64,7 +64,7 @@ namespace OmiconShop.WebUI.Controllers
             if (ModelState.IsValid)
             {
                 if (image != null)
-                     image.SaveAs(adminApi.CreateProductFullPath(ref product));
+                    image.SaveAs(adminApi.CreateProductFullPath(ref product));
 
                 var productModel = await adminApi.CreateProductAsync(product);
                 TempData["message"] = string.Format($"{productModel.Name} was successfully added!");
@@ -131,8 +131,7 @@ namespace OmiconShop.WebUI.Controllers
         }
 
         [HttpGet]
-        [AllowAnonymous]
-        public ActionResult OrderDetails(int orderId)
+        public ActionResult OrderDetails(int? id)
         {
             if (!User.Identity.IsAuthenticated)
             {
@@ -140,13 +139,14 @@ namespace OmiconShop.WebUI.Controllers
                 return RedirectToRoute(new { controller = "Account", action = "Login", returnUrl = retunrUrl });
             }
 
+            if (id == null)
+                return View("PageNotFound");
+
             var userEmail = User.Identity.GetUserName();
-            var order = adminApi.GetCurrentUserOrder(orderId, userEmail);
+            var order = adminApi.GetCurrentUserOrder((int)id, userEmail);
 
             if (order == null)
-            {
-                View("PageNotFound");
-            }
+                return View("PageNotFound");
 
             return View(order);
         }

@@ -559,3 +559,18 @@ a:hover {
 .order-overview-list {
     margin-top: 1rem;
 }
+
+.page-not-found {
+    width: 60%;
+    justify-content: center;
+}
+
+.page-not-found__homepage {
+    background-color: #faebee;
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+.page-not-found__homepage-link {
+    margin-top: 2rem;
+}

@@ -298,7 +298,7 @@ WriteLiteral(">");
 
             
             #line 48 "..\..\Views\Admin\OrderList.cshtml"
-                                               Write(Html.RouteLink("View details", new { controller = "Admin", action = "OrderDetails", orderId = el.OrderId }));
+                                               Write(Html.RouteLink("View details", new { controller = "Admin", action = "OrderDetails", id = el.OrderId }));
 
             
             #line default
@@ -319,14 +319,14 @@ WriteLiteral(" class=\"current-page\"");
 
 WriteLiteral(" type=\"hidden\"");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 2711), Tuple.Create("\"", 2748)
+WriteAttribute("value", Tuple.Create(" value=\"", 2706), Tuple.Create("\"", 2743)
             
             #line 56 "..\..\Views\Admin\OrderList.cshtml"
-, Tuple.Create(Tuple.Create("", 2719), Tuple.Create<System.Object, System.Int32>(Model.PagingInfo.CurrentPage
+, Tuple.Create(Tuple.Create("", 2714), Tuple.Create<System.Object, System.Int32>(Model.PagingInfo.CurrentPage
             
             #line default
             #line hidden
-, 2719), false)
+, 2714), false)
 );
 
 WriteLiteral(">\r\n    <input");
@@ -335,14 +335,14 @@ WriteLiteral(" class=\"total-pages\"");
 
 WriteLiteral(" type=\"hidden\"");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 2796), Tuple.Create("\"", 2832)
+WriteAttribute("value", Tuple.Create(" value=\"", 2791), Tuple.Create("\"", 2827)
             
             #line 57 "..\..\Views\Admin\OrderList.cshtml"
-, Tuple.Create(Tuple.Create("", 2804), Tuple.Create<System.Object, System.Int32>(Model.PagingInfo.TotalPages
+, Tuple.Create(Tuple.Create("", 2799), Tuple.Create<System.Object, System.Int32>(Model.PagingInfo.TotalPages
             
             #line default
             #line hidden
-, 2804), false)
+, 2799), false)
 );
 
 WriteLiteral(">\r\n    <ul");
