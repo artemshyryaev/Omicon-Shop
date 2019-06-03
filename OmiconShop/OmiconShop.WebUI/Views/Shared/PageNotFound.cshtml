@@ -1,6 +1,29 @@
 ﻿@{
-    ViewBag.Title = "PageNotFound";
+
+    ViewBag.Title = "Not found";
 }
 
-<h2>The page is not found!</h2>
+<div class="col-12 page-not-found">
+    <hgroup class="title">
+        <h3>THE REQUESTED PAGE CANNOT BE FOUND</h3>
+    </hgroup>
 
+    <div class="page-not-found__homepage">
+        <div>
+            <text>
+                Sorry, we couldn't find the requested page. Maybe it's moved, or maybe the web address is incorrect. <br></br>
+
+                Please try the following:<br>
+                Check if the web address you entered is correct.<br>
+            </text>
+        </div>
+        <div>
+            @Html.RouteLink("Go to homepage", new { controller = "Home", action = "Index" }, new { @class = "page-not-found__homepage-link" })
+        </div>
+        <div>
+            <text>
+                We apologize for the inconvenience.
+            </text>
+        </div>
+    </div>
+</div>

@@ -42,12 +42,49 @@ namespace ASP
             
             #line 1 "..\..\Views\Shared\PageNotFound.cshtml"
   
-    ViewBag.Title = "PageNotFound";
+
+    ViewBag.Title = "Not found";
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n\r\n<h2>The page is not found!</h2>\r\n\r\n");
+WriteLiteral("\r\n\r\n<div");
+
+WriteLiteral(" class=\"col-12 page-not-found\"");
+
+WriteLiteral(">\r\n    <hgroup");
+
+WriteLiteral(" class=\"title\"");
+
+WriteLiteral(">\r\n        <h3>THE REQUESTED PAGE CANNOT BE FOUND</h3>\r\n    </hgroup>\r\n\r\n    <div" +
+"");
+
+WriteLiteral(" class=\"page-not-found__homepage\"");
+
+WriteLiteral(@">
+        <div>
+            <text>
+                Sorry, we couldn't find the requested page. Maybe it's moved, or maybe the web address is incorrect. <br></br>
+
+                Please try the following:<br>
+                Check if the web address you entered is correct.<br>
+            </text>
+        </div>
+        <div>
+");
+
+WriteLiteral("            ");
+
+            
+            #line 21 "..\..\Views\Shared\PageNotFound.cshtml"
+       Write(Html.RouteLink("Go to homepage", new { controller = "Home", action = "Index" }, new { @class = "page-not-found__homepage-link" }));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n        </div>\r\n        <div>\r\n            <text>\r\n                We apologize" +
+" for the inconvenience.\r\n            </text>\r\n        </div>\r\n    </div>\r\n</div>" +
+"");
 
         }
     }
