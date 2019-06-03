@@ -49,7 +49,7 @@
                         <td class="text-center">@((double)el.Price)</td>
                         <td class="text-center">@el.Type</td>
                         <td class="text-center">
-                            @Html.RouteLink(" ", new { controller = "Admin", action = "EditProduct", productId = el.ProductId }
+                            @Html.RouteLink(" ", new { controller = "Admin", action = "EditProduct", id = el.ProductId }
                                 , new { @class = "fas fa-pen-square" })
                             <a href="#" class="link-delete fas fa-trash" data-id="@el.ProductId"></a>
                         </td>

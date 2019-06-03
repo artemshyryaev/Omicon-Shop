@@ -8,10 +8,11 @@ using System.Web.Security;
 using OmiconShop.Application.Admin;
 using OmiconShop.Application.Admin.ViewModel;
 using System.Threading.Tasks;
+using OmiconShop.WebUI.HelperAttributes;
 
 namespace OmiconShop.WebUI.Controllers
 {
-    [Authorize]
+    [Authorization]
     public class AdminController : Controller
     {
         AdminApi adminApi;
@@ -78,23 +79,33 @@ namespace OmiconShop.WebUI.Controllers
         }
 
         [HttpGet]
-        public ActionResult EditProduct(int productId)
+        public ActionResult EditProduct(int? id)
         {
-            var productViewModel = adminApi.CreateProductViewModelByProductId(productId);
-            ViewData["Id"] = productId;
+            if (id == null)
+                return View("PageNotFound");
+
+            var productViewModel = adminApi.CreateProductViewModelByProductId((int)id);
+
+            if (productViewModel == null)
+                return View("PageNotFound");
+
+            ViewData["Id"] = id;
 
             return View(productViewModel);
         }
 
         [HttpPost]
-        public async Task<ActionResult> EditProduct(ProductViewModel product, int productId, HttpPostedFileBase image = null)
+        public async Task<ActionResult> EditProduct(ProductViewModel product, int? productId, HttpPostedFileBase image = null)
         {
+            if (product == null || productId == null)
+                return View("PageNotFound");
+
             if (ModelState.IsValid)
             {
                 if (image != null)
                     image.SaveAs(adminApi.CreateProductFullPath(ref product));
 
-                var productModel = await adminApi.EditProductAsync(productId, product);
+                var productModel = await adminApi.EditProductAsync((int)productId, product);
                 TempData["message"] = string.Format($"Data in {productModel.ProductId}/{productModel.Name} was successfully changed!");
 
                 return RedirectToAction("ProductList", "Admin");
@@ -133,12 +144,6 @@ namespace OmiconShop.WebUI.Controllers
         [HttpGet]
         public ActionResult OrderDetails(int? id)
         {
-            if (!User.Identity.IsAuthenticated)
-            {
-                var retunrUrl = Request.Url.PathAndQuery;
-                return RedirectToRoute(new { controller = "Account", action = "Login", returnUrl = retunrUrl });
-            }
-
             if (id == null)
                 return View("PageNotFound");
 
