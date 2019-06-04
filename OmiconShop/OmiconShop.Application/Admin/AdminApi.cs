@@ -105,6 +105,8 @@ namespace OmiconShop.Application.Admin
         public ProductViewModel CreateProductViewModelByProductId(int productId)
         {
             var product = productRepository.GetProductById(productId);
+            if (product == null)
+                return null;
 
             return productOperations.CreateProductViewModelFromProductModel(product);
         }

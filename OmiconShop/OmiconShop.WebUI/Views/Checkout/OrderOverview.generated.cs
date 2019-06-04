@@ -42,88 +42,155 @@ namespace ASP
             
             #line 3 "..\..\Views\Checkout\OrderOverview.cshtml"
   
-    ViewBag.Title = "OrderOverview";
+    ViewBag.Title = "Order Overview";
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n\r\n<div>\r\n    <table>\r\n        <thead>\r\n            <tr>\r\n                <td>Pr" +
-"oduct</td>\r\n                <td>Price</td>\r\n                <td>Qty</td>\r\n      " +
-"          <td>Total</td>\r\n        </thead>\r\n        <tbody>\r\n");
+WriteLiteral("\r\n\r\n<hgroup");
+
+WriteLiteral(" class=\"title\"");
+
+WriteLiteral(">\r\n    <h1>");
 
             
-            #line 17 "..\..\Views\Checkout\OrderOverview.cshtml"
-            
-            
-            #line default
-            #line hidden
-            
-            #line 17 "..\..\Views\Checkout\OrderOverview.cshtml"
-             foreach (var el in Model.Lines)
-            {
+            #line 8 "..\..\Views\Checkout\OrderOverview.cshtml"
+   Write(ViewBag.Title);
 
             
             #line default
             #line hidden
-WriteLiteral("                <tr>\r\n                    <td>");
+WriteLiteral("</h1>\r\n</hgroup>\r\n\r\n<table");
 
-            
-            #line 20 "..\..\Views\Checkout\OrderOverview.cshtml"
-                   Write(el.Product.Name);
+WriteLiteral(" class=\"table table table-sm col-6 order-overview-list\"");
 
-            
-            #line default
-            #line hidden
-WriteLiteral("</td>\r\n                    <td>");
+WriteLiteral(">\r\n    <thead>\r\n        <tr>\r\n            <th");
 
-            
-            #line 21 "..\..\Views\Checkout\OrderOverview.cshtml"
-                    Write((double)el.Product.Price);
+WriteLiteral(" class=\"text-center\"");
 
-            
-            #line default
-            #line hidden
-WriteLiteral("</td>\r\n                    <td>");
+WriteLiteral("><b>Product</b></th>\r\n            <th");
+
+WriteLiteral(" class=\"text-center\"");
+
+WriteLiteral("><b>Price</b></th>\r\n            <th");
+
+WriteLiteral(" class=\"text-center\"");
+
+WriteLiteral("><b>Quantity</b></th>\r\n            <th");
+
+WriteLiteral(" class=\"text-center\"");
+
+WriteLiteral("><b>UOM</b></th>\r\n            <th");
+
+WriteLiteral(" class=\"text-center\"");
+
+WriteLiteral("><b>Total</b></th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n");
 
             
             #line 22 "..\..\Views\Checkout\OrderOverview.cshtml"
-                   Write(el.Quantity);
+        
+            
+            #line default
+            #line hidden
+            
+            #line 22 "..\..\Views\Checkout\OrderOverview.cshtml"
+         foreach (var el in Model.Lines)
+        {
 
             
             #line default
             #line hidden
-WriteLiteral("</td>\r\n                    <td>");
+WriteLiteral("            <tr>\r\n                <td");
 
-            
-            #line 23 "..\..\Views\Checkout\OrderOverview.cshtml"
-                    Write(el.Quantity * (double)el.Product.Price);
+WriteLiteral(" class=\"text-center\"");
 
-            
-            #line default
-            #line hidden
-WriteLiteral(" $</td>\r\n                </tr>\r\n");
+WriteLiteral(">");
 
             
             #line 25 "..\..\Views\Checkout\OrderOverview.cshtml"
-            }
+                                   Write(el.Product.Name);
 
             
             #line default
             #line hidden
-WriteLiteral("        </tbody>\r\n        <tfoot>\r\n            <tr>\r\n                <td");
+WriteLiteral("</td>\r\n                <td");
 
-WriteLiteral(" colspan=\"4\"");
+WriteLiteral(" class=\"text-center\"");
 
-WriteLiteral(">Total: ");
+WriteLiteral(">");
+
+            
+            #line 26 "..\..\Views\Checkout\OrderOverview.cshtml"
+                                    Write((double)el.Product.Price);
+
+            
+            #line default
+            #line hidden
+WriteLiteral(" $</td>\r\n                <td");
+
+WriteLiteral(" class=\"text-center\"");
+
+WriteLiteral(">");
+
+            
+            #line 27 "..\..\Views\Checkout\OrderOverview.cshtml"
+                                   Write(el.Quantity);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</td>\r\n                <td");
+
+WriteLiteral(" class=\"text-center\"");
+
+WriteLiteral(">");
+
+            
+            #line 28 "..\..\Views\Checkout\OrderOverview.cshtml"
+                                    Write(el.Uom);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</td>\r\n                <td");
+
+WriteLiteral(" class=\"text-center\"");
+
+WriteLiteral(">");
 
             
             #line 29 "..\..\Views\Checkout\OrderOverview.cshtml"
-                                  Write(Model.BasketTotal);
+                                    Write(el.Quantity * (double)el.Product.Price);
 
             
             #line default
             #line hidden
-WriteLiteral(" $</td>\r\n            </tr>\r\n        </tfoot>\r\n    </table>\r\n</div>\r\n\r\n<div");
+WriteLiteral(" $</td>\r\n            </tr>\r\n");
+
+            
+            #line 31 "..\..\Views\Checkout\OrderOverview.cshtml"
+        }
+
+            
+            #line default
+            #line hidden
+WriteLiteral("    </tbody>\r\n    <tfoot>\r\n        <tr>\r\n            <td></td>\r\n            <td><" +
+"/td>\r\n            <td></td>\r\n            <td></td>\r\n            <td");
+
+WriteLiteral(" colspan=\"1\"");
+
+WriteLiteral(" class=\"text-center\"");
+
+WriteLiteral("><b>Order total:</b> ");
+
+            
+            #line 39 "..\..\Views\Checkout\OrderOverview.cshtml"
+                                                               Write(Model.BasketTotal);
+
+            
+            #line default
+            #line hidden
+WriteLiteral(" $</td>\r\n        </tr>\r\n    </tfoot>\r\n</table>\r\n\r\n<div");
 
 WriteLiteral(" class=\"decline-order\"");
 
@@ -132,8 +199,8 @@ WriteLiteral(">\r\n");
 WriteLiteral("    ");
 
             
-            #line 36 "..\..\Views\Checkout\OrderOverview.cshtml"
-Write(Html.RouteLink("Decline order", new { controller = "Checkout", action = "DeclineOrder", orderId = ViewBag.OrderId },
+            #line 45 "..\..\Views\Checkout\OrderOverview.cshtml"
+Write(Html.RouteLink("Decline order", new { controller = "Checkout", action = "DeclineOrder", id = ViewBag.OrderId },
         new { @class = "badge badge-light decline-order__decline" }));
 
             
@@ -148,8 +215,8 @@ WriteLiteral(">\r\n");
 WriteLiteral("    ");
 
             
-            #line 41 "..\..\Views\Checkout\OrderOverview.cshtml"
-Write(Html.RouteLink("Submit order", new { controller = "Checkout", action = "SubmitOrder", orderId = ViewBag.OrderId },
+            #line 50 "..\..\Views\Checkout\OrderOverview.cshtml"
+Write(Html.RouteLink("Submit order", new { controller = "Checkout", action = "SubmitOrder", id = ViewBag.OrderId },
         new { @class = "badge badge-light submit-order__submit" }));
 
             

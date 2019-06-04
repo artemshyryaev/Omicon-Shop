@@ -71,9 +71,12 @@ namespace OmiconShop.Application.Repository
             using (var context = helper.Create())
             {
                 Order order = context.Orders.First(e => e.OrderId == orderId);
-                order.Status = OrderStatuses.Approved;
-                context.Entry(order).State = EntityState.Modified;
-                await context.SaveChangesAsync();
+                if (order != null)
+                {
+                    order.Status = OrderStatuses.Approved;
+                    context.Entry(order).State = EntityState.Modified;
+                    await context.SaveChangesAsync();
+                }
             }
         }
 
@@ -86,8 +89,11 @@ namespace OmiconShop.Application.Repository
                     .Include(e => e.OrderInformation)
                     .FirstOrDefault(e => e.OrderId == orderId);
 
-                context.Entry(order).State = EntityState.Deleted;
-                await context.SaveChangesAsync();
+                if (order != null)
+                {
+                    context.Entry(order).State = EntityState.Deleted;
+                    await context.SaveChangesAsync();
+                }
             }
         }
 

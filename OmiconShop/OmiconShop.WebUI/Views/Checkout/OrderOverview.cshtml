@@ -42,12 +42,12 @@
 </table>
 
 <div class="decline-order">
-    @Html.RouteLink("Decline order", new { controller = "Checkout", action = "DeclineOrder", orderId = ViewBag.OrderId },
+    @Html.RouteLink("Decline order", new { controller = "Checkout", action = "DeclineOrder", id = ViewBag.OrderId },
         new { @class = "badge badge-light decline-order__decline" })
 </div>
 
 <div class="submit-order">
-    @Html.RouteLink("Submit order", new { controller = "Checkout", action = "SubmitOrder", orderId = ViewBag.OrderId },
+    @Html.RouteLink("Submit order", new { controller = "Checkout", action = "SubmitOrder", id = ViewBag.OrderId },
         new { @class = "badge badge-light submit-order__submit" })
 </div>
 

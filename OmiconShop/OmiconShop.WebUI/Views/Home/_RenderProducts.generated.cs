@@ -80,7 +80,7 @@ WriteLiteral("                    ");
 
             
             #line 20 "..\..\Views\Home\_RenderProducts.cshtml"
-               Write(Html.RouteLink(Model.Name, new { controller = "Home", action = "ProductDetails", productId = Model.ProductId,
+               Write(Html.RouteLink(Model.Name, new { controller = "Home", action = "ProductDetails", id = Model.ProductId,
                    type = ViewData["Type"], page = ViewData["Page"]}, new { @class = "badge badge-light" }));
 
             

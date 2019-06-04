@@ -39,7 +39,8 @@ namespace OmiconShop.WebUI.Controllers
 
             if (basket.Lines.Count() == 0)
             {
-                ModelState.AddModelError("", "Your basket is empty");
+                TempData["message"] = string.Format("Your basket is empty");
+                return RedirectToAction("Index", "Basket");
             }
 
             if (ModelState.IsValid)
@@ -56,18 +57,34 @@ namespace OmiconShop.WebUI.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> DeclineOrder(int orderId)
+        public async Task<ActionResult> DeclineOrder(int? id)
         {
-            await checkoutApi.DeclineOrderAsync(orderId);
+            if (id == null)
+                return View("PageNotFound");
+
+            await checkoutApi.DeclineOrderAsync((int)id);
 
             return View();
         }
 
         [HttpGet]
-        public async Task<ActionResult> SubmitOrder(int orderId)
+        public async Task<ActionResult> SubmitOrder(int? id)
         {
+            if (id == null)
+                return View("PageNotFound");
+
             var basket = checkoutApi.GetCurrentBasket();
-            var order = await checkoutApi.SubmitOrder(basket, orderId);
+
+            if (basket.Lines.Count() == 0)
+            {
+                TempData["message"] = string.Format("Your basket is empty");
+                return RedirectToAction("Index", "Basket");
+            }
+
+            var order = await checkoutApi.SubmitOrder(basket, (int)id);
+
+            if (order == null)
+                return View("PageNotFound");
 
             return View("OrderSucessfullyCreated", order);
         }

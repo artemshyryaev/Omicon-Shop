@@ -17,7 +17,7 @@
                     }
                 </td>*@
                 <td class="product-name">
-                    @Html.RouteLink(Model.Name, new { controller = "Home", action = "ProductDetails", productId = Model.ProductId,
+                    @Html.RouteLink(Model.Name, new { controller = "Home", action = "ProductDetails", id = Model.ProductId,
                    type = ViewData["Type"], page = ViewData["Page"]}, new { @class = "badge badge-light" })
                 </td>
                 <td class="description">@Model.Description</td>

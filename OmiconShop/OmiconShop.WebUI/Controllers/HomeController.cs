@@ -48,9 +48,15 @@ namespace OmiconShop.WebUI.Controllers
         }
 
         [HttpGet]
-        public ActionResult ProductDetails(int productId, string type, int page = 1)
+        public ActionResult ProductDetails(int? id, string type, int page = 1)
         {
-            var model = homeApi.GetProductById(productId);
+            if (id == null)
+                return View("PageNotFound");
+
+            var model = homeApi.GetProductById((int)id);
+
+            if (model == null)
+                return View("PageNotFound");
 
             ViewData["Page"] = page;
             ViewData["Type"] = type;

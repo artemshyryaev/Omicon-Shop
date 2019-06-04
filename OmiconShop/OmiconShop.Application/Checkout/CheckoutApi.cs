@@ -41,6 +41,10 @@ namespace OmiconShop.Application.Checkout
                 basket.ClearBasket();
 
             var order = orderRepository.GetOrderById(orderId);
+
+            if (order == null)
+                return null;
+
             await emailSender.SendOrderConfirmationEmail(order);
 
             return order;
