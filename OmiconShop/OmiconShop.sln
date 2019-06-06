@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OmiconShop.WebUI", "OmiconS
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{604C0E66-2ACF-4160-8DCE-100FAF00BCDB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SentimentAnalysis", "SentimentAnalysis\SentimentAnalysis.csproj", "{C1EF4EE0-E8FE-4763-8BFA-E89221AC7405}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{B3AC0AFF-248A-45C2-A18C-51EEE326F111}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3AC0AFF-248A-45C2-A18C-51EEE326F111}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3AC0AFF-248A-45C2-A18C-51EEE326F111}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1EF4EE0-E8FE-4763-8BFA-E89221AC7405}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1EF4EE0-E8FE-4763-8BFA-E89221AC7405}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1EF4EE0-E8FE-4763-8BFA-E89221AC7405}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1EF4EE0-E8FE-4763-8BFA-E89221AC7405}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +54,7 @@ Global
 		{529CA0CE-B676-4765-8C3A-DF6A47F99E5A} = {EB304701-BB8E-46D7-8BB4-A879B88050AA}
 		{BAD449FD-F535-426D-A413-80170A8DC59D} = {8A51FF5A-B164-4FCF-95EF-9C4C38F13532}
 		{B3AC0AFF-248A-45C2-A18C-51EEE326F111} = {604C0E66-2ACF-4160-8DCE-100FAF00BCDB}
+		{C1EF4EE0-E8FE-4763-8BFA-E89221AC7405} = {8A51FF5A-B164-4FCF-95EF-9C4C38F13532}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {03BBDACE-4477-4172-A460-BED37CCF9198}
