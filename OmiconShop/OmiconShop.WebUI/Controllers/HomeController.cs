@@ -1,4 +1,5 @@
 ﻿using OmiconShop.Application.Home;
+using OmiconShop.Application.Home.ViewModels;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -62,6 +63,13 @@ namespace OmiconShop.WebUI.Controllers
             ViewData["Type"] = type;
 
             return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Comment(string comment)
+        {
+
+            return View(new CommentViewModel());
         }
     }
 }

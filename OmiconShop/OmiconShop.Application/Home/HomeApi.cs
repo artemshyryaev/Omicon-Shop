@@ -1,5 +1,6 @@
 ﻿using OmiconShop.Application.Admin.ViewModel;
 using OmiconShop.Application.Home.Operations;
+using OmiconShop.Application.Home.ViewModels;
 using OmiconShop.Application.IRepository;
 using OmiconShop.Domain.Entities;
 using System;
@@ -21,9 +22,14 @@ namespace OmiconShop.Application.Home
             this.productOperations = productOperations;
         }
 
-        public Product GetProductById(int id)
+        public ProductDetailsViewModel GetProductById(int id)
         {
-            return productRepository.GetProductById(id);
+            var viewModel = new ProductDetailsViewModel
+            {
+                Product = productRepository.GetProductById(id)
+            };
+
+            return viewModel;
         }
 
         public ProductsListViewModel GetProductsListViewModel(string type, string productName, int page, int pageSize)
@@ -34,7 +40,7 @@ namespace OmiconShop.Application.Home
                 PagingInfo = new PagingInfoViewModel
                 {
                     CurrentPage = page,
-                    TotalItems = type == null 
+                    TotalItems = type == null
                     ? productRepository.GetAllProducts().Count()
                     : productRepository.GetAllProducts().Where(p => p.Type == type).Count(),
                     ItemsPerPage = pageSize

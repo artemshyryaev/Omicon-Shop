@@ -96,6 +96,8 @@
     <Compile Include="Facet\FacetApi.cs" />
     <Compile Include="Home\HomeApi.cs" />
     <Compile Include="Home\Operations\ProductOperations.cs" />
+    <Compile Include="Home\ViewModels\CommentViewModel.cs" />
+    <Compile Include="Home\ViewModels\ProductDetailsViewModel.cs" />
     <Compile Include="IRepository\IOrderRepository.cs" />
     <Compile Include="IRepository\IProductRepository.cs" />
     <Compile Include="IRepository\IUserRepository.cs" />

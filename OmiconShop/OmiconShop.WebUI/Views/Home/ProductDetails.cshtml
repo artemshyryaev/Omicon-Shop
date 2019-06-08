@@ -1,4 +1,4 @@
-﻿@model OmiconShop.Domain.Entities.Product
+﻿@model OmiconShop.Application.Home.ViewModels.ProductDetailsViewModel
 @using OmiconShop.WebUI.HtmlHelpers
 @using OmiconShop.Domain.Enumerations
 
@@ -18,9 +18,9 @@
     </div>
 
     <div class="pdp-image">
-        @if (Model.ImageUrl != null)
+        @if (Model.Product.ImageUrl != null)
         {
-            <img class="pdp-img-thumbnail" src="@Model.ImageUrl">
+            <img class="pdp-img-thumbnail" src="@Model.Product.ImageUrl">
         }
         else
         {
@@ -29,10 +29,10 @@
     </div>
 
     <div class="pdp-description">
-        <div class="pdp-description__name"><b>@Model.Name</b></div>
-        <div class="pdp-description__itemNo"><b>Item no.:</b> @Model.ProductId</div>
-        <div class="pdp-description__price"><b>Price:</b> <span class="pdp-description__price-value">@((double)Model.Price) $</span></div>
-        <div class="pdp-description__description"><b>Description:</b> @Model.Description</div>
+        <div class="pdp-description__name"><b>@Model.Product.Name</b></div>
+        <div class="pdp-description__itemNo"><b>Item no.:</b> @Model.Product.ProductId</div>
+        <div class="pdp-description__price"><b>Price:</b> <span class="pdp-description__price-value">@((double)Model.Product.Price) $</span></div>
+        <div class="pdp-description__description"><b>Description:</b> @Model.Product.Description</div>
     </div>
 
     <div class="pdp-add-to-card-control">
@@ -46,10 +46,18 @@
                 @Html.UomEnumDropdownList("uom", selectedUom, new { @class = "form-control" })
             </div>
             <div>
-                @Html.Hidden("productId", Model.ProductId)
+                @Html.Hidden("productId", Model.Product.ProductId)
                 @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
                 <input type="submit" class="btn btn-success btn-lg pdp-add-to-card-control__add-to-card" value="Add to cart">
             </div>
+        }
+    </div>
+
+    <div class="comments">
+        @using (Ajax.BeginForm("Comment", "Home", new AjaxOptions { HttpMethod = "Post" }))
+        {
+            @Html.EditorFor(e => e.Comment)
+            <input type="submit" class="btn btn-success" value="Send">
         }
     </div>
 
