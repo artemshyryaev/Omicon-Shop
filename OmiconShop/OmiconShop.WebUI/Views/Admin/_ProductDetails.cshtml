@@ -1,7 +1,7 @@
 ﻿@model OmiconShop.Application.Admin.ViewModel.ProductViewModel
 
-<div class="image-control row">
-    <div class="col-7">
+<div class="row justify-content-start">
+    <div class="col-3">
         <div class="admin-card-img">
             @if (Model != null && Model.ImageUrl != null)
             {
@@ -12,19 +12,19 @@
                 <img class="img-thumbnail admin-pdp-image" src="~/Content/images/no-image-big.png">
             }
         </div>
-        <div class="input-group admin-pdp-image-form">
-            <div class="input-group-prepend">
-                <a class="input-group-text" href='javascript:;'>Upload</a>
-            </div>
-            <div class="custom-file">
-                <input type="file" class="custom-file-input pdp-img" name="Image"
-                       aria-describedby="inputGroupFileAddon01" onchange='$("#upload-file-info").html($(this).val());'>
-                <label class="custom-file-label" id="upload-file-info">Choose file</label>
-            </div>
-        </div>
     </div>
-    <div class="col-5">
+    <div class="col-3">
         <div class="admin-pdp">
+            <div class="input-group admin-pdp-image-form">
+                <div class="input-group-prepend">
+                    <a class="input-group-text" href='javascript:;'>Upload</a>
+                </div>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input pdp-img" name="Image"
+                           aria-describedby="inputGroupFileAddon01" onchange='$("#upload-file-info").html($(this).val());'>
+                    <label class="custom-file-label" id="upload-file-info">Choose file</label>
+                </div>
+            </div>
             @Html.EditorForModel(Model)
         </div>
     </div>

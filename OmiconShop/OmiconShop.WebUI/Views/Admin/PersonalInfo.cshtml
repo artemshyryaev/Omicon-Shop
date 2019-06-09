@@ -7,20 +7,27 @@
     <h1>@ViewBag.Title</h1>
 </hgroup>
 
-<div class="admin-nav-menu">
-    @Html.Partial("_AdminNavMenu")
+<div class="row">
+
+    <div class="col-2">
+        @Html.Partial("_AdminNavMenu")
+    </div>
+    <div class="col-10">
+
+        @using (Html.BeginForm("PersonalInfo", "Admin"))
+        {
+            <div class="change-password">
+                @Html.ValidationSummary(true)
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(x => x.Id)
+                @Html.LabelFor(x => x.Email, new { @class = "email-label" })
+                @Html.TextBoxFor(x => x.Email, new { @class = "form-control email-textbox" })
+                @Html.ValidationMessageFor(x => x.Email)
+                <input type="submit" value="Save changes" class="btn btn-primary submit-personal-info">
+            </div>
+        }
+    </div>
 </div>
 
-@using (Html.BeginForm("PersonalInfo", "Admin"))
-{
-    <div class="change-password">
-        @Html.ValidationSummary(true)
-        @Html.AntiForgeryToken()
-        @Html.HiddenFor(x => x.Id)
-        @Html.LabelFor(x => x.Email, new { @class = "email-label" })
-        @Html.TextBoxFor(x => x.Email, new { @class = "form-control email-textbox" })
-        @Html.ValidationMessageFor(x => x.Email)
-        <input type="submit" value="Save changes" class="btn btn-primary submit-personal-info">
-    </div>
-}
+
 

@@ -9,20 +9,19 @@
 </hgroup>
 
 <div class="row">
-    <div class="admin-nav-menu col-1">
+    <div class="admin-nav-menu col-2">
         @Html.Partial("_AdminNavMenu")
     </div>
-    <div class="product-info col-11">
+    <div class="product-info col-10">
         @using (Html.BeginForm("EditProduct", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
-            <div class="panel-body admin-product-info">
-                @Html.Partial("_ProductDetails", ViewData)
-            </div>
-
-            <div class="submit-product">
-                @Html.Hidden("productId", id)
-                <input type="submit" value="Save" class="btn btn-primary">
-                @Html.RouteLink("Discard changes and go to list", new { controller = "Admin", action = "ProductList" }, new { @class = "btn btn-default" })
+            @Html.Partial("_ProductDetails", ViewData)
+            <div class="row">
+                <div class="col offset-3 submit-product">
+                    @Html.Hidden("productId", id)
+                    <input type="submit" value="Save" class="btn btn-primary">
+                    @Html.RouteLink("Discard changes and go to list", new { controller = "Admin", action = "ProductList" }, new { @class = "btn btn-default" })
+                </div>
             </div>
         }
     </div>

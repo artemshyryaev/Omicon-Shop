@@ -322,7 +322,6 @@ a:hover {
 
 .basket-table {
     margin-top: 1rem;
-    /*margin-left: 1rem;*/
 }
 
 .field-validation-error {
@@ -366,30 +365,6 @@ a:hover {
     color: black;
 }
 
-.admin-nav-menu {
-    width: 11rem;
-    height: 13rem;
-    background-color: #f8f9fa;
-    border-radius: 20px;
-    float: left;
-    margin-right: 2.5rem;
-}
-
-.admin-nav-menu__personal-info {
-    font-size: 0.8rem;
-    margin-bottom: 1rem;
-}
-
-.admin-nav-menu__order-list {
-    font-size: 0.8rem;
-    margin-bottom: 1rem;
-}
-
-.admin-nav-menu__product-list {
-    font-size: 0.8rem;
-    margin-bottom: 1rem;
-}
-
 .change-password {
     display: inline;
 }
@@ -426,37 +401,12 @@ a:hover {
     color: green;
 }
 
-.admin-pdp {
-    margin: 1rem;
-}
-
 .admin-pdp-image-form {
     margin-top: 0.8rem;
 }
 
-.admin-pdp-image {
-    width: 25rem;
-    height: 25rem;
-}
-
-.submit-product {
-    position: relative;
-    right: 10.5rem;
-    top: 22.5rem;
-}
-
 .product-info {
     width: 60%;
-    margin: 0 auto;
-}
-
-.image-control {
-    float: left;
-    width: 60%;
-}
-
-.admin-product-info {
-    width: 71%;
     margin: 0 auto;
 }
 
@@ -549,11 +499,6 @@ a:hover {
     margin-left: 1rem;
     width: 40%;
     display: inline-block;
-}
-
-.order-operations {
-    margin-left: 13.7rem;
-    margin-top: 1rem;
 }
 
 .order-overview-list {

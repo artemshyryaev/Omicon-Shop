@@ -9,11 +9,11 @@
     <h1>@ViewBag.Title</h1>
 </hgroup>
 
-<div class="panel panel-default row justify-content-between">
-    <div class="admin-nav-menu col-1">
+<div class="row">
+    <div class="col-2">
         @Html.Partial("_AdminNavMenu")
     </div>
-    <div class="admin-product-table col">
+    <div class="admin-product-table col-10">
         <div class="admin-orders-search-control">
             @using (Html.BeginForm("OrderList", "Admin", FormMethod.Get, new { @class = "form-inline my-2 my-lg-0 admin-orders-filter" }))
             {
