@@ -591,6 +591,12 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="wwwroot\lib\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\OmiconShop.Application\OmiconShop.Application.csproj">
       <Project>{bad449fd-f535-426d-a413-80170a8dc59d}</Project>
       <Name>OmiconShop.Application</Name>
@@ -607,12 +613,6 @@
       <Project>{b2c7a177-6d10-4609-b90c-480ff5b5d7af}</Project>
       <Name>OmiconShop.SentimentAnalysis</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <TypeScriptCompile Include="wwwroot\lib\index.d.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
