@@ -1,6 +1,7 @@
 ﻿@model OmiconShop.Domain.Entities.Product
 @using OmiconShop.WebUI.HtmlHelpers
 @using OmiconShop.Domain.Enumerations
+@using OmiconShop.Application.Home.ViewModels
 
 @{
     ViewBag.Title = "Product Details";
@@ -50,6 +51,20 @@
                 @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
                 <input type="submit" class="btn btn-success btn-lg pdp-add-to-card-control__add-to-card" value="Add to cart">
             </div>
+        }
+    </div>
+
+    <div id="target">
+        @using (Ajax.BeginForm("Comments", "Home", new AjaxOptions
+        {
+            HttpMethod = "Post",
+            UpdateTargetId = "target"
+        }))
+        {
+            @Html.Partial("_Comments", new CommentsViewModel(), ViewData);
+            @Html.Hidden("id", Model.ProductId)
+            @Html.Hidden("probability", ViewData["productProbability"])
+            <input type="submit" class="btn btn-success" value="Send">
         }
     </div>
 

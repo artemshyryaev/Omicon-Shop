@@ -2,11 +2,8 @@
 using OmiconShop.Application.Home.Operations;
 using OmiconShop.Application.IRepository;
 using OmiconShop.Domain.Entities;
-using System;
-using System.Collections.Generic;
+using OmiconShop.SentimentAnalysis;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OmiconShop.Application.Home
 {
@@ -34,7 +31,7 @@ namespace OmiconShop.Application.Home
                 PagingInfo = new PagingInfoViewModel
                 {
                     CurrentPage = page,
-                    TotalItems = type == null 
+                    TotalItems = type == null
                     ? productRepository.GetAllProducts().Count()
                     : productRepository.GetAllProducts().Where(p => p.Type == type).Count(),
                     ItemsPerPage = pageSize
@@ -43,6 +40,20 @@ namespace OmiconShop.Application.Home
             };
 
             return model;
+        }
+
+        public int GetProductAverageProbability(int productId)
+        {
+            var comments = new CommentsSentimentAnalysis(productId);
+
+            return comments.GetAverageProbability();
+        }
+
+        public int GetProductAverageProbability(int productId, string sentiment)
+        {
+            var comments = new CommentsSentimentAnalysis(productId);
+
+            return comments.UpdateDataAndGetAverageProbability(sentiment);
         }
     }
 }

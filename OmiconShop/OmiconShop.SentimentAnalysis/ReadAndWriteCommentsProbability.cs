@@ -7,19 +7,21 @@ namespace OmiconShop.SentimentAnalysis
 {
     public class ReadAndWriteCommentsProbability
     {
-        float Probability { get; set; }
-        readonly string path = Path.Combine(Environment.CurrentDirectory, "Data", "yelp_probability.txt");
+        readonly string path;
 
-        public ReadAndWriteCommentsProbability(float probability)
+        public ReadAndWriteCommentsProbability(int productId)
         {
-            this.Probability = probability;
+            path = CombinePath("Data", productId);
         }
 
-        public void WriteProbabilityData()
+        string CombinePath(string folderName, int productId) 
+            => Path.Combine(Environment.CurrentDirectory, folderName, $"yelp_probability_{productId}.txt");
+
+        public void WriteProbabilityData(float probability)
         {
             using (var writer = new StreamWriter(path, true))
             {
-                writer.WriteLineAsync(Convert.ToString(Probability));
+                writer.WriteLineAsync(Convert.ToString(probability));
             }
         }
 

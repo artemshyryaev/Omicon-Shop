@@ -13,25 +13,33 @@ namespace OmiconShop.SentimentAnalysis
     public class CommentsSentimentAnalysis
     {
         readonly MLContext mlContext;
-        string Sentiment { get; set; }
+        readonly int productId;
         static readonly string _dataPath = Path.Combine(Environment.CurrentDirectory, "Data", "yelp_labelled.txt");
 
 
-        public CommentsSentimentAnalysis(string sentiment)
+        public CommentsSentimentAnalysis(int productId)
         {
             this.mlContext = new MLContext();
-            this.Sentiment = sentiment;
+            this.productId = productId;
         }
 
-        int GetAverageProbability()
+        public int GetAverageProbability()
         {
             var model = BuildAndTrainModel(mlContext);
-            var statementProbability = PredictStatementProbability(mlContext, model, Sentiment);
-            var probability = new ReadAndWriteCommentsProbability(statementProbability);
-            probability.WriteProbabilityData();
+            var probability = new ReadAndWriteCommentsProbability(productId);
+            return probability.GetAverageProbabilityMark();
+        }
+
+        public int UpdateDataAndGetAverageProbability(string sentiment)
+        {
+            var model = BuildAndTrainModel(mlContext);
+            var statementProbability = PredictStatementProbability(mlContext, model, sentiment);
+            var probability = new ReadAndWriteCommentsProbability(productId);
+            probability.WriteProbabilityData(statementProbability);
 
             return probability.GetAverageProbabilityMark();
         }
+
 
         private static ITransformer BuildAndTrainModel(MLContext mlContext)
         {

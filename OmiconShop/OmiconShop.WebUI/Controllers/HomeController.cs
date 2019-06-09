@@ -1,5 +1,5 @@
 ﻿using OmiconShop.Application.Home;
-using System.Linq;
+using OmiconShop.Application.Home.ViewModels;
 using System.Web.Mvc;
 
 namespace OmiconShop.WebUI.Controllers
@@ -60,8 +60,26 @@ namespace OmiconShop.WebUI.Controllers
 
             ViewData["Page"] = page;
             ViewData["Type"] = type;
+            ViewData["productProbability"] = homeApi.GetProductAverageProbability((int)id);
 
             return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Comments(string comments, int? id, string probability)
+        {
+            if (id == null)
+                return View("PageNotFound");
+
+            if (string.IsNullOrEmpty(comments))
+            {
+                ViewData["productProbability"] = probability;
+                return PartialView("_Comments", new CommentsViewModel());
+            }
+
+            ViewData["productProbability"] = homeApi.GetProductAverageProbability((int)id, comments);
+
+            return PartialView("_Comments", new CommentsViewModel());
         }
     }
 }

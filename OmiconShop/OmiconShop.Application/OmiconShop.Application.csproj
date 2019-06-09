@@ -96,6 +96,7 @@
     <Compile Include="Facet\FacetApi.cs" />
     <Compile Include="Home\HomeApi.cs" />
     <Compile Include="Home\Operations\ProductOperations.cs" />
+    <Compile Include="Home\ViewModels\CommentsViewModel.cs" />
     <Compile Include="IRepository\IOrderRepository.cs" />
     <Compile Include="IRepository\IProductRepository.cs" />
     <Compile Include="IRepository\IUserRepository.cs" />
@@ -142,6 +143,10 @@
     <ProjectReference Include="..\OmiconShop.Persistence\OmiconShop.Persistence.csproj">
       <Project>{529CA0CE-B676-4765-8C3A-DF6A47F99E5A}</Project>
       <Name>OmiconShop.Persistence</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OmiconShop.SentimentAnalysis\OmiconShop.SentimentAnalysis.csproj">
+      <Project>{B2C7A177-6D10-4609-B90C-480FF5B5D7AF}</Project>
+      <Name>OmiconShop.SentimentAnalysis</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

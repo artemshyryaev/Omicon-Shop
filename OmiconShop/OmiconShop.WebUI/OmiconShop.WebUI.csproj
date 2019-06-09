@@ -404,6 +404,7 @@
     <Content Include="wwwroot\lib\jquery-unobtrusive\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Views\Shared\_LoginForm.cshtml" />
     <Content Include="Views\Admin\_AdminNavMenu.cshtml" />
+    <Content Include="Views\Home\_Comments.cshtml" />
     <None Include="wwwroot\lib\jquery\jquery-3.4.1.intellisense.js" />
     <Content Include="Content\files\188de31a-6fd2-4e70-8e2c-68f47bcdad8f.png" />
     <Content Include="Content\files\261a3ced-1ad4-4759-8053-38b303c08a3e.png" />
@@ -601,6 +602,10 @@
     <ProjectReference Include="..\OmiconShop.Persistence\OmiconShop.Persistence.csproj">
       <Project>{529ca0ce-b676-4765-8c3a-df6a47f99e5a}</Project>
       <Name>OmiconShop.Persistence</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OmiconShop.SentimentAnalysis\OmiconShop.SentimentAnalysis.csproj">
+      <Project>{b2c7a177-6d10-4609-b90c-480ff5b5d7af}</Project>
+      <Name>OmiconShop.SentimentAnalysis</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
