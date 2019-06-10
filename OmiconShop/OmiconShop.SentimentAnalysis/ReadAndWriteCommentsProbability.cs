@@ -8,6 +8,7 @@ namespace OmiconShop.SentimentAnalysis
     public class ReadAndWriteCommentsProbability
     {
         readonly string path;
+        static readonly string _modelPath = Path.Combine(Environment.CurrentDirectory, "Data", "Model.zip");
 
         public ReadAndWriteCommentsProbability(int productId)
         {
