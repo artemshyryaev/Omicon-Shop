@@ -11,14 +11,22 @@ namespace OmiconShop.SentimentAnalysis
 
         public ReadAndWriteCommentsProbability(int productId)
         {
-            path = CombinePath("Data", productId);
+            path = CombinePath("App_Data\\SentimentData\\", productId);
         }
 
-        string CombinePath(string folderName, int productId) 
-            => Path.Combine(Environment.CurrentDirectory, folderName, $"yelp_probability_{productId}.txt");
+        string CombinePath(string folderName, int productId)
+            => Path.Combine(AppDomain.CurrentDomain.BaseDirectory, folderName, $"yelp_probability_{productId}.txt");
+
+        void DirectoryCreation(string path)
+        {
+            if (!Directory.Exists(path))
+                Directory.CreateDirectory(path);
+        }
 
         public void WriteProbabilityData(float probability)
         {
+            DirectoryCreation(path);
+
             using (var writer = new StreamWriter(path, true))
             {
                 writer.WriteLineAsync(Convert.ToString(probability));

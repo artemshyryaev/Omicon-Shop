@@ -1,48 +1,15 @@
 ﻿@if (User.Identity.IsAuthenticated)
 {
-    @*<div class="admin-nav-menu">
-            @Html.RouteLink("Personal information", new { controller = "Admin", action = "PersonalInfo" },
-                 new { @class = "badge badge-light admin-nav-menu__link" })
-            @Html.RouteLink("My orders", new { controller = "Admin", action = "OrderList" },
-                 new { @class = "badge badge-light admin-nav-menu__link" })
+    <div class="admin-nav-menu nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        @Html.RouteLink("Personal information", new { controller = "Admin", action = "PersonalInfo" },
+            new { @class = "nav-link" })
+        @Html.RouteLink("My Orders", new { controller = "Admin", action = "OrderList" },
+                         new { @class = "nav-link" })
 
-            @if (User.Identity.Name == "admin@gmail.com")
-            {
-                @Html.RouteLink("Manage products", new { controller = "Admin", action = "ProductList" },
-                    new { @class = "badge badge-light admin-nav-menu__link" })
-            }
-        </div>*@
-<div class="admin-nav-menu nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-    @Html.RouteLink("Personal information", new { controller = "Admin", action = "PersonalInfo" },
-        new { @class = "nav-link active" })
-    @Html.RouteLink("My Orders", new { controller = "Admin", action = "OrderList" },
-                     new { @class = "nav-link" })
-
-    @if (User.Identity.Name == "admin@gmail.com")
-    {
-        @Html.RouteLink("Manage Products", new { controller = "Admin", action = "ProductList" },
-                new { @class = "nav-link" })
-    }
-</div>
-
-    @*<nav>
-        <ul class="admin-nav-list">
-            <li class="admin-nav-list__item">
-                @Html.RouteLink("Personal information", new { controller = "Admin", action = "PersonalInfo" },
-                     //new { @class = "badge badge-light admin-nav-list__link" }
-                     new { @class = "admin-nav-list__link" })
-            </li>
-            <li class="admin-nav-list__item">
-                @Html.RouteLink("My Orders", new { controller = "Admin", action = "OrderList" },
-                     new { @class = "admin-nav-list__link" })
-            </li>
-            @if (User.Identity.Name == "admin@gmail.com")
-            {
-                <li class="admin-nav-list__item">
-                    @Html.RouteLink("Manage Products", new { controller = "Admin", action = "ProductList" },
-                         new { @class = "admin-nav-list__link" })
-                </li>
-            }
-        </ul>
-    </nav>*@
+        @if (User.Identity.Name == "admin@gmail.com")
+        {
+            @Html.RouteLink("Manage Products", new { controller = "Admin", action = "ProductList" },
+                    new { @class = "nav-link" })
+        }
+    </div>
 }
