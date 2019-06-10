@@ -6,38 +6,32 @@
     var selectedUom = UOM.PCS;
 }
 
-<div class="container">
-    <table class="table table-striped">
-        <tbody>
-            <tr>
-                @*<td class="image">
-                    @if (Model.ImageUrl != null)
-                    {
-                        <img class="img-thumbnail product-list" src="@Model.ImageUrl">
-                    }
-                </td>*@
-                <td class="product-name">
-                    @Html.RouteLink(Model.Name, new { controller = "Home", action = "ProductDetails", id = Model.ProductId,
-                   type = ViewData["Type"], page = ViewData["Page"]}, new { @class = "badge badge-light" })
-                </td>
-                <td class="description">@Model.Description</td>
-                <td class="price">@((double)Model.Price) $</td>
+<tr>
+    <td class="image">
+            @if (Model.ImageUrl != null)
+            {
+                <img class="img-thumbnail" src="@Model.ImageUrl">
+            }
+        </td>
+    <td class="product-name">
+        @Html.RouteLink(Model.Name, new { controller = "Home", action = "ProductDetails", id = Model.ProductId,
+       type = ViewData["Type"], page = ViewData["Page"]}, new { @class = "badge product-name-link" })
+    </td>
+    <td class="description">@Model.Description</td>
+    <td class="price">@((double)Model.Price) $</td>
 
-                @using (Html.BeginForm("AddToCart", "Basket"))
-                {
-                    <td class="product-list-qty">
-                        @Html.TextBox("Quantity", 1, new { @class = "form-control", type = "number", step = "1", min = "1" })
-                    </td>
-                    <td class="uoms">
-                        @Html.UomEnumDropdownList("uom", selectedUom, new { @class = "form-control" })
-                    </td>
-                    <td class="add-to-card">
-                        @Html.Hidden("productId", Model.ProductId)
-                        @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
-                        <input type="submit" class="btn btn-success" value="Add to cart">
-                    </td>
-                }
-            </tr>
-        </tbody>
-    </table>
-</div>
+    @using (Html.BeginForm("AddToCart", "Basket"))
+    {
+        <td class="product-list-qty">
+            @Html.TextBox("Quantity", 1, new { @class = "form-control product-list-qty-control", type = "number", step = "1", min = "1" })
+        </td>
+        <td class="uoms">
+            @Html.UomEnumDropdownList("uom", selectedUom, new { @class = "form-control product-list-uom-control" })
+        </td>
+        <td class="add-to-card">
+            @Html.Hidden("productId", Model.ProductId)
+            @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+            <input type="submit" class="btn btn-success" value="Add to cart">
+        </td>
+    }
+</tr>

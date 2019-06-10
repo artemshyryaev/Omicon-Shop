@@ -2,33 +2,34 @@
 @using OmiconShop.WebUI.HtmlHelpers
 
 @{
-    ViewBag.Title = "Products List";
+    ViewBag.Title = "Product List";
 }
 
 <hgroup class="title">
     <h1>@ViewBag.Title</h1>
 </hgroup>
 
-<div class="container-fluid">
-    <div class="row justify-content-between">
-        <div class="col-sm-1 facets">
-            @Html.Action("Types", "Facet")
+<div class="row">
+    <div class="col-2 facets">
+        @Html.Action("Types", "Facet")
+    </div>
+    <div class="col-9 product-list">
+        <div class="panel panel-default">
+            <table class="table table-striped admin-orders-table">
+                @foreach (var el in Model.Products)
+                {
+                    @Html.Partial("_RenderProducts", el, ViewData)
+                }
+            </table>
         </div>
-        <div class="col-sm product-list">
-            @foreach (var el in Model.Products)
-            {
-                @Html.Partial("_RenderProducts", el, ViewData)
-            }
+        <div>
+            <nav>
+                <input class="current-page" type="hidden" value="@Model.PagingInfo.CurrentPage">
+                <input class="total-pages" type="hidden" value="@Model.PagingInfo.TotalPages">
+                <ul class="pagination justify-content-end">
+                    @Html.PageLinks(Model.PagingInfo, x => Url.Action("ProductsList", new { page = x, type = Model.Type }))
+                </ul>
+            </nav>
         </div>
     </div>
-    <nav>
-        <input class="current-page" type="hidden" value="@Model.PagingInfo.CurrentPage">
-        <input class="total-pages" type="hidden" value="@Model.PagingInfo.TotalPages">
-        <ul class="pagination justify-content-end">
-            @Html.PageLinks(Model.PagingInfo, x => Url.Action("ProductsList", new { page = x, type = Model.Type }))
-        </ul>
-    </nav>
 </div>
-
-
-

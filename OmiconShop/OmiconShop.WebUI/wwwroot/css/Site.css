@@ -183,6 +183,31 @@ a:hover {
     margin: 0 auto;
 }
 
+.product-list-qty {
+    width: 5rem;
+}
+
+.product-list-qty-control {
+    width: 100%;
+}
+
+.product-list-uom-control {
+    width: 100%;
+}
+
+.uoms {
+    min-width: 7rem;
+}
+
+.product-name-link {
+    color: black;
+}
+
+.image {
+    width: 5rem;
+    height: 5rem;
+}
+
 .image-thumbnail.product-list {
     width: 40px;
     height: 40px;
@@ -203,6 +228,10 @@ a:hover {
     position: absolute;
     left: 53rem;
     top: 10rem;
+}
+
+.price {
+    min-width: 6rem;
 }
 
 .pdp-add-to-card-control {

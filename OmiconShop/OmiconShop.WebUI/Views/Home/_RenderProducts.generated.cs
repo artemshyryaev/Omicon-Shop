@@ -60,54 +60,87 @@ WriteLiteral("\r\n");
             
             #line default
             #line hidden
-WriteLiteral("\r\n\r\n<div");
+WriteLiteral("\r\n\r\n<tr>\r\n    <td");
 
-WriteLiteral(" class=\"container\"");
+WriteLiteral(" class=\"image\"");
 
-WriteLiteral(">\r\n    <table");
+WriteLiteral(">\r\n");
 
-WriteLiteral(" class=\"table table-striped\"");
+            
+            #line 11 "..\..\Views\Home\_RenderProducts.cshtml"
+            
+            
+            #line default
+            #line hidden
+            
+            #line 11 "..\..\Views\Home\_RenderProducts.cshtml"
+             if (Model.ImageUrl != null)
+            {
 
-WriteLiteral(">\r\n        <tbody>\r\n            <tr>\r\n                ");
+            
+            #line default
+            #line hidden
+WriteLiteral("                <img");
 
-WriteLiteral("\r\n                <td");
+WriteLiteral(" class=\"img-thumbnail\"");
+
+WriteAttribute("src", Tuple.Create(" src=\"", 291), Tuple.Create("\"", 312)
+            
+            #line 13 "..\..\Views\Home\_RenderProducts.cshtml"
+, Tuple.Create(Tuple.Create("", 297), Tuple.Create<System.Object, System.Int32>(Model.ImageUrl
+            
+            #line default
+            #line hidden
+, 297), false)
+);
+
+WriteLiteral(">\r\n");
+
+            
+            #line 14 "..\..\Views\Home\_RenderProducts.cshtml"
+            }
+
+            
+            #line default
+            #line hidden
+WriteLiteral("        </td>\r\n    <td");
 
 WriteLiteral(" class=\"product-name\"");
 
 WriteLiteral(">\r\n");
 
-WriteLiteral("                    ");
+WriteLiteral("        ");
 
             
-            #line 20 "..\..\Views\Home\_RenderProducts.cshtml"
-               Write(Html.RouteLink(Model.Name, new { controller = "Home", action = "ProductDetails", id = Model.ProductId,
-                   type = ViewData["Type"], page = ViewData["Page"]}, new { @class = "badge badge-light" }));
+            #line 17 "..\..\Views\Home\_RenderProducts.cshtml"
+   Write(Html.RouteLink(Model.Name, new { controller = "Home", action = "ProductDetails", id = Model.ProductId,
+       type = ViewData["Type"], page = ViewData["Page"]}, new { @class = "badge product-name-link" }));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n                </td>\r\n                <td");
+WriteLiteral("\r\n    </td>\r\n    <td");
 
 WriteLiteral(" class=\"description\"");
 
 WriteLiteral(">");
 
             
-            #line 23 "..\..\Views\Home\_RenderProducts.cshtml"
-                                   Write(Model.Description);
+            #line 20 "..\..\Views\Home\_RenderProducts.cshtml"
+                       Write(Model.Description);
 
             
             #line default
             #line hidden
-WriteLiteral("</td>\r\n                <td");
+WriteLiteral("</td>\r\n    <td");
 
 WriteLiteral(" class=\"price\"");
 
 WriteLiteral(">");
 
             
-            #line 24 "..\..\Views\Home\_RenderProducts.cshtml"
-                              Write((double)Model.Price);
+            #line 21 "..\..\Views\Home\_RenderProducts.cshtml"
+                  Write((double)Model.Price);
 
             
             #line default
@@ -115,80 +148,80 @@ WriteLiteral(">");
 WriteLiteral(" $</td>\r\n\r\n");
 
             
-            #line 26 "..\..\Views\Home\_RenderProducts.cshtml"
-                
+            #line 23 "..\..\Views\Home\_RenderProducts.cshtml"
+    
             
             #line default
             #line hidden
             
-            #line 26 "..\..\Views\Home\_RenderProducts.cshtml"
-                 using (Html.BeginForm("AddToCart", "Basket"))
-                {
+            #line 23 "..\..\Views\Home\_RenderProducts.cshtml"
+     using (Html.BeginForm("AddToCart", "Basket"))
+    {
 
             
             #line default
             #line hidden
-WriteLiteral("                    <td");
+WriteLiteral("        <td");
 
 WriteLiteral(" class=\"product-list-qty\"");
 
 WriteLiteral(">\r\n");
 
-WriteLiteral("                        ");
+WriteLiteral("            ");
 
             
-            #line 29 "..\..\Views\Home\_RenderProducts.cshtml"
-                   Write(Html.TextBox("Quantity", 1, new { @class = "form-control", type = "number", step = "1", min = "1" }));
+            #line 26 "..\..\Views\Home\_RenderProducts.cshtml"
+       Write(Html.TextBox("Quantity", 1, new { @class = "form-control product-list-qty-control", type = "number", step = "1", min = "1" }));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n                    </td>\r\n");
+WriteLiteral("\r\n        </td>\r\n");
 
-WriteLiteral("                    <td");
+WriteLiteral("        <td");
 
 WriteLiteral(" class=\"uoms\"");
 
 WriteLiteral(">\r\n");
 
-WriteLiteral("                        ");
+WriteLiteral("            ");
 
             
-            #line 32 "..\..\Views\Home\_RenderProducts.cshtml"
-                   Write(Html.UomEnumDropdownList("uom", selectedUom, new { @class = "form-control" }));
+            #line 29 "..\..\Views\Home\_RenderProducts.cshtml"
+       Write(Html.UomEnumDropdownList("uom", selectedUom, new { @class = "form-control product-list-uom-control" }));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n                    </td>\r\n");
+WriteLiteral("\r\n        </td>\r\n");
 
-WriteLiteral("                    <td");
+WriteLiteral("        <td");
 
 WriteLiteral(" class=\"add-to-card\"");
 
 WriteLiteral(">\r\n");
 
-WriteLiteral("                        ");
+WriteLiteral("            ");
 
             
-            #line 35 "..\..\Views\Home\_RenderProducts.cshtml"
-                   Write(Html.Hidden("productId", Model.ProductId));
+            #line 32 "..\..\Views\Home\_RenderProducts.cshtml"
+       Write(Html.Hidden("productId", Model.ProductId));
 
             
             #line default
             #line hidden
 WriteLiteral("\r\n");
 
-WriteLiteral("                        ");
+WriteLiteral("            ");
 
             
-            #line 36 "..\..\Views\Home\_RenderProducts.cshtml"
-                   Write(Html.Hidden("returnUrl", Request.Url.PathAndQuery));
+            #line 33 "..\..\Views\Home\_RenderProducts.cshtml"
+       Write(Html.Hidden("returnUrl", Request.Url.PathAndQuery));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n                        <input");
+WriteLiteral("\r\n            <input");
 
 WriteLiteral(" type=\"submit\"");
 
@@ -196,16 +229,16 @@ WriteLiteral(" class=\"btn btn-success\"");
 
 WriteLiteral(" value=\"Add to cart\"");
 
-WriteLiteral(">\r\n                    </td>\r\n");
+WriteLiteral(">\r\n        </td>\r\n");
 
             
-            #line 39 "..\..\Views\Home\_RenderProducts.cshtml"
-                }
+            #line 36 "..\..\Views\Home\_RenderProducts.cshtml"
+    }
 
             
             #line default
             #line hidden
-WriteLiteral("            </tr>\r\n        </tbody>\r\n    </table>\r\n</div>");
+WriteLiteral("</tr>");
 
         }
     }
