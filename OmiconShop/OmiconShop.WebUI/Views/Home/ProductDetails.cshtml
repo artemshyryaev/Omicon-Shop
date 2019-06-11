@@ -61,7 +61,7 @@
             UpdateTargetId = "target"
         }))
         {
-            @Html.Partial("_Comments", new CommentsViewModel(), ViewData);
+            @Html.Partial("_Comments", new CommentsViewModel(), ViewData)
             @Html.Hidden("id", Model.ProductId)
             @Html.Hidden("probability", ViewData["productProbability"])
             <input type="submit" class="btn btn-success" value="Send">

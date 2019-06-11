@@ -1,5 +1,6 @@
 ﻿using OmiconShop.Application.Home;
 using OmiconShop.Application.Home.ViewModels;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace OmiconShop.WebUI.Controllers
@@ -66,7 +67,7 @@ namespace OmiconShop.WebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Comments(string comments, int? id, string probability)
+        public async Task<ActionResult> Comments(string comments, int? id, string probability)
         {
             if (id == null)
                 return View("PageNotFound");
@@ -77,7 +78,7 @@ namespace OmiconShop.WebUI.Controllers
                 return PartialView("_Comments", new CommentsViewModel());
             }
 
-            ViewData["productProbability"] = homeApi.GetProductAverageProbability((int)id, comments);
+            ViewData["productProbability"] = await homeApi.GetProductAverageProbability((int)id, comments);
 
             return PartialView("_Comments", new CommentsViewModel());
         }

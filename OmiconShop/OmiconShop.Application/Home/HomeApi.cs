@@ -4,6 +4,7 @@ using OmiconShop.Application.IRepository;
 using OmiconShop.Domain.Entities;
 using OmiconShop.SentimentAnalysis;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace OmiconShop.Application.Home
 {
@@ -49,11 +50,11 @@ namespace OmiconShop.Application.Home
             return comments.GetAverageProbability();
         }
 
-        public int GetProductAverageProbability(int productId, string sentiment)
+        public async Task<int> GetProductAverageProbability(int productId, string sentiment)
         {
             var comments = new CommentsSentimentAnalysis(productId);
 
-            return comments.UpdateDataAndGetAverageProbability(sentiment);
+            return await comments.UpdateDataAndGetAverageProbability(sentiment);
         }
     }
 }

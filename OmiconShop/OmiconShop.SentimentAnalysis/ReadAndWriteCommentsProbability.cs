@@ -2,21 +2,28 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace OmiconShop.SentimentAnalysis
 {
     public class ReadAndWriteCommentsProbability
     {
         readonly string path;
-        static readonly string _modelPath = Path.Combine(Environment.CurrentDirectory, "Data", "Model.zip");
+        readonly string fullPath;
+        int ProductId { get; set; }
 
         public ReadAndWriteCommentsProbability(int productId)
         {
-            path = CombinePath("App_Data\\SentimentData\\", productId);
+            this.ProductId = productId;
+            path = CombinePath("App_Data\\SentimentData\\");
+            fullPath = CombinePath("App_Data\\SentimentData\\", productId);
         }
 
+        string CombinePath(string folderName)
+            => Path.Combine(AppDomain.CurrentDomain.BaseDirectory, folderName);
+
         string CombinePath(string folderName, int productId)
-            => Path.Combine(AppDomain.CurrentDomain.BaseDirectory, folderName, $"yelp_probability_{productId}.txt");
+            => Path.Combine(AppDomain.CurrentDomain.BaseDirectory, folderName, $"yelp_probability_{ ProductId }.txt");
 
         void DirectoryCreation(string path)
         {
@@ -24,31 +31,43 @@ namespace OmiconShop.SentimentAnalysis
                 Directory.CreateDirectory(path);
         }
 
-        public void WriteProbabilityData(float probability)
+        public async Task WriteProbabilityData(float probability)
         {
             DirectoryCreation(path);
 
-            using (var writer = new StreamWriter(path, true))
+            using (var writer = new StreamWriter(fullPath, true))
             {
-                writer.WriteLineAsync(Convert.ToString(probability));
+                await writer.WriteLineAsync(Convert.ToString(probability));
+                writer.Flush();
+                writer.Close();
             }
         }
 
         public int GetAverageProbabilityMark()
         {
-            float mark = 0;
-            using (var reader = new StreamReader(path))
-            {
-                int linesCount = 0;
-                foreach (var line in reader.ReadLine())
-                {
-                    linesCount++;
-                    mark += line;
-                }
-                mark = mark / linesCount;
-            };
+            if (!System.IO.File.Exists(fullPath))
+                return 0;
 
-            return (int)mark;
+            float mark = 0;
+            int linesCount = 0;
+            var lines = File.ReadAllLines(fullPath);
+
+            foreach (var line in lines)
+            {
+                linesCount++;
+                string newLine = line;
+                mark += float.Parse(newLine);
+            }
+            mark = mark / linesCount;
+
+            return GetProbabilityMark(mark);
+        }
+
+        public int GetProbabilityMark(float mark)
+        {
+            var newMark = mark.ToString("0.00");
+            string[] parts = newMark.Split('.');
+            return int.Parse(parts[1]);
         }
     }
 }

@@ -7,6 +7,7 @@ using Microsoft.ML.Data;
 using static Microsoft.ML.DataOperationsCatalog;
 using Microsoft.ML.Trainers;
 using Microsoft.ML.Transforms.Text;
+using System.Threading.Tasks;
 
 namespace OmiconShop.SentimentAnalysis
 {
@@ -14,7 +15,7 @@ namespace OmiconShop.SentimentAnalysis
     {
         readonly MLContext mlContext;
         readonly int productId;
-        static readonly string _dataPath = Path.Combine("D:\\OmiconShop\\OmiconShop\\OmiconShop.SentimentAnalysis\\Data", "yelp_labelled.txt");
+        static readonly string _dataPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "App_Data\\SentimentDataModel\\", "yelp_labelled.txt");
 
 
         public CommentsSentimentAnalysis(int productId)
@@ -30,12 +31,12 @@ namespace OmiconShop.SentimentAnalysis
             return probability.GetAverageProbabilityMark();
         }
 
-        public int UpdateDataAndGetAverageProbability(string sentiment)
+        public async Task<int> UpdateDataAndGetAverageProbability(string sentiment)
         {
             var model = BuildAndTrainModel(mlContext);
             var statementProbability = PredictStatementProbability(mlContext, model, sentiment);
             var probability = new ReadAndWriteCommentsProbability(productId);
-            probability.WriteProbabilityData(statementProbability);
+            await probability.WriteProbabilityData(statementProbability);
 
             return probability.GetAverageProbabilityMark();
         }

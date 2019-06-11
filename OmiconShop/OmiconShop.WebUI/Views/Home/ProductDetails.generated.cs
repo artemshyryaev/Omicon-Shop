@@ -28,6 +28,12 @@ namespace ASP
     using System.Web.UI;
     using System.Web.WebPages;
     
+    #line 4 "..\..\Views\Home\ProductDetails.cshtml"
+    using OmiconShop.Application.Home.ViewModels;
+    
+    #line default
+    #line hidden
+    
     #line 3 "..\..\Views\Home\ProductDetails.cshtml"
     using OmiconShop.Domain.Enumerations;
     
@@ -53,7 +59,7 @@ namespace ASP
 WriteLiteral("\r\n");
 
             
-            #line 5 "..\..\Views\Home\ProductDetails.cshtml"
+            #line 6 "..\..\Views\Home\ProductDetails.cshtml"
   
     ViewBag.Title = "Product Details";
     var selectedUom = UOM.PCS;
@@ -68,7 +74,7 @@ WriteLiteral(" class=\"title\"");
 WriteLiteral(">\r\n    <h1>");
 
             
-            #line 11 "..\..\Views\Home\ProductDetails.cshtml"
+            #line 12 "..\..\Views\Home\ProductDetails.cshtml"
    Write(ViewBag.Title);
 
             
@@ -83,7 +89,7 @@ WriteLiteral(">\r\n    <div>\r\n");
 WriteLiteral("        ");
 
             
-            #line 16 "..\..\Views\Home\ProductDetails.cshtml"
+            #line 17 "..\..\Views\Home\ProductDetails.cshtml"
    Write(Html.RouteLink("Back to overview", new { action = "ProductsList", controller = "Home", type = ViewData["Type"],
         page = ViewData["Page"]}, new { @class = "badge badge-light" }));
 
@@ -97,13 +103,13 @@ WriteLiteral(" class=\"pdp-image\"");
 WriteLiteral(">\r\n");
 
             
-            #line 21 "..\..\Views\Home\ProductDetails.cshtml"
+            #line 22 "..\..\Views\Home\ProductDetails.cshtml"
         
             
             #line default
             #line hidden
             
-            #line 21 "..\..\Views\Home\ProductDetails.cshtml"
+            #line 22 "..\..\Views\Home\ProductDetails.cshtml"
          if (Model.ImageUrl != null)
         {
 
@@ -114,20 +120,20 @@ WriteLiteral("            <img");
 
 WriteLiteral(" class=\"pdp-img-thumbnail\"");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 639), Tuple.Create("\"", 660)
+WriteAttribute("src", Tuple.Create(" src=\"", 686), Tuple.Create("\"", 707)
             
-            #line 23 "..\..\Views\Home\ProductDetails.cshtml"
-, Tuple.Create(Tuple.Create("", 645), Tuple.Create<System.Object, System.Int32>(Model.ImageUrl
+            #line 24 "..\..\Views\Home\ProductDetails.cshtml"
+, Tuple.Create(Tuple.Create("", 692), Tuple.Create<System.Object, System.Int32>(Model.ImageUrl
             
             #line default
             #line hidden
-, 645), false)
+, 692), false)
 );
 
 WriteLiteral(">\r\n");
 
             
-            #line 24 "..\..\Views\Home\ProductDetails.cshtml"
+            #line 25 "..\..\Views\Home\ProductDetails.cshtml"
         }
         else
         {
@@ -139,15 +145,15 @@ WriteLiteral("            <img");
 
 WriteLiteral(" class=\"pdp-img-thumbnail\"");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 742), Tuple.Create("\"", 781)
-, Tuple.Create(Tuple.Create("", 748), Tuple.Create<System.Object, System.Int32>(Href("~/Content/images/no-image-big.png")
-, 748), false)
+WriteAttribute("src", Tuple.Create(" src=\"", 789), Tuple.Create("\"", 828)
+, Tuple.Create(Tuple.Create("", 795), Tuple.Create<System.Object, System.Int32>(Href("~/Content/images/no-image-big.png")
+, 795), false)
 );
 
 WriteLiteral(">\r\n");
 
             
-            #line 28 "..\..\Views\Home\ProductDetails.cshtml"
+            #line 29 "..\..\Views\Home\ProductDetails.cshtml"
         }
 
             
@@ -164,7 +170,7 @@ WriteLiteral(" class=\"pdp-description__name\"");
 WriteLiteral("><b>");
 
             
-            #line 32 "..\..\Views\Home\ProductDetails.cshtml"
+            #line 33 "..\..\Views\Home\ProductDetails.cshtml"
                                          Write(Model.Name);
 
             
@@ -177,7 +183,7 @@ WriteLiteral(" class=\"pdp-description__itemNo\"");
 WriteLiteral("><b>Item no.:</b> ");
 
             
-            #line 33 "..\..\Views\Home\ProductDetails.cshtml"
+            #line 34 "..\..\Views\Home\ProductDetails.cshtml"
                                                          Write(Model.ProductId);
 
             
@@ -194,7 +200,7 @@ WriteLiteral(" class=\"pdp-description__price-value\"");
 WriteLiteral(">");
 
             
-            #line 34 "..\..\Views\Home\ProductDetails.cshtml"
+            #line 35 "..\..\Views\Home\ProductDetails.cshtml"
                                                                                                  Write((double)Model.Price);
 
             
@@ -207,7 +213,7 @@ WriteLiteral(" class=\"pdp-description__description\"");
 WriteLiteral("><b>Description:</b> ");
 
             
-            #line 35 "..\..\Views\Home\ProductDetails.cshtml"
+            #line 36 "..\..\Views\Home\ProductDetails.cshtml"
                                                                  Write(Model.Description);
 
             
@@ -224,13 +230,13 @@ WriteLiteral(" class=\"pdp-add-to-card-control__qty-label\"");
 WriteLiteral("><span><b>Quantity:</b></span></div>\r\n");
 
             
-            #line 40 "..\..\Views\Home\ProductDetails.cshtml"
+            #line 41 "..\..\Views\Home\ProductDetails.cshtml"
         
             
             #line default
             #line hidden
             
-            #line 40 "..\..\Views\Home\ProductDetails.cshtml"
+            #line 41 "..\..\Views\Home\ProductDetails.cshtml"
          using (Html.BeginForm("AddToCart", "Basket"))
         {
 
@@ -246,7 +252,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("                ");
 
             
-            #line 43 "..\..\Views\Home\ProductDetails.cshtml"
+            #line 44 "..\..\Views\Home\ProductDetails.cshtml"
            Write(Html.TextBox("Quantity", 1, new { @class = "form-control", type = "number", step = "1", min = "1" }));
 
             
@@ -263,7 +269,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("                ");
 
             
-            #line 46 "..\..\Views\Home\ProductDetails.cshtml"
+            #line 47 "..\..\Views\Home\ProductDetails.cshtml"
            Write(Html.UomEnumDropdownList("uom", selectedUom, new { @class = "form-control" }));
 
             
@@ -276,7 +282,7 @@ WriteLiteral("            <div>\r\n");
 WriteLiteral("                ");
 
             
-            #line 49 "..\..\Views\Home\ProductDetails.cshtml"
+            #line 50 "..\..\Views\Home\ProductDetails.cshtml"
            Write(Html.Hidden("productId", Model.ProductId));
 
             
@@ -287,7 +293,7 @@ WriteLiteral("\r\n");
 WriteLiteral("                ");
 
             
-            #line 50 "..\..\Views\Home\ProductDetails.cshtml"
+            #line 51 "..\..\Views\Home\ProductDetails.cshtml"
            Write(Html.Hidden("returnUrl", Request.Url.PathAndQuery));
 
             
@@ -304,7 +310,90 @@ WriteLiteral(" value=\"Add to cart\"");
 WriteLiteral(">\r\n            </div>\r\n");
 
             
-            #line 53 "..\..\Views\Home\ProductDetails.cshtml"
+            #line 54 "..\..\Views\Home\ProductDetails.cshtml"
+        }
+
+            
+            #line default
+            #line hidden
+WriteLiteral("    </div>\r\n\r\n    <div");
+
+WriteLiteral(" id=\"target\"");
+
+WriteLiteral(">\r\n");
+
+            
+            #line 58 "..\..\Views\Home\ProductDetails.cshtml"
+        
+            
+            #line default
+            #line hidden
+            
+            #line 58 "..\..\Views\Home\ProductDetails.cshtml"
+         using (Ajax.BeginForm("Comments", "Home", new AjaxOptions
+        {
+            HttpMethod = "Post",
+            UpdateTargetId = "target"
+        }))
+        {
+            
+            
+            #line default
+            #line hidden
+            
+            #line 64 "..\..\Views\Home\ProductDetails.cshtml"
+       Write(Html.Partial("_Comments", new CommentsViewModel(), ViewData));
+
+            
+            #line default
+            #line hidden
+            
+            #line 64 "..\..\Views\Home\ProductDetails.cshtml"
+                                                                         
+            
+            
+            #line default
+            #line hidden
+            
+            #line 65 "..\..\Views\Home\ProductDetails.cshtml"
+       Write(Html.Hidden("id", Model.ProductId));
+
+            
+            #line default
+            #line hidden
+            
+            #line 65 "..\..\Views\Home\ProductDetails.cshtml"
+                                               
+            
+            
+            #line default
+            #line hidden
+            
+            #line 66 "..\..\Views\Home\ProductDetails.cshtml"
+       Write(Html.Hidden("probability", ViewData["productProbability"]));
+
+            
+            #line default
+            #line hidden
+            
+            #line 66 "..\..\Views\Home\ProductDetails.cshtml"
+                                                                       
+
+            
+            #line default
+            #line hidden
+WriteLiteral("            <input");
+
+WriteLiteral(" type=\"submit\"");
+
+WriteLiteral(" class=\"btn btn-success\"");
+
+WriteLiteral(" value=\"Send\"");
+
+WriteLiteral(">\r\n");
+
+            
+            #line 68 "..\..\Views\Home\ProductDetails.cshtml"
         }
 
             

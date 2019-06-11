@@ -26,7 +26,7 @@ namespace OmiconShop.Application.Logs
             errorTime = string.Concat(date, ".txt");
         }
 
-        public async void CreateErrorLog(string errMsg)
+        public async Task CreateErrorLog(string errMsg)
         {
             var path = DirectoryCreation();
 
