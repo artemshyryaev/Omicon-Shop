@@ -36,7 +36,7 @@ namespace OmiconShop.Application.Checkout.Operations
             catch (Exception ex)
             {
                 CreateLogFiles logFiles = new CreateLogFiles();
-                logFiles.CreateErrorLog(ex.Message);
+                await logFiles.CreateErrorLog(ex.Message);
             }
         }
 
