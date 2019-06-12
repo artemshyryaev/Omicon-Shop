@@ -24,6 +24,12 @@ textarea {
     max-width: 280px;
 }
 
+.custom-file-label {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
 .fa-shopping-basket {
     font-size: 25px;
     margin-left: 2rem;
