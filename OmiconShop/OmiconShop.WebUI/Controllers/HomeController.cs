@@ -61,24 +61,23 @@ namespace OmiconShop.WebUI.Controllers
 
             ViewData["Page"] = page;
             ViewData["Type"] = type;
+            ViewData["productId"] = id;
             ViewData["productProbability"] = homeApi.GetProductAverageProbability((int)id);
 
             return View(model);
         }
 
         [HttpPost]
-        public async Task<ActionResult> Comments(string comments, int? id, string probability)
+        public async Task<ActionResult> Comments(string comments, int? id, int probability)
         {
             if (id == null)
                 return View("PageNotFound");
 
-            if (string.IsNullOrEmpty(comments))
-            {
-                ViewData["productProbability"] = probability;
-                return PartialView("_Comments", new CommentsViewModel());
-            }
+            ViewData["productProbability"] = string.IsNullOrEmpty(comments) 
+                ? probability 
+                : await homeApi.GetProductAverageProbability((int)id, comments);
 
-            ViewData["productProbability"] = await homeApi.GetProductAverageProbability((int)id, comments);
+            ViewData["productId"] = id;
 
             return PartialView("_Comments", new CommentsViewModel());
         }

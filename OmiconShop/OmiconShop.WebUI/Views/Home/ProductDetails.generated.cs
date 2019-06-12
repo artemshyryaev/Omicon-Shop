@@ -318,88 +318,20 @@ WriteLiteral(">\r\n            </div>\r\n");
             #line hidden
 WriteLiteral("    </div>\r\n\r\n    <div");
 
-WriteLiteral(" id=\"target\"");
+WriteLiteral(" id=\"newTarget\"");
 
 WriteLiteral(">\r\n");
 
+WriteLiteral("        ");
+
             
             #line 58 "..\..\Views\Home\ProductDetails.cshtml"
-        
-            
-            #line default
-            #line hidden
-            
-            #line 58 "..\..\Views\Home\ProductDetails.cshtml"
-         using (Ajax.BeginForm("Comments", "Home", new AjaxOptions
-        {
-            HttpMethod = "Post",
-            UpdateTargetId = "target"
-        }))
-        {
-            
-            
-            #line default
-            #line hidden
-            
-            #line 64 "..\..\Views\Home\ProductDetails.cshtml"
-       Write(Html.Partial("_Comments", new CommentsViewModel(), ViewData));
+   Write(Html.Partial("_Comments", new CommentsViewModel(), ViewData));
 
             
             #line default
             #line hidden
-            
-            #line 64 "..\..\Views\Home\ProductDetails.cshtml"
-                                                                         
-            
-            
-            #line default
-            #line hidden
-            
-            #line 65 "..\..\Views\Home\ProductDetails.cshtml"
-       Write(Html.Hidden("id", Model.ProductId));
-
-            
-            #line default
-            #line hidden
-            
-            #line 65 "..\..\Views\Home\ProductDetails.cshtml"
-                                               
-            
-            
-            #line default
-            #line hidden
-            
-            #line 66 "..\..\Views\Home\ProductDetails.cshtml"
-       Write(Html.Hidden("probability", ViewData["productProbability"]));
-
-            
-            #line default
-            #line hidden
-            
-            #line 66 "..\..\Views\Home\ProductDetails.cshtml"
-                                                                       
-
-            
-            #line default
-            #line hidden
-WriteLiteral("            <input");
-
-WriteLiteral(" type=\"submit\"");
-
-WriteLiteral(" class=\"btn btn-success\"");
-
-WriteLiteral(" value=\"Send\"");
-
-WriteLiteral(">\r\n");
-
-            
-            #line 68 "..\..\Views\Home\ProductDetails.cshtml"
-        }
-
-            
-            #line default
-            #line hidden
-WriteLiteral("    </div>\r\n\r\n    <div");
+WriteLiteral("\r\n    </div>\r\n\r\n    <div");
 
 WriteLiteral(" class=\"add-this\"");
 
@@ -419,7 +351,7 @@ WriteLiteral("></i>\r\n        <i");
 
 WriteLiteral(" class=\"fab fa-instagram\"");
 
-WriteLiteral("></i>\r\n    </div>\r\n</div>");
+WriteLiteral("></i>\r\n    </div>\r\n</div>\r\n");
 
         }
     }

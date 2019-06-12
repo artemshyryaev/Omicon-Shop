@@ -1,9 +1,18 @@
 ﻿@model OmiconShop.Application.Home.ViewModels.CommentsViewModel
 
-<div>
-    @Html.EditorForModel()
-</div>
-
-<div>
-    <span>@ViewData["productProbability"] %</span>
-</div>
+@using (Ajax.BeginForm("Comments", "Home", new AjaxOptions
+{
+    HttpMethod = "Post",
+    UpdateTargetId = "newTarget"
+}))
+{
+    <div>
+        @Html.EditorForModel()
+    </div>
+    <div>
+        <span>@ViewData["productProbability"] %</span>
+    </div>
+    @Html.Hidden("id", ViewData["productId"])
+    @Html.Hidden("probability", ViewData["productProbability"])
+    <input type="submit" class="btn btn-success" value="Send">
+}

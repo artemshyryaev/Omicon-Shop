@@ -54,18 +54,8 @@
         }
     </div>
 
-    <div id="target">
-        @using (Ajax.BeginForm("Comments", "Home", new AjaxOptions
-        {
-            HttpMethod = "Post",
-            UpdateTargetId = "target"
-        }))
-        {
-            @Html.Partial("_Comments", new CommentsViewModel(), ViewData)
-            @Html.Hidden("id", Model.ProductId)
-            @Html.Hidden("probability", ViewData["productProbability"])
-            <input type="submit" class="btn btn-success" value="Send">
-        }
+    <div id="newTarget">
+        @Html.Partial("_Comments", new CommentsViewModel(), ViewData)
     </div>
 
     <div class="add-this">
