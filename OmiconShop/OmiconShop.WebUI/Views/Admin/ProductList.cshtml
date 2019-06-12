@@ -37,7 +37,7 @@
                 {
                     <tr class="row-@el.ProductId">
                         @Html.HiddenFor(x => el.ProductId)
-                        <td>@Html.RouteLink(el.Name, new { controller = "Admin", action = "EditProduct", productId = el.ProductId })</td>
+                        <td>@Html.RouteLink(el.Name, new { controller = "Admin", action = "EditProduct", id = el.ProductId })</td>
                         <td class="text-center">@el.Description</td>
                         <td class="text-center">
                             @if (el.ImageUrl != null)

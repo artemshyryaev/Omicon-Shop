@@ -69,11 +69,11 @@ WriteLiteral(">\r\n    <h1>");
             #line hidden
 WriteLiteral("</h1>\r\n</hgroup>\r\n\r\n<div");
 
-WriteLiteral(" class=\"panel panel-default row justify-content-between\"");
+WriteLiteral(" class=\"row\"");
 
 WriteLiteral(">\r\n    <div");
 
-WriteLiteral(" class=\"admin-nav-menu col-1\"");
+WriteLiteral(" class=\"col-2\"");
 
 WriteLiteral(">\r\n");
 
@@ -88,7 +88,7 @@ WriteLiteral("        ");
             #line hidden
 WriteLiteral("\r\n    </div>\r\n    <div");
 
-WriteLiteral(" class=\"admin-product-table col\"");
+WriteLiteral(" class=\"admin-product-table col-10\"");
 
 WriteLiteral(">\r\n        <div");
 
@@ -197,15 +197,15 @@ WriteLiteral(">Actions</th>\r\n                </tr>\r\n");
             #line hidden
 WriteLiteral("                    <tr");
 
-WriteAttribute("class", Tuple.Create(" class=\"", 1598), Tuple.Create("\"", 1623)
-, Tuple.Create(Tuple.Create("", 1606), Tuple.Create("row-", 1606), true)
+WriteAttribute("class", Tuple.Create(" class=\"", 1542), Tuple.Create("\"", 1567)
+, Tuple.Create(Tuple.Create("", 1550), Tuple.Create("row-", 1550), true)
             
             #line 38 "..\..\Views\Admin\ProductList.cshtml"
-, Tuple.Create(Tuple.Create("", 1610), Tuple.Create<System.Object, System.Int32>(el.ProductId
+, Tuple.Create(Tuple.Create("", 1554), Tuple.Create<System.Object, System.Int32>(el.ProductId
             
             #line default
             #line hidden
-, 1610), false)
+, 1554), false)
 );
 
 WriteLiteral(">\r\n");
@@ -223,7 +223,7 @@ WriteLiteral("\r\n                        <td>");
 
             
             #line 40 "..\..\Views\Admin\ProductList.cshtml"
-                       Write(Html.RouteLink(el.Name, new { controller = "Admin", action = "EditProduct", productId = el.ProductId }));
+                       Write(Html.RouteLink(el.Name, new { controller = "Admin", action = "EditProduct", id = el.ProductId }));
 
             
             #line default
@@ -269,14 +269,14 @@ WriteLiteral(" width=\"75\"");
 
 WriteLiteral(" height=\"75\"");
 
-WriteAttribute("src", Tuple.Create("\r\n                                     src=\"", 2113), Tuple.Create("\"", 2169)
+WriteAttribute("src", Tuple.Create("\r\n                                     src=\"", 2050), Tuple.Create("\"", 2106)
             
             #line 46 "..\..\Views\Admin\ProductList.cshtml"
-, Tuple.Create(Tuple.Create("", 2157), Tuple.Create<System.Object, System.Int32>(el.ImageUrl
+, Tuple.Create(Tuple.Create("", 2094), Tuple.Create<System.Object, System.Int32>(el.ImageUrl
             
             #line default
             #line hidden
-, 2157), false)
+, 2094), false)
 );
 
 WriteLiteral(">\r\n");
@@ -324,7 +324,7 @@ WriteLiteral("                            ");
 
             
             #line 52 "..\..\Views\Admin\ProductList.cshtml"
-                       Write(Html.RouteLink(" ", new { controller = "Admin", action = "EditProduct", productId = el.ProductId }
+                       Write(Html.RouteLink(" ", new { controller = "Admin", action = "EditProduct", id = el.ProductId }
                                 , new { @class = "fas fa-pen-square" }));
 
             
@@ -362,14 +362,14 @@ WriteLiteral(" class=\"current-page\"");
 
 WriteLiteral(" type=\"hidden\"");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 2914), Tuple.Create("\"", 2951)
+WriteAttribute("value", Tuple.Create(" value=\"", 2844), Tuple.Create("\"", 2881)
             
             #line 63 "..\..\Views\Admin\ProductList.cshtml"
-, Tuple.Create(Tuple.Create("", 2922), Tuple.Create<System.Object, System.Int32>(Model.PagingInfo.CurrentPage
+, Tuple.Create(Tuple.Create("", 2852), Tuple.Create<System.Object, System.Int32>(Model.PagingInfo.CurrentPage
             
             #line default
             #line hidden
-, 2922), false)
+, 2852), false)
 );
 
 WriteLiteral(">\r\n    <input");
@@ -378,14 +378,14 @@ WriteLiteral(" class=\"total-pages\"");
 
 WriteLiteral(" type=\"hidden\"");
 
-WriteAttribute("value", Tuple.Create(" value=\"", 2999), Tuple.Create("\"", 3035)
+WriteAttribute("value", Tuple.Create(" value=\"", 2929), Tuple.Create("\"", 2965)
             
             #line 64 "..\..\Views\Admin\ProductList.cshtml"
-, Tuple.Create(Tuple.Create("", 3007), Tuple.Create<System.Object, System.Int32>(Model.PagingInfo.TotalPages
+, Tuple.Create(Tuple.Create("", 2937), Tuple.Create<System.Object, System.Int32>(Model.PagingInfo.TotalPages
             
             #line default
             #line hidden
-, 3007), false)
+, 2937), false)
 );
 
 WriteLiteral(">\r\n    <ul");

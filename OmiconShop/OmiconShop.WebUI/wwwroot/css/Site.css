@@ -93,16 +93,8 @@ textarea {
     margin-left: 0.7rem;
 }
 
-.fa-google {
-    font-size: 1.2rem;
-    margin-left: 0.7rem;
-}
-
-.fa-twitter {
-    font-size: 1.2rem;
-    margin-left: 0.7rem;
-}
-
+.fa-google,
+.fa-twitter,
 .fa-instagram {
     font-size: 1.2rem;
     margin-left: 0.7rem;
@@ -165,7 +157,11 @@ a:hover {
     color: black;
 }
 
-.page-link {
+.page-link,
+.product-name-link,
+.declined-order_links,
+.sucessfull-order__links,
+.fa-trash {
     color: black;
 }
 
@@ -187,20 +183,13 @@ a:hover {
     width: 5rem;
 }
 
-.product-list-qty-control {
-    width: 100%;
-}
-
+.product-list-qty-control,
 .product-list-uom-control {
     width: 100%;
 }
 
 .uoms {
     min-width: 7rem;
-}
-
-.product-name-link {
-    color: black;
 }
 
 .image {
@@ -218,36 +207,15 @@ a:hover {
     height: 25rem;
 }
 
-.pdp-image {
-    position: absolute;
-    left: 25rem;
-    top: 10rem;
-}
-
-.pdp-description {
-    position: absolute;
-    left: 53rem;
-    top: 10rem;
-}
-
 .price {
     min-width: 6rem;
-}
-
-.pdp-add-to-card-control {
-    position: absolute;
-    left: 53rem;
-    top: 23rem;
 }
 
 .pdp-description__name {
     font-size: 2rem;
 }
 
-.pdp-description__itemNo {
-    margin-top: 0.5rem;
-}
-
+.pdp-description__itemNo,
 .pdp-description__price {
     margin-top: 0.5rem;
 }
@@ -258,19 +226,8 @@ a:hover {
 }
 
 .pdp-add-to-card-control__qty {
-    margin-top: 2rem;
-    width: 50px;
-    position: relative;
-    left: 6rem;
-    top: -4rem;
-}
-
-.pdp-add-to-card-control__uom {
-    margin-top: 1rem;
-    width: 80px;
-    position: relative;
-    left: 11rem;
-    top: -7.4rem;
+    padding: 0 1rem;
+    width: 5rem;
 }
 
 .pdp-add-to-card-control__add-to-card {
@@ -283,6 +240,43 @@ a:hover {
     padding-top: 2rem;
 }
 
+.pdp-add-to-card-control__qty-label__info {
+    padding: 0 1rem;
+}
+
+.pdp-add-to-card-control__qty-label__submit-button {
+    margin-top: 2rem;
+}
+
+.comment {
+    padding: 0 1rem;
+}
+
+.comments-text {
+    padding: 1rem;
+    font-family: 'Gabriola', sans-serif;
+    font-size: 1.2rem;
+}
+
+.send-comment {
+    min-width: 3rem;
+}
+
+.send-comment-btn {
+    margin: 1.3rem 1rem;
+}
+
+.product-probability {
+    font-family: 'Gabriola', sans-serif;
+    font-size: 4rem;
+    padding-left: 1rem;
+}
+
+.comment-text__partial {
+    position: relative;
+    top: 0.4rem;
+}
+
 .pdp-description__price-value {
     font-family: 'Pathway Gothic One', sans-serif;
     color: #000;
@@ -291,9 +285,7 @@ a:hover {
 }
 
 .add-this {
-    position: absolute;
-    margin-top: 27rem;
-    margin-left: 32rem;
+    margin: 1rem auto;
 }
 
 .basket-buttons {
@@ -333,23 +325,17 @@ a:hover {
     border-radius: 20px;
 }
 
-.btn-returnUrl {
-    font-size: 0.8rem;
-}
-
-.btn-procceedToCheckout {
-    font-size: 0.8rem;
-}
-
+.btn-returnUrl,
+.btn-procceedToCheckout,
 .btn-emptyBasket {
     font-size: 0.8rem;
 }
 
-.basket-items {
-    margin-top: 1rem;
-}
-
-.basket-table {
+.basket-items,
+.basket-table,
+.order-overview-list,
+.admin-orders-table,
+.admin-product-table__table {
     margin-top: 1rem;
 }
 
@@ -363,14 +349,7 @@ a:hover {
     color: red;
 }
 
-.declined-order {
-    font-size: 1.2rem;
-}
-
-.declined-order_links {
-    color: black;
-}
-
+.declined-order,
 .sucessfull-order {
     font-size: 1.2rem;
 }
@@ -388,10 +367,6 @@ a:hover {
 .sucessfull-order-nav-items {
     margin-left: 5rem;
     font-size: 1rem;
-}
-
-.sucessfull-order__links {
-    color: black;
 }
 
 .change-password {
@@ -439,13 +414,14 @@ a:hover {
     margin: 0 auto;
 }
 
+.back-link {
+    margin: 0;
+    padding: 0 1rem;
+}
+
 .admin-product-table {
     position: relative;
     padding: -4rem;
-}
-
-.admin-product-table__table {
-    margin-top: 1rem;
 }
 
 .admin-product-search-control {
@@ -466,10 +442,6 @@ a:hover {
     color: black;
 }
 
-.fa-trash {
-    color: black;
-}
-
 .admin-orders-search-control {
     display: inline;
 }
@@ -481,10 +453,6 @@ a:hover {
 
 .admin-orders-filter {
     display: inline-block;
-}
-
-.admin-orders-table {
-    margin-top: 1rem;
 }
 
 .admin-personal-info {
@@ -528,10 +496,6 @@ a:hover {
     margin-left: 1rem;
     width: 40%;
     display: inline-block;
-}
-
-.order-overview-list {
-    margin-top: 1rem;
 }
 
 .page-not-found {

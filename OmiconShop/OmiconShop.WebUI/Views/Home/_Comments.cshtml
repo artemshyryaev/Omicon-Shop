@@ -3,16 +3,26 @@
 @using (Ajax.BeginForm("Comments", "Home", new AjaxOptions
 {
     HttpMethod = "Post",
-    UpdateTargetId = "newTarget"
+    UpdateTargetId = "comments"
 }))
 {
-    <div>
-        @Html.EditorForModel()
+    <div class="row">
+        <div>
+            <span class="product-probability"><b>@ViewData["productProbability"]%</b></span>
+        </div>
+        <div class="comments-text">
+            <div class="comment-text__partial"><span>of positive</span></div>
+            <div><span>comments</span></div>
+        </div>
     </div>
-    <div>
-        <span>@ViewData["productProbability"] %</span>
+    <div class="row comment">
+        <div>
+            @Html.EditorForModel()
+        </div>
+        <div class="send-comment">
+            @Html.Hidden("id", ViewData["productId"])
+            @Html.Hidden("probability", ViewData["productProbability"])
+            <input type="submit" class="btn btn-success send-comment-btn" value="Send">
+        </div>
     </div>
-    @Html.Hidden("id", ViewData["productId"])
-    @Html.Hidden("probability", ViewData["productProbability"])
-    <input type="submit" class="btn btn-success" value="Send">
 }
