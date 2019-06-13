@@ -256,6 +256,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="HelperAttributes\AuthorizationAttribute.cs" />
+    <Compile Include="HtmlHelpers\ElementAttributesHelpers.cs" />
     <Compile Include="Initializer\SimpleMembershipInitializer.cs" />
     <Compile Include="HtmlHelpers\DropDownHelpers.cs" />
     <Compile Include="HtmlHelpers\PagingHelpers.cs" />

@@ -2,14 +2,14 @@
 {
     <div class="admin-nav-menu nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
         @Html.RouteLink("Personal information", new { controller = "Admin", action = "PersonalInfo" },
-            new { @class = "nav-link" })
+            new { @class = @Html.IsActive("Admin", "PersonalInfo") })
         @Html.RouteLink("My Orders", new { controller = "Admin", action = "OrderList" },
-                         new { @class = "nav-link" })
+            new { @class = @Html.IsActive("Admin", "OrderList") })
 
         @if (User.Identity.Name == "admin@gmail.com")
         {
             @Html.RouteLink("Manage Products", new { controller = "Admin", action = "ProductList" },
-                    new { @class = "nav-link" })
+                new { @class = @Html.IsActive("Admin", "ProductList") })
         }
     </div>
 }
