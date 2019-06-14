@@ -402,6 +402,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\images\homepage-image.png" />
     <Content Include="wwwroot\lib\jquery-unobtrusive\jquery.unobtrusive-ajax.js" />
     <Content Include="wwwroot\lib\jquery-unobtrusive\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Views\Shared\_LoginForm.cshtml" />
@@ -582,7 +583,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="wwwroot\images\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config">

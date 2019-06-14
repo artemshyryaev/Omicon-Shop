@@ -39,6 +39,13 @@ textarea {
     margin-left: 1rem;
 }
 
+.homepage {
+}
+
+.homepage-image {
+    width: 100%;
+}
+
 .login-dropdown-menu {
     width: 13rem;
 }

@@ -29,7 +29,7 @@ namespace ASP
     using System.Web.WebPages;
     using OmiconShop.WebUI;
     using OmiconShop.WebUI.HtmlHelpers;
-
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("RazorGenerator", "2.0.0.0")]
     [System.Web.WebPages.PageVirtualPathAttribute("~/Views/Home/Index.cshtml")]
     public partial class _Views_Home_Index_cshtml : System.Web.Mvc.WebViewPage<dynamic>
@@ -47,7 +47,20 @@ namespace ASP
             
             #line default
             #line hidden
-WriteLiteral("\r\n\r\n");
+WriteLiteral("\r\n\r\n<div");
+
+WriteLiteral(" class=\"col-12 homepage\"");
+
+WriteLiteral(">\r\n    <img");
+
+WriteLiteral(" class=\"homepage-image\"");
+
+WriteAttribute("src", Tuple.Create(" src=\"", 105), Tuple.Create("\"", 146)
+, Tuple.Create(Tuple.Create("", 111), Tuple.Create<System.Object, System.Int32>(Href("~/Content/images/homepage-image.png")
+, 111), false)
+);
+
+WriteLiteral(">\r\n</div>");
 
         }
     }
