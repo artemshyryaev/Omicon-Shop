@@ -4,32 +4,34 @@
     ViewBag.Title = "SucessfullOrder";
 }
 
-<span class="sucessfull-order"><b>ORDER PROCESSED SUCCESSFULLY</b></span>
-<div class="sucessfull-order-nav-items">
-    <div>
-        @Html.RouteLink("Go to your order page.",
-       new { controller = "Admin", action = "OrderDetails", orderId = Model.OrderId },
-       new {@class = "sucessfull-order__links" })
-    </div>
-    @if (User.Identity.IsAuthenticated)
-    {
+<div class="container">
+    <span class="sucessfull-order"><b>ORDER PROCESSED SUCCESSFULLY</b></span>
+    <div class="sucessfull-order-nav-items">
         <div>
-            @Html.RouteLink("Go to your account page.",
-           new { controller = "Admin", action = "PersonalInfo"},
+            @Html.RouteLink("Go to your order page.",
+           new { controller = "Admin", action = "OrderDetails", orderId = Model.OrderId },
            new {@class = "sucessfull-order__links" })
         </div>
-    }
-    <div>
-        @Html.RouteLink("Go to homepage",
-       new { controller = "Home", action = "Index"},
-       new {@class = "sucessfull-order__links" })
-    </div>
-    @if (User.Identity.IsAuthenticated)
-    {
+        @if (User.Identity.IsAuthenticated)
+        {
+            <div>
+                @Html.RouteLink("Go to your account page.",
+               new { controller = "Admin", action = "PersonalInfo"},
+               new {@class = "sucessfull-order__links" })
+            </div>
+        }
         <div>
-            @Html.RouteLink("Logout",
-            new { controller = "Account", action = "LogOff" },
-            new { @class = "sucessfull-order__links" })
+            @Html.RouteLink("Go to homepage",
+           new { controller = "Home", action = "Index"},
+           new {@class = "sucessfull-order__links" })
         </div>
-    }
+        @if (User.Identity.IsAuthenticated)
+        {
+            <div>
+                @Html.RouteLink("Logout",
+                new { controller = "Account", action = "LogOff" },
+                new { @class = "sucessfull-order__links" })
+            </div>
+        }
+    </div>
 </div>

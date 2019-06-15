@@ -8,64 +8,66 @@
     var selectedUom = UOM.PCS;
 }
 
-<hgroup class="title">
-    <h1>@ViewBag.Title</h1>
-</hgroup>
+<div class="container">
+    <hgroup class="title">
+        <h1>@ViewBag.Title</h1>
+    </hgroup>
 
-<div class="row">
-    <div class="col-2 back-link">
-        @Html.RouteLink("Back to overview", new { action = "ProductsList", controller = "Home", type = ViewData["Type"],
-        page = ViewData["Page"]}, new { @class = "badge badge-light" })
-    </div>
+    <div class="row">
+        <div class="col-2 back-link">
+            @Html.RouteLink("Back to overview", new { action = "ProductsList", controller = "Home", type = ViewData["Type"],
+            page = ViewData["Page"]}, new { @class = "badge badge-light" })
+        </div>
 
-    <div class="product-info col-10">
-        <div class="row justify-content-start">
-            <div class="col-3 pdp-image">
-                @if (Model.ImageUrl != null)
-                {
-                    <img class="img-thumbnail" src="@Model.ImageUrl">
-                }
-                else
-                {
-                    <img class="img-thumbnail" src="~/Content/images/no-image-big.png">
-                }
-                <div class="add-this text-center">
-                    <i class="fab fa-facebook-f"></i>
-                    <i class="fab fa-google"></i>
-                    <i class="fab fa-twitter"></i>
-                    <i class="fab fa-instagram"></i>
-                </div>
-            </div>
-
-            <div class="col-3">
-                <div class="pdp-description__name"><b>@Model.Name</b></div>
-                <div class="pdp-description__itemNo"><b>Item no.:</b> @Model.ProductId</div>
-                <div class="pdp-description__price"><b>Price:</b> <span class="pdp-description__price-value">@((double)Model.Price) $</span></div>
-                <div class="pdp-description__description"><b>Description:</b> @Model.Description</div>
-                <div class="pdp-add-to-card-control__qty-label">
-                    @using (Html.BeginForm("AddToCart", "Basket"))
+        <div class="product-info col-10">
+            <div class="row justify-content-start">
+                <div class="col-3 pdp-image">
+                    @if (Model.ImageUrl != null)
                     {
-                        <div class="row pdp-add-to-card-control__qty-label__info">
-                            <div><span><b>Quantity:</b></span></div>
-                            <div class="pdp-add-to-card-control__qty">
-                                @Html.TextBox("Quantity", 1, new { @class = "form-control", type = "number", step = "1", min = "1" })
-                            </div>
-                            <div>
-                                @Html.UomEnumDropdownList("uom", selectedUom, new { @class = "form-control" })
-                            </div>
-                        </div>
-                        <div class="pdp-add-to-card-control__qty-label__submit-button">
-                            @Html.Hidden("productId", Model.ProductId)
-                            @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
-                            <input type="submit" class="btn btn-success btn-lg" value="Add to cart">
-                        </div>
+                        <img class="img-thumbnail" src="@Model.ImageUrl">
                     }
+                    else
+                    {
+                        <img class="img-thumbnail" src="~/Content/images/no-image-big.png">
+                    }
+                    <div class="add-this text-center">
+                        <i class="fab fa-facebook-f"></i>
+                        <i class="fab fa-google"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-instagram"></i>
+                    </div>
                 </div>
-            </div>
-            <div class="row-3">
-                <div id="comments">
-                    @Html.Partial("_Comments", new CommentsViewModel(), ViewData)
+
+                <div class="col-3">
+                    <div class="pdp-description__name"><b>@Model.Name</b></div>
+                    <div class="pdp-description__itemNo"><b>Item no.:</b> @Model.ProductId</div>
+                    <div class="pdp-description__price"><b>Price:</b> <span class="pdp-description__price-value">@((double)Model.Price) $</span></div>
+                    <div class="pdp-description__description"><b>Description:</b> @Model.Description</div>
+                    <div class="pdp-add-to-card-control__qty-label">
+                        @using (Html.BeginForm("AddToCart", "Basket"))
+                        {
+                            <div class="row pdp-add-to-card-control__qty-label__info">
+                                <div><span><b>Quantity:</b></span></div>
+                                <div class="pdp-add-to-card-control__qty">
+                                    @Html.TextBox("Quantity", 1, new { @class = "form-control", type = "number", step = "1", min = "1" })
+                                </div>
+                                <div>
+                                    @Html.UomEnumDropdownList("uom", selectedUom, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="pdp-add-to-card-control__qty-label__submit-button">
+                                @Html.Hidden("productId", Model.ProductId)
+                                @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+                                <input type="submit" class="btn btn-success btn-lg" value="Add to cart">
+                            </div>
+                        }
+                    </div>
                 </div>
+                <div class="row-3">
+                        <div id="comments">
+                            @Html.Partial("_Comments", new CommentsViewModel(), ViewData)
+                        </div>
+                    </div>
             </div>
         </div>
     </div>

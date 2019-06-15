@@ -4,14 +4,16 @@
     ViewBag.Title = "Registration";
 }
 
-<hgroup class="title">
-    <h1>@ViewBag.Title</h1>
-</hgroup>
+<div class="container">
+    <hgroup class="title">
+        <h1>@ViewBag.Title</h1>
+    </hgroup>
 
-@using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
-{
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
-    @Html.EditorForModel()
-    <input type="submit" value="Register" class="btn btn-primary">
-}
+    @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        @Html.EditorForModel()
+        <input type="submit" value="Register" class="btn btn-primary">
+    }
+</div>

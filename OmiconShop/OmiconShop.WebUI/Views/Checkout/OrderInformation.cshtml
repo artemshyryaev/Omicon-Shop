@@ -4,17 +4,19 @@
     ViewBag.Title = "Checkout";
 }
 
-<hgroup class="title">
-    <h1>@ViewBag.Title</h1>
-</hgroup>
+<div class="container">
+    <hgroup class="title">
+        <h1>@ViewBag.Title</h1>
+    </hgroup>
 
-@using (Html.BeginForm("OrderOverview", "Checkout"))
-{
-    @Html.ValidationSummary(true)
-    @Html.AntiForgeryToken()
-    @Html.EditorForModel(Model);
+    @using (Html.BeginForm("OrderOverview", "Checkout"))
+    {
+        @Html.ValidationSummary(true)
+        @Html.AntiForgeryToken()
+        @Html.EditorForModel(Model);
 
-    <div class="text-center">
-        <input class="btn btn-primary" type="submit" value="Next">
-    </div>
-}
+        <div class="text-center">
+            <input class="btn btn-primary" type="submit" value="Next">
+        </div>
+    }
+</div>

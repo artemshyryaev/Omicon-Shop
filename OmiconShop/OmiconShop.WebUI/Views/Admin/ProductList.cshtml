@@ -5,64 +5,66 @@
     ViewBag.Title = "Product list";
 }
 
-<hgroup class="title">
-    <h1>@ViewBag.Title</h1>
-</hgroup>
+<div class="container">
+    <hgroup class="title">
+        <h1>@ViewBag.Title</h1>
+    </hgroup>
 
-<div class="row">
-    <div class="col-2">
-        @Html.Partial("_AdminNavMenu")
-    </div>
-    <div class="admin-product-table col-10">
-        <div class="admin-product-search-control">
-            @using (Html.BeginForm("ProductList", "Admin", FormMethod.Get, new { @class = "form-inline my-2 my-lg-0 admin-product-search" }))
-            {
-                <input class="form-control mr-sm-2" type="search" placeholder="Find by name..." aria-label="Search" name="productName" />
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            }
-
-            @Html.ActionLink("Add new product", "AddProduct", "Admin", new { @class = "btn btn-primary add-admin-product" })
+    <div class="row">
+        <div class="col-2">
+            @Html.Partial("_AdminNavMenu")
         </div>
-        <div class="panel-body">
-            <table class="table table-striped admin-product-table__table">
-                <tr>
-                    <th>Name</th>
-                    <th class="text-center">Description</th>
-                    <th class="text-center">Image</th>
-                    <th class="text-center">Price</th>
-                    <th class="text-center">Type</th>
-                    <th class="text-center">Actions</th>
-                </tr>
-                @foreach (var el in Model.Products)
+        <div class="admin-product-table col-10">
+            <div class="admin-product-search-control">
+                @using (Html.BeginForm("ProductList", "Admin", FormMethod.Get, new { @class = "form-inline my-2 my-lg-0 admin-product-search" }))
                 {
-                    <tr class="row-@el.ProductId">
-                        @Html.HiddenFor(x => el.ProductId)
-                        <td>@Html.RouteLink(el.Name, new { controller = "Admin", action = "EditProduct", id = el.ProductId })</td>
-                        <td class="text-center">@el.Description</td>
-                        <td class="text-center">
-                            @if (el.ImageUrl != null)
-                            {
-                                <img class="img-thumbnail" width="75" height="75"
-                                     src="@el.ImageUrl">
-                            }
-                        </td>
-                        <td class="text-center">@((double)el.Price)</td>
-                        <td class="text-center">@el.Type</td>
-                        <td class="text-center">
-                            @Html.RouteLink(" ", new { controller = "Admin", action = "EditProduct", id = el.ProductId }
-                                , new { @class = "fas fa-pen-square" })
-                            <a href="#" class="link-delete fas fa-trash" data-id="@el.ProductId"></a>
-                        </td>
-                    </tr>
+                    <input class="form-control mr-sm-2" type="search" placeholder="Find by name..." aria-label="Search" name="productName" />
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 }
-            </table>
+
+                @Html.ActionLink("Add new product", "AddProduct", "Admin", new { @class = "btn btn-primary add-admin-product" })
+            </div>
+            <div class="panel-body">
+                <table class="table table-striped admin-product-table__table">
+                    <tr>
+                        <th>Name</th>
+                        <th class="text-center">Description</th>
+                        <th class="text-center">Image</th>
+                        <th class="text-center">Price</th>
+                        <th class="text-center">Type</th>
+                        <th class="text-center">Actions</th>
+                    </tr>
+                    @foreach (var el in Model.Products)
+                    {
+                        <tr class="row-@el.ProductId">
+                            @Html.HiddenFor(x => el.ProductId)
+                            <td>@Html.RouteLink(el.Name, new { controller = "Admin", action = "EditProduct", id = el.ProductId })</td>
+                            <td class="text-center">@el.Description</td>
+                            <td class="text-center">
+                                @if (el.ImageUrl != null)
+                                {
+                                    <img class="img-thumbnail" width="75" height="75"
+                                         src="@el.ImageUrl">
+                                }
+                            </td>
+                            <td class="text-center">@((double)el.Price)</td>
+                            <td class="text-center">@el.Type</td>
+                            <td class="text-center">
+                                @Html.RouteLink(" ", new { controller = "Admin", action = "EditProduct", id = el.ProductId }
+                                    , new { @class = "fas fa-pen-square" })
+                                <a href="#" class="link-delete fas fa-trash" data-id="@el.ProductId"></a>
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
         </div>
     </div>
+    <nav>
+        <input class="current-page" type="hidden" value="@Model.PagingInfo.CurrentPage">
+        <input class="total-pages" type="hidden" value="@Model.PagingInfo.TotalPages">
+        <ul class="pagination justify-content-end">
+            @Html.PageLinks(Model.PagingInfo, x => Url.Action("ProductsList", new { page = x, type = Model.Type }))
+        </ul>
+    </nav>
 </div>
-<nav>
-    <input class="current-page" type="hidden" value="@Model.PagingInfo.CurrentPage">
-    <input class="total-pages" type="hidden" value="@Model.PagingInfo.TotalPages">
-    <ul class="pagination justify-content-end">
-        @Html.PageLinks(Model.PagingInfo, x => Url.Action("ProductsList", new { page = x, type = Model.Type }))
-    </ul>
-</nav>

@@ -5,124 +5,122 @@
     ViewBag.Title = "Order Details";
 }
 
-<hgroup class="title">
-    <h1>@Model.OrderId/@ViewBag.Title</h1>
-</hgroup>
+<div class="container">
+    <hgroup class="title">
+        <h1>@Model.OrderId/@ViewBag.Title</h1>
+    </hgroup>
 
 
-<div class="row">
-    <div class="col-2">
-        @Html.Partial("_AdminNavMenu")
+    <div class="row">
+        <div class="col-2">
+            @Html.Partial("_AdminNavMenu")
 
-    </div>
-    <div class="col-10">
-        <div class="order-info">
-            @if (User.Identity.IsAuthenticated)
-            {
+        </div>
+        <div class="col-10">
+            <div class="order-info">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <div>
+                        @Html.RouteLink("Go to order list page", new { controller = "Admin", action = "OrderList" }, new { @class = "badge badge-light" })
+                    </div>
+                }
+
                 <div>
-                    @Html.RouteLink("Go to order list page", new { controller = "Admin", action = "OrderList" }, new { @class = "badge badge-light" })
-                </div>
-            }
-
-            <div>
-                <table class="table table-sm order-general-info">
-                    <tbody>
-                        <tr>
-                            <td class="text-left"><b>Order no.</b></td>
-                            <td class="text-left">@Model.OrderId</td>
-                        </tr>
-                        <tr>
-                            <td class="text-left"><b>Order status</b></td>
-                            <td class="text-left">@Model.Status</td>
-                        </tr>
-                        <tr>
-                            <td class="text-left"><b>Shipping method</b></td>
-                            <td class="text-left">@Model.OrderInformation.Delivery</td>
-                        </tr>
-                        <tr>
-                            <td class="text-left"><b>Payment method</b></td>
-                            <td class="text-left">@Model.OrderInformation.Payment</td>
-                        </tr>
-                        <tr>
-                            <td class="text-left"><b>OrderDate</b></td>
-                            <td class="text-left">@Model.OrderInformation.Date</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <table class="table table-sm order-shipping-info">
-                    <tbody>
-                        <tr>
-                            <td class="text-left"><b>Country</b></td>
-                            <td class="text-left">@(Model.User?.UserAddress?.Country)</td>
-                        </tr>
-                        <tr>
-                            <td class="text-left"><b>City</b></td>
-                            <td class="text-left">@(Model.User?.UserAddress?.City)</td>
-                        </tr>
-                        <tr>
-                            <td class="text-left"><b>Address</b></td>
-                            <td class="text-left">@(Model.User?.UserAddress?.Address)</td>
-                        </tr>
-                        <tr>
-                            <td class="text-left"><b>Address2</b></td>
-                            <td class="text-left">@(Model.User?.UserAddress?.Address2)</td>
-                        </tr>
-                        <tr>
-                            <td class="text-left"><b>Zip code</b></td>
-                            <td class="text-left">@(Model.User?.UserAddress?.ZipCode)</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="row">
-                <div class="col-8">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th class="text-left">Item no.</th>
-                                <th class="text-left">Title</th>
-                                <th class="text-left">Price</th>
-                                <th class="text-left">Qty</th>
-                                <th class="text-left">UOM</th>
-                                <th class="text-left">Total</th>
-                            </tr>
-                        </thead>
+                    <table class="table table-sm order-general-info">
                         <tbody>
-                            @foreach (var line in Model.BasketLine)
-                            {
-                                <tr>
-                                    <td class="text-left">@line.ProductId</td>
-                                    <td class="text-left">@line.Product.Name</td>
-                                    <td class="text-left">@((double)line.Product.Price)$</td>
-                                    <td class="text-left">@line.Qty</td>
-                                    <td class="text-left">@line.Uom</td>
-                                    <td class="text-left">@(line.Qty * (double)line.Product.Price)</td>
-                                </tr>
-                            }
-                        </tbody>
-                        <tfoot>
                             <tr>
-                                <td colspan="6" class="order-total"><b>Total:</b> @Model.OrderInformation.Total $</td>
+                                <td class="text-left"><b>Order no.</b></td>
+                                <td class="text-left">@Model.OrderId</td>
                             </tr>
+                            <tr>
+                                <td class="text-left"><b>Order status</b></td>
+                                <td class="text-left">@Model.Status</td>
+                            </tr>
+                            <tr>
+                                <td class="text-left"><b>Shipping method</b></td>
+                                <td class="text-left">@Model.OrderInformation.Delivery</td>
+                            </tr>
+                            <tr>
+                                <td class="text-left"><b>Payment method</b></td>
+                                <td class="text-left">@Model.OrderInformation.Payment</td>
+                            </tr>
+                            <tr>
+                                <td class="text-left"><b>OrderDate</b></td>
+                                <td class="text-left">@Model.OrderInformation.Date</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="table table-sm order-shipping-info">
+                        <tbody>
+                            <tr>
+                                <td class="text-left"><b>Country</b></td>
+                                <td class="text-left">@(Model.User?.UserAddress?.Country)</td>
+                            </tr>
+                            <tr>
+                                <td class="text-left"><b>City</b></td>
+                                <td class="text-left">@(Model.User?.UserAddress?.City)</td>
+                            </tr>
+                            <tr>
+                                <td class="text-left"><b>Address</b></td>
+                                <td class="text-left">@(Model.User?.UserAddress?.Address)</td>
+                            </tr>
+                            <tr>
+                                <td class="text-left"><b>Address2</b></td>
+                                <td class="text-left">@(Model.User?.UserAddress?.Address2)</td>
+                            </tr>
+                            <tr>
+                                <td class="text-left"><b>Zip code</b></td>
+                                <td class="text-left">@(Model.User?.UserAddress?.ZipCode)</td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
+
+                <div class="row">
+                    <div class="col-8">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th class="text-left">Item no.</th>
+                                    <th class="text-left">Title</th>
+                                    <th class="text-left">Price</th>
+                                    <th class="text-left">Qty</th>
+                                    <th class="text-left">UOM</th>
+                                    <th class="text-left">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var line in Model.BasketLine)
+                                {
+                                    <tr>
+                                        <td class="text-left">@line.ProductId</td>
+                                        <td class="text-left">@line.Product.Name</td>
+                                        <td class="text-left">@((double)line.Product.Price)$</td>
+                                        <td class="text-left">@line.Qty</td>
+                                        <td class="text-left">@line.Uom</td>
+                                        <td class="text-left">@(line.Qty * (double)line.Product.Price)</td>
+                                    </tr>
+                                }
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="6" class="order-total"><b>Total:</b> @Model.OrderInformation.Total $</td>
+                                </tr>
+                        </table>
+                    </div>
+                </div>
+
             </div>
-            
-        </div>
-        <div class="order-operations">
-            @if (User.Identity.Name == "admin@gmail.com" && Model.Status == OmiconShop.Domain.Enumerations.OrderStatuses.Pending)
-            {
-                @Html.RouteLink("Approve order", new { action = "Approve", controller = "Admin", orderId = Model.OrderId },
-                    new { @class = "btn btn-primary" })
-                @Html.RouteLink("Decline order", new { action = "Decline", controller = "Admin", orderId = Model.OrderId },
-                    new { @class = "btn btn-danger decline-order-btn" })
-            }
+            <div class="order-operations">
+                @if (User.Identity.Name == "admin@gmail.com" && Model.Status == OmiconShop.Domain.Enumerations.OrderStatuses.Pending)
+                {
+                    @Html.RouteLink("Approve order", new { action = "Approve", controller = "Admin", orderId = Model.OrderId },
+                        new { @class = "btn btn-primary" })
+                    @Html.RouteLink("Decline order", new { action = "Decline", controller = "Admin", orderId = Model.OrderId },
+                        new { @class = "btn btn-danger decline-order-btn" })
+                }
+            </div>
         </div>
     </div>
 </div>
-
-
-
-

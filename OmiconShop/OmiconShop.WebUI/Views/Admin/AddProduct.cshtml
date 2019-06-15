@@ -3,24 +3,27 @@
     ViewBag.Title = "Add Product";
 }
 
-<hgroup class="title">
-    <h1>@ViewBag.Title</h1>
-</hgroup>
+<div class="container">
+    <hgroup class="title">
+        <h1>@ViewBag.Title</h1>
+    </hgroup>
 
-<div class="row">
-    <div class="admin-nav-menu col-2">
-        @Html.Partial("_AdminNavMenu")
-    </div>
-    <div class="product-info col-10">
-        @using (Html.BeginForm("AddProduct", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
-        {
-            @Html.Partial("_ProductDetails")
-            <div class="row">
-                <div class="col offset-3 submit-product">
-                    <input type="submit" value="Save" class="btn btn-primary">
-                    @Html.RouteLink("Discard changes and go to list", new { controller = "Admin", action = "ProductList" },
-                        new { @class = "btn btn-default" })
+    <div class="row">
+        <div class="admin-nav-menu col-2">
+            @Html.Partial("_AdminNavMenu")
+        </div>
+        <div class="product-info col-10">
+            @using (Html.BeginForm("AddProduct", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.Partial("_ProductDetails")
+                <div class="row">
+                    <div class="col offset-3 submit-product">
+                        <input type="submit" value="Save" class="btn btn-primary">
+                        @Html.RouteLink("Discard changes and go to list", new { controller = "Admin", action = "ProductList" },
+                            new { @class = "btn btn-default" })
+                    </div>
                 </div>
-            </div>
-        }
+            }
+        </div>
     </div>
+</div>

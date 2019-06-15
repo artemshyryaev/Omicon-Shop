@@ -5,29 +5,30 @@
     ViewBag.Title = "OrdersList";
 }
 
-<hgroup class="title">
-    <h1>@ViewBag.Title</h1>
-</hgroup>
+<div class="container">
+    <hgroup class="title">
+        <h1>@ViewBag.Title</h1>
+    </hgroup>
 
-<div class="row">
-    <div class="col-2">
-        @Html.Partial("_AdminNavMenu")
-    </div>
-    <div class="admin-product-table col-10">
-        <div class="admin-orders-search-control">
-            @using (Html.BeginForm("OrderList", "Admin", FormMethod.Get, new { @class = "form-inline my-2 my-lg-0 admin-orders-filter" }))
-            {
-                @Html.EnumDropdownListFor(x => x.SelectedStatus, Model.SelectedStatus, new { @class = "form-control" })
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            }
-
-            @using (Html.BeginForm("OrderList", "Admin", FormMethod.Get, new { @class = "form-inline my-2 my-lg-0 admin-orders-search" }))
-            {
-                <input class="form-control mr-sm-2" type="search" placeholder="Find by order no..." aria-label="Search" name="productName" />
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            }
+    <div class="row">
+        <div class="col-2">
+            @Html.Partial("_AdminNavMenu")
         </div>
-        <div class="panel panel-default">
+        <div class="admin-product-table col-10">
+            <div class="admin-orders-search-control">
+                @using (Html.BeginForm("OrderList", "Admin", FormMethod.Get, new { @class = "form-inline my-2 my-lg-0 admin-orders-filter" }))
+                {
+                    @Html.EnumDropdownListFor(x => x.SelectedStatus, Model.SelectedStatus, new { @class = "form-control" })
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                }
+
+                @using (Html.BeginForm("OrderList", "Admin", FormMethod.Get, new { @class = "form-inline my-2 my-lg-0 admin-orders-search" }))
+                {
+                    <input class="form-control mr-sm-2" type="search" placeholder="Find by order no..." aria-label="Search" name="orderId" />
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                }
+            </div>
+            <div class="panel panel-default">
                 <table class="table table-striped admin-orders-table">
                     <tr>
                         <th>Order no.</th>
@@ -52,10 +53,11 @@
             </div>
         </div>
     </div>
-<nav>
-    <input class="current-page" type="hidden" value="@Model.PagingInfo.CurrentPage">
-    <input class="total-pages" type="hidden" value="@Model.PagingInfo.TotalPages">
-    <ul class="pagination justify-content-end">
-        @Html.PageLinks(Model.PagingInfo, x => Url.Action("ProductsList", new { page = x }))
-    </ul>
-</nav>
+    <nav>
+        <input class="current-page" type="hidden" value="@Model.PagingInfo.CurrentPage">
+        <input class="total-pages" type="hidden" value="@Model.PagingInfo.TotalPages">
+        <ul class="pagination justify-content-end">
+            @Html.PageLinks(Model.PagingInfo, x => Url.Action("ProductsList", new { page = x }))
+        </ul>
+    </nav>
+</div>

@@ -5,31 +5,31 @@
     ViewBag.Title = "ManageProducts";
 }
 
-<body>
+<div class="container">
     <div>
         @Html.Action("Types", "Facet");
     </div>
-</body>
 
-<div class="admin-nav-menu">
-    @Html.Partial("_AdminNavMenu")
-</div>
-
-@foreach (var el in Model.Products)
-{
-    <div class="container">
-        <table class="table table-hover">
-            <tr>
-                <td>@el.ProductId</td>
-                <td>@el.Name</td>
-                <td>@el.Description</td>
-                <td>@el.Price</td>
-                <td><button>Edit</button></td>
-            </tr>
-        </table>
+    <div class="admin-nav-menu">
+        @Html.Partial("_AdminNavMenu")
     </div>
-}
 
-<div class="btn-group pull-right">
-    @Html.PageLinks(Model.PagingInfo, x => Url.Action("ManageProducts", new { page = x }))
+    @foreach (var el in Model.Products)
+    {
+        <div class="container">
+            <table class="table table-hover">
+                <tr>
+                    <td>@el.ProductId</td>
+                    <td>@el.Name</td>
+                    <td>@el.Description</td>
+                    <td>@el.Price</td>
+                    <td><button>Edit</button></td>
+                </tr>
+            </table>
+        </div>
+    }
+
+    <div class="btn-group pull-right">
+        @Html.PageLinks(Model.PagingInfo, x => Url.Action("ManageProducts", new { page = x }))
+    </div>
 </div>
