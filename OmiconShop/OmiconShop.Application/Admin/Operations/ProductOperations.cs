@@ -22,11 +22,10 @@ namespace OmiconShop.Application.Admin.Operations
         {
             var allProducts = productRepository.GetAllProducts();
 
-            if (string.IsNullOrEmpty(productName))
-                return allProducts.Skip((page - 1) * pageSize).Take(pageSize).OrderBy(
-                     products => products.ProductId).ToList();
-            else
-                return allProducts.Where(p => p.Name.Contains(productName)).Skip((page - 1) * pageSize).Take(pageSize).OrderBy(
+            if (!string.IsNullOrEmpty(productName))
+                allProducts = allProducts.Where(p => p.Name.Contains(productName)).ToList();
+
+            return allProducts.Skip((page - 1) * pageSize).Take(pageSize).OrderBy(
                     products => products.ProductId).ToList();
         }
 
