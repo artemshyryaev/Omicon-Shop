@@ -17,7 +17,12 @@ namespace OmiconShop.WebUI.HtmlHelpers
             var routeController = routeData.Values["controller"].ToString();
             var routeAction = routeData.Values["action"].ToString();
 
-            return (controller == routeController && action == routeAction) ? "nav-link active" : "nav-link";
+            if ((controller == routeController && action == routeAction)
+                || (routeAction == "EditProduct" && action == "ProductList")
+                || (routeAction == "OrderDetails" && action == "OrderList"))
+                return "nav-link active";
+            else
+                return "nav-link";;
         }
     }
 }
