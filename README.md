@@ -1,2 +1,2 @@
-# Omicon-Dent
-Web application for booking hours of appointment and managing it by dentists in admin.
+# Omicon-Shop
+Omicon-shop is a web solution that provides a possibility to order products. Also it gives a possibility for "admin" users to manage orders. You can approve or decline orders which were created by regular users and after that the order status will be changed(approved/declined). Also it gives a possibility to edit, delete, add products to your shop. Every user can change personal information(for now the solution provides a possibility to change only email address). Also, as a user, you have a possibility to leave comment about product on pdp and AI(ml.net) will analize your sentiment and gives a product probability mark on pdp. 
