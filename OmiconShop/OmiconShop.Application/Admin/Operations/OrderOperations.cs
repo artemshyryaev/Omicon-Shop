@@ -39,7 +39,8 @@ namespace OmiconShop.Application.Admin.Operations
             if (orderStatus != null)
                 allOrders = allOrders.Where(x => x.Status == orderStatus).ToList();
 
-            allOrders = allOrders.Skip((page - 1) * pagesize).Take(pagesize).ToList();
+            allOrders = allOrders.Skip((page - 1) * pagesize)
+                .Take(pagesize).OrderByDescending(x => x.OrderId).ToList();
 
             return allOrders.ToList();
         }
