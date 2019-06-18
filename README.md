@@ -22,3 +22,5 @@ Every user can change personal information(for now the solution provides a possi
 ![PersonalInfo](https://user-images.githubusercontent.com/28890823/59567448-94e3ab80-9076-11e9-8f8f-89fcb5933c07.PNG)
 
 As a user, you have a possibility to leave comment about product on pdp and AI(ml.net) will analize your sentiment and gives a product probability mark on pdp. 
+
+![Capture](https://user-images.githubusercontent.com/28890823/59657526-aa0d2700-91a9-11e9-852b-84c8bed5f0fb.PNG)
