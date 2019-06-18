@@ -49,6 +49,7 @@ namespace OmiconShop.Application.Checkout
 
             return order;
         }
+
         public async Task<Order> ProcessOrderAsync(BasketViewModel basket, OrderInformationViewModel orderInformation)
         {
             return await orderRepository.AddOrderAsync((order) =>

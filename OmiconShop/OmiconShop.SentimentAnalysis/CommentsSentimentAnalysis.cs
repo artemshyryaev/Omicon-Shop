@@ -17,7 +17,6 @@ namespace OmiconShop.SentimentAnalysis
         readonly int productId;
         static readonly string _dataPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "App_Data\\SentimentDataModel\\", "yelp_labelled.txt");
 
-
         public CommentsSentimentAnalysis(int productId)
         {
             this.mlContext = new MLContext();
