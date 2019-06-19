@@ -16,7 +16,7 @@ namespace OmiconShop.WebUI.Controllers
         public AccountController(AccountApi accountApi)
         {
             this.accountApi = accountApi;
-        }    
+        }
 
         [AllowAnonymous]
         [HttpPost]
@@ -111,9 +111,9 @@ namespace OmiconShop.WebUI.Controllers
         ActionResult RedirectToLocal(string returnUrl)
         {
             if (Url.IsLocalUrl(returnUrl) && returnUrl != null)
-                return JavaScript("window.location = '" + Redirect(returnUrl) + "'");
+                return Redirect(returnUrl);
             else
-                return JavaScript("window.location = '" + Url.Action("Index", "Home") + "'");
+                return RedirectToAction("Index", "Home");
         }
 
         static string ErrorCodeToString(MembershipCreateStatus createStatus)
